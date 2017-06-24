@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{17}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -67,12 +67,18 @@
   \bibinfo{year}{2010};\bibinfo{volume}{38}(\bibinfo{number}{2}):\bibinfo{pages}{808--835}.
 \newblock \DOIprefix\doi{10.1214/09-AOS716}.
 %Type = Article
-\bibitem[{Jiang(1996)}]{jiang1996reml}
-\bibinfo{author}{Jiang\xfnm[ J.]}.
-\newblock \bibinfo{title}{Reml estimation: asymptotic behavior and related
-  topics}.
+\bibitem[{Fan and Wang(2017)}]{Fan2015Asymptotics}
+\bibinfo{author}{Fan\xfnm[ J.]}, \bibinfo{author}{Wang\xfnm[ W.]}.
+\newblock \bibinfo{title}{Asymptotics of empirical eigen-structure for
+  ultra-high dimensional spiked covariance model}.
+\newblock \bibinfo{journal}{Annals of Statistics} \bibinfo{year}{2017};.
+%Type = Article
+\bibitem[{Jung and Marron(2009)}]{Jung2009PCA}
+\bibinfo{author}{Jung\xfnm[ S.]}, \bibinfo{author}{Marron\xfnm[ J.S.]}.
+\newblock \bibinfo{title}{Pca consistency in high dimension, low sample size
+  context}.
 \newblock \bibinfo{journal}{Annals of Statistics}
-  \bibinfo{year}{1996};\bibinfo{volume}{24}(\bibinfo{number}{1}):\bibinfo{pages}{255--286}.
+  \bibinfo{year}{2009};\bibinfo{volume}{37}(\bibinfo{number}{6}):\bibinfo{pages}{4104--4130}.
 %Type = Book
 \bibitem[{Lehmann and Romano(2005)}]{Lehmann}
 \bibinfo{author}{Lehmann\xfnm[ E.L.]}, \bibinfo{author}{Romano\xfnm[ J.P.]}.

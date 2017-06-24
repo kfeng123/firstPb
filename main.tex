@@ -201,48 +201,6 @@ The rest of the paper is organized as follows. In Section 2,  the model and some
     Let $X_{k,1},\ldots, X_{k, n_k}$  be i.i.d.\ observations with common distribution $N(\mu_k,\Sigma)$, $k=1,2$.
     Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to \xi \in (0,+\infty)$, that is, we consider high dimensional and balanced data.
 
-To characterize correlations between $p$ variables, we consider the following spiked covariance structure:
-\begin{assumption}\label{theModel}
-    The covariance matrix $\Sigma$ has structure $ 
-\Sigma=V\Lambda V^T+\sigma^2 I_p
-$, where $\Lambda=\mydiag(\lambda_{1},\ldots,\lambda_{r})$, 
- $\lambda_{1}\geq \cdots \geq \lambda_{r}>0$,
-$V$ is  a $p\times r$ orthonormal matrix and $\sigma^2>0$.
- The parameters $r$ and  $\sigma^2$ are fixed as $n$, $p$ vary.
-   And the parameter $\Lambda$ satisfies     
-    \begin{equation*}
-        \kappa p^{\beta}\geq \lambda_{1}\geq \cdots \geq\lambda_{r}\geq \kappa^{-1}p^{\beta}.
-\end{equation*}
-where $\kappa>1$ and $\beta\geq {1}/{2}$ are absolute constants.
-\end{assumption}
-
-The covariance structure in Assumption~\ref{theModel} is commonly adopted by PCA study.
-See, for example,~\cite{Cai2012Sparse}.
-Spiked covariance also has connection to factor model.
-The factor model in~\cite{Ma2015A} corresponds to $\beta=1$ in Assumption~\ref{theModel}.
-
-Under Assumption~\ref{theModel}, $V V^T$ is the orthogonal projection matrix on the column space of $V$. Let $\tilde{V}_k$ be a $p\times (p-r_k)$ full column rank orthonormal matrix orthogonal to columns of  $V$.
-%, that is $\tilde{V}_k^T V_k=O_{r_k\times(p-r_k )}$
- Note that $\tilde{V}_k$ may not be unique. But the projection matrix $\tilde{V}_k\tilde{V}_k^T$ is unique because $\tilde{V}_k\tilde{V}_k^T=I-V V^T$.
-
-
-
-If $r$ is an unknown positive number, a consistent estimator of $r$ is
-\begin{equation}\label{estimateR}
-    \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(S)}{\lambda_{l+1}(S)},
-\end{equation}
-where $R$ is a hyperparameter.
-    See~\cite{Ahn2009Eigenvalue} for detail.
-    Thus, without loss of generality, we will assume that $r$ is known throughout the paper.
-%and deal with it saperately if $r=0$.
-
-
-\begin{remark}
-Proposition~\ref{newIf} will show that condition~\eqref{chenscondition} is necessary for~\cite{Chen2010A}'s  method.
-Note that the condition~\eqref{chenscondition} is equivalent to $\beta< 1/2$ in the current context.
-Hence $\beta\geq 1/2$ is the exact complement of~\cite{Chen2010A}'s scope.
-The special case $\beta=1$ corresponds to the factor model in paper~\cite{Ma2015A} with some restrictions.
-\end{remark}
 
 In the rest of this section, we introduce some  notations that will be used. Let $\tau={(n_1+n_2)}/{(n_1n_2)}$, $S$ be the pooled sample covariance:
 \begin{equation*}
@@ -268,6 +226,172 @@ For $p\geq q$, define
 \mathbb{O}_{p\times q}=\{O|\, \textrm{$O$ is $p\times q$ column orthonormal matrix }\}.
 \end{equation*}
 
+
+    In~\cite{Chen2010A}, the asymptotic normality of $T_{CQ}$ is derived under condition~\eqref{chenscondition}.
+    To determine the critical value of $T_{CQ}$, they used the limiting normal distribution to approximate the finite sample distribution.
+    The resulting test can asymptotically preserve the test level if and only if the asymptotic normality is correct.
+    While~\cite{Chen2010A} only proved~\eqref{chenscondition} is sufficient for the asymptotic normality of $T_{CQ}$, one may ask: is~\eqref{chenscondition} also necessary for asymptotic normality of $T_{CQ}$?
+
+To answer this question, we first note that $T_{CQ}$ is a quadratic form of standard normal random vector.
+To see this, let $Z_{k,i}=\Sigma^{-1/2}X_{k,i}$ so that $Z_{k,i}\sim N_p(0,I_{p})$. Write all $Z_{k,i}$ in a long vector form
+    $Z=(Z_{1,1}^T,\ldots,Z_{1,n_1}^T,Z_{2,1}^T,\ldots,Z_{2,n_2}^T)^T$.
+    Then $T_{CQ}$ is a quadratic form of $Z$ and
+        $
+        T_{CQ}=Z^T \big( B_n\otimes \Sigma \big) Z
+        $,
+    where $\otimes$ is the Kronecker product,
+    \begin{equation*}
+        B_n=\begin{pmatrix}
+            \frac{1}{n_1(n_1-1)}(n_1\gamma_1\gamma_1^T-I_{n_1})&
+            -\frac{1}{\sqrt{n_1 n_2}}\gamma_1 \gamma_2^T\\
+            -\frac{1}{\sqrt{n_1 n_2}}\gamma_2 \gamma_1^T&
+            \frac{1}{n_2(n_2-1)}(n_2\gamma_2\gamma_2^T-I_{n_2})\\
+        \end{pmatrix},
+    \end{equation*}
+    $\gamma_1$ is an $n_1$ dimensional vector with all elements equal to $1/\sqrt{n_1}$ and $\gamma_2$ is an $n_2$ dimensional vector with all elements equal to $1/\sqrt{n_2}$.
+    
+Using characteristic function method, one can prove the following propostion which gives a necessary and sufficient condition for the asymptotic normality of the quadratic form of a standard normal random vector.
+\begin{proposition}\label{quadraticFormCLT}
+    Suppose $Y_{n}$ is a $k_n$ dimensional standard normal random vector and $A_n$ is a $k_n\times k_n$ symmetric matrix. Then as $n\to \infty$, a necessary and sufficient condition for
+    \begin{equation}\label{quadratic}
+        \frac{Y_n^T A_n Y_n-\mathrm{E} Y_n^T A_n Y_n}{{[\mathrm{Var}(Y_n^T A_n Y_n)]}^{1/2}}\xrightarrow{\mathcal{L}}N(0,1)
+    \end{equation}
+    is that
+    \begin{equation}\label{quadraticEigen}
+        \frac{\lambda_{\max}(A_n^2)}{\mathrm{tr}(A_n^2)}\to 0.
+    \end{equation}
+\end{proposition}
+
+To apply Proposition~\ref{quadraticFormCLT} for $T_{CQ}$, we need to calculate the eigenvalues of $B_n\otimes \Sigma$ which in turn relies on the eigenvalues of $B_n$.
+    It can be seen that the eigenvalues of $B_n$ are $-1/n_1(n_1-1)$, $-1/n_2(n_2-1)$, $(n_1+n_2)/n_1 n_2$ and $0$ with multiplicities $n_1-1$, $n_2-1$, $1$ and $1$ respectively.
+    %The eigenspace corresponding to $-1/n_1(n_1-1)$ is
+    %\begin{equation*}
+        %\{{(\eta^T,\underbrace{0,\ldots,0}_{n_2})}^T|\, \textrm{$\eta\in \mathbb{R}^{n_1}$ and $\eta^T \gamma_1=0$}\}.
+    %\end{equation*}
+    %The eigenspace corresponding to $-1/n_2(n_2-1)$ is
+    %\begin{equation*}
+        %\{{(\underbrace{0,\ldots,0}_{n_1},\eta^T)}^T| \, \textrm{$\eta\in\mathbb{R}^{n_2}$ and $\eta^T \gamma_2=0$}\}.
+    %\end{equation*}
+    %The eigenvectors corresponding to $(n_1+n_2)/n_1n_2$ and $0$ are respectively
+    %\begin{equation*}
+        %\Big(-\sqrt{\frac{n_2}{n_1+n_2}}\gamma_1^T, \sqrt{\frac{n_1}{n_1+n_2}}\gamma_2^T\Big)^T
+        %\quad\text{and}\quad
+        %\Big(\sqrt{\frac{n_1}{n_1+n_2}}\gamma_1^T, \sqrt{\frac{n_2}{n_1+n_2}}\gamma_2^T\Big)^T.
+    %\end{equation*}
+    Thus,
+    \begin{equation*}
+        \mytr{(B_n\otimes \Sigma)}^2=\mytr(B_n^2)\mytr\Sigma^2=(\frac{1}{n_1(n_1-1)}+\frac{1}{n_1(n_1-1)}+\frac{2}{n_1 n_2})\mytr\Sigma^2,
+    \end{equation*}
+and
+    \begin{equation*}
+        \lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)=\lambda_{\max}(B_n^2)\lambda_{\max}(\Sigma^2)={\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)}^2\lambda_{\max}(\Sigma^2).
+    \end{equation*}
+    It can be seen that
+    $$
+         \frac{\lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)}{
+\mytr{\big(B_n\otimes \Sigma\big)}^2}
+         \to 0
+    $$
+     is in turn equivalent to $\lambda_{\max}(\Sigma^2)/\mytr\Sigma^2\to 0$.
+From the inequality
+$$
+\frac{\lambda_1(\Sigma)^4}{(\sum_{i=1}^p \lambda_i(\Sigma)^2)^2}
+\leq
+\frac{\sum_{i=1}^p\lambda_i(\Sigma)^4}{(\sum_{i=1}^p \lambda_i(\Sigma)^2)^2}
+\leq
+\frac{\lambda_1(\Sigma)^2\sum_{i=1}^p\lambda_i(\Sigma)^2}{(\sum_{i=1}^p \lambda_i(\Sigma)^2)^2}
+=
+\frac{\lambda_1(\Sigma)^2}{\sum_{i=1}^p \lambda_i(\Sigma)^2}
+$$
+    we can see that ${\lambda_{\max}^2(\Sigma)}/{\mathrm{tr}(\Sigma^2)}\to 0$  is equivalent to~\eqref{chenscondition}.
+By Lemma~\ref{quadraticFormCLT},~\eqref{chenscondition} is a necessary and sufficient condition for 
+    \begin{equation*}
+        \frac{T_{CQ}-\mathrm{E}T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{L}N(0,1).
+    \end{equation*}
+
+    While condition~\eqref{chenscondition} is necessary for the validity of~\cite{Chen2010A}'s test, it requires the eigenvalues of $\Sigma$ to be concentrated, which can be violated in many applications.
+    For example, in a class of applications, the correlations between variables are mainly driven by several common factors so that $\Sigma$ has a few eigenvalues which are much larger than the others.
+    See, for example,~\cite{Jung2009PCA},~\cite{Cai2012Sparse} and~\cite{Fan2015Asymptotics}.
+    It is meaningful to consider testing problem for data of such type.
+To characterize such correlations between variables, we consider the following spiked covariance structure:
+\begin{assumption}\label{theModel}
+    The covariance matrix $\Sigma$ has structure $ 
+\Sigma=V\Lambda V^T+\sigma^2 I_p
+$, where $\Lambda=\mydiag(\lambda_{1},\ldots,\lambda_{r})$, 
+ $\lambda_{1}\geq \cdots \geq \lambda_{r}>0$, $r$ is a known number,
+$V$ is  a $p\times r$ orthonormal matrix and $\sigma^2>0$.
+As $n$, $p$ tend to infinity, 
+$r$, $\sigma^2$ are fixed and $\Lambda$ satisfies     
+    \begin{equation*}
+        \kappa p^{\beta}\geq \lambda_{1}\geq \cdots \geq\lambda_{r}\geq \kappa^{-1}p^{\beta}.
+\end{equation*}
+where $\kappa>1$ and $\beta\geq {1}/{2}$ are absolute constants.
+\end{assumption}
+
+The covariance structure in Assumption~\ref{theModel} is commonly adopted in PCA study.
+See, for example,~\cite{Cai2012Sparse}.
+Spiked covariance also has connection to factor model.
+In fact, the factor model in~\cite{Ma2015A} corresponds to $\beta=1$ in Assumption~\ref{theModel}.
+Under the covariance structure in Assumption~\ref{theModel}, condition~\eqref{chenscondition} is equivalent to $\beta<1/2$.
+So we consider the case of $\beta\geq 1/2$.
+
+
+Under Assumption~\ref{theModel}, $V V^T$ is the orthogonal projection matrix on the column space of $V$. Let $\tilde{V}$ be a $p\times (p-r)$ full column rank orthonormal matrix orthogonal to columns of  $V$.
+%, that is $\tilde{V}_k^T V_k=O_{r_k\times(p-r_k )}$
+ Although such $\tilde{V}$ is not unique, the projection matrix $\tilde{V}\tilde{V}^T$ is unique and $\tilde{V}\tilde{V}^T=I-V V^T$.
+
+
+\begin{theorem}
+ Under assumption~\ref{theModel},
+    suppose $\lambda_i/p^\beta \to l_i$ with $0<l_i<+\infty$, $i=1,\ldots,r$.
+$$
+T_{CQ} 
+$$
+\end{theorem}
+\begin{proof}
+    Since $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\Sigma)$, $k=1,2$, we have% $(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\Sigma) \chi^2_{n_1-1} $. Hence
+    $$
+ \myE\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=\tau \mytr\Sigma,
+    $$
+    and
+    $$
+    \begin{aligned}
+        &\myVar\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=
+        \Big(\frac{2}{n_1^2(n_1-1)}+\frac{2}{n_2^2(n_2-1)}\Big)\mytr \Sigma^2\\
+        =&
+    O(\frac{1}{n^3}(p^{2\beta}+p))
+        =O\big(\frac{1}{n}(\tau \mytr \Sigma)^2\big).
+    \end{aligned}
+    $$
+    It follows that
+    $$
+    \frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2=\tau \mytr \Sigma\Big(1+O_P\big(\frac{1}{\sqrt{n}}\big)\Big).
+    $$
+    Note that we have $\|\bar{X}_1-\bar{X}_2\|^2\sim \tau(\sum_{i=1}^r \lambda_i(\Sigma)Z_i+\sigma^2 W)$, where $Z_i\overset{i.i.d.}{\sim}\chi^2_1$ and $W\sim \chi^2_{p-r}$ is independent of $Z_i$'s. Then
+    $$
+    \frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2
+    \sim\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i
+    +\frac{\sigma^2}{p^{\beta}}W.
+    $$
+    It's easy to see that 
+    $$\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i\xrightarrow{\mathcal{L}}\sum_{i=1}^r l_i Z_i.$$
+    By central limit theorem, we have
+    $$
+    \frac{1}{\sqrt{2(p-r)}}\big( W-(p-r)\big)\xrightarrow{\mathcal{L}}N(0,1).
+    $$
+
+    If $\beta=1/2$, by Slutsky's theorem we have
+    $$
+    \frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2-\frac{\sigma^2(p-r)}{p^\beta}\xrightarrow{\mathcal{L}}
+    \sum_{i=1}^r l_i Z_i+\sqrt{2}\sigma^2 \epsilon.
+    $$
+    where $\epsilon\sim N(0,1)$
+
+\end{proof}
+
+%and deal with it saperately if $r=0$.
+
+
 \section{Methodology}
 
 In this section, we describe our new test procedure for hypotheses~\eqref{problem}. For simplicity, we now work on equal covariance setting. Unequal covariance setting will be considered latter.
@@ -277,15 +401,6 @@ In this section, we describe our new test procedure for hypotheses~\eqref{proble
 
 \subsection{Motivation}
 
-    In~\cite{Chen2010A}, to prove the asymptotic normality of $T_{CQ}$, they assumed condition~\eqref{chenscondition}.
-    The following proposition tells that~\eqref{chenscondition} is also necessary for the normality of $T_{CQ}$.
-\begin{proposition}\label{newIf}
-    Suppose $X_{k,i}\sim N_p(0,\Sigma)$, $i=1,2,\ldots,n_k$, $k=1,2$. Suppose Assumption~\ref{balance} holds.
-    Then~\eqref{chenscondition} is a necessary and sufficient condition for 
-    \begin{equation}
-        \frac{T_{CQ}-\mathrm{E}T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{L}N(0,1).
-    \end{equation}
-\end{proposition}
 The Proposition~\ref{newIf} implies that under spiked covariance,~\cite{Chen2010A}'s method can not guarantee the test level.
 To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
 In their paper, $\Sigma$'s first few eigenvalues are assumed to be of order $p$.
@@ -374,7 +489,7 @@ Thus, transformation by $\tilde{V}$ is optimal in the sense of variance reductio
 
 \subsection{New Test}
 We denote by $\hat{V}$ and $\hat{\tilde{V}}$ the first $r$ and last $p-r$ eigenvectors of $S$ respectively.
-Similarly, we denote by  $\hat{V}_k$ and $\hat{\tilde{V}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
+Similarly, we denote by  $\hat{V}$ and $\hat{\tilde{V}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
  As estimators of their population counterparts, these simple statistics actually reach the optimal convergence rate (See~\cite{Cai2012Sparse}).
 
 Note that $T_1$ relies on the subspace $\tilde{V}\tilde{V}^T$ which is unknown and thus should be estimated.
@@ -636,7 +751,17 @@ We draw the same conclusion as~\cite{Ma2015A}.
 
 \section{Conclusion remark}
 
+
+If $r$ is an unknown positive number, a consistent estimator of $r$ is
+\begin{equation}\label{estimateR}
+    \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(S)}{\lambda_{l+1}(S)},
+\end{equation}
+where $R$ is a hyperparameter.
+    See~\cite{Ahn2009Eigenvalue} for detail.
+    Thus, without loss of generality, we will assume that $r$ is known throughout the paper.
+
 This paper is concerned with the problem of testing the equality of means in the setting of high dimension and spiked covariance. We drop big variance terms from $T_{CQ}$ and obtain a new test statistic. The asymptotic normality of the new statistic is proved and the asymptotic power is given. %The new test outperforms $T_{CQ}$ substantially if the variance is spiked.
+
 %We also generalize the test to unequal variance case.
 
 In another paper,~\cite{Zhao2016A} proved that their test statistic can be written in the form of projection. Their simulation results showed that their test performs well under strong correlations.
@@ -722,23 +847,10 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 \end{proof}
 
 
-\begin{lemma}\label{quadraticFormCLT}
-    Suppose $X_{n}$ is a $k_n$ dimensional standard normal random vector and $A_n$ is a $k_n\times k_n$ symmetric matrix. Then a necessary and sufficient condition for
-    \begin{equation}\label{quadratic}
-        \frac{X_n^T A_n X_n-\mathrm{E}X_n^T A_n X_n}{{[\mathrm{Var}(X_n^T A_n X_n)]}^{1/2}}\xrightarrow{\mathcal{L}}N(0,1)
-    \end{equation}
-    is that
-    \begin{equation}\label{quadraticEigen}
-        \frac{\lambda_{\max}(A_n^2)}{\mathrm{tr}(A_n^2)}\to 0.
-    \end{equation}
-\end{lemma}
-\begin{remark}
-This lemma is from the Example 5.1 of~\cite{jiang1996reml}. Here we give a proof by characteristic function.
-\end{remark}
-\begin{proof}
+\begin{proof}[\textbf{Proof of Proposition~\ref{quadraticFormCLT}}]
     Let $\lambda_1(A_n)\geq\cdots\geq \lambda_{k_n}(A_n)$ be the eigenvalues of $A_n$, then 
     \begin{equation}
-        \frac{X_n^T A_n X_n-\mathrm{E}X_n^T A_n X_n}{{[\mathrm{Var}(X_n^T A_n X_n)]}^{1/2}}=\sum_{i=1}^{k_n}\frac{\lambda_i(A_n)}{{\big[2\mathrm{tr}(A_n^2)\big]}^{1/2}}(Z_{ni}^2-1),
+        \frac{Y_n^T A_n Y_n-\mathrm{E} Y_n^T A_n Y_n}{{[\mathrm{Var}(Y_n^T A_n Y_n)]}^{1/2}}=\sum_{i=1}^{k_n}\frac{\lambda_i(A_n)}{{\big[2\mathrm{tr}(A_n^2)\big]}^{1/2}}(Z_{ni}^2-1),
     \end{equation}
     where $Z_{ni}$'s ($i=1,\ldots,k_n$) are independent standard normal random variables.
 
@@ -792,59 +904,6 @@ This lemma is from the Example 5.1 of~\cite{jiang1996reml}. Here we give a proof
 
 
 The rest of the Appendix is devoted to the proof of propositions and theorems in the paper.
-
-\begin{proof}[\textbf{Proof of Proposition~\ref{newIf}}]
-    We first note that~\eqref{chenscondition} is equivalent to
-\begin{equation}\label{ChenMaxEigen}
-    \frac{\lambda_{\max}^2(\Sigma)}{\mathrm{tr}\Sigma^2}\to 0.
-\end{equation}
-
-    Let $Z_{k,i}=\Sigma^{-1/2}X_{k,i}$. Then $Z_{k,i}\sim N_p(0,I_{p})$.
-    Denote 
-    $$Z={(Z_{1,1}^T,\ldots,Z_{1,n_1}^T,Z_{2,1}^T,\ldots,Z_{2,n_2}^T)}^T.$$
-    Note that $T_{CQ}$ is a quadratic form of $Z$ and can be written as
-        $$
-        T_{CQ}=Z^T \big( B_n\otimes \Sigma \big) Z,
-        $$
-    where 
-    \begin{equation*}
-        B_n=\begin{pmatrix}
-            \frac{1}{n_1(n_1-1)}(n_1\gamma_1\gamma_1^T-I_{n_1})&
-            -\frac{1}{\sqrt{n_1 n_2}}\gamma_1 \gamma_2^T\\
-            -\frac{1}{\sqrt{n_1 n_2}}\gamma_2 \gamma_1^T&
-            \frac{1}{n_2(n_2-1)}(n_2\gamma_2\gamma_2^T-I_{n_2})\\
-        \end{pmatrix},
-    \end{equation*}
-    $\gamma_1$ is an $n_1$ dimensional vector with all elements equal to $1/\sqrt{n_1}$ and $\gamma_2$ is an $n_2$ dimensional vector with all elements equal to $1/\sqrt{n_2}$.
-
-    By direct calculation, it can be seen that $B_n$'s eigenvalues are $-1/n_1(n_1-1)$, $-1/n_2(n_2-1)$, $(n_1+n_2)/n_1 n_2$ and $0$ with multiplicities $n_1-1$, $n_2-1$, $1$ and $1$ respectively.
-    The eigenspace corresponding to $-1/n_1(n_1-1)$ is
-    \begin{equation*}
-        \{{(\eta^T,\underbrace{0,\ldots,0}_{n_2})}^T|\, \textrm{$\eta\in \mathbb{R}^{n_1}$ and $\eta^T \gamma_1=0$}\}.
-    \end{equation*}
-    The eigenspace corresponding to $-1/n_2(n_2-1)$ is
-    \begin{equation*}
-        \{{(\underbrace{0,\ldots,0}_{n_1},\eta^T)}^T| \, \textrm{$\eta\in\mathbb{R}^{n_2}$ and $\eta^T \gamma_2=0$}\}.
-    \end{equation*}
-    The eigenvector corresponding to $(n_1+n_2)/n_1n_2$ is
-    \begin{equation*}
-        {\Big(-\sqrt{\frac{n_2}{n_1+n_2}}\gamma_1^T, \sqrt{\frac{n_1}{n_1+n_2}}\gamma_2^T\Big)}^T.
-    \end{equation*}
-    The eigenvector corresponding to $0$ is
-    \begin{equation*}
-        {\Big(\sqrt{\frac{n_1}{n_1+n_2}}\gamma_1^T, \sqrt{\frac{n_2}{n_1+n_2}}\gamma_2^T\Big)}^T.
-    \end{equation*}
-It follows that 
-    \begin{equation*}
-        \mathrm{tr}{(B_n\otimes \Sigma)}^2=\mathrm{tr}(B_n^2)\mathrm{tr}\Sigma^2=(\frac{1}{n_1(n_1-1)}+\frac{1}{n_1(n_1-1)}+\frac{2}{n_1 n_2})\mathrm{tr}\Sigma^2.
-    \end{equation*}
-And
-    \begin{equation*}
-        \lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)=\lambda_{\max}(B_n^2)\lambda_{\max}(\Sigma^2)={\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)}^2\lambda_{\max}(\Sigma^2).
-    \end{equation*}
-    The theorem follows by Lemma~\ref{quadraticFormCLT}.
-\end{proof}
-
 
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
@@ -1132,7 +1191,7 @@ Similar to~\eqref{traceA1} we have
 \begin{equation}\label{traceA2}
     \mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=(p-r)\sigma^2\big(1+O_P\big(\frac{1}{n}+\frac{1}{p}\big)\big).
 \end{equation}
-By~\eqref{traceA1},~\eqref{traceA2} and Slulsk's theorem,
+By~\eqref{traceA1},~\eqref{traceA2} and Slutsky's theorem,
 $$
 \frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2\tau(p-r) }{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
 $$
