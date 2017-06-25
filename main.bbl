@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -67,11 +67,23 @@
   \bibinfo{year}{2010};\bibinfo{volume}{38}(\bibinfo{number}{2}):\bibinfo{pages}{808--835}.
 \newblock \DOIprefix\doi{10.1214/09-AOS716}.
 %Type = Article
+\bibitem[{Durrett(2010)}]{durrett2010probability}
+\bibinfo{author}{Durrett\xfnm[ R.]}.
+\newblock \bibinfo{title}{Probability : theory and examples}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{year}{2010};\bibinfo{volume}{87}(\bibinfo{number}{418}):\bibinfo{pages}{586}.
+%Type = Article
 \bibitem[{Fan and Wang(2017)}]{Fan2015Asymptotics}
 \bibinfo{author}{Fan\xfnm[ J.]}, \bibinfo{author}{Wang\xfnm[ W.]}.
 \newblock \bibinfo{title}{Asymptotics of empirical eigen-structure for
   ultra-high dimensional spiked covariance model}.
 \newblock \bibinfo{journal}{Annals of Statistics} \bibinfo{year}{2017};.
+%Type = Article
+\bibitem[{Horn and Johnson(1985)}]{Horn1985Matrix}
+\bibinfo{author}{Horn\xfnm[ R.A.]}, \bibinfo{author}{Johnson\xfnm[ C.R.]}.
+\newblock \bibinfo{title}{Matrix analysis}.
+\newblock \bibinfo{journal}{University of Albertadownloaded on December at from
+  IEEE Xplorerestrictions Apply} \bibinfo{year}{1985};:\bibinfo{pages}{1--17}.
 %Type = Article
 \bibitem[{Jung and Marron(2009)}]{Jung2009PCA}
 \bibinfo{author}{Jung\xfnm[ S.]}, \bibinfo{author}{Marron\xfnm[ J.S.]}.

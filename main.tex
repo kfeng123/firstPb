@@ -121,7 +121,15 @@ This paper is devoted to
 testing hypotheses~\eqref{problem} in high dimensional setting with spiked covariance.
 
 
-If $\Sigma_1=\Sigma_2=\Sigma$ is unknown, a classical test for hypotheses~\eqref{problem} is Hotelling's $T^2$ test.  Hotelling's test statistic is ${(\bar{X}_1-\bar{X}_2)}^T S^{-1}(\bar{X}_1-\bar{X}_2)$, where $S$ is the pooled sample covariance matrix. However, Hotelling's test is not defined when $p\geq n-1$.
+A classical test for hypotheses~\eqref{problem} is Hotelling's $T^2$ test.
+Hotelling's test statistic is ${(\bar{X}_1-\bar{X}_2)}^T S^{-1}(\bar{X}_1-\bar{X}_2)$, where
+    $
+    S=
+{(n-2)}^{-1}\sum_{k=1}^2\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
+    %{(n-2)}^{-1}((n_1-1)S_1+(n_2-1)S_2)
+    $
+is the pooled sample covariance matrix.
+However, Hotelling's test is not defined when $p\geq n-1$.
 Moreover,~\cite{Bai1996Efiect} showed that even if $p<n-1$, Hotelling's test suffers from low power when $p$ is comparable to $n$.
 Perhaps, the main reason for low power of Hotelling's test is due to that $S$ is a poor estimator of $\Sigma$ when $p$ is large compared with $n$. See~\cite{Chen2010A} and the references therein.
 In high dimensional setting,  
@@ -138,7 +146,11 @@ which is an unbiased estimator of $\|\mu_1-\mu_2\|^2$.~\cite{Chen2010A} modified
             &=\|\bar{X}_1-\bar{X}_2\|^2-\frac{1}{n_1}\mathrm{tr}S_1-\frac{1}{n_2}\mathrm{tr}S_2,
     \end{aligned}
 \end{equation*}
-where $S_1$ and $S_2$ are sample covariance matrices. Statistic $T_{CQ}$ 
+where
+$S_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
+$
+is the sample covariance  of the sample $k$, $k=1,2$.
+ Statistic $T_{CQ}$ 
 is also an unbiased estimator of $\|\mu_1-\mu_2\|^2$. Choosing $A={[\mathrm{diag}(\Sigma)]}^{-1}$,~\cite{Srivastava2008A} proposed a test based on
 \begin{equation*}
     T_{S}={(\bar{X}_1-\bar{X}_2)}^T {[\mathrm{diag}(S)]}^{-1}(\bar{X}_1-\bar{X}_2),
@@ -162,7 +174,7 @@ To characterize strong correlations,~\cite{Ma2015A} considered a factor model an
 Strong correlations between variables do exist in practice. In gene expression analysis, genes are correlated due to genetic regulatory networks (see~\cite{Thulin2014A}).~\cite{Chen2011A} pointed out that in terms of pathway analysis in proteomic studies,  test level can not be guaranteed if correlations are incorrectly assumed to be absent.
  As~\cite{Ma2015A} argued, there're strong correlations between different stock returns since they are all affected by the market index.
 
-Incorrectly assuming the absence of correlation between variables will result in level inflation and low power for a test procedure. A class of test procedures is proposed through random projection (see~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}). The idea is to project data on some random lower-dimensional subspaces. It has been shown that these
+Incorrectly assuming the absence of correlation between variables will result in level inflation and low power for a test procedure. A class of test procedures is proposed through random projection. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}. The idea is to project data on some random lower-dimensional subspaces. It has been shown that these
 procedures perform well under strong correlations. 
 
 In many situations, the correlations are determined by a small number of factors.
@@ -195,31 +207,18 @@ Moreover, even there's no strong correlation showing up, we prove that the new t
 %}}
 
 
-The rest of the paper is organized as follows. In Section 2,  the model and some assumptions are given.  In Section 3, we propose a test procedure under $\Sigma_1=\Sigma_2$. Section 4 exploits properties of the test. In Section 5, we generalize our test procedure to the situation of $\Sigma_1\neq \Sigma_2$. In Section 6, simulations are carried out and  a real data example is given. Section 7 contains some discussion. All the technical details are in appendix.
+The rest of the paper is organized as follows. In Section 2,  we revisit~\cite{Chen2010A}'s test.  In Section 3, we propose a test procedure and exploit properties of the test.  In Section 4, simulations are carried out and  a real data example is given. Section 5 contains some discussion. All the technical details are in appendix.
 
-\section{Model and assumptions}
+\section{Some considerations about~\cite{Chen2010A}'s test}
     Let $X_{k,1},\ldots, X_{k, n_k}$  be i.i.d.\ observations with common distribution $N(\mu_k,\Sigma)$, $k=1,2$.
     Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to \xi \in (0,+\infty)$, that is, we consider high dimensional and balanced data.
 
-
-In the rest of this section, we introduce some  notations that will be used. Let $\tau={(n_1+n_2)}/{(n_1n_2)}$, $S$ be the pooled sample covariance:
-\begin{equation*}
-S=\frac{1}{n-2}\sum_{k=1}^2\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
-    =\frac{(n_1-1)S_1+(n_2-1)S_2}{n-2},
-\end{equation*}
-where
-$S_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
-$
-is the sample covariance  of the sample $k$, $k=1,2$.
-Denote by $\operatorname{Wishart}_p(m,\Psi)$ the $p$ dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom.
-
+ Now we introduce some notations that will be used in this paper.
 For random variable $\xi$ and $\eta$,
   we write $\xi\sim \eta$ to denote they have the same distribution.
   Let $\mathcal{L}(\xi)$ be the distribution of $\xi$ and $\mathcal{L}(\xi|\eta)$ be the conditional distribution of $\xi$ given $\eta$.
   We denote by ``$\xrightarrow{a.s.}$'', ``$\xrightarrow{P}$'' and ``$\xrightarrow{\mathcal{L}}$'' the almost surely convergence, convergence in probability and weak convergence.
-
 For nonrandom positive sequence $\{a_n\}$ and $\{b_n\}$, $a_n\asymp b_n$ represents $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
-
 We denote by $\|\cdot \|$ and $\|\cdot\|_F$ the operator and Frobenius  norm of matrix, separately.
 For $p\geq q$, define
 \begin{equation*}
@@ -227,6 +226,7 @@ For $p\geq q$, define
 \end{equation*}
 
 
+\subsection{The applicable range}
     In~\cite{Chen2010A}, the asymptotic normality of $T_{CQ}$ is derived under condition~\eqref{chenscondition}.
     To determine the critical value of $T_{CQ}$, they used the limiting normal distribution to approximate the finite sample distribution.
     The resulting test can asymptotically preserve the test level if and only if the asymptotic normality is correct.
@@ -304,12 +304,13 @@ $$
 \frac{\lambda_1(\Sigma)^2}{\sum_{i=1}^p \lambda_i(\Sigma)^2}
 $$
     we can see that ${\lambda_{\max}^2(\Sigma)}/{\mathrm{tr}(\Sigma^2)}\to 0$  is equivalent to~\eqref{chenscondition}.
-By Lemma~\ref{quadraticFormCLT},~\eqref{chenscondition} is a necessary and sufficient condition for 
+By Lemma~\ref{quadraticFormCLT}, we can assert that~\eqref{chenscondition} is a necessary and sufficient condition for 
     \begin{equation*}
         \frac{T_{CQ}-\mathrm{E}T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{L}N(0,1).
     \end{equation*}
 
-    While condition~\eqref{chenscondition} is necessary for the validity of~\cite{Chen2010A}'s test, it requires the eigenvalues of $\Sigma$ to be concentrated, which can be violated in many applications.
+\subsection{Asymptotic distribution under spiked covariance}
+    While condition~\eqref{chenscondition} is necessary for the validity of~\cite{Chen2010A}'s test, it requires the eigenvalues of $\Sigma$ to be concentrated around their average, which can be violated in many applications.
     For example, in a class of applications, the correlations between variables are mainly driven by several common factors so that $\Sigma$ has a few eigenvalues which are much larger than the others.
     See, for example,~\cite{Jung2009PCA},~\cite{Cai2012Sparse} and~\cite{Fan2015Asymptotics}.
     It is meaningful to consider testing problem for data of such type.
@@ -330,85 +331,76 @@ where $\kappa>1$ and $\beta\geq {1}/{2}$ are absolute constants.
 
 The covariance structure in Assumption~\ref{theModel} is commonly adopted in PCA study.
 See, for example,~\cite{Cai2012Sparse}.
+The column space of $V$,  the eigenspace of $\Sigma$ corresponding to the large eigenvalues, is called principal space. Since $V$ is an orthonormal matrix, $V V^T$ is the orthogonal projection matrix on the principal space.
+Let $\tilde{V}$ be a $p\times (p-r)$ full column rank orthonormal matrix orthogonal to columns of  $V$.
+%, that is $\tilde{V}_k^T V_k=O_{r_k\times(p-r_k )}$
+ Although such $\tilde{V}$ is not unique, the projection matrix  $\tilde{V}\tilde{V}^T=I-V V^T$ is unique and is the projection matrix on the orthogonal complement of principal space.
 Spiked covariance also has connection to factor model.
 In fact, the factor model in~\cite{Ma2015A} corresponds to $\beta=1$ in Assumption~\ref{theModel}.
-Under the covariance structure in Assumption~\ref{theModel}, condition~\eqref{chenscondition} is equivalent to $\beta<1/2$.
-So we consider the case of $\beta\geq 1/2$.
 
-
-Under Assumption~\ref{theModel}, $V V^T$ is the orthogonal projection matrix on the column space of $V$. Let $\tilde{V}$ be a $p\times (p-r)$ full column rank orthonormal matrix orthogonal to columns of  $V$.
-%, that is $\tilde{V}_k^T V_k=O_{r_k\times(p-r_k )}$
- Although such $\tilde{V}$ is not unique, the projection matrix $\tilde{V}\tilde{V}^T$ is unique and $\tilde{V}\tilde{V}^T=I-V V^T$.
-
-
-\begin{theorem}
- Under assumption~\ref{theModel},
-    suppose $\lambda_i/p^\beta \to l_i$ with $0<l_i<+\infty$, $i=1,\ldots,r$.
-$$
-T_{CQ} 
-$$
+Under Assumption~\ref{theModel}, it is easy to see that condition~\eqref{chenscondition} is equivalent to $\beta<1/2$.
+Our previous arguments assert that the asymptotic distribution of $T_{CQ}$ won't be normal when $\beta\geq 1/2$.
+Under Assumption~\ref{theModel}, we can go further and give the asymptotic distribution of $T_{CQ}$.
+In fact, we have the following theorem:
+\begin{theorem}\label{Chenstheory}
+ Under Assumption~\ref{theModel},
+    suppose $\lambda_i/p^\beta \to l_i\in(0,+\infty)$, $i=1,\ldots,r$.
+    Let $\tau=1/n_1+1/n_2$, we further assume
+    $(\tau p^{\beta})^{-1/2}\big(V^T (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$, and
+    ${(\tau p^\beta)}^{-1}\|\tilde{V}^T (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$. We have
+    $$
+        \frac{1}{\tau p^{\beta}} T_{CQ}
+        \xrightarrow{\mathcal{L}}
+        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
+\zeta^*+
+    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+        -
+        \sum_{i=1}^r l_i,
+    $$
+    where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
 \end{theorem}
-\begin{proof}
-    Since $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\Sigma)$, $k=1,2$, we have% $(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\Sigma) \chi^2_{n_1-1} $. Hence
-    $$
- \myE\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=\tau \mytr\Sigma,
-    $$
-    and
-    $$
-    \begin{aligned}
-        &\myVar\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=
-        \Big(\frac{2}{n_1^2(n_1-1)}+\frac{2}{n_2^2(n_2-1)}\Big)\mytr \Sigma^2\\
-        =&
-    O(\frac{1}{n^3}(p^{2\beta}+p))
-        =O\big(\frac{1}{n}(\tau \mytr \Sigma)^2\big).
-    \end{aligned}
-    $$
-    It follows that
-    $$
-    \frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2=\tau \mytr \Sigma\Big(1+O_P\big(\frac{1}{\sqrt{n}}\big)\Big).
-    $$
-    Note that we have $\|\bar{X}_1-\bar{X}_2\|^2\sim \tau(\sum_{i=1}^r \lambda_i(\Sigma)Z_i+\sigma^2 W)$, where $Z_i\overset{i.i.d.}{\sim}\chi^2_1$ and $W\sim \chi^2_{p-r}$ is independent of $Z_i$'s. Then
-    $$
-    \frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2
-    \sim\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i
-    +\frac{\sigma^2}{p^{\beta}}W.
-    $$
-    It's easy to see that 
-    $$\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i\xrightarrow{\mathcal{L}}\sum_{i=1}^r l_i Z_i.$$
-    By central limit theorem, we have
-    $$
-    \frac{1}{\sqrt{2(p-r)}}\big( W-(p-r)\big)\xrightarrow{\mathcal{L}}N(0,1).
-    $$
 
-    If $\beta=1/2$, by Slutsky's theorem we have
-    $$
-    \frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2-\frac{\sigma^2(p-r)}{p^\beta}\xrightarrow{\mathcal{L}}
-    \sum_{i=1}^r l_i Z_i+\sqrt{2}\sigma^2 \epsilon.
-    $$
-    where $\epsilon\sim N(0,1)$
+ It is possible to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level at least asymptotically.
+ For example, one can use permutation method and the resulting test is exact.
+ See, for example,~\cite{Lehmann} Chapter $15$.
+See also~\cite{Ma2015A} for a parametric bootstrap method.
+%Using Theorem~\ref{Chenstheory}, the asymptotic power function of such adjusted test can be given.
+Theorem~\ref{Chenstheory} can be used to derive the asymptotic power function of the adjusted test procedure.
+Let $F(x;\zeta_1,\ldots,\zeta_r, \zeta^*)$ be the cumulative distribution function of $
+        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
+\zeta^*+
+    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+        -
+        \sum_{i=1}^r l_i
+$.
+If the adjusted critical value $C^*$ of $T_{CQ}$, which may depend on data, satisfies 
+$$F\Big(\frac{C^*}{\tau p^\beta};0,\ldots,0,0\Big)\xrightarrow{P}1-\alpha,$$
+the resulting test will have correct level asymptotically.
+In this way, the asymptotic power is
+$$
+\lim_{n,p\to \infty}\Pr(T_{CQ}\geq C^*)=1-F(F^{-1}(1-\alpha;0,\ldots,0,0);\zeta_1,\ldots,\zeta_r,\zeta^*),
+$$
+where $\alpha$ is the nominal level.
+In particular, the test will have trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or
+$$
+\frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
+$$
+Conversely, to make $T_{CQ}$ have non-trivial power, $\|\mu_1-\mu_2\|^2$ is at least of order $\tau p^\beta$.
 
-\end{proof}
 
 %and deal with it saperately if $r=0$.
 
 
 \section{Methodology}
-
-In this section, we describe our new test procedure for hypotheses~\eqref{problem}. For simplicity, we now work on equal covariance setting. Unequal covariance setting will be considered latter.
-%\begin{equation}
-%X_{ki}=\mu_k+V D U_{ki}+Z_{ki}.
-%\end{equation}
-
 \subsection{Motivation}
 
-The Proposition~\ref{newIf} implies that under spiked covariance,~\cite{Chen2010A}'s method can not guarantee the test level.
-To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
-In their paper, $\Sigma$'s first few eigenvalues are assumed to be of order $p$.
+%To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
+%In their paper, $\Sigma$'s first few eigenvalues are assumed to be of order $p$.
 
-Note that $T_{BS}$, $T_{CQ}$ and~\cite{Ma2015A}'s method are all based on
-$
+Note that the main part of  $T_{CQ}$ is $
     \tau\|\bar{X}_1-\bar{X}_2\|^2
-$, which can be written as the sum of two parts
+$, which is also the main part of $T_{BS}$ and~\cite{Ma2015A}'s method.
+It can be written as the sum of two terms
 \begin{equation}\label{mot:1}
     \tau \|V^T (\bar{X}_1-\bar{X}_2)\|^2+
     \tau\|\tilde{V}^T (\bar{X}_1-\bar{X}_2)\|^2.
@@ -423,10 +415,10 @@ $$
 p^{2\beta-1},
 $$
 which tends to $\infty$ as $p\to \infty$ for $\beta>1/2$.
-On the other hand, $
+While $
     \tau \|V^T (\bar{X}_1-\bar{X}_2)\|^2
-$ only involves the signal from $r$ dimension.
-Thus, compared with the second term of~\eqref{mot:1}, the first term has larger variance and tends to contain much weaker signal.
+$ has relative large variance, it only involves the signal from $r$ dimension.
+%Thus, compared with the second term of~\eqref{mot:1}, the first term has larger variance and tends to contain much weaker signal.
  This motivates us to drop the first part of~\eqref{mot:1} and only use the second part.
 After adjustment of expectation, we define the following statistic
 \begin{equation*}
@@ -449,30 +441,27 @@ After adjustment of expectation, we define the following statistic
 %If we remove $\frac{n_1 n_2}{n_1+n_2} {(\bar{X}_1-\bar{X}_2)}^T  p_1 p_1^T (\bar{X}_1-\bar{X}_2)$ from $T_{BS}$, the variance of $T_{BS}$ can be significantly reduced to order $p$ from order $p^2$.
 %Note that $\Sigma=(1-c)I+c\bm{1}_p+\bm{1}_p^T$ is just a special case of spiked covariance.
 
-Proposition~\ref{oracleTheorem} shows that the asymptotic distribution of $T_1$ is normal.
+Proposition~\ref{oracleTheorem} shows that $T_1$ has normal limit distribution.
 \begin{proposition}\label{oracleTheorem}
-    Suppose that Assumptions~\ref{balance}-\ref{theModel2} holds and  $\frac{n}{p}\|\mu_1-\mu_2\|^2= o(1)$. We have 
+    Under Assumption~\ref{theModel}, suppose $\frac{n}{p}\|\mu_1-\mu_2\|^2= o(1)$, we have 
     \begin{equation*}
         \frac{T_1-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}
         {\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
     \end{equation*}
 \end{proposition}
 
-
-
-In another point of view,
-$T_1$ is obtained by transforming $X_{k,i}$ to $\tilde{V}^T X_{k,i}$ ($i=1,\ldots, n_k$, $k=1,2$) and then invoking the statistic of~\cite{Chen2010A}.
-A class of test procedures have been proposed through random projection to lower dimensional space, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
+In another point of view, $T_1$ is obtained by transforming $X_{k,i}$ to $\tilde{V}^T X_{k,i}$ ($i=1,\ldots, n_k$, $k=1,2$) and then invoking the statistic of~\cite{Chen2010A}.
+A class of test procedures have been proposed through random projection to lower dimensional space. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
 It is known that random projection based methods offer higher power when the variables are dependent.
 However, these test procedures are randomized, which is undesirable in practice.
-This raise the question: is there an optimal projection which is nonrandomized?
+This raises the question: is there an optimal projection which is nonrandomized?
 
-It can be seen that
+Under null hypothesis, we have that
 $$
 \tilde{V}=\mathop{\operatorname{arg\,min}}_{O\in\mathbb{O}_{p\times(p-r)}}\myVar\big(\|O^T(\bar{X}_1-\bar{X}_2)\|^2\big).
 $$
 Thus, transformation by $\tilde{V}$ is optimal in the sense of variance reduction.
- Based on $\tilde{V}^T X_{ki}$, the likelihood ratio test statistic for hypothesis~\eqref{problem} is
+ Based on $\tilde{V}^T X_{ki}$, the likelihood ratio test statistic for hypothesis~\eqref{problem} is then
     $\|\tilde{V}^T (\bar{X}_1-\bar{X}_2)\|^2$ which coincides with our proposal.
     In this view, $T_1$ can be regarded as a restricted likelihood ratio test.
 
@@ -487,7 +476,7 @@ Thus, transformation by $\tilde{V}$ is optimal in the sense of variance reductio
 %\end{remark} 
 
 
-\subsection{New Test}
+\subsection{New test}
 We denote by $\hat{V}$ and $\hat{\tilde{V}}$ the first $r$ and last $p-r$ eigenvectors of $S$ respectively.
 Similarly, we denote by  $\hat{V}$ and $\hat{\tilde{V}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
  As estimators of their population counterparts, these simple statistics actually reach the optimal convergence rate (See~\cite{Cai2012Sparse}).
@@ -510,7 +499,7 @@ The asymptotic result of Proposition~\ref{oracleTheorem} involves $\sigma^2$.
 In order to formulate a test procedure by asymptotic distribution, $\sigma^2$ needs to be consistently estimated.
 Note that $\sigma^2$ can be written as
     $\sigma^2={(p-r)}^{-1}\sum_{i=r+1}^{p}\lambda_i(\Sigma)$.
-Thus it can be estimated by
+So it can be estimated by
 \begin{equation*}
     \hat{\sigma}^2=\frac{1}{p-r}\sum_{i=r+1}^{p} \lambda_i(S).
 \end{equation*}
@@ -518,7 +507,7 @@ Now we propose our new test statistic as
 \begin{equation}\label{myTest}
     Q=\frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}.
 \end{equation}
-In next section, it will be proved that  the asymptotic null distribution of $Q$ is $N(0,1)$. Thus, the null hypothesis is rejected when $Q$ is larger than the upper $\alpha$ quantile of $N(0,1)$.
+In the next section, it will be proved that  the asymptotic null distribution of $Q$ is $N(0,1)$. Thus, the null hypothesis is rejected when $Q$ is larger than the upper $\alpha$ quantile of $N(0,1)$.
 
 %\begin{remark}
     %Compared with random projection method, our projection is determined by the structure of $S_1$, $S_2$ and $S$.
@@ -550,7 +539,6 @@ However,~\eqref{yuedengyu} is reasonable since $\tilde{V}\tilde{V}^T$ is nearly 
     ${\|I_p-\tilde{V}\tilde{V}^T\|_F^2}/{\|I_p\|_F^2}=r/p\to 0$. 
 In bayesian framework, if we assume that the elements of $\mu_k$ are independently generated from certain prior distribution, it can be established that 
     ${\|\tilde{V}(\mu_1-\mu_2)\|}/{\|\mu_1-\mu_2\|}\xrightarrow{P}1$.
-Such assumption for $\mu_k$ will be used in Theorem~\ref{sameTheorem}.
 
 
 
@@ -559,18 +547,16 @@ Such assumption for $\mu_k$ will be used in Theorem~\ref{sameTheorem}.
 
 
 
-\section{Theoretical results}
-
-\subsection{Asymptotic properties}
+\subsection{Theoretical results}
 
 In this section, we study the asymptotic behavior of the new test procedure.
 
 
  We first give a result of the convergence rate of $\hat{\sigma}^2$.
- In particular, it can be seen that $\hat{\sigma}^2$ is a consistent estimator of $\sigma^2$.   
+ In particular, this result shows that $\hat{\sigma}^2$ is a consistent estimator of $\sigma^2$.   
  Our proof relies on the Weyl's inequality.
 \begin{proposition}\label{varianceEstimation}
-    Under Assumptions~\ref{balance}-\ref{theModel2}, we have that%      $\hat{\sigma}^2$ is consistent.
+    Under Assumptions~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
     $$
     \hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big).
     $$
@@ -590,10 +576,10 @@ The asymptotic normality of $T_2$ requires a stronger condition.
 When $\beta=1/2$, Assumption~\ref{pAndN} is equivalent to $p^{1-\beta}/n$, otherwise~\ref{pAndN} is stronger than $p^{1-\beta}/n$.
 The following theorem establishes the asymptotic normality of $T_2$.
 \begin{theorem}\label{myPanpan}
-    Under Assumptions~\ref{balance}-\ref{pAndN},
-if the local alternative holds, that is,
+    Under Assumptions~\ref{theModel} and~\ref{pAndN},
+suppose
     $$\frac{n}{\sqrt{p}}\|\mu_1-\mu_2\|^2=O(1),$$
-then 
+    we have
 \begin{equation*}
         \frac{T_2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
 \end{equation*}
@@ -606,38 +592,19 @@ Now the power function of the new test can be obtained immediately.
 
 
 \begin{corollary}\label{testPowerh}
-Suppose Assumptions~\ref{balance}-\ref{pAndN} holds.
-    If the null hypothesis is rejected when $Q$ is larger than $1-\alpha$ quantile of $N(0,1)$, then the asymptotic power function of the new test is
+    Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of the new test is
     \begin{equation*}
         \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{V}(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
     \end{equation*}
 \end{corollary}
 
 
- Note that the power of $T_{CQ}$ is of the form
-\begin{equation*}
-    \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mathrm{tr}\Sigma^2}}\Big).
-\end{equation*}
- The relative efficiency of our test with respect to Chen's test is
-\begin{equation*}
-    \sqrt{\frac{\mathrm{tr}\Sigma^2}{(p-r)\sigma^4}}\frac{\|\tilde{V}(\mu_1-\mu_2)\|^2}{\|\mu_1-\mu_2\|^2}\sim p^{\beta-1/2}\frac{\|\tilde{V}(\mu_1-\mu_2)\|^2}{\|\mu_1-\mu_2\|^2},
-\end{equation*}
-which is large when $\beta>1/2$ and $\|\tilde{V}(\mu_1-\mu_2)\|/\|\mu_1-\mu_2\|$ is close to $1$.
+ Recall that $T_{CQ}$ has trivial power if $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
+ Note that the power function of the new test do not affected by $\beta$.
+ As a result, when $\beta>1/2$, the new test tends to be much more powerful.
 
 
-It is natural to ask if Assumption~\ref{pAndN} can be relaxed in Theorem~\ref{myPanpan}.
-The next theorem  shows that the asymptotics are different from Theorem~\ref{myPanpan} when $p/n^2\to \infty$.
-\begin{theorem}\label{chilimthm}
-    Suppose that Assumptions~\ref{balance}-\ref{theModel2} hold, $\lambda_1=\cdots=\lambda_r=\kappa p^{\beta}$,
-    $\mu_1=\mu_2$, $\beta>1/2$ and $p/n^2\to \infty$. We have 
-\begin{equation*}
-\frac{\kappa n p^{\beta}+p\sigma^2}{\tau\kappa p^{\beta+1}\sigma^2}
-        \big(
-    \big\|\hat{\tilde{V}}^T\big(\bar{X}_1-\bar{X}_2\big)\big\|^2
-        -\tau(p-r)\sigma^2\big)\xrightarrow{\mathcal{L}}\chi^2_r.
-\end{equation*}
-\end{theorem}
-When Assumption~\ref{pAndN} doesn't hold,  permutation method can be used to determine the critical value.
+The proof of Theorem~\ref{myPanpan} implies that when Assumption~\ref{pAndN} is not satisfied, the asymptotic normality is invalid. In this case, permutation method can be used to determine the critical value.
 We will see from simulation results that the new test has good power behavior even if $p$ is much large than $n$.
 
 
@@ -752,13 +719,6 @@ We draw the same conclusion as~\cite{Ma2015A}.
 \section{Conclusion remark}
 
 
-If $r$ is an unknown positive number, a consistent estimator of $r$ is
-\begin{equation}\label{estimateR}
-    \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(S)}{\lambda_{l+1}(S)},
-\end{equation}
-where $R$ is a hyperparameter.
-    See~\cite{Ahn2009Eigenvalue} for detail.
-    Thus, without loss of generality, we will assume that $r$ is known throughout the paper.
 
 This paper is concerned with the problem of testing the equality of means in the setting of high dimension and spiked covariance. We drop big variance terms from $T_{CQ}$ and obtain a new test statistic. The asymptotic normality of the new statistic is proved and the asymptotic power is given. %The new test outperforms $T_{CQ}$ substantially if the variance is spiked.
 
@@ -770,6 +730,13 @@ Our work partially explains why their test performs well although the projection
  Spiked covariance is an important correlation pattern and has been widely studied in terms of PCA\@.
  In PCA, authors focus on the principal subspace.
  However, in some circumstances, as our work have shown, the complement of principal subspace is more useful. 
+
+In our paper, we have assumed $r$ is known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
+\begin{equation}\label{estimateR}
+    \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(S)}{\lambda_{l+1}(S)},
+\end{equation}
+where $R$ is a hyperparameter.
+    See~\cite{Ahn2009Eigenvalue} for detail.
 
 
 Our theoretical results rely on the assumption $\sqrt{p}/n\to 0$. In the situation of small sample or very large $p$, the critical value of the new test can be determined by permutation method. Our simulation shows that the new test still performs well. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
@@ -786,21 +753,22 @@ Our theoretical results rely on the assumption $\sqrt{p}/n\to 0$. In the situati
 %\end{proof}
 
 \begin{lemma}[Weyl's inequality]
-Let $H$ and $P$ be two symmetric matrices and $M=H+P$. If $j+k-n\geq i\geq r+s-1$, we have
+Let $H$ and $P$ be two symmetric $n\times n$ matrices and $M=H+P$. If $r+s-1 \leq  i\leq j+k-n$, we have
 \begin{equation*}
 \lambda_j(H)+\lambda_k(P)\leq \lambda_i(M) \leq \lambda_r(H)+\lambda_s(P).
 \end{equation*}
+    See, for example,~\cite{Horn1985Matrix} Theorem $4.3.1$.
 \end{lemma}
-\begin{corollary}\label{WeylCor}
-    Let $H$ and $P$ be two symmetric matrices and $M=H+P$. If $\mathrm{rank}(P)< k$, then
-    \begin{equation*}
-        \lambda_k(M)\leq \lambda_1(H).
-    \end{equation*}
-\end{corollary}
+%\begin{corollary}\label{WeylCor}
+    %Let $H$ and $P$ be two symmetric matrices and $M=H+P$. If $\mathrm{rank}(P)< k\leq n$, then
+    %\begin{equation*}
+        %\lambda_k(M)\leq \lambda_1(H).
+    %\end{equation*}
+%\end{corollary}
 
 
 \begin{lemma}[Convergence rate of principal space estimation]\label{conRateLemma}
-    Under the Assumption~\ref{balance}-\ref{theModel2}, we have
+    Under the Assumption~\ref{theModel}, we have
 \begin{equation*}
 E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 \end{equation*}
@@ -808,16 +776,12 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 
 
 \begin{proof}[\textbf{Proof}]
-    Theorem 5 of~\cite{Cai2012Sparse} asserts that sample principal subspace $\hat{V}\hat{V}^T$ is a minimax rate estimator of $VV^T$, namely, it reaches the minimax convergence rate
+    Theorem 5 of~\cite{Cai2012Sparse} asserts that sample principal subspace $\hat{V}\hat{V}^T$ is a minimax rate optimal estimator of $VV^T$, namely, it reaches the minimax convergence rate
     \begin{equation}\label{xiaopianpian}
-         E\|\hat{V}\hat{V}^T-VV^T\|^2_F\asymp r\wedge (p-r)\wedge \frac{r(p-r)}{(n_1+n_2-2)h(\lambda)}
+         E\|\hat{V}\hat{V}^T-VV^T\|^2_F\asymp r\wedge (p-r)\wedge \frac{r(p-r)}{(n_1+n_2-2)p^\beta}
     \end{equation}
-    as long as the right hand side tends to $0$. Here $h(\lambda)=\frac{\lambda^2}{\lambda+1}$. In model of Assumption~\ref{theModel},  $r$ is fixed, $\lambda=cp^\beta$.
+    as long as the right hand side tends to $0$. 
     It's obvious that the right hand side of~\eqref{xiaopianpian} is of order ${p^{1-\beta}}/{n}$.
-    We note that it is assumed $\beta\geq \frac{1}{2}$ in Assumption~\ref{orderOfBeta}, together with ${\sqrt{p}}/{n}\to 0$ we have
-    ${p^{1-\beta}}/{n}\to 0$. Hence
-    $\hat{V}\hat{V}^T$ reaches the convergence rate.
-
 \end{proof}
 \begin{lemma}[Bai-Yin's law]\label{baiyin}
     Suppose $B_n=\frac{1}{q} Z Z^T$ where $Z$ is $p\times q$ random matrix composed of i.i.d.\ random variables with zero mean, unit variance and finite fourth moment.
@@ -826,8 +790,9 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 \begin{remark}
     Lemma~\ref{baiyin} is known as the Bai-Yin's law (\cite{bai1993limit}). As in Remark $1$ of~\cite{bai1993limit}, the smallest non-zero eigenvalue is the $p-q+1$ smallest eigenvalue of $B$ for $c>1$.
 \end{remark}
+
 \begin{corollary}\label{maxEigen}
-    Suppose that $W_n$ is a $p \times p$ matrix distributed as $\mathrm{Wishart}_p(n,I_{p})$. Then as $n\to \infty$,
+    Suppose that $W_n$ is a $p \times p$ matrix distributed as $\mathrm{Wishart}_p(n,I_{p})$ where $\operatorname{Wishart}_p(m,\Psi)$ is the $p$ dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom. Then as $n,p\to \infty$,
     $$
         \lambda_1(W_n)=O_P(\max(n,p)).
     $$
@@ -839,9 +804,10 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
     $$
     \frac{\lambda_1(W_{n_{k_l}})}{n_{k_l}}\xrightarrow{P}{(1+c)}^2.
     $$
-    Hence the conclusion holds along this subsequance. If $c=+\infty$, suppose $W_n=Z_n Z_n^T$ where $Z_n$ is a $p\times n$ matrix with all elements distributed as $N(0,1)$. Then
+    Hence the conclusion holds along this subsequance.
+    If $c=+\infty$, suppose $W_n=Z_n Z_n^T$ where $Z_n$ is a $p\times n$ matrix with all elements independently distributed as $N(0,1)$. Then
     $$
-    \frac{\lambda_1(W_{n_{k_l}})}{p}=\frac{Z_{n_{k_l}}^T Z_{n_{k_l}}}{p}\xrightarrow{P} 1,
+    \frac{\lambda_1(W_{n_{k_l}})}{p}=\frac{\lambda_1(Z_{n_{k_l}}^T Z_{n_{k_l}})}{p}\xrightarrow{P} 1
     $$
     by Lemma~\ref{baiyin}, which proves the conclusion along the subsequance. Now the conclusion holds by a standard subsequance argument.
 \end{proof}
@@ -905,29 +871,213 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 
 The rest of the Appendix is devoted to the proof of propositions and theorems in the paper.
 
+\begin{proof}[\textbf{Proof of Theorem~\ref{Chenstheory}}]
+    Note that $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\Sigma)$, $k=1,2$, we have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\Sigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
+    %Note that $\lambda_{r+1}(\Sigma)=\cdots=\lambda_p(\Sigma)=\sigma^2$, by central limit theorem, we have
+    %$$
+    %\begin{aligned}
+        %&\sum_{i=1}^{p} \lambda_i (\Sigma) W_i=
+    %\sum_{i=1}^{r} \lambda_i (\Sigma) W_i+
+    %\sum_{i=r+1}^{p} \sigma^2 W_i\\
+        %\sim&
+    %\sum_{i=1}^{r} \lambda_i (\Sigma) W_i+
+        %(p-r)(n_1-1)\sigma^2+
+        %\sqrt{(n_1-1)(p-r)}\sigma^2\epsilon+o_P(\sqrt{np}),
+    %\end{aligned}
+    %$$
+    %where $\epsilon\sim N(0,1)$. By law of large numbers, we have $W_i/(n_i-1)\xrightarrow{P}1$. Hence
+%$$
+%\begin{aligned} 
+    %\frac{1}{\tau p^{\beta} n_1}\mytr S_1
+    %&\sim
+    %\frac{1}{\tau n_1}\sum_{i=1}^{r} \frac{\lambda_i +\sigma^2}{p^{\beta}} \frac{W_i}{n_i-1}+
+        %\frac{p-r}{\tau p^{\beta}n_1}\sigma^2+
+        %\frac{1}{\tau p^\beta n_1}\sqrt{\frac{p-r}{n_1-1}}\sigma^2\epsilon+o_P(n^{-1/2}p^{1/2-\beta})\\
+        %&=
+    %\frac{1}{\tau n_1}\sum_{i=1}^{r} l_i+
+        %\frac{p-r}{\tau p^{\beta}n_1}\sigma^2+
+        %\frac{1}{\tau p^\beta n_1}\sqrt{\frac{p-r}{n_1-1}}\sigma^2\epsilon+o_P(1)\\
+%\end{aligned}
+%$$
+%
+    %Hence
+    $$
+ \myE\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=\tau \mytr\Sigma,
+    $$
+    and
+    $$
+    \begin{aligned}
+        &\myVar\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=
+        \Big(\frac{2}{n_1^2(n_1-1)}+\frac{2}{n_2^2(n_2-1)}\Big)\mytr \Sigma^2\\
+        =&
+    O\Big(\frac{1}{n^3}(p^{2\beta}+p)\Big)=O\Big(\frac{p^{2\beta}}{n^3}\Big).
+    \end{aligned}
+    $$
+    It follows that
+    $$
+    \begin{aligned}
+        &\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2=
+    \tau \mytr \Sigma+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
+        =&\tau \sum_{i=1}^r (\lambda_i+\sigma^2)+\tau(p-r)\sigma^2+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
+        =&\tau p^{\beta} \sum_{i=1}^r l_i+\tau(p-r)\sigma^2+o_P\Big(\frac{1}{n}p^{\beta}\Big).
+    \end{aligned}
+    $$
+Thus,
+        \begin{equation}\label{eq:kkk1}
+        \frac{1}{\tau p^\beta}\big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\big)
+        =\sum_{i=1}^r l_i+p^{1-\beta}\sigma^2+o_P(1).
+        \end{equation}
 
-\begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
-    Let $Y_{k,i}=\tilde{V}^T (X_{k,i}-\mu_k)$, $i=1,\ldots,n_k$, $k=1,2$.
-    Then $Y_{k,i}\sim N(\tilde{V}^T\mu_k,\sigma^2 I_{p-r})$.
-    Let $\bar{Y}_1$ and $\bar{Y}_2$ be the sample means of $\{Y_{1,i}\}_{i=1}^{n_1}$ and $\{Y_{2,i}\}_{i=1}^{n_2}$ respectively. 
-    Then
+    Next we deal with $\|\bar{X}_1-\bar{X}_2\|^2$.
+    Note that we have
+    $$
+    \|\bar{X}_1-\bar{X}_2\|^2=
+    \|V^T(\bar{X}_1-\bar{X}_2)\|^2+
+    \|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2.
+    $$
+    These two terms are independent.
+    For the first term, note that $V^T(\bar{X}_1-\bar{X}_2)\sim N_r\big(V^T (\mu_1-\mu_2),\tau (\Lambda+\sigma^2 I_r)\big)$, we have
+    $$
+    \begin{aligned}
+        \|V^T(\bar{X}_1-\bar{X}_2)\|^2&\sim
+        \sum_{i=1}^r \Big(\sqrt{\tau (\lambda_i+\sigma^2)}Z_i+\big(V^T (\mu_1-\mu_2)\big)_i \Big)^2\\
+        &=\tau p^{\beta}
+        \sum_{i=1}^r
+        \Big( \sqrt{p^{-\beta}(\lambda_i+\sigma^2)}Z_i+\frac{1}{\sqrt{\tau p^{\beta}}}\big(V^T (\mu_1-\mu_2)\big)_i \Big)^2.
+    \end{aligned}
+    $$
+    By the assumptions of the theorem,  we have that
+    \begin{equation}\label{eq:kkk2}
+    \begin{aligned}
+        \frac{1}{\tau p^{\beta}}\|V^T(\bar{X}_1-\bar{X}_2)\|^2
+        \xrightarrow{\mathcal{L}}
+        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2.
+    \end{aligned}
+    \end{equation}
+
+    As for $\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2$, we have that
     \begin{equation}\label{prop1eq1}
         \begin{aligned}
             &\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2
-            =\|\tilde{V}^T(\mu_1-\mu_2)+(\bar{Y}_1-\bar{Y}_2)\|^2\\
-            =&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+\|\bar{Y}_1-\bar{Y}_2\|^2+
-            2{(\mu_1-\mu_2)}^T\tilde{V}(\bar{Y}_1-\bar{Y}_2)\\
-            =&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+\|\bar{Y}_1-\bar{Y}_2\|^2+
+            =\big\|\tilde{V}^T(\mu_1-\mu_2)+\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2\\
+            =&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+
+            \big\|\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2+
+            2{(\mu_1-\mu_2)}^T\tilde{V}\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big).
+        \end{aligned}
+    \end{equation}
+Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2),  \sigma^2 \tau I_{p-r})$, by central limit theorem, we have
+    $$
+\frac{
+    \big\|\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2-\sigma^2 \tau (p-r)}{\sigma^2 \tau\sqrt{2(p-r)}}\xrightarrow{\mathcal{L}} N(0,1).
+    $$
+    For the intersection term, we have
+    \begin{equation*}
+        \begin{aligned}
+            &2{(\mu_1-\mu_2)}^T\tilde{V}\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)
+            \sim N(0,4\sigma^2 \tau \|\tilde{V}^T(\mu_1-\mu_2)\|^2)\\
+            =& O_P(\sqrt{\tau}\|\tilde{V}^T(\mu_1-\mu_2)\| )=o_P(\tau p^{\beta}).
+        \end{aligned}
+    \end{equation*}
+    It follows that
+    \begin{equation}\label{eq:kkk3}
+\frac{1}{\tau p^\beta}
+    \big(\big\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\big\|^2-\sigma^2 \tau (p-r)-\big\|\tilde{V}^T(\mu_1-\mu_2)\big\|^2\big)
+    \xrightarrow{\mathcal{L}} 
+    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon.
+    \end{equation}
+
+
+    Combining~\eqref{eq:kkk1}~\eqref{eq:kkk2} and~\eqref{eq:kkk3} leads to
+    $$
+    \begin{aligned}
+        &\frac{1}{\tau p^{\beta}} T_{CQ}
+        =\frac{1}{\tau p^{\beta}}\big(\|\bar{X}_1-\bar{X}_2\|^2-\frac{1}{n_1}\mytr S_1-\frac{1}{n_2}\mytr S_2\big)\\
+        =&
+        \frac{1}{\tau p^{\beta}}{\|V^T(\bar{X}_1-\bar{X}_2)\|^2}+
+        \frac{1}{\tau p^{\beta}} \big({\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2-\sigma^2 \tau(p-r)-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}\big)\\
+        &-\frac{1}{\tau p^{\beta}}\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)+\frac{\sigma^2 (p-r)}{p^\beta}+\frac{1}{\tau p^\beta}\|\tilde{V}^T(\mu_1-\mu_2)\|^2\\
+        =&
+        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
+   \sqrt{2} \sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+        -
+        (\sum_{i=1}^r l_i+p^{1-\beta}\sigma^2)
+        +\frac{\sigma^2 (p-r)}{p^\beta}+\zeta^*+o_P(1)\\
+        \xrightarrow{\mathcal{L}}&
+        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
+\zeta^*+
+    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+        -
+        \sum_{i=1}^r l_i.
+    \end{aligned}
+    $$
+    This completes the proof.
+
+    %Note that we have $\|\bar{X}_1-\bar{X}_2\|^2\sim \tau(\sum_{i=1}^r \lambda_i(\Sigma)Z_i+\sigma^2 W)$, where $Z_i\overset{i.i.d.}{\sim}\chi^2_1$ and $W\sim \chi^2_{p-r}$ is independent of $Z_i$'s. Then
+    %$$
+    %\frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2
+    %\sim\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i
+    %+\frac{\sigma^2}{p^{\beta}}W.
+    %$$
+    %It's easy to see that 
+    %$$\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i\xrightarrow{\mathcal{L}}\sum_{i=1}^r l_i Z_i.$$
+    %By central limit theorem, we have
+    %$$
+    %\frac{1}{\sqrt{2(p-r)}}\big( W-(p-r)\big)\xrightarrow{\mathcal{L}}N(0,1).
+    %$$
+%
+    %If $\beta=1/2$, by Slutsky's theorem we have
+    %$$
+    %\frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2-\frac{\sigma^2(p-r)}{p^\beta}\xrightarrow{\mathcal{L}}
+    %\sum_{i=1}^r l_i Z_i+\sqrt{2}\sigma^2 \epsilon.
+    %$$
+    %where $\epsilon\sim N(0,1)$
+
+\end{proof}
+
+
+\begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
+Note that
+    \begin{equation}
+        \begin{aligned}
+            &\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2
+            =\big\|\tilde{V}^T(\mu_1-\mu_2)+\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2\\
+            =&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+
+            \big\|\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2+
+            2{(\mu_1-\mu_2)}^T\tilde{V}\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\\
+            =&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+
+            \big\|\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2+
             o_P(\frac{\sqrt{p}}{n}).
         \end{aligned}
     \end{equation}
     The last equality holds since
     \begin{equation*}
         \begin{aligned}
-            &2{(\mu_1-\mu_2)}^T\tilde{V}(\bar{Y}_1-\bar{Y}_2)\sim N(0,4\sigma^2 \tau \|\tilde{V}^T(\mu_1-\mu_2)\|^2)\\
+            &2{(\mu_1-\mu_2)}^T\tilde{V}\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\sim N(0,4\sigma^2 \tau \|\tilde{V}^T(\mu_1-\mu_2)\|^2)\\
             =& O_P(\sqrt{\tau}\|\tilde{V}^T(\mu_1-\mu_2)\| )=o_P(\frac{\sqrt{p}}{n}).
         \end{aligned}
     \end{equation*}
+
+    %Let $Y_{k,i}=\tilde{V}^T (X_{k,i}-\mu_k)$, $i=1,\ldots,n_k$, $k=1,2$.
+    %Then $Y_{k,i}\sim N(\tilde{V}^T\mu_k,\sigma^2 I_{p-r})$.
+    %Let $\bar{Y}_1$ and $\bar{Y}_2$ be the sample means of $\{Y_{1,i}\}_{i=1}^{n_1}$ and $\{Y_{2,i}\}_{i=1}^{n_2}$ respectively. 
+    %Then
+    %\begin{equation}\label{prop1eq1}
+        %\begin{aligned}
+            %&\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2
+            %=\|\tilde{V}^T(\mu_1-\mu_2)+(\bar{Y}_1-\bar{Y}_2)\|^2\\
+            %=&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+\|\bar{Y}_1-\bar{Y}_2\|^2+
+            %2{(\mu_1-\mu_2)}^T\tilde{V}(\bar{Y}_1-\bar{Y}_2)\\
+            %=&\|\tilde{V}^T(\mu_1-\mu_2)\|^2+\|\bar{Y}_1-\bar{Y}_2\|^2+
+            %o_P(\frac{\sqrt{p}}{n}).
+        %\end{aligned}
+    %\end{equation}
+    %The last equality holds since
+    %\begin{equation*}
+        %\begin{aligned}
+            %&2{(\mu_1-\mu_2)}^T\tilde{V}(\bar{Y}_1-\bar{Y}_2)\sim N(0,4\sigma^2 \tau \|\tilde{V}^T(\mu_1-\mu_2)\|^2)\\
+            %=& O_P(\sqrt{\tau}\|\tilde{V}^T(\mu_1-\mu_2)\| )=o_P(\frac{\sqrt{p}}{n}).
+        %\end{aligned}
+    %\end{equation*}
     For $k=1,2$, we have
     %${n_k^{-1}} \tilde{V}^T S_k \tilde{V}\sim
     %\frac{\sigma^2}{n_k(n_k-1)}\operatorname{Wishart}_{p-r}(n_k-1,I_{p-r})
@@ -935,9 +1085,9 @@ The rest of the Appendix is devoted to the proof of propositions and theorems in
     %Then 
     \begin{equation*}
         \begin{aligned}
-            &\frac{1}{n_k} \mathrm{tr}(\tilde{V}^T S_k \tilde{V})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2_{(p-r)(n_k-1)}\\
-            =&
-            \sigma^2\frac{p-r}{n_k}(1+O_P(\frac{1}{\sqrt{(p-r)(n_k-1)}})),
+            &\frac{1}{n_k} \mathrm{tr}(\tilde{V}^T S_k \tilde{V})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2_{(p-r)(n_k-1)}
+            =
+            \sigma^2\frac{p-r}{n_k}\Big(1+O_P\big(\frac{1}{\sqrt{(p-r)(n_k-1)}}\big)\Big),
         \end{aligned}
     \end{equation*}
     where the last equality comes from central limit theorem. It follows that
@@ -1174,15 +1324,20 @@ where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables whic
         =O_P\Big(\frac{{(p/n+1)}^2}{p}\Big)=o_P(1).
 \end{equation}
 Then for every subsequence of $\{n\}$, there's a further subsequence along which~\eqref{inProbC} holds almost surely.
-By Lemma~\ref{quadraticFormCLT}, for every subsequence of $\{n\}$, there's a further subsequence along which we have
+By Lemma~\ref{quadraticFormCLT}, for every subsequence of $\{n\}$, there's a further subsequence along which
 \begin{equation}\label{aseq}
-\rho\Big(\mathcal{L}\Big(\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}\Big|S\Big),N(0,1)\Big)\xrightarrow{a.s.} 0.
+    \rho\big(\mathcal{L}( Z_n |S),N(0,1)\big)\xrightarrow{a.s.}0,
 \end{equation}
-It means that~\eqref{aseq} tends to $0$ in probability.
+where 
+$$
+Z_n=\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}.
+$$
+By the definition of weak convergence, for every continuous bounded function $f(\cdot)$, we have $E[f(Z_n)|S]\xrightarrow{a.s.}E[f(\epsilon)]$ along the subsequence, where $\epsilon\sim N(0,1)$.
+By dominated convergence theorem, we have $E[f(Z_n)]\to E[f(\epsilon)]$ along the subsequence.
+Thus, $Z_n\xrightarrow{\mathcal{L}}N(0,1)$ along the subsequence, or equivalently, $\rho(\mathcal{L}(Z_n,N(0,1)))\to 0$ along the subsequence. But this means $Z_n\xrightarrow{\mathcal{L}}N(0,1)$, or
 %$$
 %\rho\Big(\mathcal{L}\Big(\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}\Big|S\Big),N(0,1)\Big)\xrightarrow{P} 0.
 %$$
-It can be seen that the weak convergence also holds unconditionally.
 $$
 \frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}\xrightarrow{\mathcal{L}}N(0,1).
 $$
@@ -1198,148 +1353,6 @@ $$
 Now the desired asymptotic properties of $P_1$, $P_2$ and $P_3$ are established, the theorem follows.
 \end{proof}
 
-\begin{proof}[\textbf{Proof of Theorem~\ref{chilimthm}}]
-    Since we have assumed $p/n^2\to \infty$, throughout the proof, we assume $p>n$.
-    From the proof of Theorem~\ref{myPanpan} we know that 
-\begin{equation*}
-    \tau^{-1}\big\|\hat{\tilde{V}}^T(\bar{X}_1-\bar{X}_2)\big\|^2
-\sim
-    \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\xi_i^2,
-\end{equation*}
-where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{V}}$.
-Note that
-$\lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})
-   = 
-    \kappa p^{\beta}\lambda_i(\hat{\tilde{V}}^TVV^T\hat{\tilde{V}})+\sigma^2
-    $, $i=1,\ldots, p-r$.
-    The rank of $\hat{\tilde{V}}^TVV^T\hat{\tilde{V}}$ is $r$. For $i=1,\ldots, r$,
-    \begin{equation*}
-        \begin{aligned}
-            &\lambda_i(\hat{\tilde{V}}^TVV^T\hat{\tilde{V}})=
-    \lambda_i(V^T\hat{\tilde{V}}\hat{\tilde{V}}^TV)=
-            \lambda_i(V^T(I_p-\hat{V}\hat{V}^T)V)=
-            \lambda_i(I_r-V^T\hat{V}\hat{V}^T V)\\
-            =&
-            \lambda_i(I_r-\hat{V}^T VV^T\hat{V})=
-            \lambda_i(\hat{V}^T(I_p- VV^T)\hat{V})=
-            \lambda_i(\hat{V}^T \tilde{V}\tilde{V}^T\hat{V})=
-            \lambda_i(\tilde{V}^T\hat{V}\hat{V}^T \tilde{V}).
-        \end{aligned}
-    \end{equation*}
-    It follows that
-    \begin{equation}\label{aimafenjie}
-    \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\xi_i^2
-=
-    \kappa p^{\beta}\sum_{i=1}^r \lambda_i(\tilde{V}^T\hat{V}\hat{V}^T\tilde{V})\xi_i^2+
-    \sigma^2\sum_{i=1}^{p-r}\xi_i^2.
-\end{equation}
-For current purpose, we need the exact limit of $\tilde{V}^T\hat{V}\hat{V}^T\tilde{V}$ which, to the best of our knowledge,
-is not provided by existing PCA theory in the current context.
-
-Denote by $\Sigma=UEU^T$ the spectral decomposition of $\Sigma$, where $U=(V,\tilde{V})$ and $E=\mathrm{diag}(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
-    Denote by $S=\hat{U}\hat{E}\hat{U}^T$ the spectral decomposition of $S$, where $\hat{U}=(\hat{V},\hat{\tilde{V}})$ and $\hat{E}=\mydiag(\hat{\lambda}_1,\ldots,\hat{\lambda}_p)$.
-    To study the property of $\tilde{V}^T\hat{V}\hat{V}^T\tilde{V}$, we need to first consider $\hat{\lambda}_i$, the $i$th eigenvalue of $S$, $i=1,\ldots, r$.
-
-    Let $Z$ be a $p\times (n-2)$ random matrix with all elements i.i.d.\ distributed as $N(0,1)$.
-    Denote $Z={(Z_{(1)}^T,Z_{(2)}^T)}^T$, where $Z_{(1)}$ and $Z_{(2)}$ are the first $r$ rows and last $p-r$ rows of $Z$. 
-    We have
-    \begin{equation}\label{aiai}
-    S\sim \frac{1}{n-2} U E^{1/2} Z Z^T E^{1/2} U^T.
-\end{equation}
-    It can be seen that $\hat{\lambda}_i=\lambda_i(S)\sim (n-2)^{-1}\lambda_i(Z^T E Z)$, $i=1,\ldots,r$.
-    The  equality
-    $
-    Z^T E Z=(\kappa p^{\beta}+\sigma^2) Z_{(1)}^T Z_{(1)}+
-\sigma^2 Z_{(2)}^T  Z_{(2)}
-    $
-    leads to
-    $$
-    (\kappa p^{\beta}+\sigma^2)\lambda_i(Z_{(1)}^T Z_{(1)})+\lambda_{\min}(Z_{(2)}^T Z_{(2)})
-    \leq \lambda_i(Z^T E Z)
-    \leq
-    (\kappa p^{\beta}+\sigma^2)\lambda_i(Z_{(1)}^T Z_{(1)})+\lambda_{\max}(Z_{(2)}^T Z_{(2)}),
-    $$
-    $i=1,\ldots, r$.
-    By Bai-Yin's law, we have
-    \begin{equation}\label{minmaxeigEq}
-    \lambda_{\max}(Z_{(2)}^T Z_{(2)})=p(1+o_P(1)),\quad \lambda_{\min}(Z_{(2)}^T Z_{(2)})=p(1+o_P(1))
-    \end{equation}
-    By law of large numbers, $\lambda_i(Z_{(1)}^T Z_{(1)})=\lambda_i(Z_{(1)}Z_{(1)}^T)=n(1+o_P(1))$, $i=1,\ldots,r$.
-    Combining the above arguments leads to
-    \begin{equation}\label{eeexxx}
-        \hat{\lambda}_i=\big(\kappa p^{\beta}+\frac{p}{n}\sigma^2\big)(1+o_P(1)),\quad
-    \textrm{$i=1,\ldots,r$}.
-    \end{equation}
-
-    Next we deal with the eigenvectors of $S$, note that~\eqref{aiai} implies
-    $
-    \sigma^{-2}\tilde{V}^T S \tilde{V} \sim {(n-2)}^{-1} Z_{(2)} Z_{(2)}^T
-    $. Let $\hat{E}_1=(\hat{\lambda}_1,\ldots,\hat{\lambda}_r)$, $\hat{E}_2=(\hat{\lambda}_{r+1},\ldots,\hat{\lambda}_{p})$, then $S=\hat{V}\hat{E}_1\hat{V}^T+\hat{\tilde{V}}\hat{E}_2\hat{\tilde{V}}^T$.
-    We have
-$$
-    \tilde{V}^T S \tilde{V}=
-    \tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V}+
-    \tilde{V}^T\hat{\tilde{V}}\hat{E}_2\hat{\tilde{V}}^T \tilde{V} \sim
-    \frac{\sigma^2}{n-2} Z_{(2)} Z_{(2)}^T.
-$$
-The ranks of $\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V}$ and $\tilde{V}^T\hat{\tilde{V}}\hat{E}_2\hat{\tilde{V}}^T \tilde{V}$ are $r$ and $n-2-r$ respectively. 
-By Weyl's inequality, we have
-$$
-\lambda_{n-2}(\tilde{V}^T S \tilde{V})
-\leq
-\lambda_r(\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V})
-\leq
-\lambda_1(\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V})
-\leq \lambda_1(\tilde{V}^T S\tilde{V}).
-$$
-We apply~\eqref{minmaxeigEq} to get
-$$
-\lambda_1(\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V})=\frac{p}{n}\sigma^2(1+o_P(1)),\quad
-\lambda_r(\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V})=\frac{p}{n}\sigma^2(1+o_P(1)).
-$$
-This, together with inequality $
-\hat{\lambda}_1^{-1}\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V}
-\leq
-\tilde{V}^T \hat{V}\hat{V}^T\tilde{V}
-\leq
-\hat{\lambda}_r^{-1}
-\tilde{V}^T \hat{V}\hat{E}_1\hat{V}^T\tilde{V}$ and~\eqref{eeexxx}, implies that
-$$
-\lambda_1(\tilde{V}^T \hat{V}\hat{V}^T\tilde{V})=\frac{p\sigma^2}{\kappa n p^{\beta}+p\sigma^2}(1+o_P(1))
-,\quad
-\lambda_r(\tilde{V}^T \hat{V}\hat{V}^T\tilde{V})=\frac{p\sigma^2}{\kappa n p^{\beta}+p\sigma^2}(1+o_P(1)).
-$$
-
-Now come back to~\eqref{aimafenjie},
-\begin{equation*}
-    \begin{aligned}
-    \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\xi_i^2
-        -(p-r)\sigma^2
-        &=
-    \kappa p^{\beta}\sum_{i=1}^r \lambda_i(\tilde{V}^T\hat{V}\hat{V}^T\tilde{V})\xi_i^2+
-        \sigma^2\sum_{i=1}^{p-r}(\xi_i^2-1)\\
-        &=
-        (1+o_P(1))
-        \frac{\kappa p^{\beta+1}\sigma^2}{\kappa n p^{\beta}+p\sigma^2}\sum_{i=1}^r \xi_i^2
-        +
-        O_P(\sqrt{p}).\\
-    \end{aligned}
-\end{equation*}
-Since we have assumed $p/n^2\to \infty$ and $\beta>1/2$, we have
-$$
-\sqrt{p}=o\big(\frac{\kappa p^{\beta+1}\sigma^2}{\kappa n p^{\beta}+p\sigma^2}\big).
-$$
-Then
-\begin{equation*}
-    \begin{aligned}
-        \frac{\kappa n p^{\beta}+p\sigma^2}{\kappa p^{\beta+1}\sigma^2}
-        \Big(\sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\xi_i^2
-        -(p-r)\sigma^2\Big)=\sum_{i=1}^r \xi_i^2+o_P(1),
-    \end{aligned}
-\end{equation*}
-which proves the theorem.
-
-\end{proof}
 
 
 

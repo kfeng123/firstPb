@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  24 JUN 2017 22:01
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  25 JUN 2017 22:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1302,7 +1302,36 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 
 ] [2] [3]
-Overfull \hbox (2.13774pt too wide) in paragraph at lines 201--203
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 212.
+
+
+Overfull \hbox (2.13774pt too wide) in paragraph at lines 213--215
 []\EU1/lmr/m/n/10 Let $\OML/cmm/m/it/10 X[]; [] ; X[]$ \EU1/lmr/m/n/10 be i.i.d
 . observations with common distribution $\OML/cmm/m/it/10 N\OT1/cmr/m/n/10 (\OM
 L/cmm/m/it/10 ^^V[]; \OT1/cmr/m/n/10 ^^F)$\EU1/lmr/m/n/10 ,
@@ -1317,11 +1346,7 @@ tor form $\OML/cmm/m/it/10 Z \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 Z[]; [] ; Z[];
  []
 
 [5] [6] [7]
-
-LaTeX Warning: Reference `newIf' on page 8 undefined on input line 404.
-
-
-Overfull \hbox (0.58598pt too wide) detected at line 418
+Overfull \hbox (0.58598pt too wide) detected at line 410
 [] []\OML/cmm/m/it/10 ^^\\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 
 ([] \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k[][] \OT1/cmr/m/n
 /10 = [] 2(\OML/cmm/m/it/10 ^^U[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^[[]\OT1/
@@ -1331,75 +1356,36 @@ cmr/m/n/10 )[]\OML/cmm/m/it/10 ;  [] []\OMS/cmsy/m/n/10 k[]\OT1/cmr/m/n/10 ([]
 ^@ \OML/cmm/m/it/10 r\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
-[8]
-
-LaTeX Warning: Reference `balance' on page 9 undefined on input line 454.
-
-
-LaTeX Warning: Reference `theModel2' on page 9 undefined on input line 454.
-
-[9] [10]
-
-LaTeX Warning: Reference `sameTheorem' on page 11 undefined on input line 553.
-
-
-LaTeX Warning: Reference `balance' on page 11 undefined on input line 573.
-
-
-LaTeX Warning: Reference `theModel2' on page 11 undefined on input line 573.
-
-[11]
-
-LaTeX Warning: Reference `balance' on page 12 undefined on input line 593.
-
-
-LaTeX Warning: Reference `balance' on page 12 undefined on input line 609.
-
-
-LaTeX Warning: Reference `balance' on page 12 undefined on input line 631.
-
-
-LaTeX Warning: Reference `theModel2' on page 12 undefined on input line 631.
-
-[12] (./code/level.tex) (./code/level2.tex)
+[8] [9] [10] [11] (./code/level.tex) (./code/level2.tex)
 File: code/fig1.jpeg Graphic file (type QTm)
- <use  "code/fig1.jpeg" >
-File: code/fig2.jpeg Graphic file (type QTm)
 
-<use  "code/fig2.jpeg" >
+<use  "code/fig1.jpeg" >
+File: code/fig2.jpeg Graphic file (type QTm)
+ <use  "code/fig2.jpeg" >
 File: code/fig3.jpeg Graphic file (type QTm)
  <use  "code/fig3.jpeg" >
 File: code/fig4.jpeg Graphic file (type QTm)
- <use  "code/fig4.jpeg" >
-[13]
+
+<use  "code/fig4.jpeg" > [12]
 File: code/fig5.jpeg Graphic file (type QTm)
  <use  "code/fig5.jpeg" >
 File: code/fig6.jpeg Graphic file (type QTm)
- <use  "code/fig6.jpeg" >
+
+<use  "code/fig6.jpeg" >
 File: code/fig7.jpeg Graphic file (type QTm)
-
-<use  "code/fig7.jpeg" >
+ <use  "code/fig7.jpeg" >
 File: code/fig8.jpeg Graphic file (type QTm)
- <use  "code/fig8.jpeg" > [14] [15] [16] [17]
-
-LaTeX Warning: Reference `balance' on page 18 undefined on input line 803.
-
-
-LaTeX Warning: Reference `theModel2' on page 18 undefined on input line 803.
-
-
-LaTeX Warning: Reference `orderOfBeta' on page 18 undefined on input line 817.
-
-[18]
-Overfull \hbox (9.07637pt too wide) in paragraph at lines 830--831
-[]  \EU1/lmr/bx/n/10 Corollary 3. []\EU1/lmr/m/it/10 Suppose that $\OML/cmm/m/i
+ <use  "code/fig8.jpeg" >
+[13] [14] [15] [16] [17]
+Overfull \hbox (6.00658pt too wide) in paragraph at lines 795--796
+[]  \EU1/lmr/bx/n/10 Corollary 2. []\EU1/lmr/m/it/10 Suppose that $\OML/cmm/m/i
 t/10 W[]$ \EU1/lmr/m/it/10 is a $\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^B \OML/c
 mm/m/it/10 p$ \EU1/lmr/m/it/10 matrix distributed as $[][]\OT1/cmr/m/n/10 (\OML
-/cmm/m/it/10 n; I[]\OT1/cmr/m/n/10 )$\EU1/lmr/m/it/10 .
+/cmm/m/it/10 n; I[]\OT1/cmr/m/n/10 )$
  []
 
-[19]
-Overfull \hbox (15.78859pt too wide) in paragraph at lines 872--878
+[18]
+Overfull \hbox (15.78859pt too wide) in paragraph at lines 838--844
 []\EU1/lmr/m/n/10 Denote $\OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/
 10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[]\OT1/cmr/m/n/10 )/[][]$ \EU1/lmr/m
 /n/10 ($\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; [] ; k[]$\EU1/
@@ -1409,12 +1395,12 @@ lmr/m/n/10 ), we have $\OML/cmm/m/it/10 c[] \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10
  []
 
 
-Overfull \hbox (3.19302pt too wide) detected at line 893
+Overfull \hbox (3.19302pt too wide) detected at line 859
 [] []
  []
 
 
-Overfull \hbox (11.00288pt too wide) in paragraph at lines 893--901
+Overfull \hbox (11.00288pt too wide) in paragraph at lines 859--867
 \EU1/lmr/m/n/10 Denote $\OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 = [][] [][]$\EU1/l
 mr/m/n/10 , $\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; \OT1/cmr/
 m/n/10 2\OML/cmm/m/it/10 ; [] $ \EU1/lmr/m/n/10 and $\OML/cmm/m/it/10 l \OT1/cm
@@ -1423,29 +1409,49 @@ r/m/n/10 = 3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; [] $\EU1/lmr
 mr/m/n/10 , $[] [][] [][][] \OMS/cmsy/m/n/10 ^^T
  []
 
-[20]
-Overfull \hbox (23.39941pt too wide) detected at line 983
+[19] [20]
+Overfull \hbox (82.12445pt too wide) detected at line 967
+[] []
+ []
+
+
+Overfull \hbox (15.58655pt too wide) detected at line 1012
+[] []
+ []
+
+
+Overfull \hbox (79.34666pt too wide) detected at line 1051
 [] []
  []
 
 [21]
-Overfull \hbox (57.01933pt too wide) detected at line 1048
+Overfull \hbox (26.61127pt too wide) detected at line 1092
+[] []
+ []
+
+
+Overfull \hbox (23.39941pt too wide) detected at line 1133
+[] []
+ []
+
+[22]
+Overfull \hbox (57.01933pt too wide) detected at line 1198
 [] \OT1/cmr/m/n/10 = [] + \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 ([])\OML/cmm/m/it
 /10 :
  []
 
 
-Overfull \hbox (20.05505pt too wide) detected at line 1063
-[] []
- []
-
-[22]
-Overfull \hbox (2.61203pt too wide) detected at line 1136
+Overfull \hbox (20.05505pt too wide) detected at line 1213
 [] []
  []
 
 [23]
-Overfull \hbox (22.05766pt too wide) in paragraph at lines 1144--1147
+Overfull \hbox (2.61203pt too wide) detected at line 1286
+[] []
+ []
+
+[24]
+Overfull \hbox (22.05766pt too wide) in paragraph at lines 1294--1297
 []\EU1/lmr/m/n/10 The conditional distribution of $[]\OML/cmm/m/it/10 V[][]\OT1
 /cmr/m/n/10 ([] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 ) \O
 MS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 ([] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^
@@ -1455,63 +1461,28 @@ V[]\OT1/cmr/m/n/10 )[]$ \EU1/lmr/m/n/10 given $\OML/cmm/m/it/10 S$ \EU1/lmr/m/n
  []
 
 
-Overfull \hbox (3.5844pt too wide) in paragraph at lines 1175--1178
+Overfull \hbox (3.5844pt too wide) in paragraph at lines 1325--1328
 \EU1/lmr/m/n/10 Then for every subsequence of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/
 10 n\OMS/cmsy/m/n/10 g$\EU1/lmr/m/n/10 , there’s a further subsequence along wh
 ich []
  []
 
-[24]
-Overfull \hbox (4.33415pt too wide) detected at line 1228
-[] []
- []
-
-[25]
-Overfull \hbox (61.4955pt too wide) detected at line 1261
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Tp[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^[
-[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z[]Z
-[]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z
-[]Z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 Z[]EZ\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T \OT1/cmr/m/n/1
-0 (\OML/cmm/m/it/10 ^^Tp[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n
-/10 )\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z[]Z[]\OT1/cmr/m/n
-/10 ) + \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z[]Z[]\OT1/cmr/
-m/n/10 )\OML/cmm/m/it/10 ;
- []
-
-[26]
-Overfull \hbox (3.0482pt too wide) in paragraph at lines 1299--1307
-\EU1/lmr/m/n/10 This, together with inequality $[][][][][][] \OMS/cmsy/m/n/10 ^
-^T [][][][] ^^T [][][][][][]$
- []
-
-
-Overfull \hbox (19.16862pt too wide) detected at line 1311
-\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 ([][][][]) = [](1 + \OML/cmm/m/it/10 o[]\
-OT1/cmr/m/n/10 (1))\OML/cmm/m/it/10 ;  ^^U[]\OT1/cmr/m/n/10 ([][][][]) = [](1 +
- \OML/cmm/m/it/10 o[]\OT1/cmr/m/n/10 (1))\OML/cmm/m/it/10 :
- []
-
-(./main.bbl [27] [28])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1356.
- [29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1356.
+[25] (./main.bbl [26] [27])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1369.
+ [28]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1369.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1356.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1356.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1356.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1369.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1369.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1369.
  ) 
 Here is how much of TeX's memory you used:
- 25237 strings out of 493638
- 458075 string characters out of 6146796
- 488030 words of memory out of 5000000
- 28397 multiletter control sequences out of 15000+600000
+ 25238 strings out of 493638
+ 458184 string characters out of 6146796
+ 490029 words of memory out of 5000000
+ 28398 multiletter control sequences out of 15000+600000
  14263 words of font info for 73 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,12n,74p,10426b,793s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,17n,74p,10426b,821s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (29 pages).
+Output written on main.pdf (28 pages).
