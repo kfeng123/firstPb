@@ -71,7 +71,7 @@ myPlot=function(uio){
     cc=seq(0,5,1)
     temp1=data.frame(h=cc,Power=uio$my,Method="New")
     temp2=data.frame(h=cc,Power=uio$chen,Method="CQ")
-    temp3=data.frame(h=cc,Power=uio$sri,Method="S")
+    temp3=data.frame(h=cc,Power=uio$sri,Method="SD")
     myD=rbind(temp1,temp2,temp3)
     ggplot(data=myD,aes(x=h,y=Power,color=Method,linetype=Method))+
         geom_line()+

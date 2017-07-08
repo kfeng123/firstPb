@@ -33,6 +33,16 @@
 \newblock \bibinfo{journal}{Annals of Probability}
   \bibinfo{year}{1993};\bibinfo{volume}{21}(\bibinfo{number}{3}):\bibinfo{pages}{1275--1294}.
 %Type = Article
+\bibitem[{Birnbaum et~al.(2013)Birnbaum, Johnstone, Nadler and
+  Paul}]{Birnbaum2013}
+\bibinfo{author}{Birnbaum\xfnm[ A.]}, \bibinfo{author}{Johnstone\xfnm[ I.M.]},
+  \bibinfo{author}{Nadler\xfnm[ B.]}, \bibinfo{author}{Paul\xfnm[ D.]}.
+\newblock \bibinfo{title}{Minimax bounds for sparse pca with noisy
+  high-dimensional data}.
+\newblock \bibinfo{journal}{The Annals of Statistics}
+  \bibinfo{year}{2013};\bibinfo{volume}{41}(\bibinfo{number}{3}):\bibinfo{pages}{1055--1084}.
+\newblock \DOIprefix\doi{10.1214/12-aos1014}.
+%Type = Article
 \bibitem[{Cai et~al.(2014)Cai, Liu and Xia}]{Tony2013}
 \bibinfo{author}{Cai\xfnm[ T.T.]}, \bibinfo{author}{Liu\xfnm[ W.]},
   \bibinfo{author}{Xia\xfnm[ Y.]}.
@@ -66,12 +76,6 @@
 \newblock \bibinfo{journal}{Ann Statist}
   \bibinfo{year}{2010};\bibinfo{volume}{38}(\bibinfo{number}{2}):\bibinfo{pages}{808--835}.
 \newblock \DOIprefix\doi{10.1214/09-AOS716}.
-%Type = Article
-\bibitem[{Durrett(2010)}]{durrett2010probability}
-\bibinfo{author}{Durrett\xfnm[ R.]}.
-\newblock \bibinfo{title}{Probability : theory and examples}.
-\newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{year}{2010};\bibinfo{volume}{87}(\bibinfo{number}{418}):\bibinfo{pages}{586}.
 %Type = Article
 \bibitem[{Fan and Wang(2017)}]{Fan2015Asymptotics}
 \bibinfo{author}{Fan\xfnm[ J.]}, \bibinfo{author}{Wang\xfnm[ W.]}.
@@ -120,13 +124,16 @@
   \bibinfo{year}{2015};\bibinfo{volume}{140}:\bibinfo{pages}{162--170}.
 \newblock \DOIprefix\doi{10.1016/j.jmva.2015.05.005}.
 %Type = Article
-\bibitem[{Shen et~al.(2013)Shen, Shen and Marron}]{Shen2013Consistency}
-\bibinfo{author}{Shen\xfnm[ D.]}, \bibinfo{author}{Shen\xfnm[ H.]},
-  \bibinfo{author}{Marron\xfnm[ J.S.]}.
-\newblock \bibinfo{title}{Consistency of sparse pca in high dimension, low
-  sample size contexts}.
-\newblock \bibinfo{journal}{Journal of Multivariate Analysis}
-  \bibinfo{year}{2013};\bibinfo{volume}{115}(\bibinfo{number}{1}):\bibinfo{pages}{317--333}.
+\bibitem[{Passemier et~al.(2017)Passemier, Li and Yao}]{Passemier2015}
+\bibinfo{author}{Passemier\xfnm[ D.]}, \bibinfo{author}{Li\xfnm[ Z.]},
+  \bibinfo{author}{Yao\xfnm[ J.]}.
+\newblock \bibinfo{title}{On estimation of the noise variance in high
+  dimensional probabilistic principal component analysis}.
+\newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
+  (Statistical Methodology)}
+  \bibinfo{year}{2017};\bibinfo{volume}{79}(\bibinfo{number}{1}):\bibinfo{pages}{51--67}.
+\newblock \URLprefix \url{https://doi.org/10.1111/rssb.12153}.
+  \DOIprefix\doi{10.1111/rssb.12153}.
 %Type = Article
 \bibitem[{Srivastava and Du(2008)}]{Srivastava2008A}
 \bibinfo{author}{Srivastava\xfnm[ M.S.]}, \bibinfo{author}{Du\xfnm[ M.]}.

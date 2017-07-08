@@ -51,6 +51,9 @@
 \DeclareMathOperator{\myE}{E}
 \DeclareMathOperator{\myVar}{Var}
 
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\ud}{\mathbf{d}}
 
 
 
@@ -90,10 +93,11 @@
 
 
 \begin{abstract}
-    This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.  The covariance matrices are assumed to be spiked, which often arises in practice. 
+    This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.
+    The covariance matrices are assumed to be spiked, which often arises in practice. 
     We propose a new test procedure through projection on the orthogonal complement of principal space.
     The asymptotic normality of the new test statistic is proved and the power function of the test is given.
-    Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrices are spiked. Even when the covariance matrices are not spiked, the new test is acceptable.
+    Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrices are spiked.
 \end{abstract}
 
 \begin{keyword}
@@ -108,21 +112,17 @@
 
 \section{Introduction}
 
-Suppose that $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (i.i.d.) as $N_p(\mu_k,\Sigma)$, where $\mu_k$ and $\Sigma$ are unknown, $k=1,2$. We consider the hypothesis testing problem:
+Suppose $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (i.i.d.) $p$-dimensional normal random vectors with unknown mean vector $\mu_k$ and covariance matrix $\Sigma$, $k=1,2$. We consider the hypothesis testing problem
 
 \begin{equation}\label{problem}
     H_0:\mu_1=\mu_2\quad \textrm{vs.}\quad H_1:\mu_1\neq \mu_2.
 \end{equation}
- In this paper, high dimensional setting is adopted, i.e., the dimension $p$ varies as $n$ increase, where $n=n_1+n_2$ is the total sample size.
-Testing hypotheses~\eqref{problem} is important in many applications, including biology, finance and economics.
-Quite often,  these data have strong correlations between variables.
-When strong correlations exist, covariance matrices are often spiked in the sense that a few eigenvalues are distinctively larger than the others.
-This paper is devoted to
-testing hypotheses~\eqref{problem} in high dimensional setting with spiked covariance.
+ In this paper, {the} high dimensional setting is adopted, i.e., the dimension $p$ varies as $n$ increase, where $n=n_1+n_2$ is the total sample size.
+Testing hypotheses~\eqref{problem} is important in many fields, including biology, finance and economics.
 
 
 A classical test for hypotheses~\eqref{problem} is Hotelling's $T^2$ test.
-Hotelling's test statistic is ${(\bar{X}_1-\bar{X}_2)}^T S^{-1}(\bar{X}_1-\bar{X}_2)$, where
+Hotelling's test statistic is ${(\bar{X}_1-\bar{X}_2)}^T S^{-1}(\bar{X}_1-\bar{X}_2)$, where $\bar{X}_k=n_k^{-1}\sum_{i=1}^{n_k}X_{k,i}$ is the mean vector of sample $k$, $k=1,2$, and
     $
     S=
 {(n-2)}^{-1}\sum_{k=1}^2\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
@@ -133,8 +133,7 @@ However, Hotelling's test is not defined when $p\geq n-1$.
 Moreover,~\cite{Bai1996Efiect} showed that even if $p<n-1$, Hotelling's test suffers from low power when $p$ is comparable to $n$.
 Perhaps, the main reason for low power of Hotelling's test is due to that $S$ is a poor estimator of $\Sigma$ when $p$ is large compared with $n$. See~\cite{Chen2010A} and the references therein.
 In high dimensional setting,  
-many test statistics in the literatures are based on an estimator of ${(\mu_1-\mu_2)}^T A(\mu_1-\mu_2)$ for a given positive definite matrix $A$. 
-For example,~\cite{Bai1996Efiect} proposed a test based on
+many test statistics are based on ${(\bar{X}_1-\bar{X}_2)}^T A(\bar{X}_1-\bar{X}_2)$ for a positive definite matrix $A$.~\cite{Bai1996Efiect} proposed a test based on
 \begin{equation*}
     T_{BS}=\|\bar{X}_1-\bar{X}_2\|^2-(\frac{1}{n_1}+\frac{1}{n_2})\mathrm{tr}S,
 \end{equation*}
@@ -148,12 +147,11 @@ which is an unbiased estimator of $\|\mu_1-\mu_2\|^2$.~\cite{Chen2010A} modified
 \end{equation*}
 where
 $S_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
-$
-is the sample covariance  of the sample $k$, $k=1,2$.
+$, $k=1,2$.
  Statistic $T_{CQ}$ 
-is also an unbiased estimator of $\|\mu_1-\mu_2\|^2$. Choosing $A={[\mathrm{diag}(\Sigma)]}^{-1}$,~\cite{Srivastava2008A} proposed a test based on
+is also an unbiased estimator of $\|\mu_1-\mu_2\|^2$.~\cite{Srivastava2008A} proposed a test based on
 \begin{equation*}
-    T_{S}={(\bar{X}_1-\bar{X}_2)}^T {[\mathrm{diag}(S)]}^{-1}(\bar{X}_1-\bar{X}_2),
+    T_{SD}={(\bar{X}_1-\bar{X}_2)}^T {[\mathrm{diag}(S)]}^{-1}(\bar{X}_1-\bar{X}_2),
 \end{equation*}
 where $\textrm{diag} (A)$ is a diagonal matrix with the same diagonal elements as $A$'s.
 %To characterize strong correlation between variables,~\cite{Ma2015A} adopted a factor model proposed a test based on
@@ -161,35 +159,49 @@ where $\textrm{diag} (A)$ is a diagonal matrix with the same diagonal elements a
  %    T_{FAST}=\frac{n_1 n_2}{n_1+n_2}\|\bar{X}_1-\bar{X}_2\|^2-(\mathrm{tr} S- \sum_{i=1}^{\hat{r}} \lambda_l(S))
 %\end{equation}
 
-As~\cite{Ma2015A} pointed out, however, these test procedures may not be valid if strong correlations exist, i.e., $\Sigma$ is far away from diagonal matrix. For example, the assumption 
+As~\cite{Ma2015A} pointed out, however, the asymptotic properties of these test procedures may not be valid if strong correlations exist. For example, the condition 
 %$$
 %\mathrm{tr}(\Sigma_i \Sigma_j \Sigma_l \Sigma_h)=o[\mathrm{tr}^2\{{(\Sigma_1+\Sigma_2)}^2\}]\quad\quad  \textrm{for}\, i,j,l,h=1\,\textrm{or}\,2
 %$$ 
 \begin{equation}\label{chenscondition}
     \mathrm{tr}(\Sigma^4)=o\big(\mathrm{tr}^2(\Sigma^2)\big)
 \end{equation}
-adopted by~\cite{Chen2010A} can be violated when $\Sigma=(1-c)I_p+c\bm{1}_p \bm{1}_p^T$ where $-{1}/{(p-1)}<c<1$, $I_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector  with elements $1$.
-To characterize strong correlations,~\cite{Ma2015A} considered a factor model and proposed a parameter bootstrap procedure to adjust~\cite{Chen2010A}'s critical value.
+adopted by~\cite{Chen2010A} is violated when $\Sigma$ has uniform correlation structure, that is, $\Sigma=(1-\rho)I_p+\rho\textbf{1}_p \textbf{1}_p^T$ where $0<\rho<1$, $I_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector  with elements $1$.
+In this case, $\Sigma$ has eigenvalues $1+\rho(p-1) $ and $1-\rho$ with multiplicities $1$ and $p-1$ respectively. Then~\eqref{chenscondition} is violated since 
+$$
+\frac{\mytr (\Sigma^4)}{\mytr^2(\Sigma^2)}=\frac{\big(1+\rho(p-1)\big)^4 + (1-\rho)^4 (p-1)}{\big[ \big(1+\rho(p-1)\big)^2+(1-\rho)^2 (p-1) \big]^2}\to 1
+$$
+as $p\to \infty$.
+  Under uniform correlation structure, the leading eigenvalue of $\Sigma$ is significantly larger than the rest of eigenvalues.
+  This is a special case of the spiked covariance model
+ \begin{equation}\label{eq:introSpiked}
+ \Sigma =V\Lambda V^T +\sigma^2 I_p,
+ \end{equation}
+ where $\Lambda=\mydiag(\lambda_1,\ldots,\lambda_r)$, $\lambda_1\geq \cdots\geq \lambda_r>0$, $r$  is a known fixed number, $V$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
+ %Under spiked covariance model, the first $r$ eigenvalues of $\Sigma$ are distinguishable larger than the rest eigenvalues.
+The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies, see~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
+The spiked covariance arises when variables are strongly correlated and the correlations are determined by a small number of factors.
+
+
 
 Strong correlations between variables do exist in practice. In gene expression analysis, genes are correlated due to genetic regulatory networks (see~\cite{Thulin2014A}).~\cite{Chen2011A} pointed out that in terms of pathway analysis in proteomic studies,  test level can not be guaranteed if correlations are incorrectly assumed to be absent.
  As~\cite{Ma2015A} argued, there're strong correlations between different stock returns since they are all affected by the market index.
+In section~\ref{sec:chen}, we derived the asymptotic distribution of $T_{CQ}$ under spiked covariance model. 
+We find that incorrectly assuming the absence of correlation between variables will result in level inflation.
+Hence we modify the critical value such that the resulting test procedure has correct asymptotic level under spiked covariance.
 
-Incorrectly assuming the absence of correlation between variables will result in level inflation and low power for a test procedure. A class of test procedures is proposed through random projection. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}. The idea is to project data on some random lower-dimensional subspaces. It has been shown that these
+Recently, a class of test procedures are proposed through random projection. See~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}. The idea is to project data on some random lower-dimensional subspaces. It has been shown that these
 procedures perform well under strong correlations. 
-
-In many situations, the correlations are determined by a small number of factors.
-As a consequence, $\Sigma$ is spiked. See, for example,~\cite{Cai2012Sparse} and~\cite{Shen2013Consistency}.
 The random projection methods imply that test procedures are improved when data are projected on certain subspaces.
 We will see that the ideal subspace is the orthogonal complement of the principal space.
 Fortunately, the principal space can be estimated consistently even in high dimensional setting by the theory of principal component analysis (PCA).
 %We find the ideal subspace is the orthogonal complement of the principal space.
 %In this case, we know from the theory of principal component analysis (PCA) that the principal space can be estimated consistently even in high dimensional setting.
 With the assumption of spiked covariance model, we propose a new test procedure through projection on the (estimated) ideal subspace.  
-The asymptotic distribution of the test statistic is derived and hence asymptotic power is given.
+The asymptotic null distribution of the test statistic is derived and asymptotic power is also given.
 %We will see that the asymptotic power function increases fast. In fact, the increasing rate is of a higher order than that of $T_{CQ}$.
 We will see that the test is more powerful than $T_{CQ}$.
 %Simulation study justifies the well-performance of the new test. Our theoretical results need the assumption $\sqrt{p}/(n_1+n_2)\to 0$. Simulation study shows that if it doesn't converge to $0$, the theorem may not be valid.
-Moreover, even there's no strong correlation showing up, we prove that the new test performs equally well as $T_{CQ}$ does. The idea is also generalized to the unequal variance setting and similar results still hold.
 
 %{\color{red}{To the best of our knowledge,~\cite{Ma2015A} and~\cite{2016arXiv160202491A} are the only work concerned on problem (~\eqref{problem}) when strong correlation exists.
 %\cite{Ma2015A} adopted a factor model and modified the test statistic of~\cite{Chen2010A} to guarantee the test level. But we will see that the test still suffers from low power. In an independent working paper,~\cite{2016arXiv160202491A} adopted a spiked covariance structure, and their statistic is similar to ours. The main advantage of our work is that our theorems don't need strict relationship between $p$ and $n$. And our statistic is invariant under shift.
@@ -207,63 +219,50 @@ Moreover, even there's no strong correlation showing up, we prove that the new t
 %}}
 
 
+
+
 The rest of the paper is organized as follows. In Section 2,  we revisit~\cite{Chen2010A}'s test.  In Section 3, we propose a test procedure and exploit properties of the test.  In Section 4, simulations are carried out and  a real data example is given. Section 5 contains some discussion. All the technical details are in appendix.
 
-\section{Some considerations about~\cite{Chen2010A}'s test}
-    Let $X_{k,1},\ldots, X_{k, n_k}$  be i.i.d.\ observations with common distribution $N(\mu_k,\Sigma)$, $k=1,2$.
-    Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to \xi \in (0,+\infty)$, that is, we consider high dimensional and balanced data.
-
- Now we introduce some notations that will be used in this paper.
-For random variable $\xi$ and $\eta$,
-  we write $\xi\sim \eta$ to denote they have the same distribution.
-  Let $\mathcal{L}(\xi)$ be the distribution of $\xi$ and $\mathcal{L}(\xi|\eta)$ be the conditional distribution of $\xi$ given $\eta$.
-  We denote by ``$\xrightarrow{a.s.}$'', ``$\xrightarrow{P}$'' and ``$\xrightarrow{\mathcal{L}}$'' the almost surely convergence, convergence in probability and weak convergence.
-For nonrandom positive sequence $\{a_n\}$ and $\{b_n\}$, $a_n\asymp b_n$ represents $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
-We denote by $\|\cdot \|$ and $\|\cdot\|_F$ the operator and Frobenius  norm of matrix, separately.
-For $p\geq q$, define
-\begin{equation*}
-\mathbb{O}_{p\times q}=\{O|\, \textrm{$O$ is $p\times q$ column orthonormal matrix }\}.
-\end{equation*}
+\section{Asymptotic properties of~\cite{Chen2010A}'s test}\label{sec:chen}
+%\textcolor{red}{Consider testing hypotheses~\eqref{problem} under covariance matrix~\eqref{eq:introSpiked}.}
+    %Let $X_{k,1},\ldots, X_{k, n_k}$  be i.i.d.\ observations with common distribution $N(\mu_k,\Sigma)$, $k=1,2$.
+    Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to c \in (0,+\infty)$, that is, we consider high dimensional and balanced data.
 
 
-\subsection{The applicable range}
+
     In~\cite{Chen2010A}, the asymptotic normality of $T_{CQ}$ is derived under condition~\eqref{chenscondition}.
-    To determine the critical value of $T_{CQ}$, they used the limiting normal distribution to approximate the finite sample distribution.
-    The resulting test can asymptotically preserve the test level if and only if the asymptotic normality is correct.
-    While~\cite{Chen2010A} only proved~\eqref{chenscondition} is sufficient for the asymptotic normality of $T_{CQ}$, one may ask: is~\eqref{chenscondition} also necessary for asymptotic normality of $T_{CQ}$?
-
-To answer this question, we first note that $T_{CQ}$ is a quadratic form of standard normal random vector.
-To see this, let $Z_{k,i}=\Sigma^{-1/2}X_{k,i}$ so that $Z_{k,i}\sim N_p(0,I_{p})$. Write all $Z_{k,i}$ in a long vector form
-    $Z=(Z_{1,1}^T,\ldots,Z_{1,n_1}^T,Z_{2,1}^T,\ldots,Z_{2,n_2}^T)^T$.
-    Then $T_{CQ}$ is a quadratic form of $Z$ and
+Note that $T_{CQ}$ is a quadratic form of a standard normal random vector.
+Let $Z_{k,i}=\Sigma^{-1/2}X_{k,i}$, hence $Z_{k,i}$ has distribution $ N_p(0,I_{p})$.
+Write $Z=(Z_{1,1}^T,\ldots,Z_{1,n_1}^T,Z_{2,1}^T,\ldots,Z_{2,n_2}^T)^T$.
+    Then 
         $
         T_{CQ}=Z^T \big( B_n\otimes \Sigma \big) Z
         $,
-    where $\otimes$ is the Kronecker product,
+    where $\otimes$ is the Kronecker product and
     \begin{equation*}
         B_n=\begin{pmatrix}
-            \frac{1}{n_1(n_1-1)}(n_1\gamma_1\gamma_1^T-I_{n_1})&
-            -\frac{1}{\sqrt{n_1 n_2}}\gamma_1 \gamma_2^T\\
-            -\frac{1}{\sqrt{n_1 n_2}}\gamma_2 \gamma_1^T&
-            \frac{1}{n_2(n_2-1)}(n_2\gamma_2\gamma_2^T-I_{n_2})\\
-        \end{pmatrix},
+            \frac{1}{n_1(n_1-1)}(\mathbf{1}_{n_1} \mathbf{1}_{n_1}^T-I_{n_1})&
+            -\frac{1}{n_1 n_2}\mathbf{1}_{n_1} \mathbf{1}_{n_2}^T\\
+            -\frac{1}{n_1 n_2}\mathbf{1}_{n_2} \mathbf{1}_{n_1}^T&
+            \frac{1}{n_2(n_2-1)}( \mathbf{1}_{n_2} \mathbf{1}_{n_2}^T-I_{n_2})\\
+        \end{pmatrix}.
     \end{equation*}
-    $\gamma_1$ is an $n_1$ dimensional vector with all elements equal to $1/\sqrt{n_1}$ and $\gamma_2$ is an $n_2$ dimensional vector with all elements equal to $1/\sqrt{n_2}$.
     
-Using characteristic function method, one can prove the following propostion which gives a necessary and sufficient condition for the asymptotic normality of the quadratic form of a standard normal random vector.
-\begin{proposition}\label{quadraticFormCLT}
+Using characteristic function method, one can prove the following result which gives a necessary and sufficient condition for the asymptotic normality of the quadratic form of a standard normal random vector.
+\begin{lemma}\label{quadraticFormCLT}
     Suppose $Y_{n}$ is a $k_n$ dimensional standard normal random vector and $A_n$ is a $k_n\times k_n$ symmetric matrix. Then as $n\to \infty$, a necessary and sufficient condition for
     \begin{equation}\label{quadratic}
         \frac{Y_n^T A_n Y_n-\mathrm{E} Y_n^T A_n Y_n}{{[\mathrm{Var}(Y_n^T A_n Y_n)]}^{1/2}}\xrightarrow{\mathcal{L}}N(0,1)
     \end{equation}
     is that
     \begin{equation}\label{quadraticEigen}
-        \frac{\lambda_{\max}(A_n^2)}{\mathrm{tr}(A_n^2)}\to 0.
+        \frac{\lambda_{\max}(A_n^2)}{\mathrm{tr}(A_n^2)}\to 0,
     \end{equation}
-\end{proposition}
+    where ``$\xrightarrow{\mathcal{L}}$" means convergence of a sequence of random variables in law.
+\end{lemma}
 
-To apply Proposition~\ref{quadraticFormCLT} for $T_{CQ}$, we need to calculate the eigenvalues of $B_n\otimes \Sigma$ which in turn relies on the eigenvalues of $B_n$.
-    It can be seen that the eigenvalues of $B_n$ are $-1/n_1(n_1-1)$, $-1/n_2(n_2-1)$, $(n_1+n_2)/n_1 n_2$ and $0$ with multiplicities $n_1-1$, $n_2-1$, $1$ and $1$ respectively.
+The eigenvalues of $B_n\otimes \Sigma$ relies on the eigenvalues of $B_n$ and $\Sigma$.
+    The eigenvalues of $B_n$ are $-1/n_1(n_1-1)$, $-1/n_2(n_2-1)$, $(n_1+n_2)/n_1 n_2$ and $0$ with multiplicities $n_1-1$, $n_2-1$, $1$ and $1$ respectively.
     %The eigenspace corresponding to $-1/n_1(n_1-1)$ is
     %\begin{equation*}
         %\{{(\eta^T,\underbrace{0,\ldots,0}_{n_2})}^T|\, \textrm{$\eta\in \mathbb{R}^{n_1}$ and $\eta^T \gamma_1=0$}\}.
@@ -286,14 +285,14 @@ and
     \begin{equation*}
         \lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)=\lambda_{\max}(B_n^2)\lambda_{\max}(\Sigma^2)={\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)}^2\lambda_{\max}(\Sigma^2).
     \end{equation*}
-    It can be seen that
+    Because $n_1/n_2\to c$,
     $$
          \frac{\lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)}{
 \mytr{\big(B_n\otimes \Sigma\big)}^2}
          \to 0
     $$
-     is in turn equivalent to $\lambda_{\max}(\Sigma^2)/\mytr\Sigma^2\to 0$.
-From the inequality
+     is equivalent to $\lambda_{\max}(\Sigma^2)/\mytr\Sigma^2\to 0$.
+From
 $$
 \frac{\lambda_1(\Sigma)^4}{(\sum_{i=1}^p \lambda_i(\Sigma)^2)^2}
 \leq
@@ -301,20 +300,18 @@ $$
 \leq
 \frac{\lambda_1(\Sigma)^2\sum_{i=1}^p\lambda_i(\Sigma)^2}{(\sum_{i=1}^p \lambda_i(\Sigma)^2)^2}
 =
-\frac{\lambda_1(\Sigma)^2}{\sum_{i=1}^p \lambda_i(\Sigma)^2}
+\frac{\lambda_1(\Sigma)^2}{\sum_{i=1}^p \lambda_i(\Sigma)^2},
 $$
     we can see that ${\lambda_{\max}^2(\Sigma)}/{\mathrm{tr}(\Sigma^2)}\to 0$  is equivalent to~\eqref{chenscondition}.
-By Lemma~\ref{quadraticFormCLT}, we can assert that~\eqref{chenscondition} is a necessary and sufficient condition for 
+By Lemma~\ref{quadraticFormCLT}, the condition~\eqref{chenscondition} is a necessary and sufficient condition for 
     \begin{equation*}
-        \frac{T_{CQ}-\mathrm{E}T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{L}N(0,1).
+        \frac{T_{CQ}-\mathrm{E}T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{\mathcal{L}}N(0,1).
     \end{equation*}
 
-\subsection{Asymptotic distribution under spiked covariance}
-    While condition~\eqref{chenscondition} is necessary for the validity of~\cite{Chen2010A}'s test, it requires the eigenvalues of $\Sigma$ to be concentrated around their average, which can be violated in many applications.
-    For example, in a class of applications, the correlations between variables are mainly driven by several common factors so that $\Sigma$ has a few eigenvalues which are much larger than the others.
+    Since the condition~\eqref{chenscondition} is necessary for the asymptotic normality of $T_{CQ}$,~\cite{Chen2010A}'s test procedure requires the eigenvalues of $\Sigma$ to be concentrated around their average, which can be violated in many applications.
+   In a class of applications, the correlations between variables are mainly driven by several common factors so that $\Sigma$ has a few eigenvalues which are much larger than the others.
     See, for example,~\cite{Jung2009PCA},~\cite{Cai2012Sparse} and~\cite{Fan2015Asymptotics}.
-    It is meaningful to consider testing problem for data of such type.
-To characterize such correlations between variables, we consider the following spiked covariance structure:
+To characterize such correlations between variables, we consider the  spiked covariance structure~\eqref{eq:introSpiked}.
 \begin{assumption}\label{theModel}
     The covariance matrix $\Sigma$ has structure $ 
 \Sigma=V\Lambda V^T+\sigma^2 I_p
@@ -326,72 +323,144 @@ $r$, $\sigma^2$ are fixed and $\Lambda$ satisfies
     \begin{equation*}
         \kappa p^{\beta}\geq \lambda_{1}\geq \cdots \geq\lambda_{r}\geq \kappa^{-1}p^{\beta}.
 \end{equation*}
-where $\kappa>1$ and $\beta\geq {1}/{2}$ are absolute constants.
+where $\kappa>1$ and $\beta\geq {1}/{2}$ are constants.
 \end{assumption}
 
 The covariance structure in Assumption~\ref{theModel} is commonly adopted in PCA study.
-See, for example,~\cite{Cai2012Sparse}.
-The column space of $V$,  the eigenspace of $\Sigma$ corresponding to the large eigenvalues, is called principal space. Since $V$ is an orthonormal matrix, $V V^T$ is the orthogonal projection matrix on the principal space.
+See~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
+The column space of $V$,  the eigenspace of $\Sigma$ corresponding to the leading eigenvalues, is called principal space. Since $V$ is an orthonormal matrix, $V V^T$ is the orthogonal projection matrix on the principal space.
 Let $\tilde{V}$ be a $p\times (p-r)$ full column rank orthonormal matrix orthogonal to columns of  $V$.
 %, that is $\tilde{V}_k^T V_k=O_{r_k\times(p-r_k )}$
  Although such $\tilde{V}$ is not unique, the projection matrix  $\tilde{V}\tilde{V}^T=I-V V^T$ is unique and is the projection matrix on the orthogonal complement of principal space.
 Spiked covariance also has connection to factor model.
 In fact, the factor model in~\cite{Ma2015A} corresponds to $\beta=1$ in Assumption~\ref{theModel}.
 
-Under Assumption~\ref{theModel}, it is easy to see that condition~\eqref{chenscondition} is equivalent to $\beta<1/2$.
+
+For positive sequence $\{a_n\}$ and $\{b_n\}$, we write $a_n\asymp b_n$ to denote $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
+Then under Assumption~\ref{theModel}, we have
+$$
+\frac{\mytr(\Sigma^4)}{\mytr^2(\Sigma^2)}=\frac{\sum_{i=1}^r (\lambda_i+\sigma^2)^4+(p-r)\sigma^8}{\big(\sum_{i=1}^r (\lambda_i+\sigma^2)^2+(p-r)\sigma^4\big)^2}\asymp \frac{p^{4\beta}+p}{(p^{2\beta}+p)^2},
+$$
+ which tends to $0$ if and only if $p<1/2$.
 Our previous arguments assert that the asymptotic distribution of $T_{CQ}$ won't be normal when $\beta\geq 1/2$.
-Under Assumption~\ref{theModel}, we can go further and give the asymptotic distribution of $T_{CQ}$.
-In fact, we have the following theorem:
-\begin{theorem}\label{Chenstheory}
+The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\beta\geq 1/2$.
+\begin{theorem}\label{Chenstheory1}
  Under Assumption~\ref{theModel},
-    suppose $\lambda_i/p^\beta \to l_i\in(0,+\infty)$, $i=1,\ldots,r$.
-    Let $\tau=1/n_1+1/n_2$, we further assume
-    $(\tau p^{\beta})^{-1/2}\big(V^T (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$, and
-    ${(\tau p^\beta)}^{-1}\|\tilde{V}^T (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$. We have
+    suppose $\beta=1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
+    Let $Z_{0},Z_1,\ldots,Z_{r}$ be i.i.d.\ $N(0,1)$ random variables,
+     then the following results hold:
+     \begin{enumerate}[(a)]
+         \item
+             If $\mu_1=\mu_2$, then
     $$
         \frac{1}{\tau p^{\beta}} T_{CQ}
-        \xrightarrow{\mathcal{L}}
-        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
-\zeta^*+
-    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
-        -
-        \sum_{i=1}^r l_i,
+        \xrightarrow{w}
+\sqrt{2}\sigma^2 Z_0
++
+        \sum_{i=1}^r \omega_i Z_i^2
+            -
+        \sum_{i=1}^r \omega_i,
     $$
-    where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
+             where $\tau=1/n_1+1/n_2$ and ``$\xrightarrow{w}$'' denotes weak convergence.
+         \item
+             If $(\tau p^{\beta})^{-1/2}\big(V^T (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$,
+             and
+    ${(\tau p^\beta)}^{-1}\|\tilde{V}^T (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$, then
+    $$
+        \frac{1}{\tau p^{\beta}} T_{CQ}
+        \xrightarrow{w}
+\sqrt{2}\sigma^2 Z_0+
+        \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
+\zeta^*
+        -
+        \sum_{i=1}^r \omega_i.
+    $$
+     \end{enumerate}
 \end{theorem}
 
- It is possible to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level at least asymptotically.
- For example, one can use permutation method and the resulting test is exact.
- See, for example,~\cite{Lehmann} Chapter $15$.
-See also~\cite{Ma2015A} for a parametric bootstrap method.
-%Using Theorem~\ref{Chenstheory}, the asymptotic power function of such adjusted test can be given.
-Theorem~\ref{Chenstheory} can be used to derive the asymptotic power function of the adjusted test procedure.
-Let $F(x;\zeta_1,\ldots,\zeta_r, \zeta^*)$ be the cumulative distribution function of $
-        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
-\zeta^*+
-    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+\begin{theorem}\label{Chenstheory2}
+ Under Assumption~\ref{theModel},
+    suppose $\beta>1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
+    Let $Z_1,\ldots,Z_{r}$ be i.i.d.\ $N(0,1)$ random variables,
+     then the following results hold:
+     \begin{enumerate}[(a)]
+         \item
+             If $\mu_1=\mu_2$, then
+    $$
+        \frac{1}{\tau p^{\beta}} T_{CQ}
+        \xrightarrow{w}
+        \sum_{i=1}^r \omega_i Z_i^2
+            -
+        \sum_{i=1}^r \omega_i.
+    $$
+         \item
+             If $(\tau p^{\beta})^{-1/2}\big(V^T (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$,
+             and
+    ${(\tau p^\beta)}^{-1}\|\tilde{V}^T (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$, then
+    $$
+        \frac{1}{\tau p^{\beta}} T_{CQ}
+        \xrightarrow{w}
+        \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
+\zeta^*
         -
-        \sum_{i=1}^r l_i
-$.
-If the adjusted critical value $C^*$ of $T_{CQ}$, which may depend on data, satisfies 
-$$F\Big(\frac{C^*}{\tau p^\beta};0,\ldots,0,0\Big)\xrightarrow{P}1-\alpha,$$
-the resulting test will have correct level asymptotically.
-In this way, the asymptotic power is
-$$
-\lim_{n,p\to \infty}\Pr(T_{CQ}\geq C^*)=1-F(F^{-1}(1-\alpha;0,\ldots,0,0);\zeta_1,\ldots,\zeta_r,\zeta^*),
-$$
-where $\alpha$ is the nominal level.
-In particular, the test will have trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or
+        \sum_{i=1}^r \omega_i.
+    $$
+     \end{enumerate}
+\end{theorem}
+
+%\begin{theorem}\label{Chenstheory}
+ %Under Assumption~\ref{theModel},
+    %suppose $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
+    %Let $\tau=1/n_1+1/n_2$. We further assume
+    %$(\tau p^{\beta})^{-1/2}\big(V^T (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$, and
+    %${(\tau p^\beta)}^{-1}\|\tilde{V}^T (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$. We have
+    %$$
+        %\frac{1}{\tau p^{\beta}} T_{CQ}
+        %\xrightarrow{\mathcal{L}}
+        %\sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
+%\zeta^*+
+    %\sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+        %-
+        %\sum_{i=1}^r \omega_i,
+    %$$
+    %where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
+%\end{theorem}
+
+
+It is possible to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level $\alpha$ asymptotically.
+Let $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ be the cumulative distribution function of 
+$
+\sqrt{2p}\sigma^2 Z_0
++
+        \sum_{i=1}^r \lambda_i Z_i^2
+            -
+        \sum_{i=1}^r \lambda_i
+        $.
+By Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}, if the critical value of $\tau^{-1}T_{CQ}$ is defined as the upper $\alpha$ quantile of
+$F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, the resulting test has level $\alpha$ asymptotically.
+        However, the distribution $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ involves some nuisance parameters.
+In order to consistently estimate $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\lambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
+The following theorem shows that  $\lambda_i(S)$ can consistently estimate $\lambda_i$, $i=1,\ldots,r$.
+\begin{proposition}\label{eigenconsis}
+    Under Assumption~\ref{theModel}, suppose $n=O(p)$ and $p=o(np^{\beta})$, then
+    $$
+    \lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
+    $$
+\end{proposition}
+In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\sigma^2$.Proposition~\ref{varianceEstimation} asserts that $\hat{\sigma}^2$ is consistent.
+Thus, if we reject the null hypothesis when
+$\tau^{-1}{T_{CQ}}$ is larger than the upper $\alpha$ quantile of $F(x;\hat{\lambda}_1,\ldots,\hat{\lambda}_r,\hat{\sigma}^2)$, then under the conditions of Proposition~\ref{eigenconsis}, the resulting test has correct level asymptotically.
+
+By Theorem~\ref{Chenstheory1} and~\ref{Chenstheory2}, the adjusted $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or
 $$
 \frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
 $$
 Conversely, to make $T_{CQ}$ have non-trivial power, $\|\mu_1-\mu_2\|^2$ is at least of order $\tau p^\beta$.
 
 
-%and deal with it saperately if $r=0$.
 
 
-\section{Methodology}
+\section{Methodology}\label{methodology}
 \subsection{Motivation}
 
 %To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
@@ -405,7 +474,7 @@ It can be written as the sum of two terms
     \tau \|V^T (\bar{X}_1-\bar{X}_2)\|^2+
     \tau\|\tilde{V}^T (\bar{X}_1-\bar{X}_2)\|^2.
 \end{equation}
-Under the null hypotheses, we have
+Under the null hypothesis, we have
 $$\myVar\big(\tau \|V^T (\bar{X}_1-\bar{X}_2)\|^2\big)=\sum_{i=1}^r 2(\lambda_i+\sigma^2)^2,\quad 
 \myVar\big(\|\tilde{V}^T (\bar{X}_1-\bar{X}_2)\|^2\big)=2\sigma^4 (p-r).$$
 The ratio of the two variance is
@@ -456,6 +525,9 @@ It is known that random projection based methods offer higher power when the var
 However, these test procedures are randomized, which is undesirable in practice.
 This raises the question: is there an optimal projection which is nonrandomized?
 
+    For $p\geq q$, define
+    $
+\mathbb{O}_{p\times q}=\{O\,|\, \textrm{$O$ is $p\times q$ column orthonormal matrix }\}$.
 Under null hypothesis, we have that
 $$
 \tilde{V}=\mathop{\operatorname{arg\,min}}_{O\in\mathbb{O}_{p\times(p-r)}}\myVar\big(\|O^T(\bar{X}_1-\bar{X}_2)\|^2\big).
@@ -708,7 +780,7 @@ We collected the data of $p=710$
 from 01/04/2013 to 12/31/2014. There are total $n_1=95$ Monday and $n_2=388$ other trading days. 
 
 We assume $\Sigma_1=\Sigma_2$.
-The first eigenvaule of $S$ is $0.14$, which is significantly larger than the others.
+The first eigenvalue of $S$ is $0.14$, which is significantly larger than the others.
 In fact, the second eigenvalue is $0.02$.
 Hence there's clearly a spiked eigenvalue.
 We set $r=1$ and perform our new test.
@@ -744,6 +816,7 @@ Our theoretical results rely on the assumption $\sqrt{p}/n\to 0$. In the situati
 
 
 \section*{Appendix}
+%We denote by $\|\cdot \|$ and $\|\cdot\|_F$ the operator and Frobenius  norm of matrix, respectively.
 
 %\begin{lemma}\label{lemma1}
 %    let $X$ be a $p$-dimensional random vector with distribution $N(0,\Sigma)$. Denote the spectral decomposition of $\Sigma$ by $\Sigma =\sum_{i=1}^p \lambda_i p_i p_i^T$ with $\lambda_1\geq \cdots \geq \lambda_p$. Then $X^T p_i p_i^T X$ is stochastically larger than $X^T p_j p_{j}^T X$ for $i<j$.
@@ -813,7 +886,7 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 \end{proof}
 
 
-\begin{proof}[\textbf{Proof of Proposition~\ref{quadraticFormCLT}}]
+\begin{proof}[\textbf{Proof of Lemma~\ref{quadraticFormCLT}}]
     Let $\lambda_1(A_n)\geq\cdots\geq \lambda_{k_n}(A_n)$ be the eigenvalues of $A_n$, then 
     \begin{equation}
         \frac{Y_n^T A_n Y_n-\mathrm{E} Y_n^T A_n Y_n}{{[\mathrm{Var}(Y_n^T A_n Y_n)]}^{1/2}}=\sum_{i=1}^{k_n}\frac{\lambda_i(A_n)}{{\big[2\mathrm{tr}(A_n^2)\big]}^{1/2}}(Z_{ni}^2-1),
@@ -871,7 +944,11 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 
 The rest of the Appendix is devoted to the proof of propositions and theorems in the paper.
 
-\begin{proof}[\textbf{Proof of Theorem~\ref{Chenstheory}}]
+\begin{proof}[\textbf{Proof of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}}]
+    Note that in both~\ref{Chenstheory1} and~\ref{Chenstheory2}, (a) is a corrolary of (b). So we only need to proof (b).
+
+For random variable $\xi$ and $\eta$,
+  we write $\xi\sim \eta$ to denote they have the same distribution.
     Note that $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\Sigma)$, $k=1,2$, we have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\Sigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
     %Note that $\lambda_{r+1}(\Sigma)=\cdots=\lambda_p(\Sigma)=\sigma^2$, by central limit theorem, we have
     %$$
@@ -919,13 +996,13 @@ The rest of the Appendix is devoted to the proof of propositions and theorems in
         &\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2=
     \tau \mytr \Sigma+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
         =&\tau \sum_{i=1}^r (\lambda_i+\sigma^2)+\tau(p-r)\sigma^2+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
-        =&\tau p^{\beta} \sum_{i=1}^r l_i+\tau(p-r)\sigma^2+o_P\Big(\frac{1}{n}p^{\beta}\Big).
+        =&\tau p^{\beta} \sum_{i=1}^r \omega_i+\tau(p-r)\sigma^2+o_P\Big(\frac{1}{n}p^{\beta}\Big).
     \end{aligned}
     $$
 Thus,
         \begin{equation}\label{eq:kkk1}
         \frac{1}{\tau p^\beta}\big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\big)
-        =\sum_{i=1}^r l_i+p^{1-\beta}\sigma^2+o_P(1).
+        =\sum_{i=1}^r \omega_i+p^{1-\beta}\sigma^2+o_P(1).
         \end{equation}
 
     Next we deal with $\|\bar{X}_1-\bar{X}_2\|^2$.
@@ -950,8 +1027,8 @@ Thus,
     \begin{equation}\label{eq:kkk2}
     \begin{aligned}
         \frac{1}{\tau p^{\beta}}\|V^T(\bar{X}_1-\bar{X}_2)\|^2
-        \xrightarrow{\mathcal{L}}
-        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2.
+        \xrightarrow{w}
+        \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2.
     \end{aligned}
     \end{equation}
 
@@ -983,8 +1060,9 @@ Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2), 
 \frac{1}{\tau p^\beta}
     \big(\big\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\big\|^2-\sigma^2 \tau (p-r)-\big\|\tilde{V}^T(\mu_1-\mu_2)\big\|^2\big)
     \xrightarrow{\mathcal{L}} 
-    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon.
+        \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)Z_0,
     \end{equation}
+    where $\delta_{\frac{1}{2}}(\beta)$ equals $1$ if $\beta=1/2$ and equals $0$ otherwise.
 
 
     Combining~\eqref{eq:kkk1}~\eqref{eq:kkk2} and~\eqref{eq:kkk3} leads to
@@ -997,20 +1075,20 @@ Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2), 
         \frac{1}{\tau p^{\beta}} \big({\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2-\sigma^2 \tau(p-r)-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}\big)\\
         &-\frac{1}{\tau p^{\beta}}\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)+\frac{\sigma^2 (p-r)}{p^\beta}+\frac{1}{\tau p^\beta}\|\tilde{V}^T(\mu_1-\mu_2)\|^2\\
         =&
-        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
-   \sqrt{2} \sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+        \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
+   \sqrt{2} \sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)Z_0
         -
-        (\sum_{i=1}^r l_i+p^{1-\beta}\sigma^2)
+        (\sum_{i=1}^r \omega_i+p^{1-\beta}\sigma^2)
         +\frac{\sigma^2 (p-r)}{p^\beta}+\zeta^*+o_P(1)\\
         \xrightarrow{\mathcal{L}}&
-        \sum_{i=1}^r (l_i Z_i+\zeta_i)^2+
+        \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
 \zeta^*+
-    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
+    \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)Z_0
         -
-        \sum_{i=1}^r l_i.
+        \sum_{i=1}^r \omega_i.
     \end{aligned}
     $$
-    This completes the proof.
+    This implies the conclusions of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}.
 
     %Note that we have $\|\bar{X}_1-\bar{X}_2\|^2\sim \tau(\sum_{i=1}^r \lambda_i(\Sigma)Z_i+\sigma^2 W)$, where $Z_i\overset{i.i.d.}{\sim}\chi^2_1$ and $W\sim \chi^2_{p-r}$ is independent of $Z_i$'s. Then
     %$$
@@ -1031,6 +1109,72 @@ Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2), 
     %\sum_{i=1}^r l_i Z_i+\sqrt{2}\sigma^2 \epsilon.
     %$$
     %where $\epsilon\sim N(0,1)$
+
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Proposition~\ref{eigenconsis}}]
+    Let $U=(V,\tilde{V})$ and $E=\mydiag(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$. Then $\Sigma=UEU^T$ is the spectral decomposition of $\Sigma$.
+Denote by $S=\hat{U}\hat{E}\hat{U}^T$ the spectral decomposition of $S$, where $\hat{U}=(\hat{V},\hat{\tilde{V}})$ and $\hat{E}=\mydiag(\hat{\lambda}_1,\ldots,\hat{\lambda}_p)$.
+Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements i.i.d.\ distributed as $N(0,1)$.
+Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. 
+We have
+$$
+S\sim \frac{1}{n-2} U E^{1/2} \bZ \bZ^T E^{1/2} U^T.
+$$
+It can be seen that $\hat{\lambda}_i=\lambda_i(S)\sim (n-2)^{-1}\lambda_i(\bZ^T E \bZ)$, $i=1,\ldots,r$.
+The  equality
+$
+    \bZ^T E \bZ= \bZ_{(1)}^T (\Lambda +\sigma^2 I_r) \bZ_{(1)}+
+\sigma^2 \bZ_{(2)}^T  \bZ_{(2)}
+$
+leads to
+    \begin{equation}\label{aiai1}
+    \lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
+\leq \lambda_i(\bZ^T E \bZ)
+\leq
+\lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
++\sigma^2\lambda_{\max}(\bZ_{(2)}^T \bZ_{(2)}),
+    \end{equation}
+$i=1,\ldots, r$.
+By Bai-Yin's law, we have
+\begin{equation}\label{aiai2}
+    \lambda_{\max}(\bZ_{(2)}^T \bZ_{(2)})=O_P(p).
+\end{equation}
+By Weyl's inequality, we have
+$$
+    \begin{aligned}
+        &\lambda_i\big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
+        \leq
+    \lambda_{\max}\big(\bZ_{(1)}^T \mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{\lambda_i +\sigma^2,\ldots,\lambda_i+\sigma^2}_{r-i+1})\bZ_{(1)}\big)\\
+        =&
+        (\lambda_i+\sigma^2)\lambda_{\max}\big(\bZ_{(1)}^T\mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{1,\ldots,1}_{r-i+1})\bZ_{(1)}\big)\\
+        =&
+        (\lambda_i+\sigma^2)\lambda_{\max}\big( \mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{1,\ldots,1}_{r-i+1})\bZ_{(1)}\bZ_{(1)}^T \mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{1,\ldots,1}_{r-i+1})\big)\\
+        =&n(\lambda_i+\sigma^2)(1+o_P(1)),
+    \end{aligned}
+    $$
+    Where the last inequality follows by law of large numbers.
+    On the other hand, we have
+$$
+    \begin{aligned}
+        &\lambda_i\big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
+        \geq
+    \lambda_{i}\big(\bZ_{(1)}^T \mydiag(\underbrace{\lambda_i+\sigma^2,\ldots,\lambda_i+\sigma^2}_{i},\underbrace{0,\ldots,0}_{r-i})\bZ_{(1)}\big)\\
+        =&
+        (\lambda_i+\sigma^2)\lambda_{i}\big(\bZ_{(1)}^T\mydiag(\underbrace{1,\ldots,1}_{i},\underbrace{0,\ldots,0}_{r-i})\bZ_{(1)}\big)\\
+        =&
+        (\lambda_i+\sigma^2)\lambda_{i}\big( \mydiag(\underbrace{1,\ldots,1}_{i},\underbrace{0,\ldots,0}_{r-i})\bZ_{(1)}\bZ_{(1)}^T \mydiag(\underbrace{1,\ldots,1}_{i},\underbrace{0,\ldots,0}_{r-i})\big)\\
+        =&n(\lambda_i+\sigma^2)(1+o_P(1)).
+    \end{aligned}
+    $$
+    Hence, we have
+        $
+        \lambda_i\big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)=n(\lambda_i+\sigma^2)(1+o_P(1))
+        $. Combined with~\eqref{aiai1} and~\eqref{aiai2}, we have
+        $$
+        \frac{\lambda_i(S)}{\lambda_i}=1+o_P(1)+O_P(\frac{p}{n\lambda_i}).
+        $$
+        The conclusion follows.
 
 \end{proof}
 
@@ -1330,8 +1474,9 @@ By Lemma~\ref{quadraticFormCLT}, for every subsequence of $\{n\}$, there's a fur
 \end{equation}
 where 
 $$
-Z_n=\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}.
+Z_n=\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}},
 $$
+and $\mathcal{L}(Z_n|S)$ is the conditional distribution of $Z_n$ given $S$.
 By the definition of weak convergence, for every continuous bounded function $f(\cdot)$, we have $E[f(Z_n)|S]\xrightarrow{a.s.}E[f(\epsilon)]$ along the subsequence, where $\epsilon\sim N(0,1)$.
 By dominated convergence theorem, we have $E[f(Z_n)]\to E[f(\epsilon)]$ along the subsequence.
 Thus, $Z_n\xrightarrow{\mathcal{L}}N(0,1)$ along the subsequence, or equivalently, $\rho(\mathcal{L}(Z_n,N(0,1)))\to 0$ along the subsequence. But this means $Z_n\xrightarrow{\mathcal{L}}N(0,1)$, or
