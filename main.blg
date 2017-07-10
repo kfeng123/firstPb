@@ -1,52 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
-The style file: model4-names.bst
+The style file: model2-names.bst.bst
 Database file #1: mybibfile.bib
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-`journal' is a missing field, not a string, for entry Fan2015Asymptotics
-while executing---line 1676 of file model4-names.bst
 Warning--empty journal in Fan2015Asymptotics
 You've used 17 entries,
-            3271 wiz_defined-function locations,
-            840 strings with 9363 characters,
-and the built_in function-call counts, 16695 in all, are:
-= -- 1490
-> -- 388
-< -- 13
+            2990 wiz_defined-function locations,
+            875 strings with 9639 characters,
+and the built_in function-call counts, 11734 in all, are:
+= -- 953
+> -- 386
+< -- 11
 + -- 162
 - -- 131
-* -- 1913
-:= -- 2192
-add.period$ -- 78
+* -- 1292
+:= -- 1658
+add.period$ -- 62
 call.type$ -- 17
-change.case$ -- 130
-chr.to.int$ -- 23
+change.case$ -- 129
+chr.to.int$ -- 17
 cite$ -- 18
-duplicate$ -- 1402
-empty$ -- 1409
+duplicate$ -- 870
+empty$ -- 880
 format.name$ -- 199
-if$ -- 3286
+if$ -- 2195
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 182
-newline$ -- 114
+missing$ -- 165
+newline$ -- 111
 num.names$ -- 70
-pop$ -- 273
+pop$ -- 284
 preamble$ -- 1
 purify$ -- 110
 quote$ -- 0
-skip$ -- 273
+skip$ -- 254
 stack$ -- 0
-substring$ -- 1560
-swap$ -- 716
+substring$ -- 612
+swap$ -- 634
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 150
 warning$ -- 1
-while$ -- 99
+while$ -- 83
 width$ -- 0
-write$ -- 292
-(There was 1 error message)
+write$ -- 276
+(There was 1 warning)
