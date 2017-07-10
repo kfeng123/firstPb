@@ -94,8 +94,9 @@
 
 \begin{abstract}
     This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.
-    The covariance matrices are assumed to be spiked, which often arises in practice. 
-    We propose a new test procedure through projection on the orthogonal complement of principal space.
+    The covariance matrix is assumed to be spiked, which often arises in practice. 
+    We derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic under spiked covariance.
+    Also, we propose a new test procedure through projection on the orthogonal complement of principal space.
     The asymptotic normality of the new test statistic is proved and the power function of the test is given.
     Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrices are spiked.
 \end{abstract}
@@ -166,7 +167,7 @@ As~\cite{Ma2015A} pointed out, however, the asymptotic properties of these test 
 \begin{equation}\label{chenscondition}
     \mathrm{tr}(\Sigma^4)=o\big(\mathrm{tr}^2(\Sigma^2)\big)
 \end{equation}
-adopted by~\cite{Chen2010A} is violated when $\Sigma$ has uniform correlation structure, that is, $\Sigma=(1-\rho)I_p+\rho\textbf{1}_p \textbf{1}_p^T$ where $0<\rho<1$, $I_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector  with elements $1$.
+adopted by~\cite{Chen2010A} is violated when $\Sigma$ has a uniform correlation structure, that is, $\Sigma=(1-\rho)I_p+\rho\textbf{1}_p \textbf{1}_p^T$ where $0<\rho<1$, $I_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector  with elements $1$.
 In this case, $\Sigma$ has eigenvalues $1+\rho(p-1) $ and $1-\rho$ with multiplicities $1$ and $p-1$ respectively. Then~\eqref{chenscondition} is violated since 
 $$
 \frac{\mytr (\Sigma^4)}{\mytr^2(\Sigma^2)}=\frac{\big(1+\rho(p-1)\big)^4 + (1-\rho)^4 (p-1)}{\big[ \big(1+\rho(p-1)\big)^2+(1-\rho)^2 (p-1) \big]^2}\to 1
@@ -177,7 +178,7 @@ as $p\to \infty$.
  \begin{equation}\label{eq:introSpiked}
  \Sigma =V\Lambda V^T +\sigma^2 I_p,
  \end{equation}
- where $\Lambda=\mydiag(\lambda_1,\ldots,\lambda_r)$, $\lambda_1\geq \cdots\geq \lambda_r>0$, $r$  is a known fixed number, $V$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
+ where $\Lambda=\mydiag(\lambda_1,\ldots,\lambda_r)$, $\lambda_1\geq \cdots\geq \lambda_r>0$, $r\geq 1$, $V$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
  %Under spiked covariance model, the first $r$ eigenvalues of $\Sigma$ are distinguishable larger than the rest eigenvalues.
 The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies, see~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
 The spiked covariance arises when variables are strongly correlated and the correlations are determined by a small number of factors.
@@ -186,9 +187,12 @@ The spiked covariance arises when variables are strongly correlated and the corr
 
 Strong correlations between variables do exist in practice. In gene expression analysis, genes are correlated due to genetic regulatory networks (see~\cite{Thulin2014A}).~\cite{Chen2011A} pointed out that in terms of pathway analysis in proteomic studies,  test level can not be guaranteed if correlations are incorrectly assumed to be absent.
  As~\cite{Ma2015A} argued, there're strong correlations between different stock returns since they are all affected by the market index.
-In section~\ref{sec:chen}, we derived the asymptotic distribution of $T_{CQ}$ under spiked covariance model. 
-We find that incorrectly assuming the absence of correlation between variables will result in level inflation.
-Hence we modify the critical value such that the resulting test procedure has correct asymptotic level under spiked covariance.
+In section~\ref{sec:chen}, it will be seen that the asymptotic normality of $T_{CQ}$ is not valid when $\lambda_i$'s in~\eqref{eq:introSpiked} are large.
+%We find that incorrectly assuming the absence of correlation between variables will result in level inflation.
+%Hence we modify the critical value such that the resulting test procedure has correct asymptotic level under spiked covariance.
+ %We derived the asymptotic distribution of $T_{CQ}$ under spiked covariance model. 
+Generally, the asymptotic distribution of $T_{CQ}$ is the distribution of a weighted sum of chi-squared random variables.
+In a special case, the asymptotic distribution is the distribution of a weighted sum of chi-squared random variables and a normal random variable. 
 
 Recently, a class of test procedures are proposed through random projection. See~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}. The idea is to project data on some random lower-dimensional subspaces. It has been shown that these
 procedures perform well under strong correlations. 
@@ -258,7 +262,7 @@ Using characteristic function method, one can prove the following result which g
     \begin{equation}\label{quadraticEigen}
         \frac{\lambda_{\max}(A_n^2)}{\mathrm{tr}(A_n^2)}\to 0,
     \end{equation}
-    where ``$\xrightarrow{\mathcal{L}}$" means convergence of a sequence of random variables in law.
+    where ``$\xrightarrow{\mathcal{L}}$" means convergence of a sequence of random variables in law and $\lambda_{\max}(\cdot)$ means the largest eigenvalue.
 \end{lemma}
 
 The eigenvalues of $B_n\otimes \Sigma$ relies on the eigenvalues of $B_n$ and $\Sigma$.
@@ -285,7 +289,7 @@ and
     \begin{equation*}
         \lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)=\lambda_{\max}(B_n^2)\lambda_{\max}(\Sigma^2)={\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)}^2\lambda_{\max}(\Sigma^2).
     \end{equation*}
-    Because $n_1/n_2\to c$,
+    Because $n_1/n_2\to c$, the condition
     $$
          \frac{\lambda_{\max}\Big({(B_n\otimes \Sigma)}^2\Big)}{
 \mytr{\big(B_n\otimes \Sigma\big)}^2}
@@ -426,8 +430,8 @@ The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\b
     %where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
 %\end{theorem}
 
-
-It is possible to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level $\alpha$ asymptotically.
+It is implied by Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} that the original critical value of $T_{CQ}$ can not be used when $\beta\geq 1/2$.
+We need to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level $\alpha$ asymptotically.
 Let $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ be the cumulative distribution function of 
 $
 \sqrt{2p}\sigma^2 Z_0
@@ -436,22 +440,26 @@ $
             -
         \sum_{i=1}^r \lambda_i
         $.
-By Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}, if the critical value of $\tau^{-1}T_{CQ}$ is defined as the upper $\alpha$ quantile of
+By Theorem~\ref{Chenstheory1}, Theorem~\ref{Chenstheory2} and the definition of $\omega_i$, $i=1,\ldots,r$, if the critical value of $\tau^{-1}T_{CQ}$ is defined as the upper $\alpha$ quantile of
 $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, the resulting test has level $\alpha$ asymptotically.
-        However, the distribution $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ involves some nuisance parameters.
+        However, the distribution $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ involves some unknown parameters.
 In order to consistently estimate $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\lambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
 The following theorem shows that  $\lambda_i(S)$ can consistently estimate $\lambda_i$, $i=1,\ldots,r$.
 \begin{proposition}\label{eigenconsis}
-    Under Assumption~\ref{theModel}, suppose $n=O(p)$ and $p=o(np^{\beta})$, then
+    Under Assumption~\ref{theModel}, suppose $n=O(p)$ and $p^{1-\beta}=o(n)$, then
+    %$$
+    %\lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
+    %$$
     $$
-    \lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
+    \frac{\lambda_i(S)}{\lambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$},
     $$
+    where ``$\xrightarrow{P}$'' means convergence in probability.
 \end{proposition}
 In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\sigma^2$.Proposition~\ref{varianceEstimation} asserts that $\hat{\sigma}^2$ is consistent.
 Thus, if we reject the null hypothesis when
 $\tau^{-1}{T_{CQ}}$ is larger than the upper $\alpha$ quantile of $F(x;\hat{\lambda}_1,\ldots,\hat{\lambda}_r,\hat{\sigma}^2)$, then under the conditions of Proposition~\ref{eigenconsis}, the resulting test has correct level asymptotically.
 
-By Theorem~\ref{Chenstheory1} and~\ref{Chenstheory2}, the adjusted $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or
+Theorem~\ref{Chenstheory1} and~\ref{Chenstheory2} imply that $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or
 $$
 \frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
 $$
@@ -460,12 +468,11 @@ Conversely, to make $T_{CQ}$ have non-trivial power, $\|\mu_1-\mu_2\|^2$ is at l
 
 
 
-\section{Methodology}\label{methodology}
-\subsection{Motivation}
+\section{A projection test}\label{methodology}
 
 %To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
 %In their paper, $\Sigma$'s first few eigenvalues are assumed to be of order $p$.
-
+In this section, we propose a new test for hypotheses~\eqref{problem} under spiked covariance model~\eqref{eq:introSpiked}.
 Note that the main part of  $T_{CQ}$ is $
     \tau\|\bar{X}_1-\bar{X}_2\|^2
 $, which is also the main part of $T_{BS}$ and~\cite{Ma2015A}'s method.
@@ -488,8 +495,8 @@ While $
     \tau \|V^T (\bar{X}_1-\bar{X}_2)\|^2
 $ has relative large variance, it only involves the signal from $r$ dimension.
 %Thus, compared with the second term of~\eqref{mot:1}, the first term has larger variance and tends to contain much weaker signal.
- This motivates us to drop the first part of~\eqref{mot:1} and only use the second part.
-After adjustment of expectation, we define the following statistic
+ This motivates us to drop the first term of~\eqref{mot:1} and only use the second term.
+After adjusting the second term, we define the following variable
 \begin{equation*}
 \begin{aligned}
     T_{1}&=\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2-\frac{1}{n_1}\mathrm{tr}(\tilde{V}^T S_1\tilde{V})-\frac{1}{n_2}\mathrm{tr}(\tilde{V}^T S_2\tilde{V}).
@@ -509,8 +516,7 @@ After adjustment of expectation, we define the following statistic
 %The large variance is totally caused by term $p\chi^2_1$. 
 %If we remove $\frac{n_1 n_2}{n_1+n_2} {(\bar{X}_1-\bar{X}_2)}^T  p_1 p_1^T (\bar{X}_1-\bar{X}_2)$ from $T_{BS}$, the variance of $T_{BS}$ can be significantly reduced to order $p$ from order $p^2$.
 %Note that $\Sigma=(1-c)I+c\bm{1}_p+\bm{1}_p^T$ is just a special case of spiked covariance.
-
-Proposition~\ref{oracleTheorem} shows that $T_1$ has normal limit distribution.
+It can be shown that $T_1$ has asymptotically normal distribution.
 \begin{proposition}\label{oracleTheorem}
     Under Assumption~\ref{theModel}, suppose $\frac{n}{p}\|\mu_1-\mu_2\|^2= o(1)$, we have 
     \begin{equation*}
@@ -523,7 +529,7 @@ In another point of view, $T_1$ is obtained by transforming $X_{k,i}$ to $\tilde
 A class of test procedures have been proposed through random projection to lower dimensional space. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
 It is known that random projection based methods offer higher power when the variables are dependent.
 However, these test procedures are randomized, which is undesirable in practice.
-This raises the question: is there an optimal projection which is nonrandomized?
+Then, is there an optimal projection which is nonrandomized?
 
     For $p\geq q$, define
     $
@@ -547,18 +553,12 @@ Thus, transformation by $\tilde{V}$ is optimal in the sense of variance reductio
 %    Suppose $\mu_1=\mu_2$. When $\beta>1/2$, the order of $T_1$'s variance is smaller than the order of $T_{CQ}$'s variance, which implies $T_1/(\sigma^2\sqrt{2\tau^2 p})$ is asymptotically independent of $T_{CQ}/\sqrt{2\tau^2 \mathrm{tr}\Sigma^2}$. Hence $T_1$ does provide additional information, although $T_1$ is inherited from $T_{CQ}$.  
 %\end{remark} 
 
-
-\subsection{New test}
+Note that $T_1$ is not a statistic since it relies on the subspace $\tilde{V}\tilde{V}^T$ which is unknown. Thus, we estimate $\tilde{V}\tilde{V}^T$ by its sample counterpart.
 We denote by $\hat{V}$ and $\hat{\tilde{V}}$ the first $r$ and last $p-r$ eigenvectors of $S$ respectively.
-Similarly, we denote by  $\hat{V}$ and $\hat{\tilde{V}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
- As estimators of their population counterparts, these simple statistics actually reach the optimal convergence rate (See~\cite{Cai2012Sparse}).
-
-Note that $T_1$ relies on the subspace $\tilde{V}\tilde{V}^T$ which is unknown and thus should be estimated.
-The first part of $T_1$, $\|\tilde{V}^T (\bar{X}_1-\bar{X}_2)\|^2$,
+Similarly, we denote by  $\hat{V}_k$ and $\hat{\tilde{V}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
+As the main part of $T_1$, $\|\tilde{V}^T (\bar{X}_1-\bar{X}_2)\|^2$
  can be directly estimated by $\|\hat{\tilde{V}}^T (\bar{X}_1-\bar{X}_2)\|^2$.
-Note that ${n_1^{-1}}\mathrm{tr}(\tilde{V}^T S_1\tilde{V})$, the second part of $T_1$, only involves sample one.
-We estimate it by ${n_1^{-1}}\mathrm{tr}(\hat{\tilde{V}}_1^T S_1\hat{\tilde{V}}_1)$.
-Similarly, we estimate the third part of $T_1$ by ${n_2^{-1}}\mathrm{tr}(\hat{\tilde{V}}_2^T S_2\hat{\tilde{V}}_2)$.
+While ${n_k^{-1}}\mathrm{tr}(\tilde{V}^T S_k\tilde{V})$ can be estimated by ${n_k^{-1}}\mathrm{tr}(\hat{\tilde{V}}_k^T S_k\hat{\tilde{V}}_k)$, $k=1,2$.
 Define
 \begin{equation*}
 \begin{aligned}
@@ -567,77 +567,9 @@ Define
 %-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^T\hat{\tilde{V}}\hat{\tilde{V}}^T X_{2j}}{n_1n_2}
 \end{aligned}
 \end{equation*}
-The asymptotic result of Proposition~\ref{oracleTheorem} involves $\sigma^2$.
-In order to formulate a test procedure by asymptotic distribution, $\sigma^2$ needs to be consistently estimated.
-Note that $\sigma^2$ can be written as
-    $\sigma^2={(p-r)}^{-1}\sum_{i=r+1}^{p}\lambda_i(\Sigma)$.
-So it can be estimated by
-\begin{equation*}
-    \hat{\sigma}^2=\frac{1}{p-r}\sum_{i=r+1}^{p} \lambda_i(S).
-\end{equation*}
-Now we propose our new test statistic as
-\begin{equation}\label{myTest}
-    Q=\frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}.
-\end{equation}
-In the next section, it will be proved that  the asymptotic null distribution of $Q$ is $N(0,1)$. Thus, the null hypothesis is rejected when $Q$ is larger than the upper $\alpha$ quantile of $N(0,1)$.
-
-%\begin{remark}
-    %Compared with random projection method, our projection is determined by the structure of $S_1$, $S_2$ and $S$.
-    %We don't  project multiple times as random projection method did, which leads to reproducibility in practice.
-%\end{remark}
-
-
-\begin{remark} When both samples are simultaneously transformed by shift and orthogonal transformation, the statistic $T_2$ is invariant.
-    More precisely, $T_2$ is invariant under the following transformation: 
-    \begin{equation*}
-        \textrm{$X_{1,i}\mapsto OX_{1,i}+\mu$ and $X_{2,j}\mapsto OX_{2,j}+\mu$, $i=1,\ldots,n_1$, $j=1,\ldots,n_2$,}
-    \end{equation*}
-    where $\mu\in\mathbb{R}^p$ and $O\in\mathbb{O}_{p\times p}$.
-\end{remark}
-
-
-
-    Theoretical results will show that the asymptotic variance of $T_2$ is significantly smaller than $T_{CQ}$. 
-    Since the new test statistic estimates $\|\tilde{V}^T(\mu_1-\mu_2)\|^2$,
- the superiority of the new test will be established if 
-    
-\begin{equation}\label{yuedengyu}
-    \frac{\|\tilde{V}^T(\mu_1-\mu_2)\|}{\|\mu_1-\mu_2\|}\approx 1.
-\end{equation}
-Obviously,~\eqref{yuedengyu}
-is not always the case since there always exists some
-$\tilde{V}$ and $\mu_1-\mu_2$ such that $\|\tilde{V}^T(\mu_1-\mu_2)\|=0$.
-However,~\eqref{yuedengyu} is reasonable since $\tilde{V}\tilde{V}^T$ is nearly an identity matrix in the sense that
-    ${\|I_p-\tilde{V}\tilde{V}^T\|_F^2}/{\|I_p\|_F^2}=r/p\to 0$. 
-In bayesian framework, if we assume that the elements of $\mu_k$ are independently generated from certain prior distribution, it can be established that 
-    ${\|\tilde{V}(\mu_1-\mu_2)\|}/{\|\mu_1-\mu_2\|}\xrightarrow{P}1$.
-
-
-
-%When $\frac{\sqrt{p}}{n_1+n_2}\to 0$, the critical value of our test can be approximated by it's asymptotic distribution which we will encounter later.
-%However, it is a more practical issue to deal with the case when $n$ is small or the case when $p$ is much larger than $n$. In these cases, the null distribution is complicated and asymptotic distribution is a poor approximation of true distribution. Fortunately, permutation method can be used with the price of heavier computational burden. See~\cite{Lehmann}.
-
-
-
-\subsection{Theoretical results}
-
-In this section, we study the asymptotic behavior of the new test procedure.
-
-
- We first give a result of the convergence rate of $\hat{\sigma}^2$.
- In particular, this result shows that $\hat{\sigma}^2$ is a consistent estimator of $\sigma^2$.   
- Our proof relies on the Weyl's inequality.
-\begin{proposition}\label{varianceEstimation}
-    Under Assumptions~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
-    $$
-    \hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big).
-    $$
-\end{proposition}
-
-In the construction of $T_2$, we replace $\tilde{V}$ by $\hat{\tilde{V}}$.
-The asymptotic property of $T_2$ is closely related the asymptotic property of $\hat{\tilde{V}}\hat{\tilde{V}}^T$ as an estimator of $\tilde{V}\tilde{V}^T$.
+The asymptotic property of $T_2$ is closely related to the consistency rate of $\hat{\tilde{V}}\hat{\tilde{V}}^T$ as an estimator of $\tilde{V}\tilde{V}^T$.
 However, $\hat{\tilde{V}}\hat{\tilde{V}}^T$ can not always consistently estimate $\tilde{V}\tilde{V}^T$ in high dimensional setting.
-In fact,~\cite{Tony2013}'s Theorem $5$ implies that it is possible only when $p^{1-\beta}/n\to 0$, see Lemma~\ref{conRateLemma} in appendix.
+In fact,~\cite{Cai2012Sparse}'s Theorem $5$ implies that it is possible only when $p^{1-\beta}/n\to 0$, see Lemma~\ref{conRateLemma} in appendix.
 The asymptotic normality of $T_2$ requires a stronger condition.
 \begin{assumption}\label{pAndN}
     Assume
@@ -645,7 +577,6 @@ The asymptotic normality of $T_2$ requires a stronger condition.
     {p}/{n^2}\to 0.
     $
 \end{assumption}
-When $\beta=1/2$, Assumption~\ref{pAndN} is equivalent to $p^{1-\beta}/n$, otherwise~\ref{pAndN} is stronger than $p^{1-\beta}/n$.
 The following theorem establishes the asymptotic normality of $T_2$.
 \begin{theorem}\label{myPanpan}
     Under Assumptions~\ref{theModel} and~\ref{pAndN},
@@ -656,13 +587,36 @@ suppose
         \frac{T_2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
 \end{equation*}
 \end{theorem} 
+The proof of Theorem~\ref{myPanpan} implies that the conclusion of Theorem~\ref{myPanpan} does not hold if Assumption~\ref{pAndN} is violated.
+
 %\begin{remark}  Compared with~\cite{2016arXiv160202491A}'s assumption (ix) which is equivalent to assuming $\frac{p^{2\beta-1}}{n_1+n_2}\to 0$ in model~\eqref{theModel}, our assumption $\frac{\sqrt{p}}{n_1+n_2}\to 0$ doesn't involved $\beta$.
 %And when $\beta\geq \frac{3}{4}$, our assumption is weaker than~\cite{2016arXiv160202491A}'s. Note that when $\beta=\frac{1}{2}$, $\frac{\sqrt{p}}{n_1+n_2}$ is a necessary condition to make $\hat{V}\hat{V}^T$ a consistent
 %estimator of $VV^T$ (see lemma 2 in appendix). So condition $\frac{\sqrt{p}}{n_1+n_2}$ is roughly the best we can do if the relationship between $p$ and $n$ doesn't involve $\beta$.
 %\end{remark}
-Now the power function of the new test can be obtained immediately.
 
 
+The asymptotic result of Proposition~\ref{oracleTheorem} involves $\sigma^2$.
+In order to formulate a test procedure by asymptotic distribution, $\sigma^2$ needs to be consistently estimated.
+Note that $\sigma^2$ can be written as
+    $\sigma^2={(p-r)}^{-1}\sum_{i=r+1}^{p}\lambda_i(\Sigma)$, where $\lambda_i(\Sigma)$ is the $i$th largest eigenvalue of $\Sigma$.
+So $\sigma^2$ can be estimated by
+\begin{equation*}
+    \hat{\sigma}^2=\frac{1}{p-r}\sum_{i=r+1}^{p} \lambda_i(S).
+\end{equation*}
+ Using Weyl's inequality, we can derive the consistency rate of $\hat{\sigma}^2$.
+\begin{proposition}\label{varianceEstimation}
+    Under Assumptions~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
+    $$
+    \hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big).
+    $$
+\end{proposition}
+Now we propose our new test statistic as
+    $$
+    Q=\frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}.
+    $$
+By Theorem~\ref{myPanpan} and Proposition~\ref{varianceEstimation}, $Q$ is asymptotically distributed as $N(0,1)$ under null hypothesis.
+Thus, we reject the null hypothesis when $Q$ is larger than the upper $\alpha$ quantile of $N(0,1)$.
+The asymptotic power function of the new test can be obtained immediately.
 \begin{corollary}\label{testPowerh}
     Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of the new test is
     \begin{equation*}
@@ -676,8 +630,6 @@ Now the power function of the new test can be obtained immediately.
  As a result, when $\beta>1/2$, the new test tends to be much more powerful.
 
 
-The proof of Theorem~\ref{myPanpan} implies that when Assumption~\ref{pAndN} is not satisfied, the asymptotic normality is invalid. In this case, permutation method can be used to determine the critical value.
-We will see from simulation results that the new test has good power behavior even if $p$ is much large than $n$.
 
 
 
@@ -685,11 +637,9 @@ We will see from simulation results that the new test has good power behavior ev
 \subsection{Simulation results}
 
 
-In this section, we report the simulation performance of the proposed test and compare it with $T_{CQ}$ and $T_S$.
-
+In this section, we report the simulation performance of the proposed test and compare it with $T_{CQ}$ and $T_{SD}$.
 In our simulation studies, samples are generated from the model described in Assumption~\ref{theModel},   
-    where $V\in\mathbb{O}_{p\times r}$ is randomly generated from Haar invariant distribution, $\lambda_{k,i}$ equals $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$) and $\sigma^2_k=1$, $k=1,2$.
-    In unequal variance case, $(V_1,\Lambda_1)$ and $(V_2,\Lambda_2)$ are independently generated.
+    where $V\in\mathbb{O}_{p\times r}$ is randomly generated from Haar invariant distribution, $\lambda_{i}$ equals $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$) and $\sigma^2=1$.
 We take nominal level $\alpha=0.05$.
 
 %The key to the validation of Theorem~\ref{myPanpan} is  that $T_{\textrm{dif}}=\frac{n_1n_2|T_1-T_2|}{\sqrt{2p}(n_1+n_2)\sigma^2}$ converges to $0$.
@@ -712,27 +662,27 @@ We take nominal level $\alpha=0.05$.
 
 First, we simulate the level of the new test. We set factor number $r=2$.
 Samples are repeatedly generated $1000$ times to calculate empirical level.
-For comparison, we also give corresponding `oracle' level which is calculated by `statistics' ${T_1}/(\sigma^2\sqrt{2p\tau^2})$ in equal variance case and ${T_1}/\sqrt{\sigma_n^2}$ in unequal variance case.
-The results for equal variance case and unequal variance case are listed in
-Table~\ref{biaoge1} and~\ref{biaoge2}, respectively.
-From the results, we can find that for small $n$ and $p$, even oracle level is not satisfied.
+For comparison, we also give corresponding `oracle' level which is calculated by `statistics' ${T_1}/(\sigma^2\sqrt{2p\tau^2})$ in equal variance case and ${T_1}/\sqrt{\sigma_n^2}$.
+The result is listed in
+Table~\ref{biaoge1}.
+We can find that for small $n$ and $p$, even oracle level is not satisfied.
 Level of the new test is a little inflated compared with oracle level.
 In all cases, the empirical level tends to be more close to $0.05$ as $n$ increases.
 
 \input{code/level.tex}
-\input{code/level2.tex}
+%\input{code/level2.tex}
 
 
 
 Next, we simulate the empirical power of the new test.
 The simulation results of~\cite{Ma2015A} have showed that the level of the~\cite{Chen2010A}'s test can't be guaranteed when covariance is spiked.
 To be fair,  critical values are all determined by permutation method.
-We set $\Sigma_1=\Sigma_2$, under which permutation method can produce exact test procedures, see~\cite{Lehmann}'s Example 15.2.2.\@
+%We set $\Sigma_1=\Sigma_2$, under which permutation method can produce exact test procedures, see~\cite{Lehmann}'s Example 15.2.2.\@
 %Note that the statistics of~\cite{Chen2010A},~\cite{Bai1996Efiect} and~\cite{Ma2015A} all produce the same permutation test.
 %Indeed, they are all equivalent to the permutation test based on $\|\bar{X}_1-\bar{X}_2\|^2$.
-We permutate the sample $100$ times to determine the critical value. We repeat the test procedure $500$ times to obtain empirical power.
+We permutate the sample $100$ times to determine the critical value. The test procedure is repeated $500$ times to obtain empirical power.
 We plot the empirical power versus signal-to-noise ratio $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
-The results are illustrated in figure~\ref{fig:fig1} and~\ref{fig:fig2}, where `NEW', `CQ' and `S' represent the new test,~\cite{Chen2010A}'s test and \cite{Srivastava2008A}'s test.
+The results are illustrated in figure~\ref{fig:fig1}, where `NEW', `CQ' and `SD' represent the new test,~\cite{Chen2010A}'s test and \cite{Srivastava2008A}'s test.
 From the results, we can find that when $\Sigma$ is spiked, the new test outperforms $T_{CQ}$ substantially; when $\Sigma$ is not spiked, all three tests have similar performance.
 \begin{figure}
     \centering 
@@ -792,7 +742,9 @@ We draw the same conclusion as~\cite{Ma2015A}.
 
 
 
-This paper is concerned with the problem of testing the equality of means in the setting of high dimension and spiked covariance. We drop big variance terms from $T_{CQ}$ and obtain a new test statistic. The asymptotic normality of the new statistic is proved and the asymptotic power is given. %The new test outperforms $T_{CQ}$ substantially if the variance is spiked.
+This paper is concerned with the problem of testing the equality of means in the setting of high dimension and spiked covariance.
+We derived the asymptotic distribution of~\cite{Chen2010A}'s test statistic.
+To reduce the variance of $T_{CQ}$, we dropped big variance terms and obtain a new test statistic. The asymptotic normality of the new statistic is proved and the asymptotic power is given. %The new test outperforms $T_{CQ}$ substantially if the variance is spiked.
 
 %We also generalize the test to unequal variance case.
 
@@ -811,7 +763,7 @@ where $R$ is a hyperparameter.
     See~\cite{Ahn2009Eigenvalue} for detail.
 
 
-Our theoretical results rely on the assumption $\sqrt{p}/n\to 0$. In the situation of small sample or very large $p$, the critical value of the new test can be determined by permutation method. Our simulation shows that the new test still performs well. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
+The asymptotic normality of the new test statistic relies on the assumption $\sqrt{p}/n\to 0$. In the situation of small $n$ or very large $p$, the critical value of the new test can be determined by permutation method. Our simulation shows that the new test still performs well. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
 
 
 
@@ -871,18 +823,18 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
     $$
 \end{corollary}
 \begin{proof}[\textbf{Proof}]
-    Since $[0,+\infty]$ is compact, for every subsequance $\{n_{k}\}$ of $\{n\}$, there is a further subsequance $\{n_{k_l}\}$ along which $p/n\to c\in [0,+\infty]$.
+    Since $[0,+\infty]$ is compact, for every subsequence $\{n_{k}\}$ of $\{n\}$, there is a further subsequence $\{n_{k_l}\}$ along which $p/n\to c\in [0,+\infty]$.
 
     If $c\in [0,+\infty)$, by Lemma~\ref{baiyin}, we have that
     $$
     \frac{\lambda_1(W_{n_{k_l}})}{n_{k_l}}\xrightarrow{P}{(1+c)}^2.
     $$
-    Hence the conclusion holds along this subsequance.
+    Hence the conclusion holds along this subsequence.
     If $c=+\infty$, suppose $W_n=Z_n Z_n^T$ where $Z_n$ is a $p\times n$ matrix with all elements independently distributed as $N(0,1)$. Then
     $$
     \frac{\lambda_1(W_{n_{k_l}})}{p}=\frac{\lambda_1(Z_{n_{k_l}}^T Z_{n_{k_l}})}{p}\xrightarrow{P} 1
     $$
-    by Lemma~\ref{baiyin}, which proves the conclusion along the subsequance. Now the conclusion holds by a standard subsequance argument.
+    by Lemma~\ref{baiyin}, which proves the conclusion along the subsequence. Now the conclusion holds by a standard subsequence argument.
 \end{proof}
 
 
@@ -1033,7 +985,7 @@ Thus,
     \end{equation}
 
     As for $\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2$, we have that
-    \begin{equation}\label{prop1eq1}
+        $$
         \begin{aligned}
             &\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2
             =\big\|\tilde{V}^T(\mu_1-\mu_2)+\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2\\
@@ -1041,7 +993,7 @@ Thus,
             \big\|\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2+
             2{(\mu_1-\mu_2)}^T\tilde{V}\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big).
         \end{aligned}
-    \end{equation}
+        $$
 Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2),  \sigma^2 \tau I_{p-r})$, by central limit theorem, we have
     $$
 \frac{
@@ -1181,7 +1133,7 @@ $$
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
 Note that
-    \begin{equation}
+    \begin{equation}\label{qiguaile}
         \begin{aligned}
             &\|\tilde{V}^T(\bar{X}_1-\bar{X}_2)\|^2
             =\big\|\tilde{V}^T(\mu_1-\mu_2)+\tilde{V}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2\\
@@ -1242,18 +1194,16 @@ Note that
         \end{aligned}
     \end{equation}
 
-    Equation~\eqref{prop1eq1} and~\eqref{prop1eq2} imply that
-    \begin{equation}
-        \begin{aligned}
+    Equation~\eqref{qiguaile} and~\eqref{prop1eq2} imply that
+            $$
             \frac{T_1-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}
             =
-            \frac{\|\bar{Y}_1-\bar{Y}_2\|^2-
+            \frac{\|\tilde{V}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2-
                 \sigma^2 \tau (p-r)}{\sigma^2\sqrt{2\tau^2 p}}
                 +o_P(1).
-        \end{aligned}
-    \end{equation}
+    $$
     Since
-$\|\tilde{V}^T(\bar{Z}_1-\bar{Z}_2)\|^2\sim \sigma^2\tau\chi^2_{p-r}$,
+$\|\tilde{V}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2\sim \sigma^2\tau\chi^2_{p-r}$,
 the proposition follows by central limit theorem.
 \end{proof}
 
@@ -1262,54 +1212,54 @@ the proposition follows by central limit theorem.
 \begin{proof}[\textbf{Proof of Proposition~\ref{varianceEstimation}}]
     Note that $(n-2)S\sim \mathrm{Wishart}_p (n-2,\Sigma)$.
     Denote by $\Sigma=UEU^T$ the spectral decomposition of $\Sigma$, where $U=(V,\tilde{V})$ is an orthogonal matrix and $E=\mathrm{diag}(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
-    Let $Z$ be a $p\times (n-2)$ random matrix with all elements i.i.d.\ distributed as $N(0,1)$, then
+    Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements i.i.d.\ distributed as $N(0,1)$, then
     $$
-        S\sim \frac{1}{n-2} U E^{1/2} Z Z^T E^{1/2} U^T.
+        S\sim \frac{1}{n-2} U E^{1/2} \bZ \bZ^T E^{1/2} U^T.
     $$
     Thus,
     \begin{equation*}
         \begin{aligned}
             \hat{\sigma}^2\sim
-            \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^p \lambda_i (U E^{1/2} Z Z^T E^{1/2} U^T)
+            \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^p \lambda_i (U E^{1/2} \bZ \bZ^T E^{1/2} U^T)
             =
-            \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2} \lambda_i ( Z^T E Z).
+            \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2} \lambda_i ( \bZ^T E \bZ).
         \end{aligned}
     \end{equation*}
-    Denote $Z={(Z_{(1)}^T,Z_{(2)}^T)}^T$, where $Z_{(1)}$ and $Z_{(2)}$ are the first $r$ rows and last $p-r$ rows of $Z$. We have
+    Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. We have
     $$
-    Z^T E Z =Z_{(1)}^T (\Lambda +\sigma^2 I_r) Z_{(1)}+\sigma^2 Z_{(2)}^T Z_{(2)}.
+    \bZ^T E \bZ =\bZ_{(1)}^T (\Lambda +\sigma^2 I_r) \bZ_{(1)}+\sigma^2 \bZ_{(2)}^T \bZ_{(2)}.
     $$
  The first term is of rank $r$. By Weyl's inequality, we have
     $$
-    \sigma^2\lambda_i(Z_{(2)}^T Z_{(2)}) \leq \lambda_i(Z^T E Z)\leq
-    \sigma^2\lambda_{i-r}(Z_{(2)}^T Z_{(2)}),
+    \sigma^2\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \lambda_i(\bZ^T E \bZ)\leq
+    \sigma^2\lambda_{i-r}(\bZ_{(2)}^T \bZ_{(2)}),
     \quad
     \textrm{$i=r+1,\ldots, n-2$}.
     $$
     Thus,
     $$
-    \sigma^2\sum_{i=r+1}^{n-2}\lambda_i(Z_{(2)}^T Z_{(2)}) \leq \sum_{i=r+1}^{n-2}\lambda_i(Z^T E Z)\leq
-    \sigma^2\sum_{i=1}^{n-r-2}\lambda_{i}(Z_{(2)}^T Z_{(2)}).
+    \sigma^2\sum_{i=r+1}^{n-2}\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)\leq
+    \sigma^2\sum_{i=1}^{n-r-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)}).
     $$
      It follows that
      \begin{equation*}
          \begin{aligned}
-             &\Big|\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(Z^T E Z)-
-    \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(Z_{(2)}^T Z_{(2)})\Big|
+             &\Big|\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)-
+    \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})\Big|
              \\
-             \leq & r\sigma^2\frac{1}{(p-r)(n-2)} \lambda_1 (Z_{(2)}^T Z_{(2)}).
+             \leq & r\sigma^2\frac{1}{(p-r)(n-2)} \lambda_1 (\bZ_{(2)}^T \bZ_{(2)}).
          \end{aligned}
      \end{equation*}
-    By Corollary~\ref{maxEigen}, $\lambda_1 (Z_{(2)}^T Z_{(2)})=O_P(\max(n,p))$. 
+    By Corollary~\ref{maxEigen}, $\lambda_1 (\bZ_{(2)}^T \bZ_{(2)})=O_P(\max(n,p))$. 
     Thus,
      \begin{equation*}
          \begin{aligned}
-             &\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(Z^T E Z)\\
+             &\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)\\
              =&
-    \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(Z_{(2)}^T Z_{(2)})
+    \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})
              +O_P(\frac{\max(n,p)}{np})\\
              =&
-             \frac{1}{(p-r)(n-2)} \sigma^2\mathrm{tr}(Z_{(2)}^T Z_{(2)})
+             \frac{1}{(p-r)(n-2)} \sigma^2\mathrm{tr}(\bZ_{(2)}^T \bZ_{(2)})
              +O_P(\frac{\max(n,p)}{np})\\
              =&
              \sigma^2
@@ -1470,16 +1420,16 @@ where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables whic
 Then for every subsequence of $\{n\}$, there's a further subsequence along which~\eqref{inProbC} holds almost surely.
 By Lemma~\ref{quadraticFormCLT}, for every subsequence of $\{n\}$, there's a further subsequence along which
 \begin{equation}\label{aseq}
-    \rho\big(\mathcal{L}( Z_n |S),N(0,1)\big)\xrightarrow{a.s.}0,
+    \rho\big(\mathcal{L}( Y_n |S),N(0,1)\big)\xrightarrow{a.s.}0,
 \end{equation}
 where 
 $$
-Z_n=\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}},
+Y_n=\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}},
 $$
-and $\mathcal{L}(Z_n|S)$ is the conditional distribution of $Z_n$ given $S$.
-By the definition of weak convergence, for every continuous bounded function $f(\cdot)$, we have $E[f(Z_n)|S]\xrightarrow{a.s.}E[f(\epsilon)]$ along the subsequence, where $\epsilon\sim N(0,1)$.
-By dominated convergence theorem, we have $E[f(Z_n)]\to E[f(\epsilon)]$ along the subsequence.
-Thus, $Z_n\xrightarrow{\mathcal{L}}N(0,1)$ along the subsequence, or equivalently, $\rho(\mathcal{L}(Z_n,N(0,1)))\to 0$ along the subsequence. But this means $Z_n\xrightarrow{\mathcal{L}}N(0,1)$, or
+and $\mathcal{L}(Y_n|S)$ is the conditional distribution of $Y_n$ given $S$.
+By the definition of weak convergence, for every continuous bounded function $f(\cdot)$, we have $E[f(Y_n)|S]\xrightarrow{a.s.}E[f(\epsilon)]$ along the subsequence, where $\epsilon\sim N(0,1)$.
+By dominated convergence theorem, we have $E[f(Y_n)]\to E[f(\epsilon)]$ along the subsequence.
+Thus, $Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along the subsequence, or equivalently, $\rho(\mathcal{L}(Y_n,N(0,1)))\to 0$ along the subsequence. But this means $Y_n\xrightarrow{\mathcal{L}}N(0,1)$, or
 %$$
 %\rho\Big(\mathcal{L}\Big(\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}\Big|S\Big),N(0,1)\Big)\xrightarrow{P} 0.
 %$$
@@ -1502,6 +1452,44 @@ Now the desired asymptotic properties of $P_1$, $P_2$ and $P_3$ are established,
 
 
 
+%\begin{remark}
+    %Compared with random projection method, our projection is determined by the structure of $S_1$, $S_2$ and $S$.
+    %We don't  project multiple times as random projection method did, which leads to reproducibility in practice.
+%\end{remark}
+
+
+%\begin{remark} When both samples are simultaneously transformed by shift and orthogonal transformation, the statistic $T_2$ is invariant.
+    %More precisely, $T_2$ is invariant under the following transformation: 
+    %\begin{equation*}
+        %\textrm{$X_{1,i}\mapsto OX_{1,i}+\mu$ and $X_{2,j}\mapsto OX_{2,j}+\mu$, $i=1,\ldots,n_1$, $j=1,\ldots,n_2$,}
+    %\end{equation*}
+    %where $\mu\in\mathbb{R}^p$ and $O\in\mathbb{O}_{p\times p}$.
+%\end{remark}
+
+
+
+    %Since the new test statistic estimates $\|\tilde{V}^T(\mu_1-\mu_2)\|^2$,
+ %the superiority of the new test will be established if 
+    
+%\begin{equation}\label{yuedengyu}
+    %\frac{\|\tilde{V}^T(\mu_1-\mu_2)\|}{\|\mu_1-\mu_2\|}\approx 1.
+%\end{equation}
+%Obviously,~\eqref{yuedengyu}
+%is not always the case since there always exists some
+%$\tilde{V}$ and $\mu_1-\mu_2$ such that $\|\tilde{V}^T(\mu_1-\mu_2)\|=0$.
+%However,~\eqref{yuedengyu} is reasonable since $\tilde{V}\tilde{V}^T$ is nearly an identity matrix in the sense that
+    %${\|I_p-\tilde{V}\tilde{V}^T\|_F^2}/{\|I_p\|_F^2}=r/p\to 0$. 
+%In bayesian framework, if we assume that the elements of $\mu_k$ are independently generated from certain prior distribution, it can be established that 
+    %${\|\tilde{V}(\mu_1-\mu_2)\|}/{\|\mu_1-\mu_2\|}\xrightarrow{P}1$.
+
+
+
+%When $\frac{\sqrt{p}}{n_1+n_2}\to 0$, the critical value of our test can be approximated by it's asymptotic distribution which we will encounter later.
+%However, it is a more practical issue to deal with the case when $n$ is small or the case when $p$ is much larger than $n$. In these cases, the null distribution is complicated and asymptotic distribution is a poor approximation of true distribution. Fortunately, permutation method can be used with the price of heavier computational burden. See~\cite{Lehmann}.
+
+
+%The proof of Theorem~\ref{myPanpan} implies that when Assumption~\ref{pAndN} is not satisfied, the asymptotic normality is invalid. In this case, permutation method can be used to determine the critical value.
+%We will see from simulation results that the new test has good power behavior even if $p$ is much large than $n$.
 
 \section*{Acknowledgements}
 This work was supported by the National Natural Science Foundation of China under Grant No. 11471035, 11471030.
