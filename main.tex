@@ -96,9 +96,9 @@
     This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.
     The covariance matrix is assumed to be spiked, which often arises in practice. 
     We derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic under spiked covariance.
-    Also, we propose a new test procedure through projection on the orthogonal complement of principal space.
+    Also, a new test procedure is proposed through projection on the orthogonal complement of principal space.
     The asymptotic normality of the new test statistic is proved and the power function of the test is given.
-    Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrices are spiked.
+    Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrix is spiked.
 \end{abstract}
 
 \begin{keyword}
@@ -118,7 +118,7 @@ Suppose $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (i.i
 \begin{equation}\label{problem}
     H_0:\mu_1=\mu_2\quad \textrm{vs.}\quad H_1:\mu_1\neq \mu_2.
 \end{equation}
- In this paper, {the} high dimensional setting is adopted, i.e., the dimension $p$ varies as $n$ increase, where $n=n_1+n_2$ is the total sample size.
+ In this paper, {the} high dimensional setting is adopted, that is, the dimension $p$ varies as $n$ increase, where $n=n_1+n_2$ is the total sample size.
 Testing hypotheses~\eqref{problem} is important in many fields, including biology, finance and economics.
 
 
@@ -620,13 +620,13 @@ The asymptotic power function of the new test can be obtained immediately.
 \begin{corollary}\label{testPowerh}
     Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of the new test is
     \begin{equation*}
-        \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{V}(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
+        \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{V}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
     \end{equation*}
 \end{corollary}
 
 
- Recall that $T_{CQ}$ has trivial power if $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
- Note that the power function of the new test do not affected by $\beta$.
+ In Section~\ref{sec:chen}, we have seen that the test procedure $T_{CQ}$ has trivial power if $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
+Corollary~\ref{testPowerh} implies that the asymptotic power function of the new test is not affected by $\beta$.
  As a result, when $\beta>1/2$, the new test tends to be much more powerful.
 
 
@@ -662,7 +662,7 @@ We take nominal level $\alpha=0.05$.
 
 First, we simulate the level of the new test. We set factor number $r=2$.
 Samples are repeatedly generated $1000$ times to calculate empirical level.
-For comparison, we also give corresponding `oracle' level which is calculated by `statistics' ${T_1}/(\sigma^2\sqrt{2p\tau^2})$ in equal variance case and ${T_1}/\sqrt{\sigma_n^2}$.
+For comparison, we also give the corresponding `oracle' level which is calculated by variable ${T_1}/(\sigma^2\sqrt{2p\tau^2})$.
 The result is listed in
 Table~\ref{biaoge1}.
 We can find that for small $n$ and $p$, even oracle level is not satisfied.
@@ -675,14 +675,14 @@ In all cases, the empirical level tends to be more close to $0.05$ as $n$ increa
 
 
 Next, we simulate the empirical power of the new test.
-The simulation results of~\cite{Ma2015A} have showed that the level of the~\cite{Chen2010A}'s test can't be guaranteed when covariance is spiked.
+The results in Section~\ref{sec:chen} have showed that the level of the~\cite{Chen2010A}'s test can't be guaranteed when $\beta\geq 1/2$.
 To be fair,  critical values are all determined by permutation method.
 %We set $\Sigma_1=\Sigma_2$, under which permutation method can produce exact test procedures, see~\cite{Lehmann}'s Example 15.2.2.\@
 %Note that the statistics of~\cite{Chen2010A},~\cite{Bai1996Efiect} and~\cite{Ma2015A} all produce the same permutation test.
 %Indeed, they are all equivalent to the permutation test based on $\|\bar{X}_1-\bar{X}_2\|^2$.
-We permutate the sample $100$ times to determine the critical value. The test procedure is repeated $500$ times to obtain empirical power.
-We plot the empirical power versus signal-to-noise ratio $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
-The results are illustrated in figure~\ref{fig:fig1}, where `NEW', `CQ' and `SD' represent the new test,~\cite{Chen2010A}'s test and \cite{Srivastava2008A}'s test.
+We permute the sample $100$ times to determine the critical value. The test procedure is repeated $500$ times to obtain empirical power.
+We plot the empirical power versus signal-to-noise ratio (SNR) which is defined as $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
+The results are illustrated in figure~\ref{fig:fig1}, where `NEW', `CQ' and `SD' represent the new test,~\cite{Chen2010A}'s test and \cite{Srivastava2008A}'s test respectively.
 From the results, we can find that when $\Sigma$ is spiked, the new test outperforms $T_{CQ}$ substantially; when $\Sigma$ is not spiked, all three tests have similar performance.
 \begin{figure}
     \centering 
@@ -812,9 +812,7 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
     Suppose $B_n=\frac{1}{q} Z Z^T$ where $Z$ is $p\times q$ random matrix composed of i.i.d.\ random variables with zero mean, unit variance and finite fourth moment.
     As $q\to \infty$ and $\frac{p}{q}\to c\in [0,\infty)$, the largest and smallest non-zero eigenvalues of $B_n$ converge almost surely to ${(1+\sqrt{c})}^2$ and $(1-\sqrt{c})^2$, respectively.
 \end{lemma}
-\begin{remark}
     Lemma~\ref{baiyin} is known as the Bai-Yin's law (\cite{bai1993limit}). As in Remark $1$ of~\cite{bai1993limit}, the smallest non-zero eigenvalue is the $p-q+1$ smallest eigenvalue of $B$ for $c>1$.
-\end{remark}
 
 \begin{corollary}\label{maxEigen}
     Suppose that $W_n$ is a $p \times p$ matrix distributed as $\mathrm{Wishart}_p(n,I_{p})$ where $\operatorname{Wishart}_p(m,\Psi)$ is the $p$ dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom. Then as $n,p\to \infty$,
@@ -858,7 +856,7 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
     \end{equation*}
     Hence~\ref{quadratic} follows by Lindeberg's central limit theorem.
 
-    Conversely, if~\ref{quadratic} holds, we will prove that there is a subsequence of $\{n\}$ along which~\ref{quadraticEigen} holds. Then~\ref{quadraticEigen} will hold by a standard contradiction argument. 
+    Conversely, if~\ref{quadratic} holds, we prove that there is a subsequence of $\{n\}$ along which~\ref{quadraticEigen} holds. Then~\ref{quadraticEigen} will hold by a standard contradiction argument. 
 
     Denote $c_{ni}=\lambda_i(A_n)/{\big[2\mathrm{tr}(A_n^2)\big]}^{1/2}$ ($i=1,\ldots,k_n$), we have $c_{ni}\in[-\sqrt{2}/2,\sqrt{2}/2]$.
     Since~\ref{quadratic} holds, the characteristic function of
@@ -894,14 +892,14 @@ E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
 
 
 
-The rest of the Appendix is devoted to the proof of propositions and theorems in the paper.
 
-\begin{proof}[\textbf{Proof of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}}]
-    Note that in both~\ref{Chenstheory1} and~\ref{Chenstheory2}, (a) is a corrolary of (b). So we only need to proof (b).
+\begin{proof}[\textbf{Proves of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}}]
+    In both Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}, (a) is a corrolary of (b).
+    Hence we shall prove (b) of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} simultaneously.
 
 For random variable $\xi$ and $\eta$,
   we write $\xi\sim \eta$ to denote they have the same distribution.
-    Note that $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\Sigma)$, $k=1,2$, we have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\Sigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
+    Since $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\Sigma)$, $k=1,2$, we have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\Sigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
     %Note that $\lambda_{r+1}(\Sigma)=\cdots=\lambda_p(\Sigma)=\sigma^2$, by central limit theorem, we have
     %$$
     %\begin{aligned}
@@ -1067,7 +1065,7 @@ Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2), 
 \begin{proof}[\textbf{Proof of Proposition~\ref{eigenconsis}}]
     Let $U=(V,\tilde{V})$ and $E=\mydiag(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$. Then $\Sigma=UEU^T$ is the spectral decomposition of $\Sigma$.
 Denote by $S=\hat{U}\hat{E}\hat{U}^T$ the spectral decomposition of $S$, where $\hat{U}=(\hat{V},\hat{\tilde{V}})$ and $\hat{E}=\mydiag(\hat{\lambda}_1,\ldots,\hat{\lambda}_p)$.
-Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements i.i.d.\ distributed as $N(0,1)$.
+Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements independently distributed as $N(0,1)$.
 Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. 
 We have
 $$
@@ -1211,8 +1209,10 @@ the proposition follows by central limit theorem.
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{varianceEstimation}}]
     Note that $(n-2)S\sim \mathrm{Wishart}_p (n-2,\Sigma)$.
-    Denote by $\Sigma=UEU^T$ the spectral decomposition of $\Sigma$, where $U=(V,\tilde{V})$ is an orthogonal matrix and $E=\mathrm{diag}(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
-    Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements i.i.d.\ distributed as $N(0,1)$, then
+As in the proof of Proposition~\ref{eigenconsis},
+    let $U=(V,\tilde{V})$ and $E=\mathrm{diag}(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
+Then $\Sigma=UEU^T$.
+    Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements independently distributed as $N(0,1)$. Then
     $$
         S\sim \frac{1}{n-2} U E^{1/2} \bZ \bZ^T E^{1/2} U^T.
     $$

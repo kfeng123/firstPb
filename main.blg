@@ -5,44 +5,48 @@ The style file: model4-names.bst
 Database file #1: mybibfile.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 19 entries,
+`journal' is a missing field, not a string, for entry Fan2015Asymptotics
+while executing---line 1676 of file model4-names.bst
+Warning--empty journal in Fan2015Asymptotics
+You've used 17 entries,
             3271 wiz_defined-function locations,
-            840 strings with 9199 characters,
-and the built_in function-call counts, 18150 in all, are:
-= -- 1569
-> -- 431
+            840 strings with 9363 characters,
+and the built_in function-call counts, 16695 in all, are:
+= -- 1490
+> -- 388
 < -- 13
-+ -- 179
-- -- 146
-* -- 2013
-:= -- 2387
-add.period$ -- 72
-call.type$ -- 19
-change.case$ -- 145
-chr.to.int$ -- 22
-cite$ -- 19
-duplicate$ -- 1554
-empty$ -- 1560
-format.name$ -- 222
-if$ -- 3567
++ -- 162
+- -- 131
+* -- 1913
+:= -- 2192
+add.period$ -- 78
+call.type$ -- 17
+change.case$ -- 130
+chr.to.int$ -- 23
+cite$ -- 18
+duplicate$ -- 1402
+empty$ -- 1409
+format.name$ -- 199
+if$ -- 3286
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 200
-newline$ -- 122
-num.names$ -- 78
-pop$ -- 365
+missing$ -- 182
+newline$ -- 114
+num.names$ -- 70
+pop$ -- 273
 preamble$ -- 1
-purify$ -- 123
+purify$ -- 110
 quote$ -- 0
-skip$ -- 303
+skip$ -- 273
 stack$ -- 0
-substring$ -- 1706
-swap$ -- 755
+substring$ -- 1560
+swap$ -- 716
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 168
-warning$ -- 0
-while$ -- 104
+type$ -- 150
+warning$ -- 1
+while$ -- 99
 width$ -- 0
-write$ -- 304
+write$ -- 292
+(There was 1 error message)

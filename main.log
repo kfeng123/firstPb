@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  10 JUL 2017 15:00
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  10 JUL 2017 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1422,7 +1422,7 @@ File: code/fig7.jpeg Graphic file (type QTm)
 <use  "code/fig7.jpeg" >
 File: code/fig8.jpeg Graphic file (type QTm)
  <use  "code/fig8.jpeg" > [12] [13] [14] [15] [16]
-Overfull \hbox (6.00658pt too wide) in paragraph at lines 820--821
+Overfull \hbox (6.00658pt too wide) in paragraph at lines 818--819
 []  \EU1/lmr/bx/n/10 Corollary 2. []\EU1/lmr/m/it/10 Suppose that $\OML/cmm/m/i
 t/10 W[]$ \EU1/lmr/m/it/10 is a $\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^B \OML/c
 mm/m/it/10 p$ \EU1/lmr/m/it/10 matrix distributed as $[][]\OT1/cmr/m/n/10 (\OML
@@ -1430,7 +1430,7 @@ mm/m/it/10 p$ \EU1/lmr/m/it/10 matrix distributed as $[][]\OT1/cmr/m/n/10 (\OML
  []
 
 [17]
-Overfull \hbox (15.78859pt too wide) in paragraph at lines 863--869
+Overfull \hbox (15.78859pt too wide) in paragraph at lines 861--867
 []\EU1/lmr/m/n/10 Denote $\OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/
 10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[]\OT1/cmr/m/n/10 )/[][]$ \EU1/lmr/m
 /n/10 ($\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; [] ; k[]$\EU1/
@@ -1440,12 +1440,12 @@ lmr/m/n/10 ), we have $\OML/cmm/m/it/10 c[] \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10
  []
 
 
-Overfull \hbox (3.19302pt too wide) detected at line 884
+Overfull \hbox (3.19302pt too wide) detected at line 882
 [] []
  []
 
 
-Overfull \hbox (11.00288pt too wide) in paragraph at lines 884--892
+Overfull \hbox (11.00288pt too wide) in paragraph at lines 882--890
 \EU1/lmr/m/n/10 Denote $\OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 = [][] [][]$\EU1/l
 mr/m/n/10 , $\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; \OT1/cmr/
 m/n/10 2\OML/cmm/m/it/10 ; [] $ \EU1/lmr/m/n/10 and $\OML/cmm/m/it/10 l \OT1/cm
@@ -1455,17 +1455,17 @@ mr/m/n/10 , $[] [][] [][][] \OMS/cmsy/m/n/10 ^^T
  []
 
 [18]
-Overfull \hbox (82.12445pt too wide) detected at line 996
+Overfull \hbox (82.12445pt too wide) detected at line 994
 [] []
  []
 
 [19]
-Overfull \hbox (27.8134pt too wide) detected at line 1042
+Overfull \hbox (27.8134pt too wide) detected at line 1040
 [] []
  []
 
 
-Overfull \hbox (3.92867pt too wide) detected at line 1089
+Overfull \hbox (3.92867pt too wide) detected at line 1087
 \OML/cmm/m/it/10 ^^U[][][][]\OT1/cmr/m/n/10 (^^C + \OML/cmm/m/it/10 ^^[[]I[]\OT
 1/cmr/m/n/10 )[][][] \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10
  ([][]\OML/cmm/m/it/10 E[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/
@@ -1475,12 +1475,12 @@ Overfull \hbox (3.92867pt too wide) detected at line 1089
  []
 
 [20]
-Overfull \hbox (79.34666pt too wide) detected at line 1147
+Overfull \hbox (79.34666pt too wide) detected at line 1145
 [] []
  []
 
 [21]
-Overfull \hbox (26.61127pt too wide) detected at line 1188
+Overfull \hbox (26.61127pt too wide) detected at line 1186
 [] []
  []
 
@@ -1522,7 +1522,37 @@ Overfull \hbox (3.5844pt too wide) in paragraph at lines 1419--1422
 ich []
  []
 
-[25] (./main.bbl [26] [27])
+[25] (./main.bbl
+Underfull \hbox (badness 1178) in paragraph at lines 41--50
+[]\EU1/lmr/m/n/10 Birnbaum A, Johnstone IM, Nadler B, Paul D.  Minimax bounds f
+or
+ []
+
+[26]
+Underfull \hbox (badness 1990) in paragraph at lines 102--115
+\EU1/lmr/m/n/10 in high dimensions using random projection.  In: Shawe-Taylor J
+,
+ []
+
+
+Underfull \hbox (badness 5175) in paragraph at lines 102--115
+\EU1/lmr/m/n/10 Zemel RS, Bartlett PL, Pereira F, Weinberger KQ, editors. Ad-
+ []
+
+
+Underfull \hbox (badness 3098) in paragraph at lines 102--115
+\EU1/lmr/m/n/10 vances in Neural Information Processing Systems 24. Curran Asso
+-
+ []
+
+
+Overfull \hbox (91.00002pt too wide) in paragraph at lines 102--115
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][] []
+ []
+
+[27])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1502.
  [28]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1502.
@@ -1532,12 +1562,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1502.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1502.
  ) 
 Here is how much of TeX's memory you used:
- 25244 strings out of 493638
- 458231 string characters out of 6146796
- 485209 words of memory out of 5000000
- 28405 multiletter control sequences out of 15000+600000
+ 25238 strings out of 493638
+ 458138 string characters out of 6146796
+ 486125 words of memory out of 5000000
+ 28399 multiletter control sequences out of 15000+600000
  14279 words of font info for 75 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 47i,17n,74p,10426b,880s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,17n,74p,10426b,800s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (28 pages).
