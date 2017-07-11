@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.17)  11 JUL 2017 08:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.17)  11 JUL 2017 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
+**main
 (./main.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
@@ -679,7 +679,7 @@ ong which []
  []
 
 [25] (./main.bbl
-Underfull \hbox (badness 1038) in paragraph at lines 59--68
+Underfull \hbox (badness 1038) in paragraph at lines 55--63
 []\OT1/cmr/m/n/10 Chen, L.S., Paul, D., Pren-tice, R.L., Wang, P., 2011.  A reg
 -u-lar-ized
  []
@@ -703,7 +703,7 @@ Here is how much of TeX's memory you used:
  10594 multiletter control sequences out of 15000+600000
  16473 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,34p,495b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,34p,491b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
@@ -725,10 +725,10 @@ e1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm7.pfb>
-Output written on main.pdf (28 pages, 437309 bytes).
+Output written on main.pdf (28 pages, 433648 bytes).
 PDF statistics:
- 544 PDF objects out of 1000 (max. 8388607)
- 479 compressed objects within 5 object streams
+ 527 PDF objects out of 1000 (max. 8388607)
+ 462 compressed objects within 5 object streams
  100 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
