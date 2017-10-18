@@ -44,6 +44,8 @@
 \usepackage{color}
 \usepackage{booktabs}
 
+\usepackage{ulem}
+
 \DeclareMathOperator{\mytr}{tr}
 \DeclareMathOperator{\mydiag}{diag}
 \DeclareMathOperator{\myrank}{Rank}
@@ -115,26 +117,25 @@
 \section{Introduction}
 
 Suppose $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (i.i.d.) $p$-dimensional normal random vectors with unknown mean vector $\mu_k$ and covariance matrix $\Sigma$, $k=1,2$. We consider the hypothesis testing problem
-
 \begin{equation}\label{problem}
     H_0:\mu_1=\mu_2\quad \textrm{vs.}\quad H_1:\mu_1\neq \mu_2.
 \end{equation}
- In this paper, {the} high dimensional setting is adopted, that is, the dimension $p$ varies as $n$ increase, where $n=n_1+n_2$ is the total sample size.
+ In this paper, {the} high dimensional setting is adopted, that is, the dimension $p$ varies as $n$ increases, where $n=n_1+n_2$ is the total sample size.
 Testing hypotheses~\eqref{problem} is important in many fields, including biology, finance and economics.
 
 
-A classical test for hypotheses~\eqref{problem} is Hotelling's $T^2$ test.
-Hotelling's test statistic is ${(\bar{X}_1-\bar{X}_2)}^T S^{-1}(\bar{X}_1-\bar{X}_2)$, where $\bar{X}_k=n_k^{-1}\sum_{i=1}^{n_k}X_{k,i}$ is the mean vector of sample $k$, $k=1,2$, and
+A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ test  statistic ${(\bar{X}_1-\bar{X}_2)}^T S^{-1}(\bar{X}_1-\bar{X}_2)$, where $\bar{X}_k=n_k^{-1}\sum_{i=1}^{n_k}X_{k,i}$ is the mean vector of sample $k$, $k=1,2$, and
     $
     S=
 {(n-2)}^{-1}\sum_{k=1}^2\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
     %{(n-2)}^{-1}((n_1-1)S_1+(n_2-1)S_2)
     $
 is the pooled sample covariance matrix.
-However, Hotelling's test is not defined when $p\geq n-1$.
+However, Hotelling's test statistic is not defined when $p\geq n-1$.
 Moreover,~\cite{Bai1996Efiect} showed that even if $p<n-1$, Hotelling's test suffers from low power when $p$ is comparable to $n$.
-Perhaps, the main reason for low power of Hotelling's test is due to that $S$ is a poor estimator of $\Sigma$ when $p$ is large compared with $n$. See~\cite{Chen2010A} and the references therein.
-In high dimensional setting,  
+Perhaps, the main reason for low power of Hotelling's test is that $S$ is a poor estimator of $\Sigma$ when $p$ is large compared with $n$. See~\cite{Chen2010A} and the references therein.
+{\color{red}Major revison here.}
+In high dimensional settings,  
 many test statistics are based on ${(\bar{X}_1-\bar{X}_2)}^T A(\bar{X}_1-\bar{X}_2)$ for a positive definite matrix $A$.~\cite{Bai1996Efiect} proposed a test based on
 \begin{equation*}
     T_{BS}=\|\bar{X}_1-\bar{X}_2\|^2-(\frac{1}{n_1}+\frac{1}{n_2})\mathrm{tr}S,

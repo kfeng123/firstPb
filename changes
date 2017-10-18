@@ -1,0 +1,9 @@
+Bai-Yin's law (Previous Lemma 4) is replaced by its nonasymptotic conterpart: Davidson and Szarek's bound. This simplifies the proof of (previous) Corollary 2 and allows us to prove the convergence of principal space.
+
+We add a corrolary of Davidson and Szarek's bound.
+
+Convergence of large eigenvalue (Previous Proposition 1) is enhanced by dropping condition $n=O(p)$. The proof is also simplified.
+
+Convergence of principal space is now proved in the paper.
+
+We fixed some typos and make our best effort to make the paper fluent easy to read.
