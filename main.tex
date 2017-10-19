@@ -448,7 +448,7 @@ $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, the resulting test has level $\alpha
 In order to consistently estimate $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\lambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
 The following theorem shows that  $\lambda_i(S)$ can consistently estimate $\lambda_i$, $i=1,\ldots,r$.
 \begin{proposition}\label{eigenconsis}
-    Under Assumption~\ref{theModel}, suppose $n=O(p)$ and $p^{1-\beta}=o(n)$, then
+    Under Assumption~\ref{theModel}, suppose $p^{1-\beta}=o(n)$, then
     %$$
     %\lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
     %$$
@@ -793,49 +793,103 @@ Let $H$ and $P$ be two symmetric $n\times n$ matrices and $M=H+P$. If $r+s-1 \le
     %\end{equation*}
 %\end{corollary}
 
-
-\begin{lemma}[Convergence rate of principal space estimation]\label{conRateLemma}
-    Under the Assumption~\ref{theModel}, we have
-\begin{equation*}
-E\|\hat{V}\hat{V}^T-VV^T\|^2_F =O(\frac{p}{p^{\beta}n}).
-\end{equation*}
+{\color{red}
+\begin{lemma}[\cite{Cai2015Optimal}, Proposition 1]\label{pert}
+    Let $A_1$ and $A_2$ be $p\times p$ symmetric matrices. Let $r<p$ be arbitrary and let $V_1, V_2\in \mathbb{O}_{p,r}$ be formed by the $r$ leading singular vectors of $A_1$ and $A_2$, respectively. Then
+    $$
+    \|A_1-A_2\|\geq \frac{1}{2}(\lambda_r(A_1)-\lambda_{r+1}(A_2))\|V_1 V_1^T- V_2 V_2^T\|.
+    $$
 \end{lemma}
+}
 
 
-\begin{proof}[\textbf{Proof}]
-    Theorem 5 of~\cite{Cai2012Sparse} asserts that sample principal subspace $\hat{V}\hat{V}^T$ is a minimax rate optimal estimator of $VV^T$, namely, it reaches the minimax convergence rate
-    \begin{equation}\label{xiaopianpian}
-         E\|\hat{V}\hat{V}^T-VV^T\|^2_F\asymp r\wedge (p-r)\wedge \frac{r(p-r)}{(n_1+n_2-2)p^\beta}
-    \end{equation}
-    as long as the right hand side tends to $0$. 
-    It's obvious that the right hand side of~\eqref{xiaopianpian} is of order ${p^{1-\beta}}/{n}$.
-\end{proof}
-\begin{lemma}[Bai-Yin's law]\label{baiyin}
-    Suppose $B_n=\frac{1}{q} Z Z^T$ where $Z$ is $p\times q$ random matrix composed of i.i.d.\ random variables with zero mean, unit variance and finite fourth moment.
-    As $q\to \infty$ and $\frac{p}{q}\to c\in [0,\infty)$, the largest and smallest non-zero eigenvalues of $B_n$ converge almost surely to ${(1+\sqrt{c})}^2$ and $(1-\sqrt{c})^2$, respectively.
-\end{lemma}
-    Lemma~\ref{baiyin} is known as the Bai-Yin's law (\cite{bai1993limit}). As in Remark $1$ of~\cite{bai1993limit}, the smallest non-zero eigenvalue is the $p-q+1$ smallest eigenvalue of $B$ for $c>1$.
 
+
+{\color{red}
+    \begin{lemma}[\cite{DAVIDSON2001317}, Theorem II.7]\label{DSbound}
+        Let $Z$ be a $p\times n$ random matrix with i.i.d. $N(0,1)$ entries.
+        Then for any $t>0$,
+        \begin{align*}
+            &\Pr(\sqrt{\lambda_1(Z Z^T )}>\sqrt{n}+\sqrt{p}+t)\leq e^{-t^2/2},
+            \\
+            &\Pr(\sqrt{\lambda_{\min(n,p)}(Z Z^T )}<\sqrt{n}-\sqrt{p}-t)\leq e^{-t^2/2}.
+        \end{align*}
+    \end{lemma}
+    We give two useful corollaries of Lemma~\ref{DSbound}.
+}
 \begin{corollary}\label{maxEigen}
-    Suppose that $W_n$ is a $p \times p$ matrix distributed as $\mathrm{Wishart}_p(n,I_{p})$ where $\operatorname{Wishart}_p(m,\Psi)$ is the $p$ dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom. Then as $n,p\to \infty$,
+    Suppose that $W_n$ is a $p \times p$ random matrix distributed as $\mathrm{Wishart}_p(n,I_{p})$, the $p$ dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom. Then as $n,p\to \infty$,
     $$
         \lambda_1(W_n)=O_P(\max(n,p)).
     $$
 \end{corollary}
+{\color{red}
 \begin{proof}[\textbf{Proof}]
-    Since $[0,+\infty]$ is compact, for every subsequence $\{n_{k}\}$ of $\{n\}$, there is a further subsequence $\{n_{k_l}\}$ along which $p/n\to c\in [0,+\infty]$.
-
-    If $c\in [0,+\infty)$, by Lemma~\ref{baiyin}, we have that
+    The result follows from the inequality
     $$
-    \frac{\lambda_1(W_{n_{k_l}})}{n_{k_l}}\xrightarrow{P}{(1+c)}^2.
+    \begin{aligned}
+        &\Pr\Big(\frac{\lambda_1(W_n)}{\max(n,p)}>16\Big)
+        \leq
+        \Pr\Big(\lambda_1(W_n)>8(n+p)\Big)
+        \leq
+        \Pr\Big(\lambda_1(W_n)>4(\sqrt{n}+\sqrt{p})^2\Big)\\
+        =
+        &\Pr\Big(\sqrt{\lambda_1(W_n)}>2(\sqrt{n}+\sqrt{p})\Big)
+        \leq
+        \Pr\Big(\sqrt{\lambda_1(W_n)}>2\sqrt{n}+\sqrt{p}\Big)\leq e^{-n/2},
+    \end{aligned}
     $$
-    Hence the conclusion holds along this subsequence.
-    If $c=+\infty$, suppose $W_n=Z_n Z_n^T$ where $Z_n$ is a $p\times n$ matrix with all elements independently distributed as $N(0,1)$. Then
-    $$
-    \frac{\lambda_1(W_{n_{k_l}})}{p}=\frac{\lambda_1(Z_{n_{k_l}}^T Z_{n_{k_l}})}{p}\xrightarrow{P} 1
-    $$
-    by Lemma~\ref{baiyin}, which proves the conclusion along the subsequence. Now the conclusion holds by a standard subsequence argument.
+    where the last inequality follows from Lemma~\ref{DSbound} with $t=\sqrt{n}$.
 \end{proof}
+}
+
+{\color{red}
+\begin{corollary}\label{corNorm}
+Suppose that $W_n$ is a $p \times p$ random matrix distributed as $\mathrm{Wishart}_p(n,I_{p})$. Then as $n,p\to \infty$,
+$$
+    \|\frac{1}{n}W_n-I_p\|=O_P\Big(\max\big(\sqrt{\frac{p}{n}},\frac{p}{n}\big)\Big).
+$$
+\end{corollary}
+\begin{proof}
+    Since the eigenvalues of $\frac{1}{n}W_n-I_p$ are $\frac{1}{n}\lambda_1(W_n)-1\geq\cdots\geq\frac{1}{n}\lambda_p(W_n)-1$, we have
+     $$\|\frac{1}{n}W_n-I_p\|=\max\Big(\frac{1}{n}\lambda_1(W_n)-1,1-\frac{1}{n}\lambda_p(W_n)\Big).$$
+This, combined with union bound, yields
+$$
+    \Pr\Big(\|\frac{1}{n}W_n-I_p\|>4\big(\sqrt{\frac{p}{n}}+\frac{p}{n}\big)\Big)
+    \leq
+    \Pr\Big(\lambda_1(W_n)>\big(\sqrt{n}+2\sqrt{p}\big)^2\Big)+
+    \Pr\Big(\lambda_p(W_n)<n-4\sqrt{np}-4p\Big).
+$$
+    The first term can be bounded by Lemma~\ref{DSbound} with $t=\sqrt{p}$.
+    $$
+    \Pr\Big(\lambda_1(W_n)>\big(\sqrt{n}+2\sqrt{p}\big)^2\Big)=
+    \Pr\Big(\sqrt{\lambda_1(W_n)}>\sqrt{n}+2\sqrt{p}\Big)\leq e^{-p^2/2}.
+    $$
+    We now show that the second term is also bounded by $e^{-p^2/2}$.
+    To see this, note that
+    If $p>n/4$, then $n-4\sqrt{np}-4p\leq n-4p<0$. In this case, $\Pr\Big(\lambda_p(W_n)<n-4\sqrt{np}-4p\Big)=0$.
+    If $p\leq n/4$, we have
+    $$
+    \begin{aligned}
+        &\Pr\Big(\lambda_p(W_n)<n-4\sqrt{np}-4p\Big)
+    \leq
+    \Pr\Big(\lambda_p(W_n)<n-4\sqrt{np}+4p\Big)\\
+        =&
+    \Pr\Big(\sqrt{\lambda_p(W_n)}<\sqrt{n}-\sqrt{2p}\Big)
+        \leq e^{-p^2/2},
+    \end{aligned}
+    $$
+    where the last inequality follows from Lemma~\ref{DSbound} with $t=\sqrt{p}$.
+
+    Now we have the bound
+    $$
+    \Pr\Big(\|\frac{1}{n}W_n-I_p\|>4\big(\sqrt{\frac{p}{n}}+\frac{p}{n}\big)\Big)
+    \leq 2 e^{-p^2/2}.
+    $$
+    Then 
+    $$\|\frac{1}{n}W_n-I_p\|=O_P\Big(\sqrt{\frac{p}{n}}+\frac{p}{n}\Big)=O_P\Big(\max\big(\sqrt{\frac{p}{n}},\frac{p}{n}\big)\Big).$$
+\end{proof}
+}
 
 
 \begin{proof}[\textbf{Proof of Lemma~\ref{quadraticFormCLT}}]
@@ -1065,70 +1119,140 @@ Since $\tilde{V}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{V}^T (\mu_1-\mu_2), 
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{eigenconsis}}]
-    Let $U=(V,\tilde{V})$ and $E=\mydiag(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$. Then $\Sigma=UEU^T$ is the spectral decomposition of $\Sigma$.
+    Let $\Sigma=UEU^T$ denote the spectral decomposition of $\Sigma$, where
+     $U=(V,\tilde{V})$ and $E=\mydiag(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
 Denote by $S=\hat{U}\hat{E}\hat{U}^T$ the spectral decomposition of $S$, where $\hat{U}=(\hat{V},\hat{\tilde{V}})$ and $\hat{E}=\mydiag(\hat{\lambda}_1,\ldots,\hat{\lambda}_p)$.
-Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements independently distributed as $N(0,1)$.
+Let $\bZ$ be a $p\times (n-2)$ random matrix with i.i.d. $N(0,1)$ entries.
 Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. 
-We have
-$$
-S\sim \frac{1}{n-2} U E^{1/2} \bZ \bZ^T E^{1/2} U^T.
-$$
-It can be seen that $\hat{\lambda}_i=\lambda_i(S)\sim (n-2)^{-1}\lambda_i(\bZ^T E \bZ)$, $i=1,\ldots,r$.
-The  equality
+
+    {\color{red}
+The sample covariance matrix $S$ has the same distribution as
+$
+    {(n-2)}^{-1} U E^{1/2} \bZ \bZ^T E^{1/2} U^T
+$.
+This implies that $\hat{\lambda}_i=\lambda_i(S)\sim (n-2)^{-1}\lambda_i(\bZ^T E \bZ)$, $i=1,\ldots,r$.
+Hence we only need to deal with the asymptotic property of $(n-2)^{-1}\lambda_i(\bZ^T E \bZ)$.
+For $i=1,\ldots,r$, we have
+    \begin{equation*}
+        \begin{aligned}
+            &|\lambda_i(\bZ^T E \bZ)-(n-2)(\lambda_i +\sigma^2)|\\
+            \leq&
+            |\lambda_i(\bZ^T E \bZ)-\lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)|
+            +
+|\lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
+        -(n-2)(\lambda_i +\sigma^2)|\\
+        \end{aligned}
+    \end{equation*}
+    By the equality
 $
     \bZ^T E \bZ= \bZ_{(1)}^T (\Lambda +\sigma^2 I_r) \bZ_{(1)}+
 \sigma^2 \bZ_{(2)}^T  \bZ_{(2)}
 $
-leads to
-    \begin{equation}\label{aiai1}
-    \lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
-\leq \lambda_i(\bZ^T E \bZ)
-\leq
-\lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
-+\sigma^2\lambda_{\max}(\bZ_{(2)}^T \bZ_{(2)}),
-    \end{equation}
-$i=1,\ldots, r$.
-By Bai-Yin's law, we have
-\begin{equation}\label{aiai2}
-    \lambda_{\max}(\bZ_{(2)}^T \bZ_{(2)})=O_P(p).
-\end{equation}
-By Weyl's inequality, we have
+and Weyl's inequality, the first term satisfies
+$$
+            |\lambda_i(\bZ^T E \bZ)-\lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)|
+            \leq \|\bZ^T E \bZ-\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\|
+            =\sigma^2\|\bZ_{(2)}^T  \bZ_{(2)}\|
+    $$
+For the second term, we have
 $$
     \begin{aligned}
-        &\lambda_i\big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
-        \leq
-    \lambda_{\max}\big(\bZ_{(1)}^T \mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{\lambda_i +\sigma^2,\ldots,\lambda_i+\sigma^2}_{r-i+1})\bZ_{(1)}\big)\\
+        &|\lambda_i \big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)-(n-2)(\lambda_i +\sigma^2)|\\
         =&
-        (\lambda_i+\sigma^2)\lambda_{\max}\big(\bZ_{(1)}^T\mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{1,\ldots,1}_{r-i+1})\bZ_{(1)}\big)\\
-        =&
-        (\lambda_i+\sigma^2)\lambda_{\max}\big( \mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{1,\ldots,1}_{r-i+1})\bZ_{(1)}\bZ_{(1)}^T \mydiag(\underbrace{0,\ldots,0}_{i-1},\underbrace{1,\ldots,1}_{r-i+1})\big)\\
-        =&n(\lambda_i+\sigma^2)(1+o_P(1)),
+    \big|\lambda_i \big((\Lambda+\sigma^2 I_r)^{1/2}\bZ_{(1)}\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)^{1/2}\big)
+        -\lambda_i\big((n-2)(\Lambda+\sigma^2 I_r)\big)\big|\\
+        \leq &
+        \|
+     (\Lambda+\sigma^2 I_r)^{1/2}\bZ_{(1)}\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)^{1/2}
+        -(n-2)(\Lambda+\sigma^2 I_r)
+        \|\\
+        \leq &
+        (n-2)(\lambda_1 + \sigma^2)\big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-I_r\big\|,
     \end{aligned}
     $$
-    Where the last inequality follows by law of large numbers.
-    On the other hand, we have
-$$
-    \begin{aligned}
-        &\lambda_i\big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)
-        \geq
-    \lambda_{i}\big(\bZ_{(1)}^T \mydiag(\underbrace{\lambda_i+\sigma^2,\ldots,\lambda_i+\sigma^2}_{i},\underbrace{0,\ldots,0}_{r-i})\bZ_{(1)}\big)\\
-        =&
-        (\lambda_i+\sigma^2)\lambda_{i}\big(\bZ_{(1)}^T\mydiag(\underbrace{1,\ldots,1}_{i},\underbrace{0,\ldots,0}_{r-i})\bZ_{(1)}\big)\\
-        =&
-        (\lambda_i+\sigma^2)\lambda_{i}\big( \mydiag(\underbrace{1,\ldots,1}_{i},\underbrace{0,\ldots,0}_{r-i})\bZ_{(1)}\bZ_{(1)}^T \mydiag(\underbrace{1,\ldots,1}_{i},\underbrace{0,\ldots,0}_{r-i})\big)\\
-        =&n(\lambda_i+\sigma^2)(1+o_P(1)).
-    \end{aligned}
-    $$
-    Hence, we have
-        $
-        \lambda_i\big(\bZ_{(1)}^T(\Lambda+\sigma^2 I_r)\bZ_{(1)}\big)=n(\lambda_i+\sigma^2)(1+o_P(1))
-        $. Combined with~\eqref{aiai1} and~\eqref{aiai2}, we have
+    where the first inequality follows from Weyl's inequality.
+    Hence,
         $$
-        \frac{\lambda_i(S)}{\lambda_i}=1+o_P(1)+O_P(\frac{p}{n\lambda_i}).
+        \begin{aligned}
+            &\Big|\frac{(n-2)^{-1}\lambda_i(\bZ^T E \bZ)}{\lambda_i}-1\Big|
+            \leq \frac{1}{(n-2)\lambda_i}\Big|\lambda_i(\bZ^T E \bZ)-(n-2)(\lambda_i+\sigma^2)\Big|+\frac{\sigma^2}{\lambda_i}\\
+            \leq&\frac{\sigma^2}{(n-2)\lambda_i}\|\bZ_{(2)}^T \bZ_{(2)}\|+\frac{\lambda_1+\sigma^2}{\lambda_i}\big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-I_r\big\|\Big)+\frac{\sigma^2}{\lambda_i}.
+        \end{aligned}
         $$
-        The conclusion follows.
+        By Corollary~\ref{maxEigen}, the first term satisfies
+        $$
+        \frac{\sigma^2}{(n-2)\lambda_i}\|\bZ_{(2)}^T \bZ_{(2)}\|
+        =O_P\Big(\max\big(\frac{\sigma^2}{\lambda_i},\frac{\sigma^2 p}{(n-2)\lambda_i}\big)\Big)=o_P(1).
+        $$
+        By law of large numbers, $\big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-I_r\big\|=o_P(1)$. Hence
+        $$
+            \Big|\frac{(n-2)^{-1}\lambda_i(\bZ^T E \bZ)}{\lambda_i}-1\Big|=o_P(1).
+        $$
+}
 
 \end{proof}
+
+\begin{lemma}\label{conRateLemma}
+    Under Assumption~\ref{theModel}, we have
+\begin{equation*}
+\|\hat{V}\hat{V}^T-VV^T\|^2 =O_P(\frac{p}{p^{\beta}n}).
+\end{equation*}
+\end{lemma}
+The convergence rate $p/(p^{\beta}n)$ is optimal, see~\cite{Cai2012Sparse}, Theorem 5.
+{\color{red}
+\begin{proof}[\textbf{Proof}]
+    By Lemma~\ref{pert},
+    $$
+    \|\hat{V}\hat{V}^T - VV ^T\|\leq \frac{2}{\lambda_r}\|S-\Sigma\|.
+    $$
+    We only need to bound the right hand side
+    Define $U$, $E$, $\bZ$, $\bZ_{(1)}$ and $\bZ_{(2)}$ as in the proof of Proposition~\ref{eigenconsis}.
+    Since $S\sim (n-2)^{-1}UE^{1/2}\bZ \bZ^T E^{1/2} U^T$, we have
+    $$
+    \begin{aligned}
+        &\|S-\Sigma\|=
+        \|(VV^T+\tilde{V}\tilde{V}^T)(S-\Sigma)(VV^T+\tilde{V}\tilde{V}^T)\|\\
+        \leq& \|VV^T (S-\Sigma) VV^T\|+2 \|VV^T (S-\Sigma) \tilde{V}\tilde{V}^T\|+\|\tilde{V}\tilde{V}^T (S-\Sigma) \tilde{V}\tilde{V}^T\|\\
+        \leq& \|V^T (S-\Sigma) V\|+2 \|V^T (S-\Sigma) \tilde{V}\|+\|\tilde{V}^T (S-\Sigma) \tilde{V}\|\\
+        \sim &
+        \big\|\frac{1}{n-2}(\Lambda+\sigma^2 I_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\Lambda+\sigma^2 I_r)^{1/2}-(\Lambda+\sigma^2 I_r)\big\|\\
+        &+
+        \big\|\frac{1}{n-2}\sigma(\Lambda+\sigma^2 I_r)^{1/2}\bZ_{(1)} \bZ_{(2)}^T\big\|+
+        \sigma^2\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- I_{p-r}\big\|\\
+        \leq & (\lambda_1+\sigma^2) \|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-I_r\|
+        +\frac{\sqrt{(\lambda_1+\sigma^2)\sigma^2}}{n-2}\|\bZ_{(1)}\bZ_{(2)}^T\|+
+        \sigma^2\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- I_{p-r}\big\|\\
+    \end{aligned}
+    $$
+    By law of large numbers, $\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-I_r\|=O_P(1/\sqrt{n})$.
+    By Lemma~\ref{corNorm}, $\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- I_{p-r}\big\|=O_p(\max(\sqrt{p/n},p/n))$.
+    By the independence of $\bZ_{(1)}$ and $\bZ_{(2)}$, we have
+    $$
+    \myE \|\bZ_{(1)}\bZ_{(2)}^T\|^2\leq
+    \myE \|\bZ_{(1)}\bZ_{(2)}^T\|_F^2
+    =
+    \myE \mytr\big(\bZ_{(1)}\bZ_{(2)}^T\bZ_{(2)}\bZ_{(1)}^T\big)
+    =(p-r)
+    \myE \mytr\big(\bZ_{(1)}\bZ_{(1)}^T\big)
+    =rn(p-r).
+    $$
+    Hence $\|\bZ_{(1)}\bZ_{(2)}^T\|=O_P(\sqrt{np})$.
+    Combining these bounds leads to
+    $$
+    \|S-\Sigma\|=
+    O_P(\frac{\lambda_1}{\sqrt{n}})+O_P(\sqrt{\frac{\lambda_1 p}{n}})+O_P\Big(\max\big(\sqrt{\frac{p}{n}},\frac{p}{n}\big)\Big)
+    =
+    O_P(\sqrt{\frac{\lambda_1 p}{n}})+O_P(\frac{p}{n}).
+    $$
+    Thus,
+    $$
+    \|\hat{V}\hat{V}^T- VV^T\|\leq \frac{2}{\lambda_r}\|S-\Sigma\|=
+    O_P(\sqrt{\frac{p}{n\lambda_r}})+O_P(\frac{p}{n\lambda_r})=
+O_P(\sqrt{\frac{p}{n\lambda_r}}).
+    $$
+
+\end{proof}
+}
 
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
@@ -1211,14 +1335,12 @@ the proposition follows by central limit theorem.
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{varianceEstimation}}]
     Note that $(n-2)S\sim \mathrm{Wishart}_p (n-2,\Sigma)$.
-As in the proof of Proposition~\ref{eigenconsis},
-    let $U=(V,\tilde{V})$ and $E=\mathrm{diag}(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
-Then $\Sigma=UEU^T$.
-    Let $\bZ$ be a $p\times (n-2)$ random matrix with all elements independently distributed as $N(0,1)$. Then
+    Define $U$, $E$, $\bZ$, $\bZ_{(1)}$ and $\bZ_{(2)}$ as in the proof of Proposition~\ref{eigenconsis}.
+    We have
     $$
         S\sim \frac{1}{n-2} U E^{1/2} \bZ \bZ^T E^{1/2} U^T.
     $$
-    Thus,
+    Hence
     \begin{equation*}
         \begin{aligned}
             \hat{\sigma}^2\sim
@@ -1227,53 +1349,75 @@ Then $\Sigma=UEU^T$.
             \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2} \lambda_i ( \bZ^T E \bZ).
         \end{aligned}
     \end{equation*}
-    Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. We have
+    We note that
     $$
-    \bZ^T E \bZ =\bZ_{(1)}^T (\Lambda +\sigma^2 I_r) \bZ_{(1)}+\sigma^2 \bZ_{(2)}^T \bZ_{(2)}.
+    \bZ^T E \bZ =\bZ_{(1)}^T (\Lambda +\sigma^2 I_r) \bZ_{(1)}+\sigma^2 \bZ_{(2)}^T \bZ_{(2)},
     $$
- The first term is of rank $r$. By Weyl's inequality, we have
+ where the first term is of rank $r$.
+    Applying Weyl's inequality yields
     $$
     \sigma^2\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \lambda_i(\bZ^T E \bZ)\leq
     \sigma^2\lambda_{i-r}(\bZ_{(2)}^T \bZ_{(2)}),
     \quad
     \textrm{$i=r+1,\ldots, n-2$}.
     $$
-    Thus,
+    Summing over $i$ gives
     $$
     \sigma^2\sum_{i=r+1}^{n-2}\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)\leq
     \sigma^2\sum_{i=1}^{n-r-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)}).
     $$
-     It follows that
+    Then
+    $$
+    -\sigma^2\sum_{i=1}^{r}\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)
+    -\sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})
+    \leq
+    -\sigma^2\sum_{i=n-r-1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)}).
+    $$
+    Note that $\lambda_i(\bZ_{(2)}^T \bZ_{(2)})$ is bounded above by $\lambda_1(\bZ_{(2)}^T \bZ_{(2)})$ and by Corollary~\ref{maxEigen}, $\lambda_1 (\bZ_{(2)}^T \bZ_{(2)})=O_P(\max(n,p))$. It follows that
      \begin{equation*}
          \begin{aligned}
              &\Big|\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)-
     \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})\Big|
              \\
-             \leq & r\sigma^2\frac{1}{(p-r)(n-2)} \lambda_1 (\bZ_{(2)}^T \bZ_{(2)}).
+             \leq & r\sigma^2\frac{1}{(p-r)(n-2)} \lambda_1 (\bZ_{(2)}^T \bZ_{(2)})=O_P\Big(\frac{\max(n,p)}{np}\Big).
          \end{aligned}
      \end{equation*}
-    By Corollary~\ref{maxEigen}, $\lambda_1 (\bZ_{(2)}^T \bZ_{(2)})=O_P(\max(n,p))$. 
-    Thus,
+    Hence
      \begin{equation*}
          \begin{aligned}
              &\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)\\
              =&
     \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})
-             +O_P(\frac{\max(n,p)}{np})\\
+             +O_P\Big(\frac{\max(n,p)}{np}\Big)\\
              =&
-             \frac{1}{(p-r)(n-2)} \sigma^2\mathrm{tr}(\bZ_{(2)}^T \bZ_{(2)})
-             +O_P(\frac{\max(n,p)}{np})\\
-             =&
-             \sigma^2
-                +O_P(\frac{1}{\sqrt{np}})
-             +O_P(\frac{\max(n,p)}{np}).\\
+             \frac{1}{(p-r)(n-2)} \sigma^2\mytr(\bZ_{(2)}^T \bZ_{(2)})
+             +O_P\Big(\frac{\max(n,p)}{np}\Big).
          \end{aligned}
      \end{equation*}
-     The last equality comes from central limit theorem.
-The theorem follows by noting that
-$$
-    O_{P}(\frac{1}{\sqrt{np}})=O_P(\frac{\sqrt{np}}{np})= O_P(\frac{\max (n,p)}{np}).
-$$
+     Note that $\mytr(\bZ_{(2)}^T \bZ_{(2)})$ is a sum of $(p-r)(n-2)$ i.i.d. $\chi^2_1$ random variables.
+     By central limit theorem,
+     $$
+             \frac{1}{(p-r)(n-2)} \sigma^2\mytr(\bZ_{(2)}^T \bZ_{(2)})
+             =\sigma^2+O_P\Big(\frac{1}{\sqrt{np}}\Big).
+     $$
+     Therefore,
+     \begin{equation*}
+         \begin{aligned}
+             &\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T E \bZ)=
+             \sigma^2
+             +O_P\Big(\frac{1}{\sqrt{np}}\Big)
+             +O_P\Big(\frac{\max(n,p)}{np}\Big)
+             =
+             \sigma^2
+             +O_P\Big(\frac{\max(n,p)}{np}\Big),
+         \end{aligned}
+     \end{equation*}
+     where the last equality holds since
+     $$
+    \frac{1}{\sqrt{np}} =
+    \frac{\sqrt{np}}{np} \leq
+    \frac{\max(n,p)}{np}.
+     $$
 \end{proof}
 
 
@@ -1281,33 +1425,49 @@ $$
 % proof of space estimation theorem
 \begin{proof}[\textbf{Proof of Theorem~\ref{myPanpan}}]
 
-    Note that $\mathrm{tr}(\hat{\tilde{V}}^T S_k\hat{\tilde{V}})=\sum_{i=r+1}^p \lambda_i(S_k)$, $k=1,2$.
-    Similar to Proposition~\ref{varianceEstimation}, we have $\mathrm{tr}(\hat{\tilde{V}}^T S_k\hat{\tilde{V}})=(p-r)\sigma^2+O_P({\max(n,p)}/{n})$, $k=1,2$.
-    Then
+    Note that $\mathrm{tr}(\hat{\tilde{V}}_k^T S_k\hat{\tilde{V}}_k)=\sum_{i=r+1}^p \lambda_i(S_k)$, $k=1,2$.
+    Similar to Proposition~\ref{varianceEstimation}, we have $\mathrm{tr}(\hat{\tilde{V}}_k^T S_k\hat{\tilde{V}}_k)=(p-r)\sigma^2+O_P({\max(n,p)}/{n})$, $k=1,2$.
+    Hence,
 \begin{equation*}
-        \frac{T_2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}
-        =
+    \begin{aligned}
+        &\frac{T_2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}\\
+        =&
+        \frac{\|\hat{\tilde{V}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2
+        -\sigma^2\tau (p-r)
+        }{\sigma^2\sqrt{2\tau^2 p}}\\
+        &-\frac{
+        \frac{1}{n_1}(\mytr(\hat{\tilde{V}}_1^T S_1\hat{\tilde{V}}_1)-(p-r)\sigma^2)
+        }{\sigma^2\sqrt{2\tau^2 p}}
+-\frac{
+        \frac{1}{n_2}(\mytr(\hat{\tilde{V}}_2^T S_2\hat{\tilde{V}}_2)-(p-r)\sigma^2)
+        }{\sigma^2\sqrt{2\tau^2 p}}
+        \\
+        =&
         \frac{\|\hat{\tilde{V}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2
         -\sigma^2\tau (p-r)
         }{\sigma^2\sqrt{2\tau^2 p}}
-        +O_P(\frac{\max(n,p)}{n\sqrt{p}}).
+        +O_P\Big(\frac{\max(n,p)}{n\sqrt{p}}\Big)\\
+        =&
+        \frac{\|\hat{\tilde{V}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2
+        -\sigma^2\tau (p-r)
+        }{\sigma^2\sqrt{2\tau^2 p}}+o_P(1),
+    \end{aligned}
 \end{equation*}
-    By Assumption~\ref{pAndN}, ${n^{-1}p^{-1/2}}{\max(n,p)}=\max({p}^{-1/2},{p}^{1/2}/n)\to 0$.
-    Note that
+where the last equality holds since
+    $$\frac{\max(n,p)}{n\sqrt{p}}=\max\Big(\frac{1}{\sqrt{p}},\frac{\sqrt{p}}{n}\Big)\to 0.$$
+    We write
 \begin{equation*}
     \begin{aligned}
         &\frac{\|\hat{\tilde{V}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2
         -\sigma^2\tau (p-r)
         }{\sigma^2\sqrt{2\tau^2 p}}
         \\
-        =&\frac{1}{\sigma^2\sqrt{2\tau^2 p}}\Big(
-        \|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2 \tau (p-r)+\\
-        &2{(\mu_1-\mu_2)}^T \hat{\tilde{V}}\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)
-        +\|\hat{\tilde{V}}^T(\mu_1-\mu_2)\|^2-\|\tilde{V}^T(\mu_1-\mu_2)\|^2
-        \Big).
+        =&\frac{1}{\sigma^2\sqrt{2\tau^2 p}}(
+        P_1+P_2+P_3
+        ),
     \end{aligned}
 \end{equation*}
-Let 
+where
 \begin{align*}
     P_1&=\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2 \tau (p-r),\\
     P_2&=2{(\mu_1-\mu_2)}^T \hat{\tilde{V}}\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big),\\
@@ -1323,84 +1483,106 @@ $$
     \quad
     \frac{P_3}{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{P}0.
     $$
-    We first deal with $P_2$.
-    To proves the convergence in probability, we only need to prove the convergence in $L^2$.
-    Note that $\bar{X}_1$, $\bar{X}_2$, and $S$ are mutually independent and $\hat{\tilde{V}}\hat{\tilde{V}}^T$ only depends on $S$. Thus
+   First we deal with $P_2$.
+   Let $\epsilon$ be any fixed positive number. 
+   We have
+   $$
+   \Pr\Big(\frac{P_2}{\sigma^2\sqrt{2\tau^2 p}}>\epsilon\Big)
+   =
+   \myE[\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)].
+   $$
+   Since the conditional probability 
+   $
+   \Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)
+   $
+   is bounded, by dominated convergence theorem, we only need to prove
+   $\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)\xrightarrow{P}0$.
+    Note that $\bar{X}_1$, $\bar{X}_2$, and $S$ are mutually independent and $\hat{\tilde{V}}\hat{\tilde{V}}^T$ only depends on $S$.
+    We have
     \begin{equation*}
         \begin{aligned}
-            &\mathrm{E} P_2^2
-            =
-            \mathrm{E}[\mathrm{E} P_2^2|S]= 4\tau \mathrm{E}[{(\mu_1-\mu_2)}^T \hat{\tilde{V}}\hat{\tilde{V}}^T\Sigma \hat{\tilde{V}}\hat{\tilde{V}}^T(\mu_1-\mu_2)]\\
+            &\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)\leq
+            \frac{1}{2\epsilon^2\sigma^4\tau^2 p}\myE (P_2^2|S)\\
+            =&\frac{1}{2\epsilon^2\sigma^4\tau^2 p} 4\tau {(\mu_1-\mu_2)}^T \hat{\tilde{V}}\hat{\tilde{V}}^T\Sigma \hat{\tilde{V}}\hat{\tilde{V}}^T(\mu_1-\mu_2)\\
             \leq &
-             4\tau\mathrm{E}[\lambda_1(\hat{\tilde{V}}^T\Sigma \hat{\tilde{V}}) {(\mu_1-\mu_2)}^T \hat{\tilde{V}}\hat{\tilde{V}}^T(\mu_1-\mu_2)]
-            \leq 
-             4\tau\|\mu_1-\mu_2\|^2
-             \mathrm{E}[\lambda_1(\hat{\tilde{V}}^T\Sigma \hat{\tilde{V}}) ]\\
+            \frac{2}{\epsilon^2\sigma^4\tau p}
+             \lambda_1(\hat{\tilde{V}}^T\Sigma \hat{\tilde{V}}) {(\mu_1-\mu_2)}^T \hat{\tilde{V}}\hat{\tilde{V}}^T(\mu_1-\mu_2)\\
+            \leq & 
+\frac{2}{\epsilon^2\sigma^4\tau p}
+             \|\mu_1-\mu_2\|^2
+             \lambda_1(\hat{\tilde{V}}^T\Sigma \hat{\tilde{V}})\\
              =&
-             O(\frac{\sqrt{p}}{n^2})
-             \mathrm{E}[\lambda_1(\hat{\tilde{V}}^T (V\Lambda V^T +\sigma^2 I_p) \hat{\tilde{V}})]
-             \leq 
-             O(\frac{\sqrt{p}}{n^2})
-             \big(\kappa p^{\beta}\mathrm{E}[\lambda_1(\hat{\tilde{V}}^T VV^T  \hat{\tilde{V}})]+\sigma^2\big).\\
+             O(\frac{1}{\sqrt{p}})
+             \lambda_1(\hat{\tilde{V}}^T (V\Lambda V^T +\sigma^2 I_p) \hat{\tilde{V}})\\
+             \leq &
+             O(\frac{1}{\sqrt{p}})
+             \big(\kappa p^{\beta}\lambda_1(\hat{\tilde{V}}^T VV^T  \hat{\tilde{V}})+\sigma^2\big).\\
         \end{aligned}
     \end{equation*}
-    By the relationship
+    But
     \begin{equation*}
         \begin{aligned}
 \lambda_1(\hat{\tilde{V}}^T VV^T  \hat{\tilde{V}})
-            \leq
-            \mathrm{tr}(\hat{\tilde{V}}^T VV^T  \hat{\tilde{V}})
-            =
-            \frac{1}{2}\|VV^T-\hat{V}\hat{V}^T\|^2_F
+=\|V^T  \hat{\tilde{V}}\|^2
+            = \|VV^T-\hat{V}\hat{V}^T\|^2=O_P\Big(\frac{p}{p^{\beta}n}\Big),
         \end{aligned}
     \end{equation*}
-    and Lemma~\ref{conRateLemma}, we have that
+    where the last two equality follows from~\cite{matrixComputations}, Theorem 2.5.1 and the last equality follows from Lemma~\ref{conRateLemma}. 
+    Thus,
     \begin{equation*}
         \begin{aligned}
-            &\mathrm{E} P_2^2
+            &\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)
              =
-             O(\frac{\sqrt{p}}{n^2})
-             \big(O(\frac{p}{n})+\sigma^2\big)
-             =o(\frac{p}{n^2}).
+             O(\frac{1}{\sqrt{p}})
+             \big(O_P(\frac{p}{n})+\sigma^2\big)
+             =O(1)(O_P(\frac{\sqrt{p}}{n})+\frac{\sigma^2}{\sqrt{p}})
+             =o_P(1).
         \end{aligned}
     \end{equation*}
-    Next we deal with $P_3$. To prove the convergence in probability, we prove the convergence in $L^1$.
+    Next we deal with $P_3$.
+    Note that
     \begin{equation*}
         \begin{aligned}
-            &\mathrm{E}|P_3|=
-            \mathrm{E}\big|{(\mu_1-\mu_2)}^T(\hat{\tilde{V}}\hat{\tilde{V}}^T-\tilde{V}\tilde{V}^T)(\mu_1-\mu_2)\big|
+            &|P_3|=
+            \big|{(\mu_1-\mu_2)}^T(\hat{\tilde{V}}\hat{\tilde{V}}^T-\tilde{V}\tilde{V}^T)(\mu_1-\mu_2)\big|
             \leq 
-            \|\mu_1-\mu_2\|^2\mathrm{E}\|\hat{\tilde{V}}\hat{\tilde{V}}^T-\tilde{V}\tilde{V}^T\|\\
+            \|\mu_1-\mu_2\|^2 \|\hat{\tilde{V}}\hat{\tilde{V}}^T-\tilde{V}\tilde{V}^T\|\\
             =& 
-            \|\mu_1-\mu_2\|^2\mathrm{E}\|\hat{V}\hat{V}^T-VV^T\|
-            \leq 
-            \|\mu_1-\mu_2\|^2\sqrt{\mathrm{E}\|\hat{V}\hat{V}^T-VV^T\|^2}\\
-            \leq &
-            \|\mu_1-\mu_2\|^2\sqrt{\mathrm{E}\|\hat{V}\hat{V}^T-VV^T\|^2_F}
-            =O(\frac{\sqrt{p}}{n})\sqrt{O(\frac{p}{p^{\beta}n})}=o(\frac{\sqrt{p}}{n}).
+            \|\mu_1-\mu_2\|^2  \|\hat{V}\hat{V}^T-VV^T\|
+        =O(\frac{\sqrt{p}}{n})\sqrt{O_P(\frac{p}{p^{\beta}n})}=o_P(\frac{\sqrt{p}}{n}).
+        \end{aligned}
+    \end{equation*}
+    Hence
+    \begin{equation*}
+        \begin{aligned}
+            &\frac{P_3}{\sigma^2\sqrt{2\tau^2 p}}= O(\frac{n}{\sqrt{p}})P_3=o_P(1).
         \end{aligned}
     \end{equation*}
 
-    Now we prove the asymptotic normality of $P_1$. To make clear the sense of convergence, we need a metric for weak convergence. For two distribution function $F$ and $G$, the Levy metric $\rho$ of $F$ and $G$ is defined as
+    Now we prove the asymptotic normality of $P_1$.
+    To make clear the mode of convergence, we need a metric for weak convergence. For two distribution function $F$ and $G$, the Levy metric $\rho$ of $F$ and $G$ is defined as
     $$
    \rho(F,G) =\inf\{\epsilon:F(x-\epsilon)-\epsilon\leq G(x)\leq F(x+\epsilon)+\epsilon\quad \textrm{for all $x$}\}.
     $$
     It's well known that $\rho(F_n,F)\to 0$ if and only if $F_n\xrightarrow{\mathcal{L}}F$.
 
-    The conditional distribution of
-    $\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)$ given $S$ is $N(0,\tau \hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})$.
-It can be seen that 
+    Since the conditional distribution of
+    $\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)$ given $S$ is $N(0,\tau \hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})$,
+    we have that
 $$\tau^{-1}\big\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2
 \sim
     \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\xi_i^2,
     $$
 where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{V}}$.
-    Note that
+    As we have shown,
     $$
      \lambda_1(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\leq 
-    \frac{1}{2}\kappa p^\beta \|VV^T -\hat{V}\hat{V}^T\|^2_F+\sigma^2.
+     \kappa p^{\beta}\lambda_1(\hat{\tilde{V}}^T V V^T\hat{\tilde{V}})+\sigma^2
+     =
+    \kappa p^\beta \|VV^T -\hat{V}\hat{V}^T\|^2+\sigma^2.
     $$
     Hence $\lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=O_P({p}/{n}+1)$, $i=1,\ldots,r$.
+    {\color{red}Mark here. Revise from here!}
     Moreover, by Weyl's inequality,
     $
     \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=\sigma^2

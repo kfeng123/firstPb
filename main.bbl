@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -18,6 +18,7 @@
 \newblock \bibinfo{title}{Eigenvalue ratio test for the number of factors}.
 \newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{81},
   \bibinfo{pages}{1203--1227}.
+\newblock \DOIprefix\doi{10.3982/ecta8968}.
 %Type = Article
 \bibitem[{Bai and Saranadasa(1996)}]{Bai1996Efiect}
 \bibinfo{author}{Bai, Z.}, \bibinfo{author}{Saranadasa, H.},
@@ -26,13 +27,6 @@
   sample problem}.
 \newblock \bibinfo{journal}{Statistica Sinica} \bibinfo{volume}{6},
   \bibinfo{pages}{311--329}.
-%Type = Article
-\bibitem[{Bai and Yin(1993)}]{bai1993limit}
-\bibinfo{author}{Bai, Z.D.}, \bibinfo{author}{Yin, Y.Q.}, \bibinfo{year}{1993}.
-\newblock \bibinfo{title}{Limit of the smallest eigenvalue of a large
-  dimensional sample covariance matrix}.
-\newblock \bibinfo{journal}{The Annals of Probability} \bibinfo{volume}{21},
-  \bibinfo{pages}{1275--1294}.
 %Type = Article
 \bibitem[{Birnbaum et~al.(2013)Birnbaum, Johnstone, Nadler and
   Paul}]{Birnbaum2013}
@@ -43,6 +37,15 @@
   high-dimensional data}.
 \newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{41},
   \bibinfo{pages}{1055--1084}.
+\newblock \DOIprefix\doi{10.1214/12-aos1014}.
+%Type = Article
+\bibitem[{Cai et~al.(2015)Cai, Ma and Wu}]{Cai2015Optimal}
+\bibinfo{author}{Cai, T.}, \bibinfo{author}{Ma, Z.}, \bibinfo{author}{Wu, Y.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Optimal estimation and rank detection for sparse
+  spiked covariance matrices}.
+\newblock \bibinfo{journal}{Probability Theory \& Related Fields}
+  \bibinfo{volume}{161}, \bibinfo{pages}{781--815}.
 %Type = Article
 \bibitem[{Cai et~al.(2013)Cai, Ma and Wu}]{Cai2012Sparse}
 \bibinfo{author}{Cai, T.T.}, \bibinfo{author}{Ma, Z.}, \bibinfo{author}{Wu,
@@ -50,6 +53,7 @@
 \newblock \bibinfo{title}{Sparse {PCA}: Optimal rates and adaptive estimation}.
 \newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{41},
   \bibinfo{pages}{3074--3110}.
+\newblock \DOIprefix\doi{10.1214/13-aos1178}.
 %Type = Article
 \bibitem[{Chen et~al.(2011)Chen, Paul, Prentice and Wang}]{Chen2011A}
 \bibinfo{author}{Chen, L.S.}, \bibinfo{author}{Paul, D.},
@@ -59,6 +63,7 @@
   analysis in proteomic studies}.
 \newblock \bibinfo{journal}{Journal of the American Statistical Association}
   \bibinfo{volume}{106}, \bibinfo{pages}{1345--1360}.
+\newblock \DOIprefix\doi{10.1198/jasa.2011.ap10599}.
 %Type = Article
 \bibitem[{Chen and Qin(2010)}]{Chen2010A}
 \bibinfo{author}{Chen, S.X.}, \bibinfo{author}{Qin, Y.L.},
@@ -67,12 +72,31 @@
   applications to gene-set testing}.
 \newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{38},
   \bibinfo{pages}{808--835}.
+\newblock \DOIprefix\doi{10.1214/09-aos716}.
+%Type = Book
+\bibitem[{Davidson and Szarek(2001)}]{DAVIDSON2001317}
+\bibinfo{author}{Davidson, K.R.}, \bibinfo{author}{Szarek, S.J.},
+  \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Handbook of the Geometry of Banach Spaces}.
+  volume~\bibinfo{volume}{1}.
+\newblock \bibinfo{publisher}{North-Holland}, \bibinfo{address}{Amsterdam}.
+\newblock \URLprefix
+  \url{http://www.sciencedirect.com/science/article/pii/S1874584901800103},
+  \DOIprefix\doi{http://dx.doi.org/10.1016/S1874-5849(01)80010-3}.
+  \bibinfo{note}{handbook of the Geometry of Banach Spaces}.
 %Type = Article
 \bibitem[{Fan and Wang(2015)}]{Fan2015Asymptotics}
 \bibinfo{author}{Fan, J.}, \bibinfo{author}{Wang, W.}, \bibinfo{year}{2015}.
 \newblock \bibinfo{title}{Asymptotics of empirical eigen-structure for
   ultra-high dimensional spiked covariance model}
-{\tt arXiv:1502.04733}.
+  \href{http://arxiv.org/abs/arXiv:1502.04733}{\tt arXiv:arXiv:1502.04733}.
+%Type = Book
+\bibitem[{Golub and Van~Loan(2013)}]{matrixComputations}
+\bibinfo{author}{Golub, G.H.}, \bibinfo{author}{Van~Loan, C.F.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Matrix Computations}.
+\newblock \bibinfo{edition}{Fourth} ed., \bibinfo{publisher}{The Johns Hopkins
+  University Press}.
 %Type = Book
 \bibitem[{Horn and Johnson(2012)}]{Horn1985Matrix}
 \bibinfo{author}{Horn, R.A.}, \bibinfo{author}{Johnson, C.R.},
@@ -88,6 +112,7 @@
   context}.
 \newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{37},
   \bibinfo{pages}{4104--4130}.
+\newblock \DOIprefix\doi{10.1214/09-aos709}.
 %Type = Incollection
 \bibitem[{Lopes et~al.(2011)Lopes, Jacob and Wainwright}]{Lopes2015A}
 \bibinfo{author}{Lopes, M.}, \bibinfo{author}{Jacob, L.},
@@ -107,6 +132,7 @@
   dimensional factor structure}.
 \newblock \bibinfo{journal}{Journal of Multivariate Analysis}
   \bibinfo{volume}{140}, \bibinfo{pages}{162--170}.
+\newblock \DOIprefix\doi{10.1016/j.jmva.2015.05.005}.
 %Type = Article
 \bibitem[{Passemier et~al.(2017)Passemier, Li and Yao}]{Passemier2015}
 \bibinfo{author}{Passemier, D.}, \bibinfo{author}{Li, Z.},
@@ -115,6 +141,7 @@
   dimensional probabilistic principal component analysis}.
 \newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
   (Statistical Methodology)} \bibinfo{volume}{79}, \bibinfo{pages}{51--67}.
+\newblock \DOIprefix\doi{10.1111/rssb.12153}.
 %Type = Article
 \bibitem[{Srivastava and Du(2008)}]{Srivastava2008A}
 \bibinfo{author}{Srivastava, M.S.}, \bibinfo{author}{Du, M.},
@@ -123,6 +150,7 @@
   than the dimension}.
 \newblock \bibinfo{journal}{Journal of Multivariate Analysis}
   \bibinfo{volume}{99}, \bibinfo{pages}{386--402}.
+\newblock \DOIprefix\doi{10.1016/j.jmva.2006.11.002}.
 %Type = Article
 \bibitem[{Srivastava et~al.(2016)Srivastava, Li and
   Ruppert}]{Srivastava2014RAPTT}
@@ -132,6 +160,7 @@
   using random projections}.
 \newblock \bibinfo{journal}{Journal of Computational and Graphical Statistics}
   \bibinfo{volume}{25}, \bibinfo{pages}{954--970}.
+\newblock \DOIprefix\doi{10.1080/10618600.2015.1062771}.
 %Type = Article
 \bibitem[{Thulin(2014)}]{Thulin2014A}
 \bibinfo{author}{Thulin, M.}, \bibinfo{year}{2014}.
@@ -139,6 +168,7 @@
   random subspaces}.
 \newblock \bibinfo{journal}{Computational Statistics {\&} Data Analysis}
   \bibinfo{volume}{74}, \bibinfo{pages}{26--38}.
+\newblock \DOIprefix\doi{10.1016/j.csda.2013.12.003}.
 %Type = Article
 \bibitem[{Zhao and Xu(2016)}]{Zhao2016A}
 \bibinfo{author}{Zhao, J.}, \bibinfo{author}{Xu, X.}, \bibinfo{year}{2016}.
@@ -146,5 +176,6 @@
   when {$p$} is greater than {$n$}}.
 \newblock \bibinfo{journal}{Computational Statistics {\&} Data Analysis}
   \bibinfo{volume}{99}, \bibinfo{pages}{91--104}.
+\newblock \DOIprefix\doi{10.1016/j.csda.2016.01.006}.
 
 \end{thebibliography}

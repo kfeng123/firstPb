@@ -5,45 +5,45 @@ The style file: model2-names.bst.bst
 Database file #1: mybibfile.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty journal in Fan2015Asymptotics
-You've used 17 entries,
+You've used 19 entries,
             2990 wiz_defined-function locations,
-            875 strings with 9639 characters,
-and the built_in function-call counts, 11734 in all, are:
-= -- 953
-> -- 386
-< -- 11
-+ -- 162
-- -- 131
-* -- 1292
-:= -- 1658
-add.period$ -- 62
-call.type$ -- 17
-change.case$ -- 129
-chr.to.int$ -- 17
-cite$ -- 18
-duplicate$ -- 870
-empty$ -- 880
-format.name$ -- 199
-if$ -- 2195
+            891 strings with 10050 characters,
+and the built_in function-call counts, 12928 in all, are:
+= -- 1037
+> -- 430
+< -- 13
++ -- 179
+- -- 146
+* -- 1428
+:= -- 1826
+add.period$ -- 68
+call.type$ -- 19
+change.case$ -- 144
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 969
+empty$ -- 975
+format.name$ -- 222
+if$ -- 2424
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 165
-newline$ -- 111
-num.names$ -- 70
-pop$ -- 284
+missing$ -- 187
+newline$ -- 121
+num.names$ -- 78
+pop$ -- 327
 preamble$ -- 1
-purify$ -- 110
+purify$ -- 123
 quote$ -- 0
-skip$ -- 254
+skip$ -- 281
 stack$ -- 0
-substring$ -- 612
-swap$ -- 634
-text.length$ -- 1
+substring$ -- 626
+swap$ -- 704
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 150
+type$ -- 162
 warning$ -- 1
-while$ -- 83
+while$ -- 88
 width$ -- 0
-write$ -- 276
+write$ -- 306
 (There was 1 warning)
