@@ -1569,25 +1569,32 @@ $$
     Since the conditional distribution of
     $\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)$ given $S$ is $N(0,\tau \hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})$,
     we have that
-$$\tau^{-1}\big\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2
+\begin{equation}\label{houjia2}
+\tau^{-1}\big\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2
 \sim
     \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\xi_i^2,
-    $$
+\end{equation}
 where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{V}}$.
+    So the asymptotic distribution of $P_1$ relies on the asymptotic behavior of $\lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})$.
     As we have shown,
-    $$
+     \begin{equation}\label{houjia1}
      \lambda_1(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\leq 
      \kappa p^{\beta}\lambda_1(\hat{\tilde{V}}^T V V^T\hat{\tilde{V}})+\sigma^2
      =
     \kappa p^\beta \|VV^T -\hat{V}\hat{V}^T\|^2+\sigma^2.
-    $$
+     \end{equation}
     Hence $\lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=O_P({p}/{n}+1)$, $i=1,\ldots,r$.
-    {\color{red}Mark here. Revise from here!}
-    Moreover, by Weyl's inequality,
-    $
-    \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=\sigma^2
-    $, $i=r+1,\ldots,p-r$.
-    Therefore
+    On the other hand,
+    for $i=r+1,\ldots,p-r$,
+    we have
+    \begin{equation}\label{houjia3}
+    \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})
+    =
+    \lambda_i(\hat{\tilde{V}}^T V \Lambda V^T \hat{\tilde{V}})+\sigma^2
+    =\sigma^2,
+    \end{equation}
+where the last equality follows from $\myrank(\hat{\tilde{V}}^T V \Lambda V^T \hat{\tilde{V}})\leq \myrank(V)=r$.
+This, combined with~\eqref{houjia1}, yields
 \begin{equation}\label{traceA1}
 \mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2=
     {\big(\frac{p}{n}+1\big)}^2O_P(1)
@@ -1595,14 +1602,13 @@ where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables whic
     (p-2r)\sigma^4
     =p\sigma^4(1+o_P(1)).
 \end{equation}
-
-    It follows that
+Consequently,
 \begin{equation}\label{inProbC}
         \frac{\lambda_1^2(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}
         =O_P\Big(\frac{{(p/n+1)}^2}{p}\Big)=o_P(1).
 \end{equation}
 Then for every subsequence of $\{n\}$, there's a further subsequence along which~\eqref{inProbC} holds almost surely.
-By Lemma~\ref{quadraticFormCLT}, for every subsequence of $\{n\}$, there's a further subsequence along which
+This, combined with~\eqref{houjia2} and Lemma~\ref{quadraticFormCLT}, implies that for every subsequence of $\{n\}$, there's a further subsequence along which
 \begin{equation}\label{aseq}
     \rho\big(\mathcal{L}( Y_n |S),N(0,1)\big)\xrightarrow{a.s.}0,
 \end{equation}
@@ -1611,9 +1617,12 @@ $$
 Y_n=\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}},
 $$
 and $\mathcal{L}(Y_n|S)$ is the conditional distribution of $Y_n$ given $S$.
-By the definition of weak convergence, for every continuous bounded function $f(\cdot)$, we have $E[f(Y_n)|S]\xrightarrow{a.s.}E[f(\epsilon)]$ along the subsequence, where $\epsilon\sim N(0,1)$.
-By dominated convergence theorem, we have $E[f(Y_n)]\to E[f(\epsilon)]$ along the subsequence.
-Thus, $Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along the subsequence, or equivalently, $\rho(\mathcal{L}(Y_n,N(0,1)))\to 0$ along the subsequence. But this means $Y_n\xrightarrow{\mathcal{L}}N(0,1)$, or
+By the definition of weak convergence,  if~\eqref{aseq} holds along some subsequence $\{n_k\}$, then for every continuous bounded function $f(\cdot)$, $E[f(Y_n)|S]\xrightarrow{a.s.}E[f(\epsilon)]$ along $\{n_k\}$, where $\epsilon$ is a random variable with standard normal distribution.
+By dominated convergence theorem, $E[f(Y_n)]\to E[f(\epsilon)]$ along $\{n_k\}$.
+This implies that $Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along $\{n_k\}$.
+Thus, for every subsequence of $n$, there is a further subsequence along which
+$Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along $\{n_k\}$.
+This means $Y_n\xrightarrow{\mathcal{L}}N(0,1)$, or
 %$$
 %\rho\Big(\mathcal{L}\Big(\frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}\Big|S\Big),N(0,1)\Big)\xrightarrow{P} 0.
 %$$
@@ -1621,11 +1630,21 @@ $$
 \frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})^2}}\xrightarrow{\mathcal{L}}N(0,1).
 $$
 
-Similar to~\eqref{traceA1} we have
+
+By~\eqref{houjia1} and~\eqref{houjia3}, we have
 \begin{equation}\label{traceA2}
-    \mathrm{tr}(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=(p-r)\sigma^2\big(1+O_P\big(\frac{1}{n}+\frac{1}{p}\big)\big).
+    \begin{aligned}
+        &\mytr(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})=
+    \sum_{i=1}^r \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})
+    +
+    \sum_{i=r+1}^{p-r} \lambda_i(\hat{\tilde{V}}^T\Sigma\hat{\tilde{V}})\\
+        =&
+    O_P(\frac{p}{n}+1)+(p-2r)\sigma^2
+        =
+        (p-r)\sigma^2+o_P(\sqrt{p}).
+    \end{aligned}
 \end{equation}
-By~\eqref{traceA1},~\eqref{traceA2} and Slutsky's theorem,
+By~\eqref{traceA1},~\eqref{traceA2} and Slutsky's theorem, we have
 $$
 \frac{\|\hat{\tilde{V}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2\tau(p-r) }{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
 $$

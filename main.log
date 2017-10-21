@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  19 OCT 2017 21:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  21 OCT 2017 20:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -707,19 +707,19 @@ Overfull \hbox (20.98083pt too wide) detected at line 1541
  []
 
 [27]
-Overfull \hbox (3.5862pt too wide) in paragraph at lines 1603--1606
+Overfull \hbox (3.5862pt too wide) in paragraph at lines 1609--1612
 \OT1/cmr/m/n/10 Then for ev-ery sub-se-quence of $\OMS/cmsy/m/n/10 f\OML/cmm/m/
 it/10 n\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , there's a fur-ther sub-se-quence al
 ong which []
  []
 
-[28] (./main.bbl
+[28] (./main.bbl [29]
 Underfull \hbox (badness 1038) in paragraph at lines 59--68
 []\OT1/cmr/m/n/10 Chen, L.S., Paul, D., Pren-tice, R.L., Wang, P., 2011.  A reg
 -u-lar-ized
  []
 
-[29]
+
 Underfull \hbox (badness 1755) in paragraph at lines 78--88
 \OT1/cmr/m/n/10 nach Spaces. vol-ume 1.  North-Holland, Am-s-ter-dam.  URL: []$
 \OT1/cmtt/m/n/10 http :
@@ -738,25 +738,25 @@ Underfull \hbox (badness 3199) in paragraph at lines 78--88
  []
 
 [30])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1686.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1705.
  [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1686.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1705.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1686.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1686.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1705.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1705.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 52DBF1B5D0AACCDE0AD0BA902533D74D;413.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1686.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1705.
  ) 
 Here is how much of TeX's memory you used:
- 7374 strings out of 493029
- 102793 string characters out of 6136235
- 203259 words of memory out of 5000000
- 10675 multiletter control sequences out of 15000+600000
+ 7380 strings out of 493029
+ 102859 string characters out of 6136235
+ 203370 words of memory out of 5000000
+ 10678 multiletter control sequences out of 15000+600000
  16579 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,34p,491b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,34p,491b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
@@ -778,10 +778,10 @@ e1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm7.pfb>
-Output written on main.pdf (31 pages, 447731 bytes).
+Output written on main.pdf (31 pages, 448384 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
- 495 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 500000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 502 compressed objects within 6 object streams
+ 107 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
