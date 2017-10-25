@@ -640,8 +640,8 @@ Corollary~\ref{testPowerh} implies that the asymptotic power function of the new
 
 
 In this section, we consider the simulation performance of the proposed test and compare it with several other tests, including the tests in~\cite{Chen2010A}.
-These tests are denoted respectively by CQ in the rest of this section.
-In our simulation studies, samples are generated from the model described in Assumption~\ref{theModel}, where $V\in\mathbb{O}_{p\times r}$ is randomly generated from Haar invariant distribution, $\lambda_{i}$ equals $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$) and $\sigma^2=1$.
+In our simulation studies, samples are generated from the model described in Assumption~\ref{theModel},   
+    where $V\in\mathbb{O}_{p\times r}$ is randomly generated from Haar invariant distribution, $\lambda_{i}$ equals $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$) and $\sigma^2=1$.
 We take nominal level $\alpha=0.05$.
 
 %The key to the validation of Theorem~\ref{myPanpan} is  that $T_{\textrm{dif}}=\frac{n_1n_2|T_1-T_2|}{\sqrt{2p}(n_1+n_2)\sigma^2}$ converges to $0$.
@@ -670,41 +670,6 @@ Table~\ref{biaoge1}.
 We can find that for small $n$ and $p$, even oracle level is not satisfied.
 Level of the new test is a little inflated compared with oracle level.
 In all cases, the empirical level tends to be more close to $0.05$ as $n$ increases.
-
-% latex table generated in R 3.3.1 by xtable 1.8-2 package
-% Sun Jul 31 01:50:20 2016
-\begin{table}[ht]
-\caption{hahaha} 
-\label{hahaha}
-\vspace{3mm}
-\centering
-\begin{tabular}{rcccccccccc}
-\toprule
-&  & \multicolumn{3}{c}{MODEL1} & \multicolumn{3}{c}{MODEL2}& \multicolumn{3}{c}{MODEL3}   \\
-\cmidrule(r){3-5}
-\cmidrule(r){6-8}
-\cmidrule(r){9-11}
- & & p=100 & p=200 & p=300& p=100 & p=200 & p=300&p=100 & p=200 & p=300 \\ 
-\midrule
-    $n=50$, $\beta=0.5$&&&&&&\\
-    NEW1&&&&&&\\
-    NEW2&&&&&&\\
-    ORACLE&&&&&&\\
-    CQ&&&&&&\\
-    $n=50$, $\beta=1$&&&&&&\\
-    NEW1&&&&&&\\
-    NEW2&&&&&&\\
-    ORACLE&&&&&&\\
-    CQ&&&&&&\\
-    $n=50$, $\beta=2$&&&&&&\\
-    NEW1&&&&&&\\
-    NEW2&&&&&&\\
-    ORACLE&&&&&&\\
-    CQ&&&&&&\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 
 \input{code/level.tex}
 %\input{code/level2.tex}

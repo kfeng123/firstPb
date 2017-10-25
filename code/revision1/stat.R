@@ -3,12 +3,14 @@ library(MASS)
 
 
 newModelGenerator <- function(eigValue) {
+    p <- length(eigValue)
     # generate V
     V <- svd(matrix(rnorm(p * p, 0, 1), c(p, p)))$v
     normalModelSimulator <- function(n) {
-        t(V %*% diag(eigValue) %*% matrix(rnorm(p * n), c(p, n)))
+        t(V %*% diag(eigValue^(1/2)) %*% matrix(rnorm(p * n), c(p, n)))
     }
     return(list(V = V,
+                eigValue = eigValue,
                 normalModelSimulator = normalModelSimulator))
 }
 
@@ -78,6 +80,7 @@ myStat <- function(X1, X2, n1, n2, ...) {
     S1 <- var(X1)
     S2 <- var(X2)
     S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
+    myEigen <- eigen(S, symmetric = TRUE)
     myTildeV <- myEigen$vectors[, -(1:r)]
     
     trace1 <- sum(eigen(S1, symmetric = TRUE)$values[-(1:r)])
@@ -102,8 +105,8 @@ myStat <- function(X1, X2, n1, n2, ...) {
 
 
 # do test by studentized statistic and normal theory
-doTest = function(X1, X2, n1, n2, p, rmax = 10) {
-    my = myStat(X1, X2, n1, n2, rmax)
+doTest = function(X1, X2, n1, n2, ...) {
+    my = myStat(X1, X2, n1, n2, ...)
     return(pnorm(my$studentStat, 0, 1, lower.tail = FALSE))
 }
 

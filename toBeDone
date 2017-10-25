@@ -2,4 +2,9 @@
 2. Bold the matrix notations
 3. ref the section and appendix
 4. asymptotic normality
-5. simulation: Lopes 2011, Ma 2015
+5. simulation: 
+    implement Lopes 2011 and other projection based methods, Ma 2015
+    null distribution: QQ plot
+    power simulation: both large sample size and small sample size
+    
+

@@ -3,52 +3,51 @@ library(ggplot2)
 library(xtable)
 
 
-simulateLevel=function(n1,n2,p,r,beta,B=1000,rmax=10){
-    
-    theEig1 <- rep(1,p)
+simulateLevel <- function(n1,n2,p,r,beta,B=1000){
+    theEig <- rep(1,p)
     if(r!=0){
-        theEig1[1:r] <- rep(p^beta,r)+runif(r,0,1)
+        theEig[1:r] <- rep(p^beta,r)+runif(r,0,1)
     }
-    temp <- newModelGenerator(theEig1)
-    normalModelSimulator1 <- temp$normalModelSimulator
-    V1 <- temp$V[,1:r]
-    
-    theEig2 <- rep(1,p)
-    if(r!=0){
-        theEig2[1:r] <- rep(p^beta,r)+runif(r,0,1)
-    }
-    temp <- newModelGenerator(theEig2)
-    normalModelSimulator2 <- temp$normalModelSimulator
-    V2 <- temp$V[,1:r]
+    temp <- newModelGenerator(theEig)
+    normalModelSimulator <- temp$normalModelSimulator
+    V <- temp$V[,1:r]
     
     
-    myPvalue=NULL
-    oraclePvalue=NULL
+    myDis <- NULL
+    oracleDis <- NULL
+    pb <- txtProgressBar(style=3)
     for(i in 1:B){
-        X1=normalModelSimulator1(n1)
-        X2=normalModelSimulator2(n2)
-        myPvalue[i]=doUneqTest(X1,X2,n1,n2,p,rmax=10)
+        X1 <- normalModelSimulator(n1)
+        X2 <- normalModelSimulator(n2)
+        myDis[i] <- myStat(X1, X2, n1, n2, r=r)$studentStat
         # oracle: V known
-        V <- svd(cbind(V1,V2))$u
-        temp=chenStat(X1%*%Null(V),X2%*%Null(V),n1,n2)
-        tempOracleStat=n1*n2*temp/(sqrt(2*p)*(n1+n2)*1)
-        oraclePvalue[i]=pnorm(tempOracleStat,0,1,lower.tail = FALSE)
+        temp <- chenStat(X1%*%Null(V),X2%*%Null(V),n1,n2)$stat
+        oracleDis[i] <- n1*n2*temp/(sqrt(2*p)*(n1+n2)*1)
+        
+        setTxtProgressBar(pb,i/B)
     }
-    myLevel=sum(myPvalue<0.05)/B
-    oracleLevel=sum(oraclePvalue<0.05)/B
+    close(pb)
+    myLevel=sum(pnorm(myDis,lower.tail=FALSE)<0.05)/B
+    oracleLevel=sum(pnorm(oracleDis,lower.tail=FALSE)<0.05)/B
     list(myLevel=myLevel,oracleLevel=oracleLevel)
 } 
 
 Out=data.frame(n1=0,n2=0,p=0,r=0,beta=0,myLevel=0,oracleLevel=0)
 
 for(beta in c(0.5,1,2))
-for(r in 2)
-for(p in c(200,400,600,800))
-for(n in c(300,600)){
+for(r in 1)
+for(p in c(600,800))
+for(n in c(120)){
     n1=n
     n2=n
     level=simulateLevel(n1,n2,p,r,beta)
-    temp=data.frame(n1=n1,n2=n2,p=p,r=r,beta=beta,myLevel=level$myLevel,oracleLevel=level$oracleLevel)
+    temp=data.frame(n1=n1,
+                    n2=n2,
+                    p=p,
+                    r=r,
+                    beta=beta,
+                    myLevel=level$myLevel,
+                    oracleLevel=level$oracleLevel)
     Out=rbind(Out,temp)
 }
 Out=Out[-1,]
