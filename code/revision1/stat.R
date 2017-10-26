@@ -1,18 +1,34 @@
 library(ggplot2)
 library(MASS)
+library(highD2pop)
+library(matrixStats)
 
-
-newModelGenerator <- function(eigValue) {
+newModelGenerator <- function(eigValue,theDistribution="normal") {
     p <- length(eigValue)
     # generate V
     V <- svd(matrix(rnorm(p * p, 0, 1), c(p, p)))$v
-    normalModelSimulator <- function(n) {
-        t(V %*% diag(eigValue^(1/2)) %*% matrix(rnorm(p * n), c(p, n)))
+    if(theDistribution=="normal"){
+        modelSimulator <- function(n) {
+            t(V %*% diag(eigValue^(1/2)) %*% matrix(rnorm(p * n), c(p, n)))
+        }
     }
+    if(theDistribution=="chiSquared"){
+        modelSimulator <- function(n) {
+            t(V %*% diag(eigValue^(1/2)) %*% matrix((rchisq(p * n,df=4)-4)/sqrt(8), c(p, n)))
+        }
+    }
+    if(theDistribution=="t"){
+        modelSimulator <- function(n) {
+            t(V %*% diag(eigValue^(1/2)) %*% matrix(rt(p * n,df = 4)/sqrt(2), c(p, n)))
+        }
+    }
+    
     return(list(V = V,
                 eigValue = eigValue,
-                normalModelSimulator = normalModelSimulator))
+                modelSimulator = modelSimulator))
 }
+
+
 
 # Chen and Qin (2010)
 chenStat <- function(X1, X2, n1, n2,...) {
@@ -31,63 +47,80 @@ sriStat <- function(X1, X2, n1, n2,...) {
 
 # Ma et. al. (2015)
 maTest <- function(X1,X2,n1,n2,...){
+    r <- list(...)$r
     
-    S1 <- var(X1)
-    S2 <- var(X2)
-    S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
-    myEigen <- eigen(S, symmetric = TRUE)
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
     
     p <- ncol(X1)
-    TFast <- sum((colMeans(X1)-colMeans(X2))^2)*(n1*n2/(n1+n2))/p-(myEigen$values[-(1:r)])/p
+    TFast <- sum((colMeans(X1)-colMeans(X2))^2)*(n1*n2/(n1+n2))/p-sum(myEigen$values[-(1:r)])/p
     
-    refDis <- vector()
-    for (i in 1:500){
-        refDis[i] <- 0
-        for (j in 1:r)
-            refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2)/p
-    }
-    TFast > quantile(refDis,0.95)
+    #refDis <- vector()
+    #for (i in 1:500){
+    #    refDis[i] <- 0
+    #    for (j in 1:r)
+    #        refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2)/p
+    #}
+    refDis <- matrix(rnorm(500*r),nrow = 500)^2 %*% myEigen$values[1:r] / p
+    as.numeric(TFast > quantile(refDis,0.95))
     
 }
 
 # New chi squared test
 myChiTest <- function(X1,X2,n1,n2,...){
+    r <- list(...)$r
+    
     # Chen's statistic over tau
     tau <- 1 / n1 + 1 / n2
     temp1 <- chenStat(X1,X2,n1,n2,...)$stat/tau
     
     # variance estimator
-    S1 <- var(X1)
-    S2 <- var(X2)
-    S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
-    myEigen <- eigen(S, symmetric = TRUE)
-    sigmaSqEst <- mean(myEigen$values[-(1:r)])
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
+    oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
+    sigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigen$values[1:r]-oldSigmaSqEst))))
     
     p <- ncol(X1)
-    refDis <- vector()
-    for (i in 1:500){
-        refDis[i] <- sqrt(2*p)*sigmaSqEst*rnorm(1)
-        for (j in 1:r)
-            refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2-1)
-    }
-    temp1 > quantile(refDis,0.95)
+    #refDis <- vector()
+    #for (i in 1:500){
+        #refDis[i] <- sqrt(2*p)*sigmaSqEst*rnorm(1)
+        #for (j in 1:r)
+            #refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2-1)
+    #}
+    refDis <- (matrix(rnorm(500*r),nrow = 500)^2-1) %*% myEigen$values[1:r] +
+                    sqrt(2*p)*sigmaSqEst*rnorm(500)
+    
+    as.numeric(temp1 > quantile(refDis,0.95))
 }
 
 
 # New test
 myStat <- function(X1, X2, n1, n2, ...) {
     r <- list(...)$r
+    p <- ncol(X1)
+    
     S1 <- var(X1)
     S2 <- var(X2)
-    S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
-    myEigen <- eigen(S, symmetric = TRUE)
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
     myTildeV <- myEigen$vectors[, -(1:r)]
     
     trace1 <- sum(eigen(S1, symmetric = TRUE)$values[-(1:r)])
     trace2 <- sum(eigen(S2, symmetric = TRUE)$values[-(1:r)])
     
     # variance estimator
-    myEigen <- eigen(S, symmetric = TRUE)
     sigmaSqEst <- mean(myEigen$values[-(1:r)])
     
     stat <-
@@ -102,13 +135,35 @@ myStat <- function(X1, X2, n1, n2, ...) {
                 studentStat = studentStat))
 }
 
-
-
-# do test by studentized statistic and normal theory
-doTest = function(X1, X2, n1, n2, ...) {
-    my = myStat(X1, X2, n1, n2, ...)
-    return(pnorm(my$studentStat, 0, 1, lower.tail = FALSE))
+# New test version 2
+myStat2 <- function(X1, X2, n1, n2, ...) {
+    r <- list(...)$r
+    p <- ncol(X1)
+    
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
+    myTildeV <- myEigen$vectors[, -(1:r)]
+    
+    # variance estimator
+    oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
+    newSigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigen$values[1:r]-oldSigmaSqEst))))
+    
+    tau <- 1 / n1 + 1 / n2
+    stat <-
+        sum((t(myTildeV) %*% (colMeans(X1) - colMeans(X2))) ^ 2) - tau*(p-r)*newSigmaSqEst
+    
+    # studentized statistic
+    studentStat <- stat / newSigmaSqEst / sqrt(2 * tau ^ 2 * p)
+    
+    return(list(stat = stat,
+                studentStat = studentStat))
 }
+
+
 
 # unequal variance test
 doUneqTest <- function(X1, X2, n1, n2, p, rmax = 10) {
