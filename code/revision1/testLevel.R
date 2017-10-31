@@ -76,41 +76,139 @@ simulateLevel <- function(n1,n2,p,r,beta,theDistribution="normal",B=2000){
          )
 } 
 
+# normal
 Out=NULL
 
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(60)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
     level <- cbind(level)
     dimnames(level)[[2]] <- p
-    Out=cbind(Out,level)
+    Out <- cbind(Out,level)
 }
-
 write.csv(Out,"level.csv")
+Out=NULL
 
+for(beta in c(1))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta)
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"level1.csv")
 
-Out=Out[,-2]
-Temp1=Out[Out$beta==0.5,]
-Temp2=Out[Out$beta==1,]
-Temp3=Out[Out$beta==2,]
+Out=NULL
 
-TTT1=merge(Temp1,Temp2,by=c("n1","p","r"))
-TTT2=merge(TTT1,Temp3,by=c("n1","p","r"))
-TTT2=TTT2[,-c(3,4,7,10)]
-names(TTT2)=c("n","p","myLevelbeta0.5","oracleLevelbeta0.5","myLevelbeta1","oracleLevelbeta1","myLevelbeta2","oracleLevelbeta2")
+for(beta in c(2))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta)
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"level2.csv")
 
-TTT2=TTT2[order(TTT2[,1],TTT2[,2]),]
+# Chi-squared
+Out=NULL
 
+for(beta in c(0.5))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"levelChi.csv")
 
-myTable1=xtable(TTT2,digits=c(0,0,0,3,3,3,3,3,3),caption="Test level simulation",label="biaoge1")
-align(myTable1) <- "rrccccccc"
-print(myTable1,file="level2.tex",include.rownames=FALSE)
+Out=NULL
 
+for(beta in c(1))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"levelChi1.csv")
 
-# myTable1=xtable(Out[1:15,],digits=c(0,0,0,0,0,0,3),caption="Test level simulation",label="biaoge1")
-# align(myTable1) <- "|r|rrrrr|r|"
-# print(myTable1,file="level1.tex",include.rownames=FALSE)
+Out=NULL
+
+for(beta in c(2))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"levelChi2.csv")
+
+# Student's t
+Out=NULL
+
+for(beta in c(0.5))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"levelT.csv")
+
+Out=NULL
+
+for(beta in c(1))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"levelT1.csv")
+
+Out=NULL
+
+for(beta in c(2))
+for(r in 1)
+for(p in c(200,400,600,800))
+for(n in c(120)){
+    n1=n
+    n2=n
+    level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
+    level <- cbind(level)
+    dimnames(level)[[2]] <- p
+    Out <- cbind(Out,level)
+}
+write.csv(Out,"levelT2.csv")
