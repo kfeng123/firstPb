@@ -217,7 +217,7 @@ as $p\to \infty$.
  \begin{equation}\label{eq:introSpiked}
  \bSigma =\BV\bLambda \BV^T +\sigma^2 \BI_p,
  \end{equation}
- where $\bLambda=\mydiag(\lambda_1,\ldots,\lambda_r)$, $\lambda_1\geq \cdots\geq \lambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
+ where $\bLambda=\mydiag(\blambda_1,\ldots,\blambda_r)$, $\blambda_1\geq \cdots\geq \blambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
  %Under spiked covariance model, the first $r$ eigenvalues of $\bSigma$ are distinguishable larger than the rest eigenvalues.
 The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies, see~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
 The spiked covariance arises when variables are strongly correlated and the correlations are determined by a small number of factors.
@@ -355,39 +355,40 @@ Then Lemma~\ref{quadraticFormCLT} implies that under the null hypothesis, the co
     \end{equation*}
 
     The above result implies that~\cite{Chen2010A}'s test procedure can be used only when the eigenvalues of $\bSigma$ are concentrated around their average. 
-   In a class of applications, however, the correlations between variables are mainly driven by several common factors so that $\bSigma$ has a few eigenvalues which are much larger than the others.
+   In a class of applications, however, the correlations between variables are mainly driven by several common factors, and consequently, $\bSigma$ has a few eigenvalues which are much larger than the others.
     See, for example,~\cite{Jung2009PCA},~\cite{Cai2012Sparse} and~\cite{Fan2015Asymptotics}.
 To characterize such correlations between variables, we consider the  spiked covariance structure~\eqref{eq:introSpiked}.
+For $p\geq q$, let $\mathbb{O}_{p\times q}$ denote the collection of $p\times q$ column orthogonal matrices.
+We make the following assumption for the covariance matrix $\bSigma$.
 \begin{assumption}\label{theModel}
-    The covariance matrix $\bSigma$ satisfies $ 
-\bSigma=\BV\bLambda \BV^T+\sigma^2 \BI_p
-$, where $\bLambda=\mydiag(\lambda_{1},\ldots,\lambda_{r})$, 
- $\lambda_{1}\geq \cdots \geq \lambda_{r}>0$, $r$ is a known number,
-$\BV$ is  a $p\times r$ orthonormal matrix and $\sigma^2>0$.
-As $n$, $p$ tend to infinity, 
+    The covariance matrix $\bSigma$ has structure $ \bSigma=\BV\bLambda \BV^T+\sigma^2 \BI_p$, where $\BV\in\mathbb{O}_{p\times r}$, $r$ is a known number and $\bLambda=\mydiag(\blambda_{1},\ldots,\blambda_{r})$, 
+ $\blambda_{1}\geq \cdots \geq \blambda_{r}>0$.
+As $n$, $p$ tend to infinity, the parameters
 $r$, $\sigma^2$ are fixed and $\bLambda$ satisfies     
     \begin{equation*}
-        \kappa p^{\beta}\geq \lambda_{1}\geq \cdots \geq\lambda_{r}\geq \kappa^{-1}p^{\beta},
+        \kappa p^{\beta}\geq \blambda_{1}\geq \cdots \geq\blambda_{r}\geq \kappa^{-1}p^{\beta},
 \end{equation*}
 where $\kappa>1$ and $\beta\geq {1}/{2}$ are constants.
 \end{assumption}
 
 The covariance structure in Assumption~\ref{theModel} is commonly adopted in PCA study.
 See~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
-The column space of $\BV$,  the eigenspace of $\bSigma$ corresponding to the leading eigenvalues, is called principal space. Since $\BV$ is an orthonormal matrix, $\BV \BV^T$ is the orthogonal projection matrix on the principal space.
-Let $\tilde{\BV}$ be a $p\times (p-r)$ full column rank orthonormal matrix orthogonal to columns of  $\BV$.
+This covariance structure is also connected with the factor model.
+In fact, the model in Assumption~\ref{theModel} with $\beta=1$
+corresponds to the factor model in~\cite{Ma2015A} with homoscedastic noise.
+
+In Assumption~\ref{theModel}, the column space of $\BV$ is the eigenspace of $\bSigma$ associated with the $r$ leading eigenvalues, and is therefore called principal space. Since $\BV$ is a column orthogonal matrix, $\BV \BV^T$ is the orthogonal projection onto the principal space.
+Let $\tilde{\BV}$ be a member of $\mathbb{O}_{p\times (p-r)}$ such that the columns of $\tilde{\BV}$ are orthogonal to the columns of  $\BV$.
 %, that is $\tilde{\BV}_k^T \BV_k=\BO_{r_k\times(p-r_k )}$
- Although such $\tilde{\BV}$ is not unique, the projection matrix  $\tilde{\BV}\tilde{\BV}^T=\BI_p-\BV \BV^T$ is unique and is the projection matrix on the orthogonal complement of principal space.
-Spiked covariance also has connection to factor model.
-In fact, the factor model in~\cite{Ma2015A} corresponds to $\beta=1$ in Assumption~\ref{theModel}.
+ Although such $\tilde{\BV}$ is not unique, the orthogonal projection  $\tilde{\BV}\tilde{\BV}^T=\BI_p-\BV \BV^T$ is unique and is equal to the orthogonal projection onto the orthogonal complement of principal space.
 
 
-For positive sequence $\{a_n\}$ and $\{b_n\}$, we write $a_n\asymp b_n$ to denote $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
-Then under Assumption~\ref{theModel}, we have
+For positive sequences $\{a_n\}$ and $\{b_n\}$, we write $a_n\asymp b_n$ to denote $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
+Under Assumption~\ref{theModel}, we have
 $$
-\frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\sum_{i=1}^r (\lambda_i+\sigma^2)^4+(p-r)\sigma^8}{\big(\sum_{i=1}^r (\lambda_i+\sigma^2)^2+(p-r)\sigma^4\big)^2}\asymp \frac{p^{4\beta}+p}{(p^{2\beta}+p)^2},
+\frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\sum_{i=1}^r (\lambda_i+\sigma^2)^4+(p-r)\sigma^8}{\big(\sum_{i=1}^r (\lambda_i+\sigma^2)^2+(p-r)\sigma^4\big)^2}\asymp \frac{p^{4\beta}+p}{(p^{2\beta}+p)^2}.
 $$
- which tends to $0$ if and only if $\beta<1/2$.
+The right hand side tends to $0$ if and only if $\beta<1/2$.
 Our previous arguments assert that the asymptotic distribution of $T_{CQ}$ won't be normal when $\beta\geq 1/2$.
 The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\beta\geq 1/2$.
 \begin{theorem}\label{Chenstheory1}
@@ -471,6 +472,10 @@ The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\b
     %$$
     %where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
 %\end{theorem}
+\begin{remark}
+    {\color{red}hahaha}
+\end{remark}
+
 
 It is implied by Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} that the original critical value of $T_{CQ}$ can not be used when $\beta\geq 1/2$.
 We need to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level $\alpha$ asymptotically.
@@ -1020,31 +1025,51 @@ $$
     $
     converges to $\exp(-t^2/2)$ for every $t$.
     Denote by $\log z$ $(z\in\mathbb{C})$ the principal branch of the complex logarithm.
-    We have $c_{ni}\in[-\sqrt{2}/2,\sqrt{2}/2]$.
-    For $t\in (-1,1)$, we have
+    For $t\in (-1/2,1/2)$, we have
     \begin{equation*}
         \begin{aligned}
-            &\log \myE\big[\exp{\big(it \sum_{j=1}^{k_n}c_{nj}(Z_{nj}^2-1)\big)}\big]
+            &\myE\big[\exp{\big(it \sum_{j=1}^{k_n}c_{nj}(Z_{nj}^2-1)\big)}\big]
             =
-            -i(\sum_{j=1}^{k_n}c_{nj})t-
-            \frac{1}{2}\sum_{j=1}^{k_n}\log(1-i2c_{nj}t)\\
+            \exp\Big(-i(\sum_{j=1}^{k_n}c_{nj})t-
+            \frac{1}{2}\sum_{j=1}^{k_n}\log(1-i2c_{nj}t) \Big)\\
             =&
+            \exp\Big(
             -i(\sum_{j=1}^{k_n}c_{nj})t+
             \frac{1}{2}\sum_{j=1}^{k_n}\sum_{l=1}^{+\infty}\frac{1}{l}{(i2c_{nj}t)}^l
+            \Big)
             =
+            \exp\Big(
             -i(\sum_{j=1}^{k_n}c_{nj})t+
-            \frac{1}{2}\sum_{l=1}^{+\infty}\Big[\sum_{j=1}^{k_n}{(c_{nj})}^l\Big]\frac{1}{l}{(i2t)}^l\\
-            =&-\frac{1}{2}t^2+
-            \frac{1}{2}\sum_{l=3}^{+\infty}\Big[\sum_{j=1}^{k_n}{(c_{nj})}^l\Big]\frac{1}{l}{(i2t)}^l.
+            \frac{1}{2}\sum_{l=1}^{+\infty}\Big[\sum_{j=1}^{k_n}{(c_{nj})}^l\Big]\frac{1}{l}{(i2t)}^l\Big)\\
+            =&
+            \exp\Big(
+            -\frac{1}{2}t^2+
+            \frac{1}{2}\sum_{l=3}^{+\infty}\Big[\sum_{j=1}^{k_n}{(c_{nj})}^l\Big]\frac{1}{l}{(i2t)}^l \Big),
         \end{aligned}
     \end{equation*}
-    Denote $b_{nl}=\sum_{j=1}^{k_n}{(c_{nj})}^l$, $n=1,2,\cdots$ and $l=3,4,\cdots$. For $l\geq 3$, $\big|\sum_{j=1}^{k_n}{(c_{nj})}^l\big|\leq \big|\sum_{j=1}^{k_n}{(c_{nj})}^2\big|=1/2$.
+    where the second equality holds since $0\leq c_{ni}\leq \sqrt{2}/2$ by definition.
+    Let $b_{nl}=\sum_{j=1}^{k_n}{(c_{nj})}^l$, $n=1,2,\cdots$ and $l=3,4,\cdots$.
+    Note that for $l\geq 3$, we have
+    $$|b_{nl}|=\big|\sum_{j=1}^{k_n}{(c_{nj})}^l\big|\leq \big|\sum_{j=1}^{k_n}{(c_{nj})}^2\big|=1/2.$$
     By Helly's selection theorem, there's a subsequence of $\{n\}$ along which $\lim_{n\to \infty}b_{nl}=b_l$ exists for every $l$.
-    Apply dominated convergence theorem to this subsequence we have
-            $\log \mathrm{E}\exp{\big(it \sum_{j=1}^{k_n}c_{nj}(Z_{nj}^2-1)\big)}\to
+    For this subsequence, applying dominated convergence theorem yields
+            $$\myE \big[\exp{\big(it \sum_{j=1}^{k_n}c_{nj}(Z_{nj}^2-1)\big)}\big]
+            \to
+            \exp\Big(
             -\frac{1}{2}t^2+
-            \frac{1}{2}\sum_{l=3}^{+\infty}b_l\frac{1}{l}{(i2t)}^l$ for $t\in(-1/2,1/2)$.
-            By the property of power series, we have $b_l=0$ for $l\geq 3$. Then~\ref{quadraticEigen} follows by noting that $b_{n4}\geq \max_j{(c_{nj})}^4$.
+            \frac{1}{2}\sum_{l=3}^{+\infty}b_l\frac{1}{l}{(i2t)}^l\Big),
+            \quad t\in\big(-\frac{1}{2},\frac{1}{2}\big).
+            $$
+            But the left hand side converges to $\exp(-t^2/2)$.
+            It follows that
+            $$
+            -\frac{1}{2}t^2+
+            \frac{1}{2}\sum_{l=3}^{+\infty}b_l\frac{1}{l}{(i2t)}^l
+            =-\frac{1}{2}t^2+ 2\pi m i,
+            \quad t\in\big(-\frac{1}{2},\frac{1}{2}\big),
+            $$
+            for some integer $m$.
+            By the uniqueness of power series, we mulst have $m=0$ and $b_l=0$ for $l\geq 3$. Then~\ref{quadraticEigen} follows by noting that $b_{n4}\geq \max_j{(c_{nj})}^4$.
 \end{proof}
 
 
