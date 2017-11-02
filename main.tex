@@ -302,7 +302,7 @@ Using characteristic function method, one can prove the following result which g
     \end{equation}
     is that
     \begin{equation}\label{quadraticEigen}
-        \frac{\lambda_{1}(A_n^2)}{\mathrm{tr}(A_n^2)}\to 0,
+        \frac{\lambda_{1}(\BA_n^2)}{\mytr(\BA_n^2)}\to 0,
     \end{equation}
     where ``$\xrightarrow{\mathcal{L}}$" means convergence of a sequence of random variables in law and $\lambda_{i}(\cdot)$ means the $i$th largest eigenvalue.
 \end{lemma}
@@ -351,7 +351,7 @@ $$
     we can see that ${\lambda_{1}^2(\bSigma)}/{\mathrm{tr}(\bSigma^2)}\to 0$  is equivalent to~\eqref{chenscondition}.
 Then Lemma~\ref{quadraticFormCLT} implies that under the null hypothesis, the condition~\eqref{chenscondition} is a necessary and sufficient condition for 
     \begin{equation*}
-        \frac{T_{CQ}-\mathrm{E}T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{\mathcal{L}}N(0,1).
+        \frac{T_{CQ}-\myE T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{\mathcal{L}}N(0,1).
     \end{equation*}
 
     The above result implies that~\cite{Chen2010A}'s test procedure can be used only when the eigenvalues of $\bSigma$ are concentrated around their average. 
@@ -386,11 +386,27 @@ Let $\tilde{\BV}$ be a member of $\mathbb{O}_{p\times (p-r)}$ such that the colu
 For positive sequences $\{a_n\}$ and $\{b_n\}$, we write $a_n\asymp b_n$ to denote $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
 Under Assumption~\ref{theModel}, we have
 $$
-\frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\sum_{i=1}^r (\lambda_i+\sigma^2)^4+(p-r)\sigma^8}{\big(\sum_{i=1}^r (\lambda_i+\sigma^2)^2+(p-r)\sigma^4\big)^2}\asymp \frac{p^{4\beta}+p}{(p^{2\beta}+p)^2}.
+\frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}=
+\frac{\sum_{i=1}^r (\blambda_i+\sigma^2)^4+(p-r)\sigma^8}{\big(\sum_{i=1}^r (\blambda_i+\sigma^2)^2+(p-r)\sigma^4\big)^2}\asymp \frac{p^{4\beta}+p}{(p^{2\beta}+p)^2}.
 $$
 The right hand side tends to $0$ if and only if $\beta<1/2$.
-Our previous arguments assert that the asymptotic distribution of $T_{CQ}$ won't be normal when $\beta\geq 1/2$.
-The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\beta\geq 1/2$.
+Our previous arguments assert that the asymptotic distribution of $T_{CQ}$ won't be normal for $\beta\geq 1/2$.
+To derive the asymptotic distribution of $T_{CQ}$ for $\beta\geq 1/2$,
+note that the variation of $T_{CQ}$ is mainly due to $\|\bar{X}_1-\bar{X}_2\|^2$.
+Let $\tau=1/n_1+1/n_2$.
+Under the null hypothesis, we have
+$$
+\myVar(\|\bar{X}_1-\bar{X}_2\|^2)=
+2\tau^2 \mytr (\bSigma^2)=2\tau^2 \sum_{i=1}^r (\blambda_i+
+\sigma^2)^2
++ 2\tau^2 (p-r)\sigma^4,
+$$
+where the first term of the right hand side is of order $p^{2\beta}/n^2$ and the second term is of order $p/n^2$.
+If $\beta=1/2$, the two terms are of the same order. 
+If $\beta>1/2$, however, the second term is dominated by the first term.
+This implies that the asymptotic distributions of $T_{CQ}$ are different for $\beta=1/2$ and $\beta>1/2$.
+Since the variance of $(\tau p^{\beta})^{-1}\|\bar{X}_1-\bar{X}_2\|^2$ is bounded under the null hypothesis, we use $\tau p^{\beta}$ to standardize $T_{CQ}$.
+The following two theorems give the asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ when $\beta= 1/2$ and $\beta>1/2$, respectively.
 \begin{theorem}\label{Chenstheory1}
  Under Assumption~\ref{theModel},
     suppose $\beta=1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
@@ -408,7 +424,7 @@ The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\b
             -
         \sum_{i=1}^r \omega_i,
     $$
-             where $\tau=1/n_1+1/n_2$ and ``$\xrightarrow{w}$'' denotes weak convergence.
+             where ``$\xrightarrow{w}$'' denotes weak convergence.
          \item
              If $(\tau p^{\beta})^{-1/2}\big(\BV^T (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$,
              and
@@ -473,32 +489,66 @@ The following two theorems give the asymptotic distribution of $T_{CQ}$ when $\b
     %where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
 %\end{theorem}
 \begin{remark}
-    {\color{red}hahaha}
+    By the definitions of $\zeta_i$ and $\zeta^*$, we have
+    $$
+    \begin{aligned}
+        &\frac{1}{\tau p^{\beta}}\|\mu_1-\mu_2\|^2
+    =
+    \frac{1}{\tau p^{\beta}}\|\BV^T (\mu_1-\mu_2)\|^2
+        +
+        \frac{1}{\tau p^{\beta}}\|\tilde{\BV}^T (\mu_1-\mu_2)\|^2
+    \to \sum_{i=1}^r \zeta_i^2+ \zeta^*.
+    \end{aligned}
+    $$
+    Thus, $\sum_{i=1}^r\zeta_i^2$ and $\zeta^*$ characterize the signal strength in the principal space and the complement of the principal space, respectively.
+    Under the conditions of Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the following statements are equivalent:
+    \begin{enumerate}[(1)]
+        \item
+     $\zeta_1=\cdots=\zeta_r=\zeta^*=0$.
+ \item
+     $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
+         \item
+            The asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ are the same under the null hypothesis and the alternative hypothesis.
+        \item
+            Any test procedure based on $T_{CQ}$ has trivial power asymptotically.
+    \end{enumerate}
 \end{remark}
 
 
 It is implied by Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} that the original critical value of $T_{CQ}$ can not be used when $\beta\geq 1/2$.
-We need to adjust the critical value of $T_{CQ}$ such that the resulting test has correct level $\alpha$ asymptotically.
-Let $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ be the cumulative distribution function of 
+Now we adjust the critical value of $T_{CQ}$ such that the resulting test has correct level asymptotically.
+Consider the random variable
 $
+W=
 \sqrt{2p}\sigma^2 Z_0
 +
-        \sum_{i=1}^r \lambda_i Z_i^2
+        \sum_{i=1}^r \blambda_i Z_i^2
             -
-        \sum_{i=1}^r \lambda_i
-        $.
+        \sum_{i=1}^r \blambda_i
+        $, 
+where $Z_0,Z_1,\ldots,Z_r$ are i.i.d.\ $N(0,1)$ random variables.
+Let $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ be the cumulative distribution function of $W$.
+Under the conditions of Theorem~\ref{Chenstheory1}, we have
+$$
+\frac{W}{p^{\beta}}\xrightarrow{w}
+$$
+Under the conditions of Theorem~\ref{Chenstheory2}, we have
+$$
+\frac{W}{p^{\beta}}\xrightarrow{w}
+$$
+
 By Theorem~\ref{Chenstheory1}, Theorem~\ref{Chenstheory2} and the definition of $\omega_i$, $i=1,\ldots,r$, if the critical value of $\tau^{-1}T_{CQ}$ is defined as the upper $\alpha$ quantile of
-$F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, the resulting test has level $\alpha$ asymptotically.
-        However, the distribution $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$ involves some unknown parameters.
-In order to consistently estimate $F(x;\lambda_1,\ldots,\lambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\lambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
-The following theorem shows that  $\lambda_i(S)$ can consistently estimate $\lambda_i$, $i=1,\ldots,r$.
+$F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, the resulting test has level $\alpha$ asymptotically.
+        However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
+In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\blambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
+The following proposition shows that  $\blambda_i(S)$ can consistently estimate $\blambda_i$, $i=1,\ldots,r$.
 \begin{proposition}\label{eigenconsis}
     Under Assumption~\ref{theModel}, suppose $p^{1-\beta}=o(n)$, then
     %$$
     %\lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
     %$$
     $$
-    \frac{\lambda_i(S)}{\lambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$},
+    \frac{\lambda_i(S)}{\blambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$},
     $$
     where ``$\xrightarrow{P}$'' means convergence in probability.
 \end{proposition}
@@ -506,7 +556,7 @@ In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\si
 Thus, if we reject the null hypothesis when
 $\tau^{-1}{T_{CQ}}$ is larger than the upper $\alpha$ quantile of $F(x;\hat{\lambda}_1,\ldots,\hat{\lambda}_r,\hat{\sigma}^2)$, then under the conditions of Proposition~\ref{eigenconsis}, the resulting test has correct level asymptotically.
 
-Theorem~\ref{Chenstheory1} and~\ref{Chenstheory2} imply that $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or
+Theorem~\ref{Chenstheory1} and~\ref{Chenstheory2} imply that $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or equivalently,
 $$
 \frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
 $$
@@ -688,17 +738,17 @@ In this section, we consider the simulation performance of the proposed test and
 These tests are denoted respectively by CQ in the rest of this section.
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
-Let $\lambda_{i}$ equals $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$), $i=1,\ldots, r$.
-Construct $p\times p$ diagonal matrix $D=\mydiag(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_r}, 1,\ldots, 1)$.
-Then, we generate data by the formula
+Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$), $i=1,\ldots, r$.
+Construct $p\times p$ diagonal matrix $\BD=\mydiag(\sqrt{d_1},\ldots,\sqrt{d_r}, 1,\ldots, 1)$.
+Then, we independently generate data by the formula
 $$
-X_{k,i}=\BU D Y_{k,i}\quad \text{$i=1,\ldots,n_k$ and $k=1,2$,}
+X_{k,i}=\mu_k+\BU \BD Y_{k,i}\quad \text{$i=1,\ldots,n_k$ and $k=1,2$,}
 $$
-where $Y_{k,i}$ is a $p$ dimensional random vector whose entries are i.i.d. random variables with distribution $F$.
+where $Y_{k,i}$ is a $p$ dimensional random vector whose entries are i.i.d.\ random variables with common distribution $F$.
 We will consider three different distributions of $F$.
 \begin{itemize}
     \item
-        Normal: $F\sim N(0,1)$.
+        Normal: $F {\sim} N(0,1)$.
     \item
         Chi-squared:  $F\sim (\chi^2_4-4)/\sqrt{8}$, where $\chi^2_4$ is a chi-squared random variable with degree of freedom $4$.
     \item
@@ -1116,11 +1166,9 @@ $$
 
 \begin{proof}[\textbf{Proves of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}}]
     In both Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}, (a) is a corrolary of (b).
-    Hence we shall prove (b) of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} simultaneously.
+    We shall prove (b) of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} simultaneously.
 
-For random variable $\xi$ and $\eta$,
-  we write $\xi\sim \eta$ to denote they have the same distribution.
-    Since $(n_k-1)S_k\sim \text{Wishart}_p(n_k-1,\bSigma)$, $k=1,2$, we have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\bSigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
+    Since $(n_k-1)\BS_k\sim \text{Wishart}_p(n_k-1,\bSigma)$, $k=1,2$, we have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\bSigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
     %Note that $\lambda_{r+1}(\bSigma)=\cdots=\lambda_p(\bSigma)=\sigma^2$, by central limit theorem, we have
     %$$
     %\begin{aligned}
@@ -1150,12 +1198,12 @@ For random variable $\xi$ and $\eta$,
 %
     %Hence
     $$
- \myE\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=\tau \mytr\bSigma,
+ \myE\Big(\frac{1}{n_1}\mytr \BS_1+\frac{1}{n_2}\mytr \BS_2\Big)=\tau \mytr\bSigma,
     $$
     and
     $$
     \begin{aligned}
-        &\myVar\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)=
+        &\myVar\Big(\frac{1}{n_1}\mytr \BS_1+\frac{1}{n_2}\mytr \BS_2\Big)=
         \Big(\frac{2}{n_1^2(n_1-1)}+\frac{2}{n_2^2(n_2-1)}\Big)\mytr \bSigma^2\\
         =&
     O\Big(\frac{1}{n^3}(p^{2\beta}+p)\Big)=O\Big(\frac{p^{2\beta}}{n^3}\Big).
@@ -1164,15 +1212,15 @@ For random variable $\xi$ and $\eta$,
     It follows that
     $$
     \begin{aligned}
-        &\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2=
+        &\frac{1}{n_1}\mytr \BS_1+\frac{1}{n_2}\mytr \BS_2=
     \tau \mytr \bSigma+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
-        =&\tau \sum_{i=1}^r (\lambda_i+\sigma^2)+\tau(p-r)\sigma^2+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
+        =&\tau \sum_{i=1}^r (\blambda_i+\sigma^2)+\tau(p-r)\sigma^2+O_P\Big(\frac{1}{n\sqrt{n}}p^{\beta}\Big)\\
         =&\tau p^{\beta} \sum_{i=1}^r \omega_i+\tau(p-r)\sigma^2+o_P\Big(\frac{1}{n}p^{\beta}\Big).
     \end{aligned}
     $$
 Thus,
         \begin{equation}\label{eq:kkk1}
-        \frac{1}{\tau p^\beta}\big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\big)
+        \frac{1}{\tau p^\beta}\big(\frac{1}{n_1}\mytr \BS_1+\frac{1}{n_2}\mytr \BS_2\big)
         =\sum_{i=1}^r \omega_i+p^{1-\beta}\sigma^2+o_P(1).
         \end{equation}
 
@@ -1240,11 +1288,11 @@ Since $\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{\BV}^T (\mu_1-\mu_
     $$
     \begin{aligned}
         &\frac{1}{\tau p^{\beta}} T_{CQ}
-        =\frac{1}{\tau p^{\beta}}\big(\|\bar{X}_1-\bar{X}_2\|^2-\frac{1}{n_1}\mytr S_1-\frac{1}{n_2}\mytr S_2\big)\\
+        =\frac{1}{\tau p^{\beta}}\big(\|\bar{X}_1-\bar{X}_2\|^2-\frac{1}{n_1}\mytr \BS_1-\frac{1}{n_2}\mytr \BS_2\big)\\
         =&
         \frac{1}{\tau p^{\beta}}{\|\BV^T(\bar{X}_1-\bar{X}_2)\|^2}+
         \frac{1}{\tau p^{\beta}} \big({\|\tilde{\BV}^T(\bar{X}_1-\bar{X}_2)\|^2-\sigma^2 \tau(p-r)-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}\big)\\
-        &-\frac{1}{\tau p^{\beta}}\Big(\frac{1}{n_1}\mytr S_1+\frac{1}{n_2}\mytr S_2\Big)+\frac{\sigma^2 (p-r)}{p^\beta}+\frac{1}{\tau p^\beta}\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2\\
+        &-\frac{1}{\tau p^{\beta}}\Big(\frac{1}{n_1}\mytr \BS_1+\frac{1}{n_2}\mytr \BS_2\Big)+\frac{\sigma^2 (p-r)}{p^\beta}+\frac{1}{\tau p^\beta}\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2\\
         =&
         \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
    \sqrt{2} \sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)Z_0
@@ -1285,8 +1333,8 @@ Since $\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{\BV}^T (\mu_1-\mu_
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{eigenconsis}}]
     Let $\bSigma=\BU\BE\BU^T$ denote the spectral decomposition of $\bSigma$, where
-     $\BU=(\BV,\tilde{\BV})$ and $\BE=\mydiag(\lambda_1+\sigma^2,\ldots,\lambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
-Denote by $S=\hat{\BU}\hat{\BE}\hat{\BU}^T$ the spectral decomposition of $S$, where $\hat{\BU}=(\hat{\BV},\hat{\tilde{\BV}})$ and $\hat{\BE}=\mydiag(\hat{\lambda}_1,\ldots,\hat{\lambda}_p)$.
+     $\BU=(\BV,\tilde{\BV})$ and $\BE=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
+Denote by $\BS=\hat{\BU}\hat{\BE}\hat{\BU}^T$ the spectral decomposition of $\BS$, where $\hat{\BU}=(\hat{\BV},\hat{\tilde{\BV}})$ and $\hat{\BE}=\mydiag(\hat{\blambda}_1,\ldots,\hat{\blambda}_p)$.
 Let $\bZ$ be a $p\times (n-2)$ random matrix with i.i.d. $N(0,1)$ entries.
 Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. 
 
