@@ -358,7 +358,7 @@ Then Lemma~\ref{quadraticFormCLT} implies that under the null hypothesis, the co
    In a class of applications, however, the correlations between variables are mainly driven by several common factors, and consequently, $\bSigma$ has a few eigenvalues which are much larger than the others.
     See, for example,~\cite{Jung2009PCA},~\cite{Cai2012Sparse} and~\cite{Fan2015Asymptotics}.
 To characterize such correlations between variables, we consider the  spiked covariance structure~\eqref{eq:introSpiked}.
-For $p\geq q$, let $\mathbb{O}_{p\times q}$ denote the collection of $p\times q$ column orthogonal matrices.
+For $p\geq q$, let $\mathbb{O}_{p\times q}$ denote the collection of all $p\times q$ column orthogonal matrices.
 We make the following assumption for the covariance matrix $\bSigma$.
 \begin{assumption}\label{theModel}
     The covariance matrix $\bSigma$ has structure $ \bSigma=\BV\bLambda \BV^T+\sigma^2 \BI_p$, where $\BV\in\mathbb{O}_{p\times r}$, $r$ is a known number and $\bLambda=\mydiag(\blambda_{1},\ldots,\blambda_{r})$, 
@@ -488,7 +488,7 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
     %$$
     %where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $N(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
 %\end{theorem}
-\begin{remark}
+\begin{remark}\label{remark1}
     By the definitions of $\zeta_i$ and $\zeta^*$, we have
     $$
     \begin{aligned}
@@ -531,14 +531,24 @@ Let $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ be the cumulative distribution 
 Under the conditions of Theorem~\ref{Chenstheory1}, we have
 $$
 \frac{W}{p^{\beta}}\xrightarrow{w}
+\sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
 $$
 Under the conditions of Theorem~\ref{Chenstheory2}, we have
 $$
 \frac{W}{p^{\beta}}\xrightarrow{w}
+\sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
 $$
-
-By Theorem~\ref{Chenstheory1}, Theorem~\ref{Chenstheory2} and the definition of $\omega_i$, $i=1,\ldots,r$, if the critical value of $\tau^{-1}T_{CQ}$ is defined as the upper $\alpha$ quantile of
-$F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, the resulting test has level $\alpha$ asymptotically.
+Hence in both case, we have
+$$
+\sup_{x\in\mathbb{R}}\big|\Pr\big(\frac{1}{\tau}T_{CQ}\leq x\big)-\Pr\big(W\leq x\big)\big|
+=o(1).
+$$
+Thus, if we reject the null hypothesis when
+$$
+\frac{1}{\tau}T_{CQ}>
+F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2),
+$$
+then the resulting test has level $\alpha$ asymptotically for $\beta\geq 1/2$.
         However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
 In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\blambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
 The following proposition shows that  $\blambda_i(S)$ can consistently estimate $\blambda_i$, $i=1,\ldots,r$.
@@ -548,32 +558,49 @@ The following proposition shows that  $\blambda_i(S)$ can consistently estimate 
     %\lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
     %$$
     $$
-    \frac{\lambda_i(S)}{\blambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$},
+    \frac{\lambda_i(\BS)}{\blambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$},
     $$
     where ``$\xrightarrow{P}$'' means convergence in probability.
 \end{proposition}
-In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\sigma^2$.Proposition~\ref{varianceEstimation} asserts that $\hat{\sigma}^2$ is consistent.
-Thus, if we reject the null hypothesis when
-$\tau^{-1}{T_{CQ}}$ is larger than the upper $\alpha$ quantile of $F(x;\hat{\lambda}_1,\ldots,\hat{\lambda}_r,\hat{\sigma}^2)$, then under the conditions of Proposition~\ref{eigenconsis}, the resulting test has correct level asymptotically.
+\begin{remark}
+    Proposition~\eqref{eigenconsis} requires the condition $p^{1-\beta}=o(n)$.
+    If $\beta=1/2$, this condition becomes $p/n^2\to 0$.
+    If $\beta\geq 1$, this condition is trivially fulfilled.
+\end{remark}
+In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\sigma^2$.Proposition~\ref{varianceEstimation} asserts that $\hat{\sigma}^2$ is consistent. 
+Now we propose a corrected $T_{CQ}$ test procedure which reject the null hypothesis if
+$$
+\tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}^2).
+$$
+Then under the conditions of Proposition~\ref{eigenconsis} and the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test procedure has level $\alpha$ asymptotically.
 
-Theorem~\ref{Chenstheory1} and~\ref{Chenstheory2} imply that $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or equivalently,
-$$
-\frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
-$$
-Conversely, to make $T_{CQ}$ have non-trivial power, $\|\mu_1-\mu_2\|^2$ is at least of order $\tau p^\beta$.
+As we have seen in Remark~\ref{remark1}, the corrected $T_{CQ}$ test procedure has trivial power if $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
+Then as $\beta$ increases, the corrected $T_{CQ}$ test procedure becomes less powerful.
+This implies that the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
+
+%Theorems~\ref{Chenstheory1} and~\ref{Chenstheory2} imply that $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or equivalently,
+%$$
+%\frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
+%$$
+%Conversely, to make $T_{CQ}$ have non-trivial power, $\|\mu_1-\mu_2\|^2$ is at least of order $\tau p^\beta$.
 
 
 
 
 \section{A projection test}\label{methodology}
 
+
+In section~\ref{sec:chen}, we adjusted the critical value of $T_{CQ}$ under the spiked covariance model~\eqref{eq:introSpiked}.
+However, % as we discussed at the end of Section~\ref{sec:chen},
+the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
 %To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
 %In their paper, $\bSigma$'s first few eigenvalues are assumed to be of order $p$.
-In this section, we propose a new test for hypotheses~\eqref{problem} under spiked covariance model~\eqref{eq:introSpiked}.
-Note that the main part of  $T_{CQ}$ is $
+This motivates us to propose a new test for hypotheses~\eqref{problem} under the spiked covariance model~\eqref{eq:introSpiked}.
+
+Note that  $
     \tau\|\bar{X}_1-\bar{X}_2\|^2
-$, which is also the main part of $T_{BS}$ and~\cite{Ma2015A}'s method.
-It can be written as the sum of two terms
+$ plays a crucial role in $T_{CQ}$, $T_{BS}$ and~\cite{Ma2015A}'s method.
+It can be written as
 \begin{equation}\label{mot:1}
     \tau \|\BV^T (\bar{X}_1-\bar{X}_2)\|^2+
     \tau\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2.
@@ -587,7 +614,7 @@ $$
 \asymp
 p^{2\beta-1},
 $$
-which tends to $\infty$ as $p\to \infty$ for $\beta>1/2$.
+which tends to $\infty$ as $p\to \infty$ if $\beta>1/2$.
 While $
     \tau \|\BV^T (\bar{X}_1-\bar{X}_2)\|^2
 $ has relative large variance, it only involves the signal from $r$ dimension.
@@ -628,10 +655,7 @@ It is known that random projection based methods offer higher power when the var
 However, these test procedures are randomized, which is undesirable in practice.
 Then, is there an optimal projection which is nonrandomized?
 
-    For $p\geq q$, define
-    $
-\mathbb{O}_{p\times q}=\{\BO\,|\, \textrm{$\BO$ is $p\times q$ column orthonormal matrix }\}$.
-under the null hypothesis, we have that
+Under the null hypothesis, we have that
 $$
 \tilde{\BV}=\mathop{\operatorname{arg\,min}}_{\BO\in\mathbb{O}_{p\times(p-r)}}\myVar\big(\|\BO^T(\bar{X}_1-\bar{X}_2)\|^2\big).
 $$
