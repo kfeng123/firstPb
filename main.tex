@@ -590,44 +590,13 @@ This implies that the power of the corrected $T_{CQ}$ test procedure is negative
 \section{A projection test}\label{methodology}
 
 
-In section~\ref{sec:chen}, we adjusted the critical value of $T_{CQ}$ under the spiked covariance model~\eqref{eq:introSpiked}.
+In section~\ref{sec:chen}, we adjusted the critical value of $T_{CQ}$ under Assumption~\ref{theModel}.
 However, % as we discussed at the end of Section~\ref{sec:chen},
 the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
 %To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
 %In their paper, $\bSigma$'s first few eigenvalues are assumed to be of order $p$.
-This motivates us to propose a new test for hypotheses~\eqref{problem} under the spiked covariance model~\eqref{eq:introSpiked}.
+This motivates us to propose a new test for hypotheses~\eqref{problem} under Assumption~\ref{theModel}.
 
-Note that  $
-    \tau\|\bar{X}_1-\bar{X}_2\|^2
-$ plays a crucial role in $T_{CQ}$, $T_{BS}$ and~\cite{Ma2015A}'s method.
-It can be written as
-\begin{equation}\label{mot:1}
-    \tau \|\BV^T (\bar{X}_1-\bar{X}_2)\|^2+
-    \tau\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2.
-\end{equation}
-Under the null hypothesis, we have
-$$\myVar\big(\tau \|\BV^T (\bar{X}_1-\bar{X}_2)\|^2\big)=\sum_{i=1}^r 2(\lambda_i+\sigma^2)^2,\quad 
-\myVar\big(\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2\big)=2\sigma^4 (p-r).$$
-The ratio of the two variance is
-$$
-\frac{\sum_{i=1}^r 2(\lambda_i+\sigma^2)^2}{2\sigma^4 (p-r)}
-\asymp
-p^{2\beta-1},
-$$
-which tends to $\infty$ as $p\to \infty$ if $\beta>1/2$.
-While $
-    \tau \|\BV^T (\bar{X}_1-\bar{X}_2)\|^2
-$ has relative large variance, it only involves the signal from $r$ dimension.
-%Thus, compared with the second term of~\eqref{mot:1}, the first term has larger variance and tends to contain much weaker signal.
- This motivates us to drop the first term of~\eqref{mot:1} and only use the second term.
-After adjusting the second term, we define the following variable
-\begin{equation*}
-\begin{aligned}
-    T_{1}&=\|\tilde{\BV}^T(\bar{X}_1-\bar{X}_2)\|^2-\frac{1}{n_1}\mathrm{tr}(\tilde{\BV}^T S_1\tilde{\BV})-\frac{1}{n_2}\mathrm{tr}(\tilde{\BV}^T S_2\tilde{\BV}).
-    \\
-    %&=\frac{\sum_{i\neq j}^{n_1}X_{1i}^T\tilde{\BV}\tilde{\BV}^T X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^T\tilde{\BV}\tilde{\BV}^T X_{2j}}{n_2(n_2-1)}-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^T\tilde{\BV}\tilde{\BV}^T X_{2j}}{n_1n_2}
-\end{aligned}
-\end{equation*}
 %The argument is also supported by the likelihood ratio test. If $\bSigma$ is known, the LRT is based on 
 %\begin{equation}\label{qifafa}
     %{(\bar{X}_1-\bar{X}_2)}^T\bSigma^{-1}(\bar{X}_1-\bar{X}_2)=\frac{n_1 n_2}{n_1+n_2}\sum_{i=1}^p \lambda_i^{-1}{(\bar{X}_1-\bar{X}_2)}^T  p_i p_i^T (\bar{X}_1-\bar{X}_2).
@@ -640,7 +609,74 @@ After adjusting the second term, we define the following variable
 %The large variance is totally caused by term $p\chi^2_1$. 
 %If we remove $\frac{n_1 n_2}{n_1+n_2} {(\bar{X}_1-\bar{X}_2)}^T  p_1 p_1^T (\bar{X}_1-\bar{X}_2)$ from $T_{BS}$, the variance of $T_{BS}$ can be significantly reduced to order $p$ from order $p^2$.
 %Note that $\bSigma=(1-c)\BI+c\bm{1}_p+\bm{1}_p^T$ is just a special case of spiked covariance.
-It can be shown that $T_1$ has asymptotically normal distribution.
+
+%In another point of view, $T_1$ is obtained by transforming $X_{k,i}$ to $\tilde{\BV}^T X_{k,i}$ ($i=1,\ldots, n_k$, $k=1,2$) and then invoking the statistic of~\cite{Chen2010A}.
+Recently, a class of test procedures have been proposed through random projection to lower dimensional space. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
+It is known that random projection based methods offer higher power when the variables are dependent.
+However, these test procedures are randomized, which is undesirable in practice.
+Then, is there an optimal projection which is nonrandomized?
+
+For $\BO\in \mathbb{O}_{p\times k}$ ($k\leq p$), define statistic
+$$
+    T(\BO)=\|\BO^T(\bar{X}_1-\bar{X}_2)\|^2-\frac{1}{n_1}\mytr(\BO^T \BS_1\BO)-\frac{1}{n_2}\mytr(\BO^T \BS_2\BO).
+$$
+Then $T(\BO)$ is~\cite{Chen2010A}'s statistic on the transformed data $\BO^T X_{k,i}$.
+%We would like to obtain an $\BO$ such that the associated $T(\BO)$ is most powerful.
+Denote by $\Phi(\cdot)$ the cumulative distribution function of the standard normal random variable.
+Under the condition~\eqref{chenscondition},~\cite{Chen2010A} proved that the asymptotic power of $T_{CQ}$ under the local alternative is
+$$
+\Phi\Bigg(\Phi^{-1}(\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mytr(\bSigma^2)}}\Bigg).
+$$
+Hence the power of $T_{CQ}$ is largely impacted by $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
+Consequently, $\|\BO^T (\mu_1-\mu_2)\|^2/\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}$ measures the power of $T(\BO)$.
+To consider an average-case scenario, like~\cite{Lopes2015A}, we temporarily place a prior on $\mu_1-\mu_2$ and assume that $\mu_1-\mu_2$ is from the uniform distribution on the unit sphere.
+In this case, an average SNR can be defined as
+\begin{equation}\label{touteng}
+\myE \Bigg( \frac{\|\BO^T (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}\Bigg)
+=  \frac{k/p}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}.
+\end{equation}
+It can be expected that the $T(\BO)$ maximizing the average SNR has the best average power behavior among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$.
+
+Note that for fixed $k$,~\eqref{touteng} is maximized when the columns of $\BO$ are equal to the last $k$ eigenvectors of $\bSigma$.
+Thus, it remains to maximize
+\begin{equation}\label{touteng2}
+\frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2 (\bSigma)}}
+\end{equation}
+over $k$.
+If $k\leq p-r$,~\eqref{touteng2} is equal to $\sqrt{k}/(\sqrt{2} \sigma^2 \tau p)$ which is an increasing function of $k$.
+If $k> p-r$, we have
+\begin{equation*}
+    \begin{aligned}
+        &\frac{k/p}{\sqrt{2\tau^2(\sum_{i=p-k+1}^r \lambda_i^2(\bSigma)+k\sigma^4)}}
+        \leq
+        \frac{1}{\sqrt{2\tau^2(\kappa^{-2}p^{2\beta}+(p-r)\sigma^4)}}\\
+        =&
+        \frac{p/(p-r)}{\sqrt{\kappa^{-2}p^{2\beta}/((p-r)\sigma^4)+1}}
+\frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}}.
+    \end{aligned}
+\end{equation*}
+Hence for sufficiently large $p$, we have
+\begin{equation*}
+    \begin{aligned}
+        \frac{k/p}{\sqrt{2\tau^2(\sum_{i=p-k+1}^r \lambda_i^2(\bSigma)+k\sigma^4)}}
+        <
+\frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}}.
+    \end{aligned}
+\end{equation*}
+Thus, for sufficiently large $p$,~\eqref{touteng2} is maximized when $k=p-r$.
+
+As we have shown,~\eqref{touteng} is maximized when $\BO=\tilde{V}$. We define the following variable
+\begin{equation*}
+\begin{aligned}
+    T_{1}&=\|\tilde{\BV}^T(\bar{X}_1-\bar{X}_2)\|^2-\frac{1}{n_1}\mathrm{tr}(\tilde{\BV}^T \BS_1\tilde{\BV})-\frac{1}{n_2}\mathrm{tr}(\tilde{\BV}^T \BS_2\tilde{\BV}).
+    \\
+    %&=\frac{\sum_{i\neq j}^{n_1}X_{1i}^T\tilde{\BV}\tilde{\BV}^T X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^T\tilde{\BV}\tilde{\BV}^T X_{2j}}{n_2(n_2-1)}-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^T\tilde{\BV}\tilde{\BV}^T X_{2j}}{n_1n_2}
+\end{aligned}
+\end{equation*}
+ Note that based on $\tilde{\BV}^T X_{ki}$, the likelihood ratio test statistic for hypothesis~\eqref{problem} is 
+    $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$. 
+    In this view, $T_1$ can be regarded as a restricted likelihood ratio statistic.
+It can be shown that $T_1$ is asymptotically normal.
 \begin{proposition}\label{oracleTheorem}
     Under Assumption~\ref{theModel}, suppose $\frac{n}{p}\|\mu_1-\mu_2\|^2= o(1)$, we have 
     \begin{equation*}
@@ -649,20 +685,8 @@ It can be shown that $T_1$ has asymptotically normal distribution.
     \end{equation*}
 \end{proposition}
 
-In another point of view, $T_1$ is obtained by transforming $X_{k,i}$ to $\tilde{\BV}^T X_{k,i}$ ($i=1,\ldots, n_k$, $k=1,2$) and then invoking the statistic of~\cite{Chen2010A}.
-A class of test procedures have been proposed through random projection to lower dimensional space. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
-It is known that random projection based methods offer higher power when the variables are dependent.
-However, these test procedures are randomized, which is undesirable in practice.
-Then, is there an optimal projection which is nonrandomized?
 
-Under the null hypothesis, we have that
-$$
-\tilde{\BV}=\mathop{\operatorname{arg\,min}}_{\BO\in\mathbb{O}_{p\times(p-r)}}\myVar\big(\|\BO^T(\bar{X}_1-\bar{X}_2)\|^2\big).
-$$
-Thus, transformation by $\tilde{\BV}$ is optimal in the sense of variance reduction.
- Based on $\tilde{\BV}^T X_{ki}$, the likelihood ratio test statistic for hypothesis~\eqref{problem} is then
-    $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$ which coincides with our proposal.
-    In this view, $T_1$ can be regarded as a restricted likelihood ratio test.
+
 
 
 
@@ -674,7 +698,8 @@ Thus, transformation by $\tilde{\BV}$ is optimal in the sense of variance reduct
 %    Suppose $\mu_1=\mu_2$. When $\beta>1/2$, the order of $T_1$'s variance is smaller than the order of $T_{CQ}$'s variance, which implies $T_1/(\sigma^2\sqrt{2\tau^2 p})$ is asymptotically independent of $T_{CQ}/\sqrt{2\tau^2 \mathrm{tr}\bSigma^2}$. Hence $T_1$ does provide additional information, although $T_1$ is inherited from $T_{CQ}$.  
 %\end{remark} 
 
-Note that $T_1$ is not a statistic since it relies on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is unknown. Thus, we estimate $\tilde{\BV}\tilde{\BV}^T$ by its sample counterpart.
+Note that $T_1$ % is not a statistic since it
+relies on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is unknown. Thus, we estimate $\tilde{\BV}\tilde{\BV}^T$ by its sample counterpart.
 We denote by $\hat{\BV}$ and $\hat{\tilde{\BV}}$ the first $r$ and last $p-r$ eigenvectors of $S$ respectively.
 Similarly, we denote by  $\hat{\BV}_k$ and $\hat{\tilde{\BV}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
 As the main part of $T_1$, $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$

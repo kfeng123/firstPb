@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  4 NOV 2017 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  6 NOV 2017 21:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -508,92 +508,81 @@ Overfull \hbox (2.2418pt too wide) detected at line 502
 [] []
  []
 
-[8] [9]
-Overfull \hbox (0.50986pt too wide) detected at line 610
-[] []\OML/cmm/m/it/10 ^^\\OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 V[]\OT1/cmr/m/n/10 
-([] \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k[][] \OT1/cmr/m/n
-/10 = [] 2(\OML/cmm/m/it/10 ^^U[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^[[]\OT1/
-cmr/m/n/10 )[]\OML/cmm/m/it/10 ;  [] []\OMS/cmsy/m/n/10 k[]\OT1/cmr/m/n/10 ([] 
-\OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k[][] \OT1/cmr/m/n/10 
-= 2\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^
-^@ \OML/cmm/m/it/10 r\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
- []
-
-[10] [11] [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 775.
+[8] [9] [10] [11] [12]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 800.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 775.
-
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 815--846
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 800.
+[13]
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 840--871
  [][] 
  []
 
 
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 854--885
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 879--910
  [][] 
  []
 
-(./code/level.tex) <code/fig1.jpeg, id=284, 301.125pt x 301.125pt>
+(./code/level.tex) <code/fig1.jpeg, id=294, 301.125pt x 301.125pt>
 File: code/fig1.jpeg Graphic file (type jpg)
 
 <use code/fig1.jpeg>
-Package pdftex.def Info: code/fig1.jpeg used on input line 904.
+Package pdftex.def Info: code/fig1.jpeg used on input line 929.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig2.jpeg, id=285, 301.125pt x 301.125pt>
+ <code/fig2.jpeg, id=295, 301.125pt x 301.125pt>
 File: code/fig2.jpeg Graphic file (type jpg)
 
 <use code/fig2.jpeg>
-Package pdftex.def Info: code/fig2.jpeg used on input line 905.
+Package pdftex.def Info: code/fig2.jpeg used on input line 930.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig3.jpeg, id=286, 301.125pt x 301.125pt>
+ <code/fig3.jpeg, id=296, 301.125pt x 301.125pt>
 File: code/fig3.jpeg Graphic file (type jpg)
 
 <use code/fig3.jpeg>
-Package pdftex.def Info: code/fig3.jpeg used on input line 907.
+Package pdftex.def Info: code/fig3.jpeg used on input line 932.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig4.jpeg, id=287, 301.125pt x 301.125pt>
+ <code/fig4.jpeg, id=297, 301.125pt x 301.125pt>
 File: code/fig4.jpeg Graphic file (type jpg)
 
 <use code/fig4.jpeg>
-Package pdftex.def Info: code/fig4.jpeg used on input line 908.
+Package pdftex.def Info: code/fig4.jpeg used on input line 933.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- [13] <code/fig5.jpeg, id=294, 301.125pt x 301.125pt>
+ <code/fig5.jpeg, id=298, 301.125pt x 301.125pt>
 File: code/fig5.jpeg Graphic file (type jpg)
 
 <use code/fig5.jpeg>
-Package pdftex.def Info: code/fig5.jpeg used on input line 914.
+Package pdftex.def Info: code/fig5.jpeg used on input line 939.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig6.jpeg, id=295, 301.125pt x 301.125pt>
+ <code/fig6.jpeg, id=299, 301.125pt x 301.125pt>
 File: code/fig6.jpeg Graphic file (type jpg)
 
 <use code/fig6.jpeg>
-Package pdftex.def Info: code/fig6.jpeg used on input line 915.
+Package pdftex.def Info: code/fig6.jpeg used on input line 940.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig7.jpeg, id=296, 301.125pt x 301.125pt>
+ <code/fig7.jpeg, id=300, 301.125pt x 301.125pt>
 File: code/fig7.jpeg Graphic file (type jpg)
 
 <use code/fig7.jpeg>
-Package pdftex.def Info: code/fig7.jpeg used on input line 917.
+Package pdftex.def Info: code/fig7.jpeg used on input line 942.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig8.jpeg, id=297, 301.125pt x 301.125pt>
+ <code/fig8.jpeg, id=301, 301.125pt x 301.125pt>
 File: code/fig8.jpeg Graphic file (type jpg)
 
 <use code/fig8.jpeg>
-Package pdftex.def Info: code/fig8.jpeg used on input line 918.
+Package pdftex.def Info: code/fig8.jpeg used on input line 943.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- [14 <./code/fig1.jpeg> <./code/fig2.jpeg> <./code/fig3.jpeg> <./code/fig4.jpeg
->] [15 <./code/fig5.jpeg> <./code/fig6.jpeg> <./code/fig7.jpeg> <./code/fig8.jp
-eg>] [16] [17]
-Overfull \hbox (19.23424pt too wide) detected at line 1057
+ [14] [15 <./code/fig1.jpeg> <./code/fig2.jpeg> <./code/fig3.jpeg> <./code/fig4
+.jpeg>] [16 <./code/fig5.jpeg> <./code/fig6.jpeg> <./code/fig7.jpeg> <./code/fi
+g8.jpeg>] [17]
+Overfull \hbox (19.23424pt too wide) detected at line 1082
 [] []
  []
 
-
-Overfull \hbox (66.88258pt too wide) detected at line 1078
+[18]
+Overfull \hbox (66.88258pt too wide) detected at line 1103
 [] []\OMS/cmsy/m/n/10 k[]\OML/cmm/m/it/10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/
 n/10 I[]\OMS/cmsy/m/n/10 k \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 4[][] + [][][] \O
 MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
@@ -603,42 +592,42 @@ MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
 ^^@ \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 p[]:
  []
 
-[18]
-Overfull \hbox (67.08179pt too wide) detected at line 1161
+[19]
+Overfull \hbox (67.08179pt too wide) detected at line 1186
 [] []
  []
 
-[19]
-Overfull \hbox (16.77835pt too wide) in paragraph at lines 1165--1168
+
+Overfull \hbox (16.77835pt too wide) in paragraph at lines 1190--1193
 \OT1/cmr/m/n/10 By Helly's se-lec-tion the-o-rem, there's a sub-se-quence of $\
 OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 along wh
 ich $[][] \OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 =
  []
 
-[20]
-Overfull \hbox (85.31873pt too wide) detected at line 1287
+[20] [21]
+Overfull \hbox (85.31873pt too wide) detected at line 1312
 [] []
  []
 
 
-Overfull \hbox (27.8134pt too wide) detected at line 1333
+Overfull \hbox (27.8134pt too wide) detected at line 1358
 [] []
  []
 
-[21]
-Overfull \hbox (59.79631pt too wide) in paragraph at lines 1366--1373
+[22]
+Overfull \hbox (59.79631pt too wide) in paragraph at lines 1391--1398
 []\OT1/cmr/m/n/10 The sam-ple co-vari-ance ma-trix $\OML/cmm/m/it/10 S$ \OT1/cm
 r/m/n/10 has the same dis-tri-bu-tion as $[][]\OT1/cmr/bx/n/10 UE[]ZZ[]E[]U[]$\
 OT1/cmr/m/n/10 .
  []
 
 
-Overfull \hbox (30.31897pt too wide) detected at line 1382
+Overfull \hbox (30.31897pt too wide) detected at line 1407
 [] []
  []
 
 
-Overfull \hbox (16.93019pt too wide) detected at line 1393
+Overfull \hbox (16.93019pt too wide) detected at line 1418
 \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ
 \OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^U[][]\OT1/cmr/bx/n/10
  Z[]\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/
@@ -649,13 +638,13 @@ OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^[[]\OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 Z[]Z[
 ]\OMS/cmsy/m/n/10 k
  []
 
-[22]
-Overfull \hbox (45.50262pt too wide) detected at line 1463
+[23]
+Overfull \hbox (45.50262pt too wide) detected at line 1488
 [] []
  []
 
-[23]
-Overfull \hbox (54.26123pt too wide) detected at line 1475
+[24]
+Overfull \hbox (54.26123pt too wide) detected at line 1500
 [] \OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 Z[]Z[]\OMS/cmsy/m/n/10 k[] ^^T [] k\OT1/c
 mr/bx/n/10 Z[]Z[]\OMS/cmsy/m/n/10 k[] \OT1/cmr/m/n/10 = [] [] []\OT1/cmr/bx/n/1
 0 Z[]Z[]Z[]Z[][] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^@ \OM
@@ -665,22 +654,22 @@ L/cmm/m/it/10 r\OT1/cmr/m/n/10 ) [] [] []\OT1/cmr/bx/n/10 Z[]Z[][] \OT1/cmr/m/n
  []
 
 
-Overfull \hbox (82.54094pt too wide) detected at line 1508
+Overfull \hbox (82.54094pt too wide) detected at line 1533
 [] []
  []
 
 
-Overfull \hbox (28.20398pt too wide) detected at line 1549
+Overfull \hbox (28.20398pt too wide) detected at line 1574
 [] []
  []
 
-[24]
-Overfull \hbox (22.21576pt too wide) detected at line 1588
+[25]
+Overfull \hbox (22.21576pt too wide) detected at line 1613
 [] []
  []
 
 
-Overfull \hbox (40.34834pt too wide) detected at line 1612
+Overfull \hbox (40.34834pt too wide) detected at line 1637
 \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 ^^[[] [] ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx
 /n/10 Z[]Z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T [] \OML/cmm/m/it/10 ^^U[]\OT
 1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML
@@ -689,24 +678,24 @@ Overfull \hbox (40.34834pt too wide) detected at line 1612
 OT1/cmr/bx/n/10 Z[]Z[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
-[25]
-Overfull \hbox (77.34474pt too wide) detected at line 1651
+[26]
+Overfull \hbox (77.34474pt too wide) detected at line 1676
 [] []
  []
 
-[26] [27]
-Overfull \hbox (20.98083pt too wide) detected at line 1778
+[27] [28]
+Overfull \hbox (20.98083pt too wide) detected at line 1803
 [] []
  []
 
-[28]
-Overfull \hbox (3.5862pt too wide) in paragraph at lines 1846--1849
+[29]
+Overfull \hbox (3.5862pt too wide) in paragraph at lines 1871--1874
 \OT1/cmr/m/n/10 Then for ev-ery sub-se-quence of $\OMS/cmsy/m/n/10 f\OML/cmm/m/
 it/10 n\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , there's a fur-ther sub-se-quence al
 ong which []
  []
 
-[29] (./main.bbl [30]
+[30] (./main.bbl [31]
 Underfull \hbox (badness 1038) in paragraph at lines 59--68
 []\OT1/cmr/m/n/10 Chen, L.S., Paul, D., Pren-tice, R.L., Wang, P., 2011.  A reg
 -u-lar-ized
@@ -730,13 +719,13 @@ Underfull \hbox (badness 3199) in paragraph at lines 78--88
  S1874-[]5849(01 ) 80010-[]3$[]\OT1/cmr/m/n/10 . hand-book of
  []
 
-[31])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1942.
- [32] [33] [34] [35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1942.
+[32])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1967.
+ [33] [34] [35] [36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1967.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1942.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1942.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1967.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1967.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 52DBF1B5D0AACCDE0AD0BA902533D74D;413.
@@ -744,44 +733,43 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1942.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1967.
  ) 
 Here is how much of TeX's memory you used:
- 7491 strings out of 493029
- 103496 string characters out of 6136235
- 233925 words of memory out of 5000000
- 10774 multiletter control sequences out of 15000+600000
+ 7494 strings out of 493029
+ 103528 string characters out of 6136235
+ 232971 words of memory out of 5000000
+ 10775 multiletter control sequences out of 15000+600000
  16579 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,17n,34p,492b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (35 pages, 488997 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msbm7.pfb>
+Output written on main.pdf (36 pages, 475413 bytes).
 PDF statistics:
- 622 PDF objects out of 1000 (max. 8388607)
- 545 compressed objects within 6 object streams
- 119 named destinations out of 1000 (max. 500000)
+ 626 PDF objects out of 1000 (max. 8388607)
+ 550 compressed objects within 6 object streams
+ 121 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
