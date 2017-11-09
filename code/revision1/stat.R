@@ -163,6 +163,37 @@ myStat2 <- function(X1, X2, n1, n2, ...) {
                 studentStat = studentStat))
 }
 
+# New test final version 
+myStatFinal <- function(X1, X2, n1, n2, ...) {
+    r <- list(...)$r
+    p <- ncol(X1)
+    
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
+    myTildeV <- myEigen$vectors[, -(1:r)]
+    
+    # eigenvalue estimator
+    oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
+    myEigenEstimator <- myEigen$values[1:r]-(1+p/n)*oldSigmaSqEst
+    # variance estimator
+    newSigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigenEstimator-oldSigmaSqEst))))
+    
+    tau <- 1 / n1 + 1 / n2
+    stat <-
+        sum((t(myTildeV) %*% (colMeans(X1) - colMeans(X2))) ^ 2) -
+        tau*(p-r)*newSigmaSqEst -
+        tau * sum(p*newSigmaSqEst*myEigenEstimator/(n*myEigenEstimator+p*newSigmaSqEst))
+    
+    # studentized statistic
+    studentStat <- stat / newSigmaSqEst / sqrt(2 * tau ^ 2 * p)
+    
+    return(list(stat = stat,
+                studentStat = studentStat))
+}
 
 
 # unequal variance test

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  6 NOV 2017 21:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  9 NOV 2017 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -350,59 +350,68 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count127
 \@thisrulewidth=\dimen139
 )
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count128
+\c@@ppsavesec=\count129
+\c@@ppsaveapp=\count130
+)
 (/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box33
 \UL@hyphenbox=\box34
 \UL@skip=\skip54
 \UL@hook=\toks29
 \UL@height=\dimen140
-\UL@pe=\count128
+\UL@pe=\count131
 \UL@pixel=\dimen141
 \ULC@box=\box35
 Package: ulem 2012/05/18
 \ULdepth=\dimen142
 )
-\c@theorem=\count129
-\c@proposition=\count130
-\c@corollary=\count131
-\c@lemma=\count132
-\c@example=\count133
-\c@assumption=\count134
-\c@condition=\count135
-\c@remark=\count136
+\c@theorem=\count132
+\c@proposition=\count133
+\c@corollary=\count134
+\c@lemma=\count135
+\c@example=\count136
+\c@assumption=\count137
+\c@condition=\count138
+\c@remark=\count139
  (./main.aux
+
+LaTeX Warning: Label `hahaha' multiply defined.
+
 
 LaTeX Warning: Label `hahaha' multiply defined.
 
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count137
+\scratchcounter=\count140
 \scratchdimen=\dimen143
 \scratchbox=\box36
-\nofMPsegments=\count138
-\nofMParguments=\count139
+\nofMPsegments=\count141
+\nofMParguments=\count142
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count140
+\MPscratchCnt=\count143
 \MPscratchDim=\dimen144
-\MPnumerator=\count141
-\makeMPintoPDFobject=\count142
+\MPnumerator=\count144
+\makeMPintoPDFobject=\count145
 \everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -420,7 +429,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box37
-Package hyperref Info: Link coloring OFF on input line 109.
+Package hyperref Info: Link coloring OFF on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -428,22 +437,22 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count143
+\c@section@level=\count146
 )
-LaTeX Info: Redefining \ref on input line 109.
-LaTeX Info: Redefining \pageref on input line 109.
-LaTeX Info: Redefining \nameref on input line 109.
+LaTeX Info: Redefining \ref on input line 110.
+LaTeX Info: Redefining \pageref on input line 110.
+LaTeX Info: Redefining \nameref on input line 110.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 132.
+LaTeX Font Info:    Try loading font information for U+msa on input line 133.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 132.
+LaTeX Font Info:    Try loading font information for U+msb on input line 133.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -453,34 +462,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 269.
+(hyperref)                removing `\begingroup' on input line 270.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 269.
+(hyperref)                removing `\<let>-command' on input line 270.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 269.
+(hyperref)                removing `\NAT@ctype' on input line 270.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 269.
+(hyperref)                removing `\z@' on input line 270.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 269.
+(hyperref)                removing `\let' on input line 270.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 269.
+(hyperref)                removing `\let' on input line 270.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 269.
+(hyperref)                removing `\new@ifnextchar' on input line 270.
 
 [4] [5] [6]
-Overfull \hbox (27.88779pt too wide) in paragraph at lines 429--432
+Overfull \hbox (27.88779pt too wide) in paragraph at lines 430--433
 []\OT1/cmr/m/it/10 If $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\p[]\OT1/cmr/m/n/10 
 )[][]\OT1/cmr/bx/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[] \OMS/cmsy/m/n/
 10 ^^@ \OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 )[][] \OMS/cmsy/m/n/10 ! \OML/cmm/
@@ -492,7 +501,7 @@ OMS/cmsy/m/n/10 ^^@
  []
 
 [7]
-Overfull \hbox (27.88779pt too wide) in paragraph at lines 460--463
+Overfull \hbox (27.88779pt too wide) in paragraph at lines 461--464
 []\OT1/cmr/m/it/10 If $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\p[]\OT1/cmr/m/n/10 
 )[][]\OT1/cmr/bx/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[] \OMS/cmsy/m/n/
 10 ^^@ \OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 )[][] \OMS/cmsy/m/n/10 ! \OML/cmm/
@@ -504,130 +513,183 @@ OMS/cmsy/m/n/10 ^^@
  []
 
 
-Overfull \hbox (2.2418pt too wide) detected at line 502
+Overfull \hbox (2.2418pt too wide) detected at line 503
 [] []
  []
 
-[8] [9] [10] [11] [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 800.
+[8] [9] [10] [11]
+Overfull \hbox (2.91983pt too wide) detected at line 771
+[] []
+ []
+
+[12]
+Overfull \hbox (27.78323pt too wide) detected at line 778
+[]\OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 ^^O[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1 \OM
+S/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/c
+mm/m/it/10 j \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 r;  [] []v[] \OT1/cmr/m/n/10
+ = [] + \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^O[]\OT1/cmr/m/n
+/10 )\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/1
+0 i \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 r;
+ []
+
+
+Overfull \hbox (9.97552pt too wide) in paragraph at lines 778--782
+\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 ^^O[]$ \OT1/cmr/m/n/10 is cer-tain high
+er or-der in-finites-i-mal, $\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = 1\OML/cmm/m/i
+t/10 ; [] ; r$\OT1/cmr/m/n/10 . Hence $[]([]\OT1/cmr/bx/n/10 V[]V[]V[][]V\OT1/c
+mr/m/n/10 )$
+ []
+
+[13] [14]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 879.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 800.
-[13]
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 840--871
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 879.
+
+
+LaTeX Warning: Reference `biaoge1' on page 15 undefined on input line 909.
+
+
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 919--950
  [][] 
  []
 
 
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 879--910
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 958--989
  [][] 
  []
 
-(./code/level.tex) <code/fig1.jpeg, id=294, 301.125pt x 301.125pt>
+
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 996--1027
+ [][] 
+ []
+
+<code/fig1.jpeg, id=322, 301.125pt x 301.125pt>
 File: code/fig1.jpeg Graphic file (type jpg)
-
-<use code/fig1.jpeg>
-Package pdftex.def Info: code/fig1.jpeg used on input line 929.
+ <use code/fig1.jpeg>
+Package pdftex.def Info: code/fig1.jpeg used on input line 1046.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig2.jpeg, id=295, 301.125pt x 301.125pt>
+
+<code/fig2.jpeg, id=323, 301.125pt x 301.125pt>
 File: code/fig2.jpeg Graphic file (type jpg)
-
-<use code/fig2.jpeg>
-Package pdftex.def Info: code/fig2.jpeg used on input line 930.
+ <use code/fig2.jpeg>
+Package pdftex.def Info: code/fig2.jpeg used on input line 1047.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig3.jpeg, id=296, 301.125pt x 301.125pt>
+
+<code/fig3.jpeg, id=324, 301.125pt x 301.125pt>
 File: code/fig3.jpeg Graphic file (type jpg)
-
-<use code/fig3.jpeg>
-Package pdftex.def Info: code/fig3.jpeg used on input line 932.
+ <use code/fig3.jpeg>
+Package pdftex.def Info: code/fig3.jpeg used on input line 1049.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig4.jpeg, id=297, 301.125pt x 301.125pt>
+
+<code/fig4.jpeg, id=325, 301.125pt x 301.125pt>
 File: code/fig4.jpeg Graphic file (type jpg)
-
-<use code/fig4.jpeg>
-Package pdftex.def Info: code/fig4.jpeg used on input line 933.
+ <use code/fig4.jpeg>
+Package pdftex.def Info: code/fig4.jpeg used on input line 1050.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig5.jpeg, id=298, 301.125pt x 301.125pt>
+
+<code/fig5.jpeg, id=326, 301.125pt x 301.125pt>
 File: code/fig5.jpeg Graphic file (type jpg)
-
-<use code/fig5.jpeg>
-Package pdftex.def Info: code/fig5.jpeg used on input line 939.
+ <use code/fig5.jpeg>
+Package pdftex.def Info: code/fig5.jpeg used on input line 1056.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig6.jpeg, id=299, 301.125pt x 301.125pt>
+
+<code/fig6.jpeg, id=327, 301.125pt x 301.125pt>
 File: code/fig6.jpeg Graphic file (type jpg)
-
-<use code/fig6.jpeg>
-Package pdftex.def Info: code/fig6.jpeg used on input line 940.
+ <use code/fig6.jpeg>
+Package pdftex.def Info: code/fig6.jpeg used on input line 1057.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig7.jpeg, id=300, 301.125pt x 301.125pt>
+
+<code/fig7.jpeg, id=328, 301.125pt x 301.125pt>
 File: code/fig7.jpeg Graphic file (type jpg)
-
-<use code/fig7.jpeg>
-Package pdftex.def Info: code/fig7.jpeg used on input line 942.
+ <use code/fig7.jpeg>
+Package pdftex.def Info: code/fig7.jpeg used on input line 1059.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- <code/fig8.jpeg, id=301, 301.125pt x 301.125pt>
+
+<code/fig8.jpeg, id=329, 301.125pt x 301.125pt>
 File: code/fig8.jpeg Graphic file (type jpg)
-
-<use code/fig8.jpeg>
-Package pdftex.def Info: code/fig8.jpeg used on input line 943.
+ <use code/fig8.jpeg>
+Package pdftex.def Info: code/fig8.jpeg used on input line 1060.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
- [14] [15 <./code/fig1.jpeg> <./code/fig2.jpeg> <./code/fig3.jpeg> <./code/fig4
-.jpeg>] [16 <./code/fig5.jpeg> <./code/fig6.jpeg> <./code/fig7.jpeg> <./code/fi
-g8.jpeg>] [17]
-Overfull \hbox (19.23424pt too wide) detected at line 1082
-[] []
- []
-
-[18]
-Overfull \hbox (66.88258pt too wide) detected at line 1103
-[] []\OMS/cmsy/m/n/10 k[]\OML/cmm/m/it/10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/
-n/10 I[]\OMS/cmsy/m/n/10 k \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 4[][] + [][][] \O
-MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
- W[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > [][] \OT1/cmr/m/n/10 + 2[][][][] + [] 
-[]\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W[]\OT1/cmr/m/n/10 ) 
-\OML/cmm/m/it/10 < n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4[] \OMS/cmsy/m/n/10 
-^^@ \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 p[]:
- []
-
-[19]
-Overfull \hbox (67.08179pt too wide) detected at line 1186
+ [15]
+[16 <./code/fig1.jpeg> <./code/fig2.jpeg> <./code/fig3.jpeg> <./code/fig4.jpeg>
+] [17 <./code/fig5.jpeg> <./code/fig6.jpeg> <./code/fig7.jpeg> <./code/fig8.jpe
+g>] [18] [19]
+Overfull \hbox (67.08179pt too wide) detected at line 1191
 [] []
  []
 
 
-Overfull \hbox (16.77835pt too wide) in paragraph at lines 1190--1193
+Overfull \hbox (16.77835pt too wide) in paragraph at lines 1195--1198
 \OT1/cmr/m/n/10 By Helly's se-lec-tion the-o-rem, there's a sub-se-quence of $\
 OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 along wh
 ich $[][] \OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 =
  []
 
-[20] [21]
-Overfull \hbox (85.31873pt too wide) detected at line 1312
+[20]
+Overfull \hbox (85.31873pt too wide) detected at line 1319
 [] []
  []
 
-
-Overfull \hbox (27.8134pt too wide) detected at line 1358
+[21]
+Overfull \hbox (27.8134pt too wide) detected at line 1365
 [] []
  []
 
 [22]
-Overfull \hbox (59.79631pt too wide) in paragraph at lines 1391--1398
-[]\OT1/cmr/m/n/10 The sam-ple co-vari-ance ma-trix $\OML/cmm/m/it/10 S$ \OT1/cm
-r/m/n/10 has the same dis-tri-bu-tion as $[][]\OT1/cmr/bx/n/10 UE[]ZZ[]E[]U[]$\
-OT1/cmr/m/n/10 .
- []
-
-
-Overfull \hbox (30.31897pt too wide) detected at line 1407
+Overfull \hbox (24.123pt too wide) detected at line 1445
 [] []
  []
 
 
-Overfull \hbox (16.93019pt too wide) detected at line 1418
+Overfull \hbox (4.2205pt too wide) in paragraph at lines 1457--1458
+[]\OT1/cmr/m/n/10 Since the eigen-val-ues of $\OML/cmm/m/it/10 n[]\OT1/cmr/bx/n
+/10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/n/10 I[]$ \OT1/cmr/m/n/10 are $\OML/cm
+m/m/it/10 n[]^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 W[]\OT1/cmr/m/n/10 ) \OMS/c
+msy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; n[]^^U[]\OT1/cmr/m/n/10
+ (\OT1/cmr/bx/n/10 W[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (74.21573pt too wide) detected at line 1465
+[] []\OMS/cmsy/m/n/10 k[]\OT1/cmr/bx/n/10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/
+n/10 I[]\OMS/cmsy/m/n/10 k \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 4[][] + [][][] \O
+MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10
+ W[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > [][] \OT1/cmr/m/n/10 + 2[][][][] + [] 
+[]\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 W[]\OT1/cmr/m/n/10 ) 
+\OML/cmm/m/it/10 < n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4[] \OMS/cmsy/m/n/10 
+^^@ \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 p[]:
+ []
+
+[23]
+Overfull \hbox (15.96938pt too wide) in paragraph at lines 1510--1516
+\OT1/cmr/m/n/10 the spec-tral de-com-po-si-tion of $\OT1/cmr/bx/n/10 S$\OT1/cmr
+/m/n/10 , where $[] = ([]\OML/cmm/m/it/10 ; []\OT1/cmr/bx/n/10 V\OT1/cmr/m/n/10
+ )$ and $[] = [](\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 S\OT1/
+cmr/m/n/10 )\OML/cmm/m/it/10 ; [] ; ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 S\OT
+1/cmr/m/n/10 ))$.
+ []
+
+
+Overfull \hbox (2.96956pt too wide) in paragraph at lines 1517--1525
+\OT1/cmr/m/n/10 trix $[][]\OT1/cmr/bx/n/10 UE[]ZZ[]E[]U[]$\OT1/cmr/m/n/10 . Thi
+s im-plies that $\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 S\OT1/
+cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^X \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy
+/m/n/10 ^^@ \OT1/cmr/m/n/10 2)[]\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr
+/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 )$,
+ []
+
+
+Overfull \hbox (31.19391pt too wide) detected at line 1534
+[] []
+ []
+
+[24]
+Overfull \hbox (16.93019pt too wide) detected at line 1545
 \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ
 \OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^U[][]\OT1/cmr/bx/n/10
  Z[]\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/
@@ -638,13 +700,13 @@ OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^[[]\OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 Z[]Z[
 ]\OMS/cmsy/m/n/10 k
  []
 
-[23]
-Overfull \hbox (45.50262pt too wide) detected at line 1488
+[25]
+Overfull \hbox (45.50262pt too wide) detected at line 1615
 [] []
  []
 
-[24]
-Overfull \hbox (54.26123pt too wide) detected at line 1500
+
+Overfull \hbox (54.26123pt too wide) detected at line 1627
 [] \OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 Z[]Z[]\OMS/cmsy/m/n/10 k[] ^^T [] k\OT1/c
 mr/bx/n/10 Z[]Z[]\OMS/cmsy/m/n/10 k[] \OT1/cmr/m/n/10 = [] [] []\OT1/cmr/bx/n/1
 0 Z[]Z[]Z[]Z[][] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^@ \OM
@@ -654,22 +716,22 @@ L/cmm/m/it/10 r\OT1/cmr/m/n/10 ) [] [] []\OT1/cmr/bx/n/10 Z[]Z[][] \OT1/cmr/m/n
  []
 
 
-Overfull \hbox (82.54094pt too wide) detected at line 1533
+Overfull \hbox (82.54094pt too wide) detected at line 1660
+[] []
+ []
+
+[26]
+Overfull \hbox (28.20398pt too wide) detected at line 1701
 [] []
  []
 
 
-Overfull \hbox (28.20398pt too wide) detected at line 1574
+Overfull \hbox (22.21576pt too wide) detected at line 1740
 [] []
  []
 
-[25]
-Overfull \hbox (22.21576pt too wide) detected at line 1613
-[] []
- []
-
-
-Overfull \hbox (40.34834pt too wide) detected at line 1637
+[27]
+Overfull \hbox (40.34834pt too wide) detected at line 1764
 \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 ^^[[] [] ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx
 /n/10 Z[]Z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T [] \OML/cmm/m/it/10 ^^U[]\OT
 1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML
@@ -678,71 +740,74 @@ Overfull \hbox (40.34834pt too wide) detected at line 1637
 OT1/cmr/bx/n/10 Z[]Z[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
-[26]
-Overfull \hbox (77.34474pt too wide) detected at line 1676
+
+Overfull \hbox (77.34474pt too wide) detected at line 1803
 [] []
  []
 
-[27] [28]
-Overfull \hbox (20.98083pt too wide) detected at line 1803
+[28] [29]
+Overfull \hbox (20.98083pt too wide) detected at line 1930
 [] []
  []
 
-[29]
-Overfull \hbox (3.5862pt too wide) in paragraph at lines 1871--1874
+[30]
+Overfull \hbox (3.5862pt too wide) in paragraph at lines 1998--2001
 \OT1/cmr/m/n/10 Then for ev-ery sub-se-quence of $\OMS/cmsy/m/n/10 f\OML/cmm/m/
 it/10 n\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , there's a fur-ther sub-se-quence al
 ong which []
  []
 
-[30] (./main.bbl [31]
-Underfull \hbox (badness 1038) in paragraph at lines 59--68
+[31] (./main.bbl [32]
+Underfull \hbox (badness 1038) in paragraph at lines 65--74
 []\OT1/cmr/m/n/10 Chen, L.S., Paul, D., Pren-tice, R.L., Wang, P., 2011.  A reg
 -u-lar-ized
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 78--88
+Underfull \hbox (badness 1755) in paragraph at lines 84--94
 \OT1/cmr/m/n/10 nach Spaces. vol-ume 1.  North-Holland, Am-s-ter-dam.  URL: []$
 \OT1/cmtt/m/n/10 http :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--88
+Underfull \hbox (badness 10000) in paragraph at lines 84--94
 \OT1/cmtt/m/n/10 / / www . sciencedirect . com / science / article / pii / S187
 4584901800103$[]\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 78--88
+Underfull \hbox (badness 3199) in paragraph at lines 84--94
 \OT1/cmr/m/n/10 doi:[]$\OT1/cmtt/m/n/10 http : / / dx . doi . org / 10 . 1016 /
  S1874-[]5849(01 ) 80010-[]3$[]\OT1/cmr/m/n/10 . hand-book of
  []
 
-[32])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1967.
- [33] [34] [35] [36]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1967.
+[33])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2094.
+ [34] [35] [36] [37]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2094.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1967.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1967.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2094.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2094.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 52DBF1B5D0AACCDE0AD0BA902533D74D;413.
+(rerunfilecheck)             Checksum: 64EBBF908C8F18CE9ACF343944F1A424;559.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1967.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2094.
  ) 
 Here is how much of TeX's memory you used:
- 7494 strings out of 493029
- 103528 string characters out of 6136235
- 232971 words of memory out of 5000000
- 10775 multiletter control sequences out of 15000+600000
+ 7600 strings out of 493029
+ 105135 string characters out of 6136235
+ 240926 words of memory out of 5000000
+ 10875 multiletter control sequences out of 15000+600000
  16579 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,34p,492b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,34p,492b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
@@ -751,25 +816,26 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
-/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msbm7.pfb>
-Output written on main.pdf (36 pages, 475413 bytes).
+lic/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm7.pfb>
+Output written on main.pdf (37 pages, 487750 bytes).
 PDF statistics:
- 626 PDF objects out of 1000 (max. 8388607)
- 550 compressed objects within 6 object streams
- 121 named destinations out of 1000 (max. 500000)
- 97 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 583 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
