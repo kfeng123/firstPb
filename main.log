@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  9 NOV 2017 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  14 NOV 2017 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main
+**main.tex
 (./main.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
@@ -462,34 +462,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 270.
+(hyperref)                removing `\begingroup' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 270.
+(hyperref)                removing `\<let>-command' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 270.
+(hyperref)                removing `\NAT@ctype' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 270.
+(hyperref)                removing `\z@' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 270.
+(hyperref)                removing `\let' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 270.
+(hyperref)                removing `\let' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 270.
+(hyperref)                removing `\new@ifnextchar' on input line 268.
 
 [4] [5] [6]
-Overfull \hbox (27.88779pt too wide) in paragraph at lines 430--433
+Overfull \hbox (27.88779pt too wide) in paragraph at lines 428--431
 []\OT1/cmr/m/it/10 If $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\p[]\OT1/cmr/m/n/10 
 )[][]\OT1/cmr/bx/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[] \OMS/cmsy/m/n/
 10 ^^@ \OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 )[][] \OMS/cmsy/m/n/10 ! \OML/cmm/
@@ -501,7 +501,7 @@ OMS/cmsy/m/n/10 ^^@
  []
 
 [7]
-Overfull \hbox (27.88779pt too wide) in paragraph at lines 461--464
+Overfull \hbox (27.88779pt too wide) in paragraph at lines 459--462
 []\OT1/cmr/m/it/10 If $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\p[]\OT1/cmr/m/n/10 
 )[][]\OT1/cmr/bx/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[] \OMS/cmsy/m/n/
 10 ^^@ \OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 )[][] \OMS/cmsy/m/n/10 ! \OML/cmm/
@@ -513,17 +513,21 @@ OMS/cmsy/m/n/10 ^^@
  []
 
 
-Overfull \hbox (2.2418pt too wide) detected at line 503
+Overfull \hbox (2.2418pt too wide) detected at line 501
 [] []
  []
 
-[8] [9] [10] [11]
-Overfull \hbox (2.91983pt too wide) detected at line 771
+[8]
+
+LaTeX Warning: Reference `eigenconsis' on page 9 undefined on input line 558.
+
+[9] [10] [11]
+Overfull \hbox (2.91983pt too wide) detected at line 721
 [] []
  []
 
-[12]
-Overfull \hbox (27.78323pt too wide) detected at line 778
+
+Overfull \hbox (48.96011pt too wide) detected at line 728
 []\OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\
 OML/cmm/m/it/10 ^^O[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1 \OM
 S/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/c
@@ -533,120 +537,112 @@ mm/m/it/10 j \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 r;  [] []v[] \OT1/cmr/m/n/10
 0 i \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 r;
  []
 
-
-Overfull \hbox (9.97552pt too wide) in paragraph at lines 778--782
-\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 ^^O[]$ \OT1/cmr/m/n/10 is cer-tain high
-er or-der in-finites-i-mal, $\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = 1\OML/cmm/m/i
-t/10 ; [] ; r$\OT1/cmr/m/n/10 . Hence $[]([]\OT1/cmr/bx/n/10 V[]V[]V[][]V\OT1/c
-mr/m/n/10 )$
- []
-
-[13] [14]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 879.
+[12] [13] [14]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 866.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 879.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 866.
 
 
-LaTeX Warning: Reference `biaoge1' on page 15 undefined on input line 909.
+LaTeX Warning: Reference `biaoge1' on page 15 undefined on input line 896.
 
 
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 919--950
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 906--937
  [][] 
  []
 
 
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 958--989
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 945--976
  [][] 
  []
 
 
-Overfull \hbox (116.62943pt too wide) in paragraph at lines 996--1027
+Overfull \hbox (116.62943pt too wide) in paragraph at lines 983--1014
  [][] 
  []
 
-<code/fig1.jpeg, id=322, 301.125pt x 301.125pt>
+<code/fig1.jpeg, id=323, 301.125pt x 301.125pt>
 File: code/fig1.jpeg Graphic file (type jpg)
  <use code/fig1.jpeg>
-Package pdftex.def Info: code/fig1.jpeg used on input line 1046.
+Package pdftex.def Info: code/fig1.jpeg used on input line 1033.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig2.jpeg, id=323, 301.125pt x 301.125pt>
+<code/fig2.jpeg, id=324, 301.125pt x 301.125pt>
 File: code/fig2.jpeg Graphic file (type jpg)
  <use code/fig2.jpeg>
-Package pdftex.def Info: code/fig2.jpeg used on input line 1047.
+Package pdftex.def Info: code/fig2.jpeg used on input line 1034.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig3.jpeg, id=324, 301.125pt x 301.125pt>
+<code/fig3.jpeg, id=325, 301.125pt x 301.125pt>
 File: code/fig3.jpeg Graphic file (type jpg)
  <use code/fig3.jpeg>
-Package pdftex.def Info: code/fig3.jpeg used on input line 1049.
+Package pdftex.def Info: code/fig3.jpeg used on input line 1036.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig4.jpeg, id=325, 301.125pt x 301.125pt>
+<code/fig4.jpeg, id=326, 301.125pt x 301.125pt>
 File: code/fig4.jpeg Graphic file (type jpg)
  <use code/fig4.jpeg>
-Package pdftex.def Info: code/fig4.jpeg used on input line 1050.
+Package pdftex.def Info: code/fig4.jpeg used on input line 1037.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig5.jpeg, id=326, 301.125pt x 301.125pt>
+<code/fig5.jpeg, id=327, 301.125pt x 301.125pt>
 File: code/fig5.jpeg Graphic file (type jpg)
  <use code/fig5.jpeg>
-Package pdftex.def Info: code/fig5.jpeg used on input line 1056.
+Package pdftex.def Info: code/fig5.jpeg used on input line 1043.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig6.jpeg, id=327, 301.125pt x 301.125pt>
+<code/fig6.jpeg, id=328, 301.125pt x 301.125pt>
 File: code/fig6.jpeg Graphic file (type jpg)
  <use code/fig6.jpeg>
-Package pdftex.def Info: code/fig6.jpeg used on input line 1057.
+Package pdftex.def Info: code/fig6.jpeg used on input line 1044.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig7.jpeg, id=328, 301.125pt x 301.125pt>
+<code/fig7.jpeg, id=329, 301.125pt x 301.125pt>
 File: code/fig7.jpeg Graphic file (type jpg)
  <use code/fig7.jpeg>
-Package pdftex.def Info: code/fig7.jpeg used on input line 1059.
+Package pdftex.def Info: code/fig7.jpeg used on input line 1046.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
 
-<code/fig8.jpeg, id=329, 301.125pt x 301.125pt>
+<code/fig8.jpeg, id=330, 301.125pt x 301.125pt>
 File: code/fig8.jpeg Graphic file (type jpg)
  <use code/fig8.jpeg>
-Package pdftex.def Info: code/fig8.jpeg used on input line 1060.
+Package pdftex.def Info: code/fig8.jpeg used on input line 1047.
 (pdftex.def)             Requested size: 170.72406pt x 170.71652pt.
  [15]
 [16 <./code/fig1.jpeg> <./code/fig2.jpeg> <./code/fig3.jpeg> <./code/fig4.jpeg>
 ] [17 <./code/fig5.jpeg> <./code/fig6.jpeg> <./code/fig7.jpeg> <./code/fig8.jpe
 g>] [18] [19]
-Overfull \hbox (67.08179pt too wide) detected at line 1191
+Overfull \hbox (67.08179pt too wide) detected at line 1178
 [] []
  []
 
 
-Overfull \hbox (16.77835pt too wide) in paragraph at lines 1195--1198
+Overfull \hbox (16.77835pt too wide) in paragraph at lines 1182--1185
 \OT1/cmr/m/n/10 By Helly's se-lec-tion the-o-rem, there's a sub-se-quence of $\
 OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 along wh
 ich $[][] \OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 =
  []
 
 [20]
-Overfull \hbox (85.31873pt too wide) detected at line 1319
+Overfull \hbox (85.31873pt too wide) detected at line 1306
 [] []
  []
 
 [21]
-Overfull \hbox (27.8134pt too wide) detected at line 1365
+Overfull \hbox (27.8134pt too wide) detected at line 1352
 [] []
  []
 
 [22]
-Overfull \hbox (24.123pt too wide) detected at line 1445
+Overfull \hbox (24.123pt too wide) detected at line 1432
 [] []
  []
 
 
-Overfull \hbox (4.2205pt too wide) in paragraph at lines 1457--1458
+Overfull \hbox (4.2205pt too wide) in paragraph at lines 1444--1445
 []\OT1/cmr/m/n/10 Since the eigen-val-ues of $\OML/cmm/m/it/10 n[]\OT1/cmr/bx/n
 /10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/n/10 I[]$ \OT1/cmr/m/n/10 are $\OML/cm
 m/m/it/10 n[]^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 W[]\OT1/cmr/m/n/10 ) \OMS/c
@@ -655,7 +651,7 @@ msy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; n[]^^U[]\OT1/cmr/m/n/10
  []
 
 
-Overfull \hbox (74.21573pt too wide) detected at line 1465
+Overfull \hbox (74.21573pt too wide) detected at line 1452
 [] []\OMS/cmsy/m/n/10 k[]\OT1/cmr/bx/n/10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/
 n/10 I[]\OMS/cmsy/m/n/10 k \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 4[][] + [][][] \O
 MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10
@@ -666,98 +662,86 @@ MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10
  []
 
 [23]
-Overfull \hbox (15.96938pt too wide) in paragraph at lines 1510--1516
-\OT1/cmr/m/n/10 the spec-tral de-com-po-si-tion of $\OT1/cmr/bx/n/10 S$\OT1/cmr
-/m/n/10 , where $[] = ([]\OML/cmm/m/it/10 ; []\OT1/cmr/bx/n/10 V\OT1/cmr/m/n/10
- )$ and $[] = [](\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 S\OT1/
-cmr/m/n/10 )\OML/cmm/m/it/10 ; [] ; ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 S\OT
-1/cmr/m/n/10 ))$.
- []
-
-
-Overfull \hbox (2.96956pt too wide) in paragraph at lines 1517--1525
-\OT1/cmr/m/n/10 trix $[][]\OT1/cmr/bx/n/10 UE[]ZZ[]E[]U[]$\OT1/cmr/m/n/10 . Thi
-s im-plies that $\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 S\OT1/
-cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^X \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy
-/m/n/10 ^^@ \OT1/cmr/m/n/10 2)[]\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr
-/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 )$,
- []
-
-
-Overfull \hbox (31.19391pt too wide) detected at line 1534
-[] []
+Overfull \hbox (15.28241pt too wide) in paragraph at lines 1500--1510
+\OT1/cmr/m/n/10 trix $\OT1/cmr/bx/n/10 S$ \OT1/cmr/m/n/10 has the same dis-tri-
+bu-tion as the ran-dom ma-trix $[][]\OT1/cmr/bx/n/10 UE[]ZZ[]E[]U[]$\OT1/cmr/m/
+n/10 .
  []
 
 [24]
-Overfull \hbox (16.93019pt too wide) detected at line 1545
-\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ
-\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^U[][]\OT1/cmr/bx/n/10
- Z[]\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/
-n/10 )\OT1/cmr/bx/n/10 Z[][]\OMS/cmsy/m/n/10 j ^^T k\OT1/cmr/bx/n/10 Z[]EZ \OMS
-/cmsy/m/n/10 ^^@ \OT1/cmr/bx/n/10 Z[]\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it/10 ^^[
-[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 Z[]\OMS/cmsy/m/n/10 k \
-OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^[[]\OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 Z[]Z[
-]\OMS/cmsy/m/n/10 k
+Overfull \hbox (0.96474pt too wide) detected at line 1567
+[]\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 
+) = []\OML/cmm/m/it/10 ^^U[][]\OT1/cmr/bx/n/10 Z[]\OT1/cmr/m/n/10 ([] + \OML/cm
+m/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 Z[][] \OT1
+/cmr/m/n/10 + []\OML/cmm/m/it/10 ^^[[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 O[][]
+ [] [][]; \OT1/cmr/m/n/10 1[][]\OML/cmm/m/it/10 :
+ []
+
+
+Overfull \hbox (6.68484pt too wide) detected at line 1597
+[]\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 
+) = [][] + []\OML/cmm/m/it/10 ^^[[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 O[][] []
+ [][]; []; \OT1/cmr/m/n/10 1[][]\OML/cmm/m/it/10 ;  i \OT1/cmr/m/n/10 = 1\OML/c
+mm/m/it/10 ; [] ; r:
  []
 
 [25]
-Overfull \hbox (45.50262pt too wide) detected at line 1615
-[] []
- []
-
-
-Overfull \hbox (54.26123pt too wide) detected at line 1627
-[] \OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 Z[]Z[]\OMS/cmsy/m/n/10 k[] ^^T [] k\OT1/c
-mr/bx/n/10 Z[]Z[]\OMS/cmsy/m/n/10 k[] \OT1/cmr/m/n/10 = [] [] []\OT1/cmr/bx/n/1
-0 Z[]Z[]Z[]Z[][] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^@ \OM
-L/cmm/m/it/10 r\OT1/cmr/m/n/10 ) [] [] []\OT1/cmr/bx/n/10 Z[]Z[][] \OT1/cmr/m/n
-/10 = \OML/cmm/m/it/10 rn\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^
-^@ \OML/cmm/m/it/10 r\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
- []
-
-
-Overfull \hbox (82.54094pt too wide) detected at line 1660
-[] []
+Overfull \hbox (15.68959pt too wide) detected at line 1634
+[][] []\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/1
+0 ^^@ [] \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/
+m/n/10 )[] = (1 \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ^^[[] 
+\OT1/cmr/m/n/10 + \OML/cmm/m/it/10 O[][] [] [][]; [][][]:
  []
 
 [26]
-Overfull \hbox (28.20398pt too wide) detected at line 1701
-[] []
- []
-
-
-Overfull \hbox (22.21576pt too wide) detected at line 1740
-[] []
+Overfull \hbox (81.17381pt too wide) detected at line 1691
+\OML/cmm/m/it/10 ^^U[][][]\OT1/cmr/bx/n/10 V\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it
+/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )[]\OT1/cmr/bx/n/10 Z[]Z[]\OT1/cmr
+/m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )[]\OT1
+/cmr/bx/n/10 V[][] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 ^^U[][]\OT1/cmr/m/n/10 
+([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )[]\OT1/cmr/bx/
+n/10 Z[]Z[]\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1
+/cmr/m/n/10 )[][]\OML/cmm/m/it/10 :
  []
 
 [27]
-Overfull \hbox (40.34834pt too wide) detected at line 1764
-\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 ^^[[] [] ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx
-/n/10 Z[]Z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T [] \OML/cmm/m/it/10 ^^U[]\OT
-1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML
-/cmm/m/it/10 ^^[[] [] ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]Z[]\OT1/cmr/m/n
-/10 ) \OMS/cmsy/m/n/10 ^^T ^^@\OML/cmm/m/it/10 ^^[[] [] ^^U[]\OT1/cmr/m/n/10 (\
-OT1/cmr/bx/n/10 Z[]Z[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
- []
-
-
-Overfull \hbox (77.34474pt too wide) detected at line 1803
+Overfull \hbox (59.5921pt too wide) detected at line 1736
 [] []
  []
 
-[28] [29]
-Overfull \hbox (20.98083pt too wide) detected at line 1930
+
+Overfull \hbox (3.02975pt too wide) detected at line 1766
 [] []
  []
 
-[30]
-Overfull \hbox (3.5862pt too wide) in paragraph at lines 1998--2001
+
+Overfull \hbox (82.54094pt too wide) detected at line 1800
+[] []
+ []
+
+[28]
+Overfull \hbox (30.12752pt too wide) detected at line 1837
+[] []
+ []
+
+
+Overfull \hbox (77.26332pt too wide) detected at line 1872
+[] []
+ []
+
+[29] [30]
+Overfull \hbox (20.98083pt too wide) detected at line 1994
+[] []
+ []
+
+[31]
+Overfull \hbox (3.5862pt too wide) in paragraph at lines 2062--2065
 \OT1/cmr/m/n/10 Then for ev-ery sub-se-quence of $\OMS/cmsy/m/n/10 f\OML/cmm/m/
 it/10 n\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , there's a fur-ther sub-se-quence al
 ong which []
  []
 
-[31] (./main.bbl [32]
+[32] (./main.bbl [33]
 Underfull \hbox (badness 1038) in paragraph at lines 65--74
 []\OT1/cmr/m/n/10 Chen, L.S., Paul, D., Pren-tice, R.L., Wang, P., 2011.  A reg
 -u-lar-ized
@@ -781,13 +765,13 @@ Underfull \hbox (badness 3199) in paragraph at lines 84--94
  S1874-[]5849(01 ) 80010-[]3$[]\OT1/cmr/m/n/10 . hand-book of
  []
 
-[33])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2094.
- [34] [35] [36] [37]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2094.
+[34])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2158.
+ [35] [36] [37] [38]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2158.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2094.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2094.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2158.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2158.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 64EBBF908C8F18CE9ACF343944F1A424;559.
@@ -798,16 +782,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2094.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2158.
  ) 
 Here is how much of TeX's memory you used:
- 7600 strings out of 493029
- 105135 string characters out of 6136235
- 240926 words of memory out of 5000000
- 10875 multiletter control sequences out of 15000+600000
- 16579 words of font info for 61 fonts, out of 8000000 for 9000
+ 7613 strings out of 493029
+ 105359 string characters out of 6136235
+ 245353 words of memory out of 5000000
+ 10881 multiletter control sequences out of 15000+600000
+ 15881 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,34p,492b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,34p,496b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
@@ -832,10 +816,10 @@ onts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm7.pfb>
-Output written on main.pdf (37 pages, 487750 bytes).
+Output written on main.pdf (38 pages, 493488 bytes).
 PDF statistics:
- 661 PDF objects out of 1000 (max. 8388607)
- 583 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 500000)
+ 692 PDF objects out of 1000 (max. 8388607)
+ 612 compressed objects within 7 object streams
+ 134 named destinations out of 1000 (max. 500000)
  113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

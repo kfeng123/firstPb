@@ -186,8 +186,10 @@ an unbiased estimator of $\|\mu_1-\mu_2\|^2$.
 where
 $\BS_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
 $, $k=1,2$.
+{\color{red}
 As an estimator of $\|\mu_1-\mu_2\|^2$, $T_{CQ}$ is unbiased even if the covariances of two samples are different,
 while $T_{BS}$ is unbiased only when the covariances are the same or $n_1=n_2$.
+}
 \cite{Srivastava2008A} proposed a test based on
 \begin{equation*}
     T_{SD}={(\bar{X}_1-\bar{X}_2)}^T {[\mathrm{diag}(\BS)]}^{-1}(\bar{X}_1-\bar{X}_2),
@@ -547,11 +549,31 @@ $$
 \frac{1}{\tau}T_{CQ}>
 F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2),
 $$
-then the resulting test is asymptotically level $\alpha$ for $\beta\geq 1/2$.
+then the resulting test has level $\alpha$ asymptotically for $\beta\geq 1/2$.
         However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
-In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to estimate $\blambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
+In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to give ratio consistent estimators of $\blambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
+{\color{red}
+    The following proposition shows that  $\blambda_i(S)$ can consistently estimate $\blambda_i$, $i=1,\ldots,r$.
+}
+\begin{proposition}\label{eigenconsis}
+    Under Assumption~\ref{theModel}, suppose $p^{1-\beta}=o(n)$, then
+    %$$
+    %\lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
+    %$$
+    {\color{red}
+    $$
+    \frac{\lambda_i(\BS)}{\blambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$},
+    $$
+    }
+    where ``$\xrightarrow{P}$'' means convergence in probability.
+\end{proposition}
+\begin{remark}
+    Proposition~\eqref{eigenconsis} requires the condition $p^{1-\beta}=o(n)$.
+    If $\beta=1/2$, this condition becomes $p/n^2\to 0$.
+    If $\beta\geq 1$, this condition is trivially fulfilled.
+\end{remark}
 In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\sigma^2$.Proposition~\ref{varianceEstimation} asserts that $\hat{\sigma}^2$ is consistent. 
-Now we propose a corrected $T_{CQ}$ test procedure which reject the null hypothesis with $\alpha$ level of significance if
+Now we propose a corrected $T_{CQ}$ test procedure which reject the null hypothesis if
 $$
 \tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}^2).
 $$
@@ -573,12 +595,12 @@ This implies that the power of the corrected $T_{CQ}$ test procedure is negative
 \section{A projection test}\label{methodology}
 
 
-In Section~\ref{sec:chen}, we adjusted the critical value of $T_{CQ}$ such that the corrected $T_{CQ}$ test procedure is asymptotically level $\alpha$ under Assumption~\ref{theModel}.
+In section~\ref{sec:chen}, we adjusted the critical value of $T_{CQ}$ under Assumption~\ref{theModel}.
 However, % as we discussed at the end of Section~\ref{sec:chen},
 the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
 %To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
 %In their paper, $\bSigma$'s first few eigenvalues are assumed to be of order $p$.
-This motivates us to propose a new test for the hypotheses~\eqref{problem} under Assumption~\ref{theModel}.
+This motivates us to propose a new test for hypotheses~\eqref{problem} under Assumption~\ref{theModel}.
 
 %The argument is also supported by the likelihood ratio test. If $\bSigma$ is known, the LRT is based on 
 %\begin{equation}\label{qifafa}
@@ -662,7 +684,7 @@ The above discussion motivates us to consider the variable
     In this view, $T_1$ can be regarded as a restricted likelihood ratio statistic.
 It can be shown that $T_1$ is asymptotically normal.
 \begin{proposition}\label{oracleTheorem}
-    Under Assumption~\ref{theModel}, suppose ${p}^{-1}{n}\|\mu_1-\mu_2\|^2= o(1)$, we have 
+    Under Assumption~\ref{theModel}, suppose $\frac{n}{p}\|\mu_1-\mu_2\|^2= o(1)$, we have 
     \begin{equation*}
         \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}
         {\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
@@ -683,30 +705,58 @@ It can be shown that $T_1$ is asymptotically normal.
 %\end{remark} 
 
 Note that $T_1$ % is not a statistic since it
-relies on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown and thus needs to be estimated.
+relies on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown.
+We shall replace $\tilde{\BV}\tilde{\BV}^T$ by it's estimator.
+%Proposition~\eqref{oracleTheorem} implies that the asymptotic null distribution of $T_1$ involves $\sigma^2$.
 Let $\hat{\BV}$ and $\hat{\tilde{\BV}}$ denote the first $r$ and last $p-r$ eigenvectors of $\BS$, respectively.
 \cite{Anderson1986Asymptotic} proved that
 the maximum likelihood estimator (MLE) of $\BV$ is $\hat{\BV}$.
 This fact, together with the equalities $\tilde{\BV}\tilde{\BV}^T= \BI_p-\BV\BV^T$ and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T= \BI_p-\hat{\BV}\hat{\BV}^T$, implies that 
 the MLE of $\tilde{\BV}\tilde{\BV}^T$ is $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$.
-%By replacing $\tilde{\BV}\tilde{\BV}^T$ by $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$, the main term $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$ of $T_1$ becomes
-%$$T_2=\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2.$$
-Thus, as the main term of $T_1$,
-$\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$ can be estimated by $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$.
-In $T_1$, the centralization term $n_1^{-1}\mytr(\tilde{\BV}^T \BS_1\tilde{\BV})+n_2^{-1}\mytr(\tilde{\BV}^T \BS_2\tilde{\BV})$ is an unbiased estimator of $\tau (p-r)\sigma^2$, 
-which makes $\myE T_1=0$ under the null hypothesis.
-However, the centralization of $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$ is more involved.
-
+By replacing $\tilde{\BV}\tilde{\BV}^T$ by $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ in the main term of $T_1$, we propose a new test statistic
+$$T_2=\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2.$$
+%As the main part of $T_1$,
+%$\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$ can be directly estimated by $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$.
+In $T_1$, % the term $\|\tilde{\BV}(\bar{X}_1-\bar{X}_2)\|^2$ has expectation $\|\tilde{\BV}(\mu_1-\mu_2)\|^2+\tau(p-r)\sigma^2$,
+the bias correction term $n_1^{-1}\mytr(\tilde{\BV}^T \BS_1\tilde{\BV})+n_2^{-1}\mytr(\tilde{\BV}^T \BS_2\tilde{\BV})$ is an unbiased estimator of $\tau (p-r)\sigma^2$, 
+and makes $T_1$ an unbiased estimator of $\|\tilde{\BV}(\mu_1-\mu_2)\|^2$.
+In particular, $\myE T_1=0$ under the null hypothesis.
+However, the bias correction of $T_2$ is more involved.
 Under the null hypothesis, 
-\begin{equation*}
-    \begin{aligned}
-        &\myE \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2=\myE \myE[ \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2 |\BS]=
-\tau \myE \big[\mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})\big]\\
-        =&
+\begin{equation}\label{touteng3}
+\myE T_2=\myE \myE[ T_2 |\BS]=
+\tau \myE \big[\mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})\big]
+=
 \tau (p-r) \sigma^2+
 \tau \myE \big[\mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})\big].%>\tau (p-r)\sigma^2.
-    \end{aligned}
-\end{equation*}
+\end{equation}
+We would like to correct the two terms of~\eqref{touteng3}.
+
+The first term of~\eqref{touteng3} involves the unknown parameter $\sigma^2$.~\cite{Anderson1986Asymptotic} proved that the MLE of $\sigma^2$ is $\hat{\sigma}^2=(p-r)^{-1}\sum_{i=r+1}^p \lambda_i(\BS)$.
+However, the MLE $\hat{\sigma}^2$ tends to be downward biased.
+Recently,~\cite{Passemier2015} proposed a bias-corrected estimator
+$$
+\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
+$$
+Since $\blambda_i$'s are unknown in our model, we substitute $\blambda_i$ by $\lambda_i(\BS)-\hat{\sigma}^2$ and use
+$$
+\hat{\sigma}_*^2=\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\lambda_i(\BS)-\hat{\sigma}^2}\big)\Big)\hat{\sigma}^2
+$$
+to estimate $\sigma^2$.
+ Using Weyl's inequality, we can derive the consistency rate of $\hat{\sigma}^2$ and $\hat{\sigma}_*^2$.
+\begin{proposition}\label{varianceEstimation}
+    Under Assumption~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
+    $$
+    \hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big),\quad
+    \hat{\sigma}_*^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big).
+    $$
+\end{proposition}
+\begin{remark}
+    The convergence rate of $\hat{\sigma}_*^2$ given in Proposition~\ref{varianceEstimation} is enough for the purpose of this paper.
+    We don't claim it is optimal.
+\end{remark}
+
+Now we consider the correction of the second term of~\eqref{touteng3}.
 Note that
 $$
 \begin{aligned}
@@ -724,57 +774,20 @@ Under $p=O(n\blambda_r)$ and some other regular conditions,~\cite{Fan2015Asympto
 $$
 \hat{v}_j^T v_i=O_P(\epsilon_{j,n}),\quad 1\leq i\neq j\leq r,
 \quad \text{and}\quad
-\hat{v}_i^T v_i=\frac{1}{\sqrt{1+ \frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}}+O_P(\epsilon_{i,n}),\quad 1\leq i\leq r,
+\hat{v}_i^T v_i=\frac{1}{\sqrt{1+ \frac{p}{n\blambda_i}\sigma^2}}+O_P(\epsilon_{i,n}),\quad 1\leq i\leq r,
 $$
-where $\epsilon_{i,n}$ is higher order infinitesimal, $i=1,\ldots, r$.
-This motivates us to approximate $\mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})$
-by
+where $\epsilon_{i,n}$ is certain higher order infinitesimal, $i=1,\ldots, r$.
+Hence $\mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})$
+can be approximated by
 $$
-\sum_{i=1}^r \Big(1-\frac{1}{1+\frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}\Big)\blambda_i
+\sum_{i=1}^r \Big(1-\frac{1}{1+\frac{p}{n\blambda_i}\sigma^2}\Big)\blambda_i
 =
-\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i.
+\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+{p}\sigma^2}\blambda_i.
 $$
-Hence $\myE \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$ is approximately equal to
+This motivates us to correct the second term of~\eqref{touteng3} by
 $$
-\tau(p-r)\sigma^2 + \tau\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i.
+\tau\sum_{i=1}^r \frac{p\hat{\sigma}^2}{n\lambda_i(\BS)+{p}\hat{\sigma}^2}\lambda_i(\BS).
 $$
-To centralize $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$, estimators of $\blambda_1,\ldots, \blambda_r$ and $\sigma^2$ are needed.
-~\cite{Anderson1986Asymptotic} proved that the MLE of $\sigma^2$ is $\hat{\sigma}^2=(p-r)^{-1}\sum_{i=r+1}^p \lambda_i(\BS)$ and the MLE of $\blambda_i$ is $\lambda_i(\BS)-\hat{\sigma}^2$, $i=1,\ldots, r$.
-However, Lemma~\ref{eigenconsisLemma} in Appendix~\ref{appendixB} implies that $\hat{\sigma}^2$ is downward biased and $\lambda_i(\BS)-\hat{\sigma}^2$ is upward biased.
-See also~\cite{Passemier2015} and~\cite{Fan2015Asymptotics}.
-Motivated by the results in Lemma~\eqref{eigenconsisLemma}, we propose the following bias-corrected estimators:
-$$
-\hat{\sigma}_*^2= \Big(1-\frac{r}{n-2}\Big)^{-1} \hat{\sigma}^2,
-\quad
-\hat{\blambda}_i=\lambda_i(\BS)-\frac{p+n-r-2}{n-2}\hat{\sigma}_*^2
-\quad i=1,\ldots,r.
-$$
-The following proposition gives the convergence rate of these estimators.
-\begin{proposition}\label{varianceEstimation}
-    Under Assumption~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
-    \begin{equation}\label{varianceEstimationPropResult1}
-    %\hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big),\quad
-    \hat{\sigma}_*^2=\sigma^2 + O_P\Big(\max \big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
-    \end{equation}
-    \begin{equation}\label{varianceEstimationPropResult2}
-        \hat{\blambda}_i
-        =
-        \blambda_i+
-        O_P\Big(\max\big(\frac{p^{\beta}}{\sqrt{n}},1\big)\Big).
-    \end{equation}
-\end{proposition}
-\begin{remark}
-Recently,~\cite{Passemier2015} proposed a bias-corrected estimator of $\sigma^2$:
-$$
-\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
-$$
-
-Our result is interested in its own right.
-\end{remark}
-\begin{remark}
-    The convergence rate of $\hat{\sigma}_*^2$ given in Proposition~\ref{varianceEstimation} is enough for the purpose of this paper.
-    We don't claim it is optimal.
-\end{remark}
 
 %Similarly, we denote by  $\hat{\BV}_k$ and $\hat{\tilde{\BV}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
 %While ${n_k^{-1}}\mathrm{tr}(\tilde{\BV}^T S_k\tilde{\BV})$ can be estimated by ${n_k^{-1}}\mathrm{tr}(\hat{\tilde{\BV}}_k^T S_k\hat{\tilde{\BV}}_k)$, $k=1,2$.
@@ -1124,7 +1137,7 @@ Non normality
 %\end{proof}
 
 \begin{appendices}
-    \section{Proofs of the results in Section~\ref{sec:chen}}\label{appendixA}
+    \section{Proofs of the results in Section~\ref{sec:chen}}
 \begin{proof}[\textbf{Proof of Lemma~\ref{quadraticFormCLT}}]
     By a standard orthogonal transformation, we can write
     \begin{equation}
@@ -1374,7 +1387,7 @@ Since $\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{\BV}^T (\mu_1-\mu_
 
 \end{proof}
 
-\section{Proofs of the results in Section~\ref{methodology}}\label{appendixB}
+\section{Proofs of the results in Section~\ref{methodology}}
 
 \begin{lemma}[Weyl's inequality]
 Let $\BA$ and $\BB$ be two symmetric $n\times n$ matrices and $\BC=\BA+\BB$. If $r+s-1 \leq  i\leq j+k-n$, we have
@@ -1394,7 +1407,7 @@ Let $\BA$ and $\BB$ be two symmetric $n\times n$ matrices and $\BC=\BA+\BB$. If 
     Let $\BA_1$ and $\BA_2$ be $p\times p$ symmetric matrices. Let $r<p$ be arbitrary and let $\BV_1, \BV_2\in \mathbb{O}_{p,r}$ be formed by the $r$ leading singular vectors of $\BA_1$ and $\BA_2$, respectively.
     Then
     $$
-    \|\BA_1-\BA_2\|\geq \frac{1}{2}(\lambda_r(\BA_2)-\lambda_{r+1}(\BA_2))\|\BV_1 \BV_1^T- \BV_2 \BV_2^T\|.
+    \|\BA_1-\BA_2\|\geq \frac{1}{2}(\lambda_r(\BA_1)-\lambda_{r+1}(\BA_2))\|\BV_1 \BV_1^T- \BV_2 \BV_2^T\|.
     $$
 \end{lemma}
 
@@ -1483,39 +1496,37 @@ $$
 
 
 
+
 \begin{lemma}\label{eigenconsisLemma}
-    Under Assumption~\ref{theModel}, we have
-    \begin{equation}\label{eigenconsisResult1}
-        \lambda_i(\BS)= \blambda_i+\frac{p+n-r-2}{n-2}\sigma^2+
-        O_P\Big(\max\big(\frac{p^{\beta}}{\sqrt{n}},1\big)\Big),\quad i=1,\ldots, r,
-    \end{equation}
-    and
-    \begin{equation}\label{eigenconsisResult2}
-        \hat{\sigma}^2=
-(1-\frac{r}{n-2})\sigma^2+
-O_P\Big(\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
-    \end{equation}
+    Under Assumption~\ref{theModel}, suppose $p^{1-\beta}=o(n)$, then
+    %$$
+    %\lambda_i(S)=\lambda_i(1+o_P(1)),\quad\text{ $i=1,\ldots,r$.}
+    %$$
+    $$
+    \frac{\lambda_i(\BS)}{\blambda_i}\xrightarrow{P}1,\quad\text{ $i=1,\ldots,r$}.
+    $$
 \end{lemma}
-\begin{proof}[\textbf{Proof}]
+\begin{proof}
     Let $\bSigma=\BU\BE\BU^T$ denote the spectral decomposition of $\bSigma$, where
      $\BU=(\BV,\tilde{\BV})$ and $\BE=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
-%Denote by $\BS=\hat{\BU}\hat{\BE}\hat{\BU}^T$ the spectral decomposition of $\BS$, where $\hat{\BU}=(\hat{\BV},\hat{\tilde{\BV}})$ and $\hat{\BE}=\mydiag(\lambda_1(\BS),\ldots,\lambda_p(\BS))$.
+Denote by $\BS=\hat{\BU}\hat{\BE}\hat{\BU}^T$ the spectral decomposition of $\BS$,
+    where $\hat{\BU}=(\hat{\BV},\hat{\tilde{\BV}})$ and $\hat{\BE}=\mydiag(\lambda_1(\BS),\ldots,\lambda_p(\BS))$.
 Let $\bZ$ be a $p\times (n-2)$ random matrix with i.i.d. $N(0,1)$ entries.
 Denote $\bZ={(\bZ_{(1)}^T,\bZ_{(2)}^T)}^T$, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. 
-Then the sample covariance matrix $\BS$ has the same distribution as the random matrix
+
+The sample covariance matrix $\BS$ has the same distribution as the random matrix
 $
     {(n-2)}^{-1} \BU \BE^{1/2} \bZ \bZ^T \BE^{1/2} \BU^T
 $.
-    So we have $\lambda_i(\BS)\sim (n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$, $i=1,\ldots,r$ and $\mytr(\BS)\sim (n-2)^{-1}\mytr(\BZ^T \BE \BZ)$.
+So we have $\lambda_i(\BS)\sim (n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$, $i=1,\ldots,r$.
+Thus, we only need to consider $(n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$.
 
-    To prove~\eqref{eigenconsisResult1}, we only need to consider $(n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$.
-Note that
+By the equality
 $
     \bZ^T \BE \bZ= \bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}+
 \sigma^2 \bZ_{(2)}^T  \bZ_{(2)}
-$.
-From this and Weyl's inequality, 
-for $i=1,\ldots, r$, we have 
+$
+and Weyl's inequality, we have
 $$
     \begin{aligned}
         &\Big|\frac{1}{n-2}\lambda_i(\BZ^T \BE \BZ)
@@ -1524,7 +1535,7 @@ $$
     \Big|
         \\
         =&\Big|\lambda_i\big(\frac{1}{n-2}\BZ^T \BE \BZ\big)
-        -\lambda_i\big(\frac{1}{n-2}\BZ_{(1)}^T (\bLambda+\sigma^2 \BI_r)\BZ_{(1)}+\frac{p-r}{n-2}\sigma^2 \BI_{n-2}\big)
+        -\lambda_i\big(\frac{1}{n-2}\BZ_{(1)}^T (\bLambda+\sigma^2 \BI_r)\BZ_{(1)}-\frac{p-r}{n-2}\sigma^2 \BI_{n-2}\big)
     \Big|
         \\
         \leq &
@@ -1538,100 +1549,68 @@ $$
         \frac{1}{n-2}\sigma^2 \bZ_{(2)}^T  \bZ_{(2)}
         -\frac{p-r}{n-2}\sigma^2\BI_{n-2}
         \Big\|
-        \\
-        = &
-        \frac{p-r}{n-2}
-\sigma^2
-        \Big\|
-        \frac{1}{p-r}
-         \bZ_{(2)}^T  \bZ_{(2)}
-        -\BI_{n-2}
-        \Big\|.
     \end{aligned}
 $$
-    But Corollary~\ref{corNorm} implies that
+
+
+For $i=1,\ldots,r$, we have
+    \begin{equation*}
+        \begin{aligned}
+            &|\lambda_i(\bZ^T \BE \bZ)-(n-2)(\blambda_i +\sigma^2)|\\
+            \leq&
+            |\lambda_i(\bZ^T \BE \bZ)-\lambda_i \big(\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)\bZ_{(1)}\big)|
+            +
+|\lambda_i \big(\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)\bZ_{(1)}\big)
+        -(n-2)(\blambda_i +\sigma^2)|\\
+        \end{aligned}
+    \end{equation*}
+    By the equality
+$
+    \bZ^T \BE \bZ= \bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}+
+\sigma^2 \bZ_{(2)}^T  \bZ_{(2)}
+$
+and Weyl's inequality, the first term satisfies
+$$
+            |\lambda_i(\bZ^T \BE \bZ)-\lambda_i \big(\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)\bZ_{(1)}\big)|
+            \leq \|\bZ^T \BE \bZ-\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)\bZ_{(1)}\|
+            =\sigma^2\|\bZ_{(2)}^T  \bZ_{(2)}\|
     $$
-        \Big\|
-        \frac{1}{p-r}
-         \bZ_{(2)}^T  \bZ_{(2)}
-        -\BI_{n-2}
-        \Big\|=O_P\Big(\max\big(\sqrt{\frac{n-2}{p-r}},\frac{n-2}{p-r}\big)\Big).
-    $$
-    Thus, for $i=1,\ldots,r$,
-\begin{equation}\label{toutengjiayou1}
-\frac{1}{n-2}\lambda_i(\BZ^T \BE \BZ)
-=\frac{1}{n-2}\lambda_i\big(\BZ_{(1)}^T (\bLambda+\sigma^2 \BI_r)\BZ_{(1)}\big)
-+\frac{p-r}{n-2}\sigma^2
-+
-O_P\Big(\max\big(\sqrt{\frac{p}{n}},1\big)\Big).
-\end{equation}
-    Next we deal with $(n-2)^{-1}\lambda_i\big(\BZ_{(1)}^T (\bLambda+\sigma^2 \BI_r)\BZ_{(1)}\big)$.
-    For $i=1,\ldots, r$, we have
+For the second term, we have
 $$
     \begin{aligned}
-        &\Big|\frac{1}{n-2}\lambda_i \big(\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)\bZ_{(1)}\big)-(\blambda_i +\sigma^2)\Big|\\
+        &|\lambda_i \big(\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)\bZ_{(1)}\big)-(n-2)(\lambda_i +\sigma^2)|\\
         =&
-        \Big|\frac{1}{n-2}\lambda_i \big((\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)}\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}\big)
-        -\lambda_i\big(\bLambda+\sigma^2 \BI_r\big)\Big|\\
+    \big|\lambda_i \big((\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)}\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}\big)
+        -\lambda_i\big((n-2)(\bLambda+\sigma^2 \BI_r)\big)\big|\\
         \leq &
-        \Big\|
-        \frac{1}{n-2}(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)}\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}
-        -(\bLambda+\sigma^2 \BI_r)
-        \Big\|\\
-        = &
-        \Big\|
-        (\bLambda+\sigma^2 \BI_r)^{1/2}(\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r)(\bLambda+\sigma^2 \BI_r)^{1/2}
-        \Big\|\\
+        \|
+     (\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)}\bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}
+        -(n-2)(\bLambda+\sigma^2 \BI_r)
+        \|\\
         \leq &
-        (\blambda_1 + \sigma^2)
-        \Big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r\Big\|\\
-        = &
-        O_P\Big(\frac{\blambda_1}{\sqrt{n}}\Big),
+        (n-2)(\lambda_1 + \sigma^2)\big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r\big\|,
     \end{aligned}
     $$
-    where the first inequality follows from Weyl's inequality and the last equality follows from Corollary~\ref{corNorm}.
-    This, together with~\eqref{toutengjiayou1}, leads to
-$$
-\frac{1}{n-2}\lambda_i(\BZ^T \BE \BZ)=
-\blambda_i+\frac{p+n-r-2}{n-2}\sigma^2+O_P\Big(\max\big(\sqrt{\frac{p}{n}},\frac{\blambda_1}{\sqrt{n}},1\big)\Big),\quad i=1,\ldots, r.
-$$
-Then~\eqref{eigenconsisResult1} follows from $\blambda_1\asymp p^{\beta}$ and $\beta\geq 1/2$.
-    
-    Next we prove~\eqref{eigenconsisResult2}.
-    We note that
-    $$
-    \hat{\sigma}^2=\frac{1}{p-r}\Big(\mytr(\BS)-\sum_{i=1}^r \lambda_i(\BS)\Big)
-    \sim
-\frac{1}{(n-2)(p-r)}\Big(\mytr(\BZ^T \BE \BZ)-\sum_{i=1}^r \lambda_i(\BZ^T \BE \BZ)\Big).
-    $$
-    For $\mytr(\BZ^T \BE \BZ)$, we have
-    $
-            \mytr\big(\bZ^T \BE \bZ\big)= \mytr\big(\bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}\big)+
-       \sigma^2 \mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)
-    $.
-    Since $\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)\sim \chi^2_{(n-2)(p-r)}$, by central limit theorem, we have
-    $$\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)=(n-2)(p-r)+O_P(\sqrt{np}).$$
-    It follows that
-    \begin{equation}\label{toutengjiayou2}
+    where the first inequality follows from Weyl's inequality.
+    Hence,
+        $$
         \begin{aligned}
-            \mytr\big(\bZ^T \BE \bZ\big)&= \mytr\big(\bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}\big)+
-            (n-2)(p-r)\sigma^2+O_P(\sqrt{np}).
+            &\Big|\frac{(n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)}{\lambda_i}-1\Big|
+            \leq \frac{1}{(n-2)\lambda_i}\Big|\lambda_i(\bZ^T \BE \bZ)-(n-2)(\lambda_i+\sigma^2)\Big|+\frac{\sigma^2}{\lambda_i}\\
+            \leq&\frac{\sigma^2}{(n-2)\lambda_i}\|\bZ_{(2)}^T \bZ_{(2)}\|+\frac{\lambda_1+\sigma^2}{\lambda_i}\big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r\big\|\Big)+\frac{\sigma^2}{\lambda_i}.
         \end{aligned}
-    \end{equation}
-    In view of~\eqref{toutengjiayou1}, we have
-    $$
-\sum_{i=1}^r\lambda_i(\BZ^T \BE \BZ)
-=\mytr\big(\BZ_{(1)}^T (\bLambda+\sigma^2 \BI_r)\BZ_{(1)}\big)
-+r(p-r)\sigma^2
-+
-O_P\Big(\max\big(\sqrt{np},n\big)\Big).
-    $$
-    This, together with~\eqref{toutengjiayou2}, yields
-    $$
-\frac{1}{(n-2)(p-r)}\Big(\mytr(\BZ^T \BE \BZ)-\sum_{i=1}^r \lambda_i(\BZ^T \BE \BZ)\Big)=
-(1-\frac{r}{n-2})\sigma^2+
-O_P\Big(\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
-    $$
+        $$
+        By Corollary~\ref{maxEigen}, the first term satisfies
+        $$
+        \frac{\sigma^2}{(n-2)\lambda_i}\|\bZ_{(2)}^T \bZ_{(2)}\|
+        =O_P\Big(\max\big(\frac{\sigma^2}{\lambda_i},\frac{\sigma^2 p}{(n-2)\lambda_i}\big)\Big)=o_P(1).
+        $$
+        By law of large numbers, $\big\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r\big\|=o_P(1)$. Hence
+        $$
+            \Big|\frac{(n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)}{\lambda_i}-1\Big|=o_P(1).
+        $$
+
+
 \end{proof}
 
 \begin{lemma}\label{conRateLemma}
@@ -1640,148 +1619,61 @@ O_P\Big(\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
 \|\hat{\BV}\hat{\BV}^T-\BV\BV^T\|^2 =O_P(\frac{p}{p^{\beta}n}).
 \end{equation*}
 \end{lemma}
-\begin{remark}
-it has been proved in~\cite{Cai2012Sparse}, Theorem 5 that
- under certain conditions,
-$$
-\myE \|\hat{\BV}\hat{\BV}^T-\BV\BV^T\|_F^2 =O(\frac{p}{p^{\beta}n}),
-    $$
-    where $\|\cdot\|_F$ is the Frobenius norm.
-    Moreover, they proved that the convergence rate $p/(p^{\beta}n)$ is in fact minimax optimal.
-    %Note that the rank of $\hat{\BV}\hat{\BV}^T-\BV\BV^T$ is at most $2r$. 
-    %Since we have assumed $r$ is fixed, the convergence in $\|\cdot\|_F$ is equivalent to the convergence in $\|\cdot\|$.
-    %It seems that Lemma~\ref{conRateLemma} is a corollary of~\cite{Cai2012Sparse}, Theorem 5.
-    However,~\cite{Cai2012Sparse}, Theorem 5 needs the condition $\log p=O(n)$ which is unwanted.
-    This condition is used to control the expectation and hence can be dropped in Lemma~\ref{conRateLemma}.
-\end{remark}
+The convergence rate $p/(p^{\beta}n)$ is optimal, see~\cite{Cai2012Sparse}, Theorem 5.
+{\color{red}
 \begin{proof}[\textbf{Proof}]
-    Since $\|\hat{\BV}\hat{\BV}^T-\BV\BV^T\|^2\leq 1$, the conclusion is trivial when $p/(p^{\beta} n)$ is unbounded.
-    So without loss of generality, we assume $p/(p^{\beta} n)=O(1)$.
-    Define $\BU$, $\BE$, $\bZ$, $\bZ_{(1)}$ and $\bZ_{(2)}$ as in the proof of Lemma~\ref{eigenconsisLemma}.
-Without loss of generality, we assume that $\BS= (n-2)^{-1}\BU\BE^{1/2}\bZ \bZ^T \BE^{1/2} \BU^T$. 
-    Similar to the proof of~\cite{Cai2012Sparse}, Theorem 5,
-we define 
+    By Lemma~\ref{pert},
     $$
-    \BS_0=
-        \frac{1}{n-2}\BV(\bLambda+\sigma^2\BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2\BI_r)^{1/2}\BV^T
-        +\sigma^2\tilde{\BV}\tilde{\BV}^T.
+    \|\hat{\BV}\hat{\BV}^T - \BV\BV ^T\|\leq \frac{2}{\lambda_r}\|S-\bSigma\|.
     $$
-    It can be seen that the set of eigenvalues of $\BS_0$ is the union of the nonzero eigenvalues of the matrix $(n-2)^{-1}\BV(\bLambda+\sigma^2\BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2\BI_r)^{1/2}\BV^T$ and $\sigma^2\tilde{\BV}\tilde{\BV}^T$.
-All the nonzero eigenvalues of $\sigma^2\tilde{\BV}\tilde{\BV}^T$ are $\sigma^2$.
-We note that with probability $1$, the first matrix is of rank $r$.
-        Define the event
-        $$
-        A=
-        \Big\{
-        \frac{1}{n-2}\lambda_r\big(\BV(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}\BV^T\big)
-        >\sigma^2
-        \Big\}.
-        $$
-        On the event $A$, the eigenspace of $\BS_0$ associated with the $r$ leading eigenvalues is exactly $\BV \BV^T$, although the individual columns of $\BV$ need not be the leading eigenvectors of $\BS_0$.
-    Applying Lemma~\ref{pert} to $\BS$ and $\BS_0$ yields
-    \begin{equation}\label{toutengjiayou3}
-    \|\hat{\BV}\hat{\BV}^T - \BV\BV ^T\| \mathbf{1}_{\{A\}}\leq
-        \frac{2}{\lambda_r(\BS_0)-\lambda_{r+1}(\BS_0)}\|\BS-\BS_0\|\mathbf{1}_{\{A\}}.
-    \end{equation}
-    Note that
-$$
-        \lambda_r\Big(\frac{1}{n-2}\BV(\bLambda+\sigma^2\BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2\BI_r)^{1/2}\BV^T\Big)
-    =
-        \frac{1}{n-2}\lambda_r\big((\bLambda+\sigma^2\BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2\BI_r)^{1/2}\big).
-$$
-By Weyl's inequality,
-$$
-    \begin{aligned}
-        &\Big|
-        \frac{1}{n-2}\lambda_r((\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2})
-    -
-        (\blambda_r+\sigma^2)
-    \Big|\\
-        =&\Big|
-    \frac{1}{n-2}\lambda_r((\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2})
-    -
-    \lambda_r(\bLambda+\sigma^2\BI_r)
-    \Big|
-        \\
-        \leq&
-        \Big\|(\bLambda+\sigma^2\BI_r)^{1/2}\big(\frac{1}{n-2}\bZ_{(1)} \bZ_{(1)}^T-\BI\big)(\bLambda+\sigma^2\BI_r)^{1/2}\Big\|\\
-        \leq& (\blambda_1+\sigma^2)\Big\|\frac{1}{n-2}\bZ_{(1)} \bZ_{(1)}^T-\BI\Big\|
-        \\
-        =& O_P\Big(\frac{\blambda_1+\sigma^2}{\sqrt{n}}\Big),
-    \end{aligned}
-$$
-    where the last equality follows from Corollary~\ref{corNorm}.
-    Hence
-$$
-        \frac{1}{n-2}\lambda_r(\BV(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}\BV^T)
-        =(\blambda_1+\sigma^2)\Big(1+O_P\big(\frac{1}{\sqrt{n}}\big)\Big).
-        $$
-        It follows that $P(A)\to 1$.
-        In view of~\eqref{toutengjiayou3}, it is sufficient to show that
-        $$
-        \frac{2}{\lambda_r(\BS_0)-\lambda_{r+1}(\BS_0)}\|\BS-\BS_0\|\mathbf{1}_{\{A\}}=O_P(\sqrt{\frac{p}{p^{\beta}n }}).
-        $$
-        Note that on event $A$, $\lambda_{r+1}(\BS_0)=\sigma^2$ and
-        $$\lambda_r(\BS_0)=\lambda_r((n-2)^{-1}\lambda_r(\BV(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}\BV^T)).$$
-        Hence
-$$
-\begin{aligned}
-    &\frac{2}{\lambda_r(\BS_0)-\lambda_{r+1}(\BS_0)}\mathbf{1}_{\{A\}}
-    =
-    \frac{2}{
-        \lambda_r(\frac{1}{n-2}\lambda_r(\BV(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}\BV^T))-\sigma^2}\mathbf{1}_{\{A\}}\\
-    =&\frac{2}{\blambda_r\Big(1+O_P\big(\frac{1}{\sqrt{n}}\big)\Big)}\mathbf{1}_{\{A\}}
-    =\frac{2}{\blambda_r}(1+o_P(1)).
-\end{aligned}
-    $$
-    Next we bound $\|\BS-\BS_0\|$. 
-    We have
+    We only need to bound the right hand side
+    Define $\BU$, $\BE$, $\bZ$, $\bZ_{(1)}$ and $\bZ_{(2)}$ as in the proof of Proposition~\ref{eigenconsis}.
+    Since $S\sim (n-2)^{-1}\BU\BE^{1/2}\bZ \bZ^T \BE^{1/2} \BU^T$, we have
     $$
     \begin{aligned}
-        &\|\BS-\BS_0\|=
-        \|(\BV\BV^T+\tilde{\BV}\tilde{\BV}^T)(\BS-\BS_0)(\BV\BV^T+\tilde{\BV}\tilde{\BV}^T)\|\\
-        \leq& \|\BV\BV^T (\BS-\BS_0) \BV\BV^T\|+2 \|\BV\BV^T (\BS-\BS_0) \tilde{\BV}\tilde{\BV}^T\|+\|\tilde{\BV}\tilde{\BV}^T (\BS-\BS_0) \tilde{\BV}\tilde{\BV}^T\|\\
-        \leq& \|\BV^T (\BS-\BS_0) \BV\|+2 \|\BV^T (\BS-\BS_0) \tilde{\BV}\|+\|\tilde{\BV}^T (\BS-\BS_0) \tilde{\BV}\|\\
-        = &
-        2\big\|\frac{\sigma}{n-2}(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(2)}^T\big\|+
+        &\|S-\bSigma\|=
+        \|(\BV\BV^T+\tilde{\BV}\tilde{\BV}^T)(S-\bSigma)(\BV\BV^T+\tilde{\BV}\tilde{\BV}^T)\|\\
+        \leq& \|\BV\BV^T (S-\bSigma) \BV\BV^T\|+2 \|\BV\BV^T (S-\bSigma) \tilde{\BV}\tilde{\BV}^T\|+\|\tilde{\BV}\tilde{\BV}^T (S-\bSigma) \tilde{\BV}\tilde{\BV}^T\|\\
+        \leq& \|\BV^T (S-\bSigma) \BV\|+2 \|\BV^T (S-\bSigma) \tilde{\BV}\|+\|\tilde{\BV}^T (S-\bSigma) \tilde{\BV}\|\\
+        \sim &
+        \big\|\frac{1}{n-2}(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(1)}^T(\bLambda+\sigma^2 \BI_r)^{1/2}-(\bLambda+\sigma^2 \BI_r)\big\|\\
+        &+
+        \big\|\frac{1}{n-2}\sigma(\bLambda+\sigma^2 \BI_r)^{1/2}\bZ_{(1)} \bZ_{(2)}^T\big\|+
         \sigma^2\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- \BI_{p-r}\big\|\\
-        \leq & \frac{2\sqrt{(\lambda_1+\sigma^2)\sigma^2}}{n-2}\|\bZ_{(1)}\bZ_{(2)}^T\|+
-        \sigma^2\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- \BI_{p-r}\big\|.
+        \leq & (\lambda_1+\sigma^2) \|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r\|
+        +\frac{\sqrt{(\lambda_1+\sigma^2)\sigma^2}}{n-2}\|\bZ_{(1)}\bZ_{(2)}^T\|+
+        \sigma^2\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- \BI_{p-r}\big\|\\
     \end{aligned}
     $$
-    By Corollary~\ref{corNorm}, we have $\big\|(n-2)^{-1}\bZ_{(2)} \bZ_{(2)}^T- \BI_{p-r}\big\|=O_p(\max(\sqrt{p/n},p/n))$.
+    By law of large numbers, $\|\frac{1}{n-2}\bZ_{(1)}\bZ_{(1)}^T-\BI_r\|=O_P(1/\sqrt{n})$.
+    By Lemma~\ref{corNorm}, $\big\|\frac{1}{n-2}\bZ_{(2)} \bZ_{(2)}^T- \BI_{p-r}\big\|=O_p(\max(\sqrt{p/n},p/n))$.
     By the independence of $\bZ_{(1)}$ and $\bZ_{(2)}$, we have
     $$
-    \begin{aligned}
-        &\myE \|\bZ_{(1)}\bZ_{(2)}^T\|^2\leq
+    \myE \|\bZ_{(1)}\bZ_{(2)}^T\|^2\leq
     \myE \|\bZ_{(1)}\bZ_{(2)}^T\|_F^2
     =
-    \myE \big[ \mytr\big(\bZ_{(1)}\bZ_{(2)}^T\bZ_{(2)}\bZ_{(1)}^T\big) \big]\\
-        =&
-        \myE\myE \big[ \mytr\big(\bZ_{(1)}\bZ_{(2)}^T\bZ_{(2)}\bZ_{(1)}^T\big)\big|\BZ_{(1)} \big]
-        =(p-r)
-    \myE \big[ \mytr\big(\bZ_{(1)}\bZ_{(1)}^T\big) \big]
-        =r(n-2)(p-r).
-    \end{aligned}
+    \myE \mytr\big(\bZ_{(1)}\bZ_{(2)}^T\bZ_{(2)}\bZ_{(1)}^T\big)
+    =(p-r)
+    \myE \mytr\big(\bZ_{(1)}\bZ_{(1)}^T\big)
+    =rn(p-r).
     $$
     Hence $\|\bZ_{(1)}\bZ_{(2)}^T\|=O_P(\sqrt{np})$.
     Combining these bounds leads to
     $$
-    \|\BS-\BS_0\|=
- O_P(\sqrt{\frac{\lambda_1 p}{n}})+O_P\Big(\max\big(\sqrt{\frac{p}{n}},\frac{p}{n}\big)\Big)
+    \|S-\bSigma\|=
+    O_P(\frac{\lambda_1}{\sqrt{n}})+O_P(\sqrt{\frac{\lambda_1 p}{n}})+O_P\Big(\max\big(\sqrt{\frac{p}{n}},\frac{p}{n}\big)\Big)
     =
-    O_P(\sqrt{\frac{ p^{\beta}p}{n}})+O_P(\frac{p}{n}).
+    O_P(\sqrt{\frac{\lambda_1 p}{n}})+O_P(\frac{p}{n}).
     $$
     Thus,
     $$
-   \frac{2}{\lambda_r(\BS_0)-\lambda_{r+1}(\BS_0)}\|S-\bSigma\|=
-    O_P(\sqrt{\frac{p}{p^{\beta}n}})+O_P(\frac{p}{p^{\beta}n})=
-O_P(\sqrt{\frac{p}{p^{\beta}n}}),
+    \|\hat{\BV}\hat{\BV}^T- \BV\BV^T\|\leq \frac{2}{\lambda_r}\|S-\bSigma\|=
+    O_P(\sqrt{\frac{p}{n\lambda_r}})+O_P(\frac{p}{n\lambda_r})=
+O_P(\sqrt{\frac{p}{n\lambda_r}}).
     $$
-    where the last equality holds since we have assumed $p/(p^{\beta}n)=O(1)$.
-    This completes the proof.
 
 \end{proof}
+}
 
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
@@ -1828,22 +1720,26 @@ Note that
         %\end{aligned}
     %\end{equation*}
     For $k=1,2$, we have
+    %${n_k^{-1}} \tilde{\BV}^T S_k \tilde{\BV}\sim
+    %\frac{\sigma^2}{n_k(n_k-1)}\operatorname{Wishart}_{p-r}(n_k-1,\BI_{p-r})
+    %$, $k=1,2$.
+    %Then 
     \begin{equation*}
         \begin{aligned}
-            &\frac{1}{n_k} \mytr(\tilde{\BV}^T \BS_k \tilde{\BV})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2_{(p-r)(n_k-1)}
+            &\frac{1}{n_k} \mathrm{tr}(\tilde{\BV}^T S_k \tilde{\BV})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2_{(p-r)(n_k-1)}
             =
             \sigma^2\frac{p-r}{n_k}\Big(1+O_P\big(\frac{1}{\sqrt{(p-r)(n_k-1)}}\big)\Big),
         \end{aligned}
     \end{equation*}
-    where the last equality comes from central limit theorem. 
-    Thus,
+    where the last equality comes from central limit theorem. It follows that
     \begin{equation}\label{prop1eq2}
         \begin{aligned}
-            &\frac{1}{n_1} \mytr(\tilde{\BV}^T \BS_1 \tilde{\BV})+
-            \frac{1}{n_2} \mytr(\tilde{\BV}^T \BS_2 \tilde{\BV})=\sigma^2 \tau (p-r)+o_P(\frac{\sqrt{p}}{n}).
+            &\frac{1}{n_1} \mathrm{tr}(\tilde{\BV}^T S_1 \tilde{\BV})+
+            \frac{1}{n_2} \mathrm{tr}(\tilde{\BV}^T S_2 \tilde{\BV})=\sigma^2 \tau (p-r)+o_P(\frac{\sqrt{p}}{n}).
         \end{aligned}
     \end{equation}
-It follows from~\eqref{qiguaile} and~\eqref{prop1eq2} that
+
+    Equation~\eqref{qiguaile} and~\eqref{prop1eq2} imply that
             $$
             \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}
             =
@@ -1859,18 +1755,90 @@ the proposition follows by central limit theorem.
 
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{varianceEstimation}}]
-    The conclusion~\eqref{varianceEstimationPropResult1} is a direct corollary of~\eqref{eigenconsisResult1} in Lemma~\ref{eigenconsisLemma}.
-    By~\eqref{eigenconsisResult2} and~\eqref{varianceEstimationPropResult1}, for $i=1,\ldots, r$, we have 
+    Note that $(n-2)S\sim \mathrm{Wishart}_p (n-2,\bSigma)$.
+    Define $\BU$, $\BE$, $\bZ$, $\bZ_{(1)}$ and $\bZ_{(2)}$ as in the proof of Proposition~\ref{eigenconsis}.
+    We have
     $$
-    \begin{aligned}
-        \hat{\blambda}_i=&
-        \lambda_i(\BS)-\frac{p+n-r-2}{n-2}\hat{\sigma}_*^2\\
-        =& \blambda_i +\frac{p+n-r-2}{n-2}\sigma^2+O_P\Big(\max\big(\frac{p^{\beta}}{\sqrt{n}},1\big)\Big)
-        -\frac{p+n-r-2}{n-2}\sigma^2-O_P\Big( \frac{n+p}{n}\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big)\\
-        =& \blambda_i+O_P\Big(\max\big(\frac{p^{\beta}}{\sqrt{n}},1\big)\Big),
-    \end{aligned}
+        S\sim \frac{1}{n-2} \BU \BE^{1/2} \bZ \bZ^T \BE^{1/2} \BU^T.
     $$
-    which proves~\eqref{varianceEstimationPropResult2}.
+    Hence
+    \begin{equation*}
+        \begin{aligned}
+            \hat{\sigma}^2\sim
+            \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^p \lambda_i (\BU \BE^{1/2} \bZ \bZ^T \BE^{1/2} \BU^T)
+            =
+            \frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2} \lambda_i ( \bZ^T \BE \bZ).
+        \end{aligned}
+    \end{equation*}
+    We note that
+    $$
+    \bZ^T \BE \bZ =\bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}+\sigma^2 \bZ_{(2)}^T \bZ_{(2)},
+    $$
+ where the first term is of rank $r$.
+    Applying Weyl's inequality yields
+    $$
+    \sigma^2\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \lambda_i(\bZ^T \BE \bZ)\leq
+    \sigma^2\lambda_{i-r}(\bZ_{(2)}^T \bZ_{(2)}),
+    \quad
+    \textrm{$i=r+1,\ldots, n-2$}.
+    $$
+    Summing over $i$ gives
+    $$
+    \sigma^2\sum_{i=r+1}^{n-2}\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \sum_{i=r+1}^{n-2}\lambda_i(\bZ^T \BE \bZ)\leq
+    \sigma^2\sum_{i=1}^{n-r-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)}).
+    $$
+    Then
+    $$
+    -\sigma^2\sum_{i=1}^{r}\lambda_i(\bZ_{(2)}^T \bZ_{(2)}) \leq \sum_{i=r+1}^{n-2}\lambda_i(\bZ^T \BE \bZ)
+    -\sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})
+    \leq
+    -\sigma^2\sum_{i=n-r-1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)}).
+    $$
+    Note that $\lambda_i(\bZ_{(2)}^T \bZ_{(2)})$ is bounded above by $\lambda_1(\bZ_{(2)}^T \bZ_{(2)})$ and by Corollary~\ref{maxEigen}, $\lambda_1 (\bZ_{(2)}^T \bZ_{(2)})=O_P(\max(n,p))$. It follows that
+     \begin{equation*}
+         \begin{aligned}
+             &\Big|\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T \BE \bZ)-
+    \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})\Big|
+             \\
+             \leq & r\sigma^2\frac{1}{(p-r)(n-2)} \lambda_1 (\bZ_{(2)}^T \bZ_{(2)})=O_P\Big(\frac{\max(n,p)}{np}\Big).
+         \end{aligned}
+     \end{equation*}
+    Hence
+     \begin{equation*}
+         \begin{aligned}
+             &\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T \BE \bZ)\\
+             =&
+    \frac{1}{(p-r)(n-2)} \sigma^2\sum_{i=1}^{n-2}\lambda_{i}(\bZ_{(2)}^T \bZ_{(2)})
+             +O_P\Big(\frac{\max(n,p)}{np}\Big)\\
+             =&
+             \frac{1}{(p-r)(n-2)} \sigma^2\mytr(\bZ_{(2)}^T \bZ_{(2)})
+             +O_P\Big(\frac{\max(n,p)}{np}\Big).
+         \end{aligned}
+     \end{equation*}
+     Note that $\mytr(\bZ_{(2)}^T \bZ_{(2)})$ is a sum of $(p-r)(n-2)$ i.i.d. $\chi^2_1$ random variables.
+     By central limit theorem,
+     $$
+             \frac{1}{(p-r)(n-2)} \sigma^2\mytr(\bZ_{(2)}^T \bZ_{(2)})
+             =\sigma^2+O_P\Big(\frac{1}{\sqrt{np}}\Big).
+     $$
+     Therefore,
+     \begin{equation*}
+         \begin{aligned}
+             &\frac{1}{(p-r)(n-2)}\sum_{i=r+1}^{n-2}\lambda_i(\bZ^T \BE \bZ)=
+             \sigma^2
+             +O_P\Big(\frac{1}{\sqrt{np}}\Big)
+             +O_P\Big(\frac{\max(n,p)}{np}\Big)
+             =
+             \sigma^2
+             +O_P\Big(\frac{\max(n,p)}{np}\Big),
+         \end{aligned}
+     \end{equation*}
+     where the last equality holds since
+     $$
+    \frac{1}{\sqrt{np}} =
+    \frac{\sqrt{np}}{np} \leq
+    \frac{\max(n,p)}{np}.
+     $$
 \end{proof}
 
 
