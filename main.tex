@@ -742,7 +742,7 @@ To centralize $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$, estimators of $
 ~\cite{Anderson1986Asymptotic} proved that the MLE of $\sigma^2$ is $\hat{\sigma}^2=(p-r)^{-1}\sum_{i=r+1}^p \lambda_i(\BS)$ and the MLE of $\blambda_i$ is $\lambda_i(\BS)-\hat{\sigma}^2$, $i=1,\ldots, r$.
 However, Lemma~\ref{eigenconsisLemma} in Appendix~\ref{appendixB} implies that $\hat{\sigma}^2$ is downward biased and $\lambda_i(\BS)-\hat{\sigma}^2$ is upward biased.
 See also~\cite{Passemier2015} and~\cite{Fan2015Asymptotics}.
-Motivated by the results in Lemma~\eqref{eigenconsisLemma}, we propose the following bias-corrected estimators:
+Motivated by the results in Lemma~\ref{eigenconsisLemma}, we propose the following bias-corrected estimators:
 $$
 \hat{\sigma}_*^2= \Big(1-\frac{r}{n-2}\Big)^{-1} \hat{\sigma}^2,
 \quad
@@ -754,13 +754,14 @@ The following proposition gives the convergence rate of these estimators.
     Under Assumption~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
     \begin{equation}\label{varianceEstimationPropResult1}
     %\hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big),\quad
-    \hat{\sigma}_*^2=\sigma^2 + O_P\Big(\max \big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
+    \hat{\sigma}_*^2=\sigma^2 + O_P\Big(\max \big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big),
     \end{equation}
+    and
     \begin{equation}\label{varianceEstimationPropResult2}
-        \hat{\blambda}_i
+        \frac{\hat{\blambda}_i}{\blambda_i}
         =
-        \blambda_i+
-        O_P\Big(\max\big(\frac{p^{\beta}}{\sqrt{n}},1\big)\Big).
+        1+
+        O_P\Big(\max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big)\Big).
     \end{equation}
 \end{proposition}
 \begin{remark}
@@ -768,12 +769,39 @@ Recently,~\cite{Passemier2015} proposed a bias-corrected estimator of $\sigma^2$
 $$
 \Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
 $$
-
-Our result is interested in its own right.
+In their paper, $\blambda_i$'s are fixed and known.
+This is different from our model where $\blambda_i$'s are divergent and unknown.
+Under Assumption~\ref{theModel}, we have
+$$
+\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2
+=
+    \Big(1+\frac{r}{n-2}\Big)\hat{\sigma}^2+O_P(\frac{1}{np^{\beta}})
+    =
+    \hat{\sigma}_*^2
+    +O_P(\frac{1}{n^2})+O_P(\frac{1}{np^{\beta}}).
+$$
+So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2$ is minor in our model.
 \end{remark}
 \begin{remark}
-    The convergence rate of $\hat{\sigma}_*^2$ given in Proposition~\ref{varianceEstimation} is enough for the purpose of this paper.
-    We don't claim it is optimal.
+    Recently,~\cite{Fan2015Asymptotics} proposed an estimator of
+    $\lambda_i(\bSigma)=\blambda_i+\sigma^2$, $i=1,\ldots, r$:
+    $$
+    \max\Big(\lambda_i(\BS)-\frac{p}{n-2}\Big(1-\frac{p}{p-r}\frac{r}{n-2}\Big)^{-1}\hat{\sigma}^2,0\Big).
+    $$
+    They showed that under $p>n-2$, $p=O(n\blambda_r)$ and some other conditions,
+    $$
+    \frac{1}{\blambda_i+\sigma^2}\max\Big(\lambda_i(\BS)-\frac{p}{n-2}\Big(1-\frac{p}{p-r}\frac{r}{n-2}\Big)^{-1}\hat{\sigma}^2,0\Big)
+    =1+O_P\Big(\frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\Big).
+    $$
+    Note that under Assumption~\ref{theModel} and $p>n-2$, we have
+    $$
+\frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\asymp
+\frac{1}{\sqrt{n}}
+\asymp
+        \max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big).
+    $$
+    In this case,~\cite{Fan2015Asymptotics}'s estimator and our estimator have the same convergence rate, although the estimands are slightly different.
+    Compared with~\cite{Fan2015Asymptotics}'s result, Proposition~\ref{varianceEstimation} doesn't need the conditions $p>n-2$ and $p=O(n\blambda_r)$.
 \end{remark}
 
 %Similarly, we denote by  $\hat{\BV}_k$ and $\hat{\tilde{\BV}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
@@ -786,28 +814,37 @@ Our result is interested in its own right.
 %-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^T\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T X_{2j}}{n_1n_2}
 %\end{aligned}
 %\end{equation*}
-The asymptotic property of $T_2$ is closely related to the consistency rate of $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ as an estimator of $\tilde{\BV}\tilde{\BV}^T$.
-However, $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ can not always consistently estimate $\tilde{\BV}\tilde{\BV}^T$ in high dimensional setting.
-In fact,~\cite{Cai2012Sparse}'s Theorem $5$ implies that it is possible only when $p^{1-\beta}/n\to 0$, see Lemma~\ref{conRateLemma} in appendix.
-The asymptotic normality of $T_2$ requires a stronger condition.
-\begin{assumption}\label{pAndN}
-    Assume
-    $
-    {p}/{n^2}\to 0.
-    $
-\end{assumption}
+
+Now we propose the following test statistic:
+$$
+T_2=
+\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2
+-
+\tau(p-r)\hat{\sigma}_*^2 
+- \tau\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i.
+$$
+
 The following theorem establishes the asymptotic normality of $T_2$.
 \begin{theorem}\label{myPanpan}
-    Under Assumptions~\ref{theModel} and~\ref{pAndN},
-suppose
+    Under Assumption~\ref{theModel},
+suppose $p/n^2\to 0$ and
     $$\frac{n}{\sqrt{p}}\|\mu_1-\mu_2\|^2=O(1),$$
     we have
 \begin{equation*}
         \frac{T_2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
 \end{equation*}
 \end{theorem} 
-The proof of Theorem~\ref{myPanpan} implies that the conclusion of Theorem~\ref{myPanpan} does not hold if Assumption~\ref{pAndN} is violated.
+\begin{remark}
+The asymptotic normality of $T_2$ is closely related to the convergence rate of $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ to $\tilde{\BV}\tilde{\BV}^T$.
+    Lemma~\ref{conRateLemma} in Appendix~\ref{appendixB} and the equality $\|\hat{\BV}\hat{\BV}^T -\BV \BV^T\|=\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|$ imply that 
+    $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|=O_P(p/(p^{\beta}n))$.
+    Hence $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ can consistently estimate $\tilde{\BV}\tilde{\BV}^T$ only if $p/(p^{\beta}n)\to 0$.
+    Moreover,~\cite{Cai2012Sparse}'s Theorem $5$ implies that no other estimator has faster convergence rate than $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$.
+    In Theorem~\ref{myPanpan}, we assume $p/n^2\to 0$ which is stronger than $p/(p^{\beta}n)\to 0$.
+    This is because {\color{red}why?}
+The proof of Theorem~\ref{myPanpan} implies that the asymptotic normality of $T_2$ is not valid if the condition $p/n^2\to 0$ is violated.
 
+\end{remark}
 %\begin{remark}  Compared with~\cite{2016arXiv160202491A}'s assumption (ix) which is equivalent to assuming $\frac{p^{2\beta-1}}{n_1+n_2}\to 0$ in model~\eqref{theModel}, our assumption $\frac{\sqrt{p}}{n_1+n_2}\to 0$ doesn't involved $\beta$.
 %And when $\beta\geq \frac{3}{4}$, our assumption is weaker than~\cite{2016arXiv160202491A}'s. Note that when $\beta=\frac{1}{2}$, $\frac{\sqrt{p}}{n_1+n_2}$ is a necessary condition to make $\hat{\BV}\hat{\BV}^T$ a consistent
 %estimator of $\BV\BV^T$ (see lemma 2 in appendix). So condition $\frac{\sqrt{p}}{n_1+n_2}$ is roughly the best we can do if the relationship between $p$ and $n$ doesn't involve $\beta$.
@@ -1877,42 +1914,49 @@ the proposition follows by central limit theorem.
 
 % proof of space estimation theorem
 \begin{proof}[\textbf{Proof of Theorem~\ref{myPanpan}}]
-
-    Note that $\mathrm{tr}(\hat{\tilde{\BV}}_k^T S_k\hat{\tilde{\BV}}_k)=\sum_{i=r+1}^p \lambda_i(S_k)$, $k=1,2$.
-    Similar to Proposition~\ref{varianceEstimation}, we have $\mathrm{tr}(\hat{\tilde{\BV}}_k^T S_k\hat{\tilde{\BV}}_k)=(p-r)\sigma^2+O_P({\max(n,p)}/{n})$, $k=1,2$.
-    Hence,
+    Proposition~\ref{varianceEstimation} implies that $\hat{\sigma}_{*}^2\xrightarrow{P} \sigma^2$ and $\hat{\blambda_i}/\blambda_i\xrightarrow{P} 1$.
+    Hence
+    $$
+    \begin{aligned} 
+ \tau\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i
+        =
+        \tau\frac{p}{n}\sum_{i=1}^r \frac{\hat{\sigma}_*^2}{1+\frac{(n+p)}{n\hat{\blambda}_i}\hat{\sigma}_*^2}
+        =
+        \tau\frac{p}{n}\sum_{i=1}^r \frac{\sigma^2(1+o_P(1))}{1+\frac{(n+p)}{n\blambda_i}\sigma^2(1+o_P(1))}.
+    \end{aligned}
+    $$
+    Since $p/n^2\to 0$ implies $p/(n\blambda_i)\to 0$, we have
+    $$
+    \begin{aligned} 
+ \tau\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i
+        =r\tau \frac{p}{n} \sigma^2(1+o_P(1))=o_P(\sqrt{\tau^2 p}).
+    \end{aligned}
+    $$
+    In view of~\eqref{varianceEstimationPropResult1}, we have
+    $$
+    \begin{aligned}
+        &\tau(p-r)\hat{\sigma}_*^2 =
+    \tau(p-r)\sigma^2 + O_P\Big(\frac{p}{n}\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big)\\
+        =&
+        \tau(p-r)\sigma^2 + O_P\Big(\frac{\sqrt{p}}{n}\max\big(\frac{1}{\sqrt{n}},\frac{1}{\sqrt{p}}\big)\Big)
+        =\tau(p-r)\sigma^2 + o_P(\sqrt{\tau^2 p}).
+    \end{aligned}
+    $$
+Thus,
 \begin{equation*}
     \begin{aligned}
-        &\frac{T_2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}\\
-        =&
+        &\frac{T_2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}
+        =
         \frac{\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2
-        -\sigma^2\tau (p-r)
-        }{\sigma^2\sqrt{2\tau^2 p}}\\
-        &-\frac{
-        \frac{1}{n_1}(\mytr(\hat{\tilde{\BV}}_1^T S_1\hat{\tilde{\BV}}_1)-(p-r)\sigma^2)
-        }{\sigma^2\sqrt{2\tau^2 p}}
--\frac{
-        \frac{1}{n_2}(\mytr(\hat{\tilde{\BV}}_2^T S_2\hat{\tilde{\BV}}_2)-(p-r)\sigma^2)
-        }{\sigma^2\sqrt{2\tau^2 p}}
-        \\
-        =&
-        \frac{\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2
-        -\sigma^2\tau (p-r)
-        }{\sigma^2\sqrt{2\tau^2 p}}
-        +O_P\Big(\frac{\max(n,p)}{n\sqrt{p}}\Big)\\
-        =&
-        \frac{\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2
-        -\sigma^2\tau (p-r)
+        -\tau (p-r)\sigma^2
         }{\sigma^2\sqrt{2\tau^2 p}}+o_P(1),
     \end{aligned}
 \end{equation*}
-where the last equality holds since
-    $$\frac{\max(n,p)}{n\sqrt{p}}=\max\Big(\frac{1}{\sqrt{p}},\frac{\sqrt{p}}{n}\Big)\to 0.$$
     We write
 \begin{equation*}
     \begin{aligned}
         &\frac{\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2
-        -\sigma^2\tau (p-r)
+        -\tau (p-r)\sigma^2
         }{\sigma^2\sqrt{2\tau^2 p}}
         \\
         =&\frac{1}{\sigma^2\sqrt{2\tau^2 p}}(
@@ -1922,7 +1966,7 @@ where the last equality holds since
 \end{equation*}
 where
 \begin{align*}
-    P_1&=\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2 \tau (p-r),\\
+    P_1&=\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2- \tau (p-r)\sigma^2,\\
     P_2&=2{(\mu_1-\mu_2)}^T \hat{\tilde{\BV}}\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big),\\
     P_3&=\|\hat{\tilde{\BV}}^T(\mu_1-\mu_2)\|^2-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2.
 \end{align*}
@@ -1942,11 +1986,11 @@ $$
    $$
    \Pr\Big(\frac{P_2}{\sigma^2\sqrt{2\tau^2 p}}>\epsilon\Big)
    =
-   \myE[\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)].
+   \myE\big[\Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S\big)\big].
    $$
    Since the conditional probability 
    $
-   \Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)
+   \Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S\big)
    $
    is bounded, by dominated convergence theorem, we only need to prove
    $\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)\xrightarrow{P}0$.

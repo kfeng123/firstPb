@@ -90,12 +90,6 @@
   \url{http://www.sciencedirect.com/science/article/pii/S1874584901800103},
   \DOIprefix\doi{http://dx.doi.org/10.1016/S1874-5849(01)80010-3}.
   \bibinfo{note}{handbook of the Geometry of Banach Spaces}.
-%Type = Article
-\bibitem[{Fan and Wang(2015)}]{Fan2015Asymptotics}
-\bibinfo{author}{Fan, J.}, \bibinfo{author}{Wang, W.}, \bibinfo{year}{2015}.
-\newblock \bibinfo{title}{Asymptotics of empirical eigen-structure for
-  ultra-high dimensional spiked covariance model}
-  \href{http://arxiv.org/abs/arXiv:1502.04733}{\tt arXiv:arXiv:1502.04733}.
 %Type = Book
 \bibitem[{Golub and Van~Loan(2013)}]{matrixComputations}
 \bibinfo{author}{Golub, G.H.}, \bibinfo{author}{Van~Loan, C.F.},
@@ -175,6 +169,14 @@
 \newblock \bibinfo{journal}{Computational Statistics {\&} Data Analysis}
   \bibinfo{volume}{74}, \bibinfo{pages}{26--38}.
 \newblock \DOIprefix\doi{10.1016/j.csda.2013.12.003}.
+%Type = Article
+\bibitem[{Wang and Fan(2017)}]{Fan2015Asymptotics}
+\bibinfo{author}{Wang, W.}, \bibinfo{author}{Fan, J.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Asymptotics of empirical eigenstructure for high
+  dimensional spiked covariance}.
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{45},
+  \bibinfo{pages}{1342--1374}.
+\newblock \URLprefix \url{https://doi.org/10.1214/16-AOS1487}.
 %Type = Article
 \bibitem[{Zhao and Xu(2016)}]{Zhao2016A}
 \bibinfo{author}{Zhao, J.}, \bibinfo{author}{Xu, X.}, \bibinfo{year}{2016}.
