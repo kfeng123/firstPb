@@ -1,8 +1,9 @@
 source("../stat.R")
 library(ggplot2)
 nnn <-5000
+#nnn <-5000
 
-p <- 600
+p <- 500
 r <- 2
 theEig <- rep(1,p)
 beta <- 1
@@ -40,7 +41,7 @@ myQQplot <- function(x,y){
 }
 
 
-n <- 60
+n <- 50
 n1 <- n
 n2 <- n
 pb <- txtProgressBar(style = 3)

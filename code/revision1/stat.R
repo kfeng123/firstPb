@@ -218,7 +218,14 @@ myStatFinal <- function(X1, X2, n1, n2, ...) {
         tau * sum(p*newSigmaSqEst*myEigenEstimator/((n1+n2)*myEigenEstimator+(n1+n2+p)*newSigmaSqEst))
     
     # studentized statistic
-    studentStat <- stat / newSigmaSqEst / sqrt(2 * tau ^ 2 * p)
+    statVVV <- 2* tau^2*(
+        sum((p*newSigmaSqEst*myEigenEstimator/((n1+n2)*myEigenEstimator+(n1+n2+p)*newSigmaSqEst))^2)
+        +
+        2*newSigmaSqEst*sum(p*newSigmaSqEst*myEigenEstimator/((n1+n2)*myEigenEstimator+(n1+n2+p)*newSigmaSqEst))
+        +
+        newSigmaSqEst^2*(p-r)
+    )
+    studentStat <- stat / sqrt(statVVV)
     
     return(list(stat = stat,
                 studentStat = studentStat))

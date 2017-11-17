@@ -854,10 +854,12 @@ The proof of Theorem~\ref{myPanpan} implies that the asymptotic normality of $T_
 %estimator of $\BV\BV^T$ (see lemma 2 in appendix). So condition $\frac{\sqrt{p}}{n_1+n_2}$ is roughly the best we can do if the relationship between $p$ and $n$ doesn't involve $\beta$.
 %\end{remark}
 
- Theorem~\eqref{myPanpan} and Proposition~\ref{varianceEstimation} lead to a new asymptotic $\alpha$-level test that rejects the null hypothesis if
+ Theorem~\eqref{myPanpan} and Proposition~\ref{varianceEstimation} lead to an asymptotic $\alpha$-level test that rejects the null hypothesis if
     $$
-    Q=\frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}>\Phi^{-1}(1-\alpha).
+    \frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}>\Phi^{-1}(1-\alpha).
     $$
+
+
 The asymptotic power function of the new test can be obtained immediately.
 \begin{corollary}\label{testPowerh}
     Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of our test is
