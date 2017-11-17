@@ -1,4 +1,4 @@
-source("./stat.R")
+source("../stat.R")
 library(ggplot2)
 library(xtable)
 
@@ -16,10 +16,13 @@ simulateLevel <- function(n1,n2,p,r,beta,theDistribution="normal",B=2000){
     
     myNew1Dis <- NULL
     myNew2Dis <- NULL
+    myNew3Dis <- NULL
     oracleDis <- NULL
     chiDis <- NULL
     fastDis <- NULL
     CQDis <- NULL
+    SDDis <- NULL
+    ljwDis <- NULL
     pb <- txtProgressBar(style=3)
     for(i in 1:B){
         # data generation
@@ -36,6 +39,9 @@ simulateLevel <- function(n1,n2,p,r,beta,theDistribution="normal",B=2000){
         # NEW2
         myNew2Dis[i] <- myStat2(X1, X2, n1, n2, r=r, myEigen=myEigen)$studentStat
         
+        # NEW3
+        myNew3Dis[i] <- myStatFinal(X1, X2, n1, n2, r=r, myEigen=myEigen)$studentStat
+        
         # oracle: V and sigma known
         temp <- chenStat(X1%*%Null(V),X2%*%Null(V),n1,n2)$stat
         oracleDis[i] <- n1*n2*temp/(sqrt(2*p)*(n1+n2)*1)
@@ -49,6 +55,12 @@ simulateLevel <- function(n1,n2,p,r,beta,theDistribution="normal",B=2000){
         # CQ
         CQDis[i] <- ChenQin.test(X1,X2)$ChQ
         
+        # SD
+        SDDis[i] <- sdStat(X1,X2, n1, n2, S=S)$stat
+        
+        # LJW
+        ljwDis[i] <-ljwStat(X1,X2,n1,n2)
+        
         setTxtProgressBar(pb,i/B)
     }
     close(pb)
@@ -58,6 +70,8 @@ simulateLevel <- function(n1,n2,p,r,beta,theDistribution="normal",B=2000){
     # NEW2
     #myNew2Level <- sum(pnorm(myNew2Dis,lower.tail=FALSE)<0.05)/B
     myNew2Level <- sum(pchisq(myNew2Dis*sqrt(2*(p-r))+p-r,df=p-r,lower.tail=FALSE)<0.05)/B
+    # NEW3
+    myNew3Level <- sum(pchisq(myNew3Dis*sqrt(2*(p-r))+p-r,df=p-r,lower.tail=FALSE)<0.05)/B
     # ORACLE
     #oracleLevel <- sum(pnorm(oracleDis,lower.tail=FALSE)<0.05)/B
     oracleLevel <- sum(pchisq(oracleDis*sqrt(2*(p-r))+p-r,df=p-r,lower.tail=FALSE)<0.05)/B
@@ -67,14 +81,56 @@ simulateLevel <- function(n1,n2,p,r,beta,theDistribution="normal",B=2000){
     fastLevel <- mean(fastDis)
     # CQ
     CQLevel <- sum(pnorm(CQDis,lower.tail=FALSE)<0.05)/B
+    # SD
+    SDLevel <- sum(pnorm(SDDis,lower.tail=FALSE)<0.05)/B
+    # LJW
+    ljwLevel <- mean(ljwDis)
+    
+    
+    
+    
     list(New1=myNew1Level,
          New2=myNew2Level,
+         New3=myNew3Level,
          oracle=oracleLevel,
          chi=chiLevel,
          fast=fastLevel,
-         CQ=CQLevel
+         CQ=CQLevel,
+         SD=SDLevel,
+         ljw=ljwLevel
          )
 } 
+
+myOuterFun <- function(n,vecP){
+    for(theDistribution in c("normal","chiSquared","t")){
+        for(beta in c(0.5,1,2)){
+            Out=NULL
+            for(p in vecP){
+                r<-2
+                n1=n
+                n2=n
+                level <- simulateLevel(n1,n2,p,r,beta,theDistribution=theDistribution)
+                level <- cbind(level)
+                dimnames(level)[[2]] <- p
+                Out <- cbind(Out,level)
+            }
+            write.csv(Out,paste0(n,theDistribution,beta,".csv"))
+        }
+    }
+    
+}
+myOuterFun(50,c(200,500,800))
+myOuterFun(100,c(200,500,800))
+myOuterFun(150,c(200,500,800))
+
+
+
+
+
+
+
+
+
 
 # normal
 Out=NULL
@@ -82,7 +138,7 @@ Out=NULL
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
@@ -96,7 +152,7 @@ Out=NULL
 for(beta in c(1))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
@@ -111,7 +167,7 @@ Out=NULL
 for(beta in c(2))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
@@ -127,7 +183,7 @@ Out=NULL
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
@@ -142,7 +198,7 @@ Out=NULL
 for(beta in c(1))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
@@ -157,7 +213,7 @@ Out=NULL
 for(beta in c(2))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
@@ -173,7 +229,7 @@ Out=NULL
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
@@ -188,7 +244,7 @@ Out=NULL
 for(beta in c(1))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
@@ -203,7 +259,7 @@ Out=NULL
 for(beta in c(2))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(180)){
+for(n in c(120)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")

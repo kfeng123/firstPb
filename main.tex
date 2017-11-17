@@ -211,7 +211,7 @@ $$
 \frac{\mytr (\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\big(1+\rho(p-1)\big)^4 + (1-\rho)^4 (p-1)}{\big[ \big(1+\rho(p-1)\big)^2+(1-\rho)^2 (p-1) \big]^2}\to 1
 $$
 as $p\to \infty$.
-  Under uniform correlation structure, the leading eigenvalue of $\bSigma$ is significantly larger than the rest of eigenvalues.
+  Under the uniform correlation structure, the leading eigenvalue of $\bSigma$ is significantly larger than the rest of eigenvalues.
   This is a special case of the spiked covariance model
  \begin{equation}\label{eq:introSpiked}
  \bSigma =\BV\bLambda \BV^T +\sigma^2 \BI_p,
@@ -549,15 +549,16 @@ F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2),
 $$
 then the resulting test is asymptotically level $\alpha$ for $\beta\geq 1/2$.
         However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
-In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to estimate $\blambda_i$, $i=1,\ldots,r$, and $\sigma^2$.
-In section~\ref{methodology}, we will give an estimator $\hat{\sigma}^2$ of $\sigma^2$.Proposition~\ref{varianceEstimation} asserts that $\hat{\sigma}^2$ is consistent. 
+In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to estimate $\blambda_1,\ldots,\blambda_r$ and $\sigma^2$.
+In section~\ref{methodology}, we will give their estimators $\hat{\blambda}_1,\ldots,\hat{\blambda}_r$ and $\hat{\sigma}_{*}^2$. 
+Proposition~\ref{varianceEstimation} asserts that these estimators are ratio consistent. 
 Now we propose a corrected $T_{CQ}$ test procedure which reject the null hypothesis with $\alpha$ level of significance if
 $$
-\tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}^2).
+\tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2).
 $$
-Then under the conditions of Proposition~\ref{eigenconsis} and the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test procedure has level $\alpha$ asymptotically.
+Then under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test procedure is  asymptotically level $\alpha$.
 
-As we have seen in Remark~\ref{remark1}, the corrected $T_{CQ}$ test procedure has trivial power if $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
+As we have seen in Remark~\ref{remark1}, for the corrected $T_{CQ}$ test, the separation boundary between the testable and non-testable regions  is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
 Then as $\beta$ increases, the corrected $T_{CQ}$ test procedure becomes less powerful.
 This implies that the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
 
@@ -840,43 +841,83 @@ The asymptotic normality of $T_2$ is closely related to the convergence rate of 
     $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|=O_P(p/(p^{\beta}n))$.
     Hence $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ can consistently estimate $\tilde{\BV}\tilde{\BV}^T$ only if $p/(p^{\beta}n)\to 0$.
     Moreover,~\cite{Cai2012Sparse}'s Theorem $5$ implies that no other estimator has faster convergence rate than $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$.
-    In Theorem~\ref{myPanpan}, we assume $p/n^2\to 0$ which is stronger than $p/(p^{\beta}n)\to 0$.
-    This is because {\color{red}why?}
+    The asymptotic normality of $T_2$ requires the condition
+    $$
+    p^{-1}\big(p^{\beta}\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2+1\big)^2\xrightarrow{P} 0.
+    $$
+    This is equivalent to $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2=o_P(\sqrt{p}/p^{\beta})$.
+    Hence in Theorem~\ref{myPanpan} we assume $p/n^2\to 0$.
 The proof of Theorem~\ref{myPanpan} implies that the asymptotic normality of $T_2$ is not valid if the condition $p/n^2\to 0$ is violated.
-
 \end{remark}
 %\begin{remark}  Compared with~\cite{2016arXiv160202491A}'s assumption (ix) which is equivalent to assuming $\frac{p^{2\beta-1}}{n_1+n_2}\to 0$ in model~\eqref{theModel}, our assumption $\frac{\sqrt{p}}{n_1+n_2}\to 0$ doesn't involved $\beta$.
 %And when $\beta\geq \frac{3}{4}$, our assumption is weaker than~\cite{2016arXiv160202491A}'s. Note that when $\beta=\frac{1}{2}$, $\frac{\sqrt{p}}{n_1+n_2}$ is a necessary condition to make $\hat{\BV}\hat{\BV}^T$ a consistent
 %estimator of $\BV\BV^T$ (see lemma 2 in appendix). So condition $\frac{\sqrt{p}}{n_1+n_2}$ is roughly the best we can do if the relationship between $p$ and $n$ doesn't involve $\beta$.
 %\end{remark}
 
-
-The asymptotic result of Proposition~\ref{oracleTheorem} involves $\sigma^2$.
-In order to formulate a test procedure by asymptotic distribution, $\sigma^2$ needs to be consistently estimated.
-Note that $\sigma^2$ can be written as
-    $\sigma^2={(p-r)}^{-1}\sum_{i=r+1}^{p}\lambda_i(\bSigma)$, where $\lambda_i(\bSigma)$ is the $i$th largest eigenvalue of $\bSigma$.
-So $\sigma^2$ can be estimated by
-\begin{equation*}
-    \hat{\sigma}^2=\frac{1}{p-r}\sum_{i=r+1}^{p} \lambda_i(S).
-\end{equation*}
-Now we propose our new test statistic as
+ Theorem~\eqref{myPanpan} and Proposition~\ref{varianceEstimation} lead to a new asymptotic $\alpha$-level test that rejects the null hypothesis if
     $$
-    Q=\frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}.
+    Q=\frac{T_2}{\hat{\sigma}^2\sqrt{2\tau^2 p}}>\Phi^{-1}(1-\alpha).
     $$
-By Theorem~\ref{myPanpan} and Proposition~\ref{varianceEstimation}, $Q$ is asymptotically distributed as $N(0,1)$ under the null hypothesis.
-Thus, we reject the null hypothesis when $Q$ is larger than the upper $\alpha$ quantile of $N(0,1)$.
 The asymptotic power function of the new test can be obtained immediately.
 \begin{corollary}\label{testPowerh}
-    Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of the new test is
+    Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of our test is
     \begin{equation*}
         \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
     \end{equation*}
 \end{corollary}
+From the expression of the asymptotic power function, we can see that the power of our test is not affected by the large eigenvalues of $\bSigma$.
 
+Having derived the asymptotic power function of the our test, we are now in a position to provide a comparison with other tests.
+Again, to make an average-case comparison against other tests, we place a prior on $\mu_1-\mu_2$.
+Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is from the uniform distribution on the unit sphere.
+Then $\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\tilde{\BV}^T\delta\|^2$.
+Since $\myE \|\tilde{\BV}^T\delta\|^2=(p-r)/p$ and $\myVar \big(\|\tilde{\BV}^T\delta\|^2\big) = 2r(p-r)/\big(p^2(p+2)\big)$, we have $\|\tilde{\BV}^T\delta\|^2=1+O_P(1/p)$.
+In this case, the asymptotic power function of our test is equal to
+    \begin{equation*}
+        \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
+    \end{equation*}
+So the separation boundary of our test is $\|\mu_1-\mu_2\|^2\asymp \sqrt{p}/n$.
 
- In Section~\ref{sec:chen}, we have seen that the test procedure $T_{CQ}$ has trivial power if $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
-Corollary~\ref{testPowerh} implies that the asymptotic power function of the new test is not affected by $\beta$.
- As a result, when $\beta>1/2$, the new test tends to be much more powerful.
+To compare our test with the corrected $T_{CQ}$ test,
+recall that the separation boundary of the corrected $T_{CQ}$ test procedure is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
+ Thus, when $\beta>1/2$, the testable region of our test is larger than that of the corrected $T_{CQ}$ test procedure.
+
+ We would also like to compare our test with $T_{SD}$.~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
+ $$
+        \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}\Big),
+ $$
+ where $\bSigma_d=\mydiag(\bSigma)$ and $\BR=\bSigma_d^{-1/2} \bSigma \bSigma_d^{-1/2}$ is the population correlation matrix.
+ It is known that the power of $T_{SD}$ is highest when $\bSigma$ is diagonal.
+
+ First we consider the uniform correlation structure $\bSigma=(1-\rho)\BI_p+\rho \mathbf{1}_p\mathbf{1}_p^T$ ($0<\rho <1$) which is far away from a diagonal matrix.
+ In this case, the diagonal entries of $\Sigma$ are all $1$. 
+ We have
+ $$
+ \frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}
+ =
+ \frac{1}{\sqrt{\rho^2 p +(1-\rho^2)}}\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2p}}.
+ $$
+ Hence the asymptotic relative efficiency of our test with respect to $T_{SD}$ is
+ $\sqrt{\rho^2 p +(1-\rho^2)}$.
+ Our test has much higher power.
+
+ Now we consider the diagonal covariance matrix. 
+ In this case, $\bSigma=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$ and $\BR=\BI_p$.
+ Note that $\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\bSigma^{-1/2}\delta\|^2$.
+ We have 
+ $$\myE\|\bSigma^{-1/2}\delta\|^2=
+ \frac{1}{p}\mytr\big(\bSigma^{-1}\big)
+ =\sigma^{-2} (1+o_P(1))
+ $$
+and
+ $$
+ \myVar\big( \|\bSigma^{-1/2}\delta\|^2 \big)=\frac{2}{p+2}\Big(\frac{1}{p}\mytr\big(\bSigma^{-2}\big)-\big(\frac{1}{p}\mytr\big(\bSigma^{-1}\big)\big)^2\Big)=o\big(\frac{1}{p}\big).$$
+ Hence $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}(1+o_P(1))$ and the asymptotic power function of $T_{SD}$ equals to
+ $$
+        \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sigma^2\sqrt{2\tau^2 p}}\Big).
+ $$
+ Thus, under the diagonal covariance matrix, the asymptotic power function of our test is the same as that of $T_{SD}$.
+
 
 
 
@@ -1986,20 +2027,20 @@ $$
    $$
    \Pr\Big(\frac{P_2}{\sigma^2\sqrt{2\tau^2 p}}>\epsilon\Big)
    =
-   \myE\big[\Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S\big)\big].
+   \myE\big[\Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|\BS\big)\big].
    $$
    Since the conditional probability 
    $
-   \Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S\big)
+   \Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|BS\big)
    $
    is bounded, by dominated convergence theorem, we only need to prove
-   $\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)\xrightarrow{P}0$.
-    Note that $\bar{X}_1$, $\bar{X}_2$, and $S$ are mutually independent and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ only depends on $S$.
+   $\Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S\big)\xrightarrow{P}0$.
+    Note that $\bar{X}_1$, $\bar{X}_2$, and $\BS$ are mutually independent and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ only depends on $S$.
     We have
     \begin{equation*}
         \begin{aligned}
-            &\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)\leq
-            \frac{1}{2\epsilon^2\sigma^4\tau^2 p}\myE (P_2^2|S)\\
+            &\Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|\BS\big)\leq
+            \frac{1}{2\epsilon^2\sigma^4\tau^2 p}\myE \big(P_2^2\big|S\big)\\
             =&\frac{1}{2\epsilon^2\sigma^4\tau^2 p} 4\tau {(\mu_1-\mu_2)}^T \hat{\tilde{\BV}}\hat{\tilde{\BV}}^T\bSigma \hat{\tilde{\BV}}\hat{\tilde{\BV}}^T(\mu_1-\mu_2)\\
             \leq &
             \frac{2}{\epsilon^2\sigma^4\tau p}
@@ -2024,11 +2065,11 @@ $$
             = \|\BV\BV^T-\hat{\BV}\hat{\BV}^T\|^2=O_P\Big(\frac{p}{p^{\beta}n}\Big),
         \end{aligned}
     \end{equation*}
-    where the last two equality follows from~\cite{matrixComputations}, Theorem 2.5.1 and the last equality follows from Lemma~\ref{conRateLemma}. 
+    where the second equality follows from~\cite{matrixComputations}, Theorem 2.5.1 and the last equality follows from Lemma~\ref{conRateLemma}. 
     Thus,
     \begin{equation*}
         \begin{aligned}
-            &\Pr({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|S)
+            &\Pr\big({P_2}>\epsilon{\sigma^2\sqrt{2\tau^2 p}}\big|\BS\big)
              =
              O(\frac{1}{\sqrt{p}})
              \big(O_P(\frac{p}{n})+\sigma^2\big)
@@ -2064,15 +2105,15 @@ $$
     It's well known that $\rho(F_n,F)\to 0$ if and only if $F_n\xrightarrow{\mathcal{L}}F$.
 
     Since the conditional distribution of
-    $\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)$ given $S$ is $N(0,\tau \hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})$,
+    $\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)$ given $\BS$ is $N(0,\tau \hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})$,
     we have that
 \begin{equation}\label{houjia2}
 \tau^{-1}\big\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2
 \sim
     \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})\xi_i^2,
 \end{equation}
-where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{\BV}}$.
-    So the asymptotic distribution of $P_1$ relies on the asymptotic behavior of $\lambda_i(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})$.
+where $\xi_1,\ldots,\xi_{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{\BV}}$.
+    In view of Lemma~\ref{quadraticFormCLT}, the asymptotic distribution of $P_1$ relies on the asymptotic behavior of $\lambda_i(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})$, $i=1,\ldots, p-r$.
     As we have shown,
      \begin{equation}\label{houjia1}
      \lambda_1(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})\leq 
@@ -2080,7 +2121,6 @@ where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables whic
      =
     \kappa p^\beta \|\BV\BV^T -\hat{\BV}\hat{\BV}^T\|^2+\sigma^2.
      \end{equation}
-    Hence $\lambda_i(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})=O_P({p}/{n}+1)$, $i=1,\ldots,r$.
     On the other hand,
     for $i=r+1,\ldots,p-r$,
     we have
@@ -2091,34 +2131,44 @@ where $\{\xi_i\}_{i=1}^{p-r}$ are i.i.d.\  standard normal random variables whic
     =\sigma^2,
     \end{equation}
 where the last equality follows from $\myrank(\hat{\tilde{\BV}}^T \BV \bLambda \BV^T \hat{\tilde{\BV}})\leq \myrank(\BV)=r$.
-This, combined with~\eqref{houjia1}, yields
+It follows from~\eqref{houjia1} and~\eqref{houjia3} that
 \begin{equation}\label{traceA1}
-\mathrm{tr}(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2=
+    \begin{aligned}
+        \mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2=&
+    O_P\Big(\big(p^{\beta}\|\BV\BV^T-\hat{\BV}\hat{\BV}^T\|^2+1\big)^2\Big)
+    +
+    (p-2r)\sigma^4\\
+    =&
     {\big(\frac{p}{n}+1\big)}^2O_P(1)
     +
     (p-2r)\sigma^4
     =p\sigma^4(1+o_P(1)).
+    \end{aligned}
 \end{equation}
-Consequently,
-\begin{equation}\label{inProbC}
-        \frac{\lambda_1^2(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})}{\mathrm{tr}(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2}
+This, combined with~\eqref{houjia1}, yields
+$$
+\frac{\lambda_1^2(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})}{\mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2}
+=O_P\Big(p^{-1}\big(p^{\beta}\|\BV\BV^T-\hat{\BV}\hat{\BV}^T\|^2+1\big)^2\Big)
         =O_P\Big(\frac{{(p/n+1)}^2}{p}\Big)=o_P(1).
-\end{equation}
-Then for every subsequence of $\{n\}$, there's a further subsequence along which~\eqref{inProbC} holds almost surely.
-This, combined with~\eqref{houjia2} and Lemma~\ref{quadraticFormCLT}, implies that for every subsequence of $\{n\}$, there's a further subsequence along which
+$$
+Then for every subsequence $\{n(k)\}$ of $\{n\}$, there's a further subsequence $\big\{n\big(k(l)\big)\big\}$ along which
+$$
+\frac{\lambda_1^2(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})}{\mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2}\xrightarrow{a.s.}0.
+$$
+This fact, together with~\eqref{houjia2} and Lemma~\ref{quadraticFormCLT}, implies that along $\big\{n\big(k(l)\big)\big\}$ we have
 \begin{equation}\label{aseq}
-    \rho\big(\mathcal{L}( Y_n |S),N(0,1)\big)\xrightarrow{a.s.}0,
+    \rho\big(\mathcal{L}( Y_n |\,\BS),N(0,1)\big)\xrightarrow{a.s.}0,
 \end{equation}
 where 
 $$
 Y_n=\frac{\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2}},
 $$
-and $\mathcal{L}(Y_n|S)$ is the conditional distribution of $Y_n$ given $S$.
-By the definition of weak convergence,  if~\eqref{aseq} holds along some subsequence $\{n_k\}$, then for every continuous bounded function $f(\cdot)$, $\myE[f(Y_n)|S]\xrightarrow{a.s.}\myE[f(\epsilon)]$ along $\{n_k\}$, where $\epsilon$ is a random variable with standard normal distribution.
-By dominated convergence theorem, $\myE[f(Y_n)]\to \myE[f(\epsilon)]$ along $\{n_k\}$.
-This implies that $Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along $\{n_k\}$.
-Thus, for every subsequence of $n$, there is a further subsequence along which
-$Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along $\{n_k\}$.
+and $\mathcal{L}(Y_n|\,\BS)$ is the conditional distribution of $Y_n$ given $\BS$.
+By the definition of weak convergence,~\eqref{aseq} implies that for every continuous bounded function $f(\cdot)$, $\myE[f(Y_n)|\,\BS]\xrightarrow{a.s.}\myE[f(\xi^*)]$ along $\big\{n\big(k(l)\big)\big\}$, where $\xi^*$ is a standard normal random variable.
+By dominated convergence theorem, $\myE[f(Y_n)]\to \myE[f(\xi^*)]$ along $\big\{n\big(k(l)\big)\big\}$.
+This implies that $Y_n\xrightarrow{\mathcal{L}}N(0,1)$ along $\big\{n\big(k(l)\big)\big\}$.
+Thus, for every subsequence of $\{n\}$, there is a further subsequence along which
+$Y_n\xrightarrow{\mathcal{L}}N(0,1)$.
 This means $Y_n\xrightarrow{\mathcal{L}}N(0,1)$, or
 %$$
 %\rho\Big(\mathcal{L}\Big(\frac{\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})^2}}\Big|S\Big),N(0,1)\Big)\xrightarrow{P} 0.
@@ -2141,11 +2191,11 @@ By~\eqref{houjia1} and~\eqref{houjia3}, we have
         (p-r)\sigma^2+o_P(\sqrt{p}).
     \end{aligned}
 \end{equation}
-By~\eqref{traceA1},~\eqref{traceA2} and Slutsky's theorem, we have
+It follows from~\eqref{traceA1},~\eqref{traceA2} and Slutsky's theorem that
 $$
 \frac{\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2\tau(p-r) }{\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
 $$
-Now the desired asymptotic properties of $P_1$, $P_2$ and $P_3$ are established, the theorem follows.
+This completes the proof.
 \end{proof}
 
 \end{appendices}

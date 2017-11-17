@@ -1,4 +1,4 @@
-source("./stat.R")
+source("../stat.R")
 library(ggplot2)
 library(xtable)
 
@@ -82,7 +82,7 @@ Out=NULL
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
@@ -96,7 +96,7 @@ Out=NULL
 for(beta in c(1))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
@@ -111,7 +111,7 @@ Out=NULL
 for(beta in c(2))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta)
@@ -127,7 +127,7 @@ Out=NULL
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
@@ -142,7 +142,7 @@ Out=NULL
 for(beta in c(1))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
@@ -157,7 +157,7 @@ Out=NULL
 for(beta in c(2))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "chiSquared")
@@ -173,7 +173,7 @@ Out=NULL
 for(beta in c(0.5))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
@@ -188,7 +188,7 @@ Out=NULL
 for(beta in c(1))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")
@@ -203,7 +203,7 @@ Out=NULL
 for(beta in c(2))
 for(r in 1)
 for(p in c(200,400,600,800))
-for(n in c(120)){
+for(n in c(180)){
     n1=n
     n2=n
     level <- simulateLevel(n1,n2,p,r,beta, theDistribution = "t")

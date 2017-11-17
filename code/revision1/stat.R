@@ -2,6 +2,7 @@ library(ggplot2)
 library(MASS)
 library(highD2pop)
 library(matrixStats)
+library(Hotelling)
 
 newModelGenerator <- function(eigValue,theDistribution="normal") {
     p <- length(eigValue)
@@ -30,7 +31,7 @@ newModelGenerator <- function(eigValue,theDistribution="normal") {
 
 
 
-# Chen and Qin (2010)
+# abandoned Chen and Qin (2010)
 chenStat <- function(X1, X2, n1, n2,...) {
     T1 <- sum(colMeans(X1) ^ 2) * n1 / (n1 - 1) - sum(X1 ^ 2) / n1 / (n1 - 1)
     T2 <- sum(colMeans(X2) ^ 2) * n2 / (n2 - 1) - sum(X2 ^ 2) / n2 / (n2 - 1)
@@ -38,11 +39,39 @@ chenStat <- function(X1, X2, n1, n2,...) {
     list(stat=T1 + T2 - 2 * T3)
 }
 # Srivastava and Du (2008)
-sriStat <- function(X1, X2, n1, n2,...) {
-    S1 <- colVars(X1)
-    S2 <- colVars(X2)
-    S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
-    list(stat=sum((colMeans(X1) - colMeans(X2)) ^ 2 / S))
+sdStat <- function(X1, X2, n1, n2,...) {
+    p <- ncol(X1)
+    
+    if(is.null(list(...)$S)){
+        S1 <- colVars(X1)
+        S2 <- colVars(X2)
+        S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
+    }else{
+        S <- list(...)$S
+    }
+    
+    dS <- diag(S)
+    R <- cov2cor(S)
+    
+    mean1 <- colMeans(X1)
+    mean2 <- colMeans(X2)
+    
+    temp <- sum(R^2)
+    c <- 1+ temp/p^(3/2)
+    
+    theNumerator <- n1 * n2 / (n1+n2) * sum( (mean1 - mean2)^2 / dS ) - (n1+n2-2)*p/(n1+n2-4)
+    theDenominator <- sqrt( 2*( temp - p^2/(n1+n2-2) ) * c )
+    
+    list(stat=theNumerator/theDenominator)
+}
+
+# Lopes et. al. (2011)
+ljwStat <- function(X1,X2,n1,n2,...){
+    p <- ncol(X1)
+    k <- floor((n1+n2-2)/2)
+    Pk <- rnorm(p*k)
+    dim(Pk) <- c(p,k)
+    (hotelling.test(X1 %*% Pk, X2 %*% Pk)$pval<0.05) + 0
 }
 
 # Ma et. al. (2015)
@@ -73,6 +102,7 @@ maTest <- function(X1,X2,n1,n2,...){
 # New chi squared test
 myChiTest <- function(X1,X2,n1,n2,...){
     r <- list(...)$r
+    p <- ncol(X1)
     
     # Chen's statistic over tau
     tau <- 1 / n1 + 1 / n2
@@ -88,7 +118,6 @@ myChiTest <- function(X1,X2,n1,n2,...){
     oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
     sigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigen$values[1:r]-oldSigmaSqEst))))
     
-    p <- ncol(X1)
     #refDis <- vector()
     #for (i in 1:500){
         #refDis[i] <- sqrt(2*p)*sigmaSqEst*rnorm(1)
@@ -176,17 +205,17 @@ myStatFinal <- function(X1, X2, n1, n2, ...) {
    }
     myTildeV <- myEigen$vectors[, -(1:r)]
     
-    # eigenvalue estimator
-    oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
-    myEigenEstimator <- myEigen$values[1:r]-(1+p/n)*oldSigmaSqEst
     # variance estimator
-    newSigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigenEstimator-oldSigmaSqEst))))
+    oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
+    newSigmaSqEst <- (1-r/(n1+n2-2))^(-1) * oldSigmaSqEst
+    # eigenvalue estimator
+    myEigenEstimator <- myEigen$values[1:r]-((p+n1+n2-r-2)/(n1+n2-2))*newSigmaSqEst
     
     tau <- 1 / n1 + 1 / n2
     stat <-
         sum((t(myTildeV) %*% (colMeans(X1) - colMeans(X2))) ^ 2) -
         tau*(p-r)*newSigmaSqEst -
-        tau * sum(p*newSigmaSqEst*myEigenEstimator/(n*myEigenEstimator+p*newSigmaSqEst))
+        tau * sum(p*newSigmaSqEst*myEigenEstimator/((n1+n2)*myEigenEstimator+(n1+n2+p)*newSigmaSqEst))
     
     # studentized statistic
     studentStat <- stat / newSigmaSqEst / sqrt(2 * tau ^ 2 * p)
