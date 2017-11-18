@@ -115,8 +115,11 @@ myChiTest <- function(X1,X2,n1,n2,...){
    }else{
        myEigen <- list(...)$myEigen
    }
+    # variance estimator
     oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
-    sigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigen$values[1:r]-oldSigmaSqEst))))
+    newSigmaSqEst <- (1-r/(n1+n2-2))^(-1) * oldSigmaSqEst
+    # eigenvalue estimator
+    myEigenEstimator <- myEigen$values[1:r]-((p+n1+n2-r-2)/(n1+n2-2))*newSigmaSqEst
     
     #refDis <- vector()
     #for (i in 1:500){
@@ -124,8 +127,8 @@ myChiTest <- function(X1,X2,n1,n2,...){
         #for (j in 1:r)
             #refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2-1)
     #}
-    refDis <- (matrix(rnorm(500*r),nrow = 500)^2-1) %*% myEigen$values[1:r] +
-                    sqrt(2*p)*sigmaSqEst*rnorm(500)
+    refDis <- (matrix(rnorm(500*r),nrow = 500)^2-1) %*% myEigenEstimator +
+                    sqrt(2*p)*newSigmaSqEst*rnorm(500)
     
     as.numeric(temp1 > quantile(refDis,0.95))
 }
