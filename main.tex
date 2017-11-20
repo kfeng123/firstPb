@@ -1002,8 +1002,7 @@ and
 \subsection{Simulation results}
 
 
-In this section, we consider the simulation performance of the proposed test and compare it with several other tests, including the tests in~\cite{Chen2010A}.
-These tests are denoted respectively by CQ in the rest of this section.
+In this section, we consider the simulation performance of the proposed test and compare it with several other alternatives: (1)~\cite{Chen2010A}'s test (CQ); (2)~\cite{Ma2015A}'s test (FAST); (3) the corrected $T_{CQ}$ test procedure proposed in Section~\ref{sec:chen} (CCQ); (4)~\cite{Srivastava2008A}'s test (SD); (5)~\cite{Lopes2015A}'s test (LJW).
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
 Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$), $i=1,\ldots, r$.
@@ -1022,7 +1021,7 @@ We will consider three different distributions of $F$.
     \item
         Student's $t$: $F\sim t_4/\sqrt{2}$, where $t_4$ is a Student's $t$ random variable  with degree of freedom $4$.
 \end{itemize}
-We take nominal level $\alpha=0.05$.
+Throughout the simulations, we take nominal level $\alpha=0.05$ and $r=2$.
 
 %The key to the validation of Theorem~\ref{myPanpan} is  that $T_{\textrm{dif}}=\frac{n_1n_2|T_1-T_2|}{\sqrt{2p}(n_1+n_2)\sigma^2}$ converges to $0$.
 %Here we verify it by simulation.
@@ -1042,7 +1041,11 @@ We take nominal level $\alpha=0.05$.
 %    \caption{These are plots of $T_{\textrm{dif}}$ versus $p$. The first column and the second column are the case of $p=n$ and $p=n^2$, separately. The cases of $\beta=1,2,3$ are in the row $1,2,3$ separately. $r$ is set to be $3$ in all cases. }\label{fig:fig1}
 %\end{figure}
 
-First, we simulate the level of the new test. We set factor number $r=2$.
+In Section~\ref{methodology}, the critical value of our test is determined by the quantile of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
+We have proved that the distribution of $Q$ is asymptotically equal to that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
+Now we would like to campare these two distributions in finite sample case.
+
+Next, we consider the simulation of the empirical level. 
 Samples are repeatedly generated $2000$ times to calculate empirical level.
 For comparison, we also give the corresponding `oracle' level which is calculated by variable ${T_1}/(\sigma^2\sqrt{2p\tau^2})$.
 The result is listed in
