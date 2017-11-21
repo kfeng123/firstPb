@@ -75,6 +75,7 @@ ljwStat <- function(X1,X2,n1,n2,...){
 }
 
 # Ma et. al. (2015)
+maTempA <- matrix(rnorm(3000*5),ncol=5)^2
 maTest <- function(X1,X2,n1,n2,...){
     r <- list(...)$r
     
@@ -94,12 +95,14 @@ maTest <- function(X1,X2,n1,n2,...){
     #    for (j in 1:r)
     #        refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2)/p
     #}
-    refDis <- matrix(rnorm(500*r),nrow = 500)^2 %*% myEigen$values[1:r] / p
+    refDis <- maTempA[,1:r] %*% myEigen$values[1:r] / p
     as.numeric(TFast > quantile(refDis,0.95))
     
 }
 
-# New chi squared test
+# New chi-squared test
+chiTempA <- matrix(rnorm(3000*5),ncol = 5)^2-1
+chiTempB <- rnorm(3000)
 myChiTest <- function(X1,X2,n1,n2,...){
     r <- list(...)$r
     p <- ncol(X1)
@@ -127,8 +130,8 @@ myChiTest <- function(X1,X2,n1,n2,...){
         #for (j in 1:r)
             #refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2-1)
     #}
-    refDis <- (matrix(rnorm(500*r),nrow = 500)^2-1) %*% myEigenEstimator +
-                    sqrt(2*p)*newSigmaSqEst*rnorm(500)
+    refDis <- chiTempA[,1:r] %*% myEigenEstimator +
+                    sqrt(2*p)*newSigmaSqEst*chiTempB
     
     as.numeric(temp1 > quantile(refDis,0.95))
 }
