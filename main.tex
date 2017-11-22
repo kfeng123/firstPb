@@ -133,14 +133,14 @@
 \begin{abstract}
     This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.
     The covariance matrix is assumed to be spiked, which often arises in practice. 
-    We derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic under spiked covariance.
-    Also, a new test procedure is proposed through projection on the orthogonal complement of principal space.
+    We derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic under a spiked covariance model.
+    Also, a new test procedure is proposed through projection on the orthogonal complement of the principal subspace.
     The asymptotic normality of the new test statistic is proved and the power function of the test is given.
     Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrix is spiked.
 \end{abstract}
 
 \begin{keyword}
-    high dimension, mean test, orthogonal complement of principal space, spiked covariance
+    high dimension, mean test, principal subspace, spiked covariance model
 \end{keyword}
 
 \end{frontmatter}
@@ -159,7 +159,7 @@ Suppose $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (i.i
 Testing hypotheses~\eqref{problem} is important in many fields, including biology, finance and economics.
 
 
-A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ test  statistic ${(\bar{X}_1-\bar{X}_2)}^T \BS^{-1}(\bar{X}_1-\bar{X}_2)$, where $\bar{X}_k=n_k^{-1}\sum_{i=1}^{n_k}X_{k,i}$ is the mean vector of sample $k$, $k=1,2$, and
+A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ test  statistic ${(\bar{X}_1-\bar{X}_2)}^T \BS^{-1}(\bar{X}_1-\bar{X}_2)$ where $\bar{X}_1$ and $\bar{X}_2$ are the two sample means and
     $
     \BS=
 {(n-2)}^{-1}\sum_{k=1}^2\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
@@ -168,7 +168,7 @@ A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ t
 is the pooled sample covariance matrix.
 However, Hotelling's test statistic is not defined when $p\geq n-1$.
 Moreover,~\cite{Bai1996Efiect} showed that even if $p<n-1$, Hotelling's test suffers from low power when $p$ is comparable to $n$.
-Perhaps, the main reason for the low power of Hotelling's test is that $S$ is a poor estimator of $\bSigma$ is large compared with $n$.
+Perhaps, the main reason for the low power of Hotelling's test is that $\BS$ is a poor estimator of $\bSigma$ is large compared with $n$.
 See~\cite{Chen2010A} and the references therein.
 For testing hypotheses~\eqref{problem} in high dimensional settings,  
 many test statistics are based on the estimation of  ${(\mu_1-\mu_2)}^T \BA(\mu_1-\mu_2)$ for a positive definite matrix $\BA$.~\cite{Bai1996Efiect} proposed a test based on
@@ -187,90 +187,73 @@ an unbiased estimator of $\|\mu_1-\mu_2\|^2$.
 where
 $\BS_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^T
 $, $k=1,2$.
-As an estimator of $\|\mu_1-\mu_2\|^2$, $T_{CQ}$ is unbiased even if the covariances of two samples are different,
-while $T_{BS}$ is unbiased only when the covariances are the same or $n_1=n_2$.
+As an estimator of $\|\mu_1-\mu_2\|^2$, $T_{CQ}$ is unbiased even if the covariances of the two populations are different.
+In contrast, $T_{BS}$ is unbiased only when the covariances are the same or $n_1=n_2$.
 \cite{Srivastava2008A} proposed a test based on
 \begin{equation*}
     T_{SD}={(\bar{X}_1-\bar{X}_2)}^T {[\mathrm{diag}(\BS)]}^{-1}(\bar{X}_1-\bar{X}_2),
 \end{equation*}
 where $\textrm{diag} (\BS)$ is a diagonal matrix with the same diagonal elements as $\BS$'s.
-%To characterize strong correlation between variables,~\cite{Ma2015A} adopted a factor model proposed a test based on
-%\begin{equation}\label{compete2}
- %    T_{FAST}=\frac{n_1 n_2}{n_1+n_2}\|\bar{X}_1-\bar{X}_2\|^2-(\mathrm{tr} S- \sum_{i=1}^{\hat{r}} \lambda_l(S))
-%\end{equation}
 
-As~\cite{Ma2015A} pointed out, however, the asymptotic properties of these test procedures may not be valid if strong correlations exist. For example, the condition 
-%$$
-%\mathrm{tr}(\bSigma_i \bSigma_j \bSigma_l \bSigma_h)=o[\mathrm{tr}^2\{{(\bSigma_1+\bSigma_2)}^2\}]\quad\quad  \textrm{for}\, i,j,l,h=1\,\textrm{or}\,2
-%$$ 
+In practice, it is often the case that the variables are strongly correlated.
+See, for example,~\cite{Chen2011A},~\cite{Thulin2014A} and~\cite{Ma2015A}.
+%For example, in gene expression analysis, genes are correlated due to genetic regulatory networks \citep{Thulin2014A}.
+%In terms of pathway analysis in proteomic studies,  test level can not be guaranteed if correlations are incorrectly assumed to be absent~\citep{Chen2011A}.
+ %As~\cite{Ma2015A} argued, there're strong correlations between different stock returns since they are all affected by the market index.
+As noted by~\cite{Ma2015A}, however, the tests of~\cite{Bai1996Efiect},~\cite{Srivastava2008A} and~\cite{Chen2010A} may not be valid when there are strong correlations between the variables.
+For example, the condition 
 \begin{equation}\label{chenscondition}
     \mathrm{tr}(\bSigma^4)=o\big(\mathrm{tr}^2(\bSigma^2)\big)
 \end{equation}
-adopted by~\cite{Chen2010A} is violated when $\bSigma$ has a uniform correlation structure, that is, $\bSigma=(1-\rho)\BI_p+\rho\textbf{1}_p \textbf{1}_p^T$ where $0<\rho<1$, $\BI_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector  with elements $1$.
+imposed by~\cite{Chen2010A} is violated when $\bSigma$ has a uniform correlation structure.
+More precisely, suppose
+$\bSigma=(1-\rho)\BI_p+\rho\textbf{1}_p \textbf{1}_p^T$ where $0<\rho<1$, $\BI_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector with all the elements equal to one.
 In this case, $\bSigma$ has eigenvalues $1+\rho(p-1) $ and $1-\rho$ with multiplicities $1$ and $p-1$ respectively. Then~\eqref{chenscondition} is violated since 
+as $p\to \infty$, we have
 $$
-\frac{\mytr (\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\big(1+\rho(p-1)\big)^4 + (1-\rho)^4 (p-1)}{\big[ \big(1+\rho(p-1)\big)^2+(1-\rho)^2 (p-1) \big]^2}\to 1
+\frac{\mytr (\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\big(1+\rho(p-1)\big)^4 + (1-\rho)^4 (p-1)}{\big[ \big(1+\rho(p-1)\big)^2+(1-\rho)^2 (p-1) \big]^2}\to 1.
 $$
-as $p\to \infty$.
-  Under the uniform correlation structure, the leading eigenvalue of $\bSigma$ is significantly larger than the rest of eigenvalues.
+%In section~\ref{sec:chen}, it will be proved that under the null hypothesis,~\eqref{chenscondition} is a necessary and sufficient condition of the asymptotic normality of $T_{CQ}$.
+
+  Note that under the uniform correlation structure, the largest eigenvalue of $\bSigma$ is significantly larger than the rest of eigenvalues.
   This is a special case of the spiked covariance model
  \begin{equation}\label{eq:introSpiked}
  \bSigma =\BV\bLambda \BV^T +\sigma^2 \BI_p,
  \end{equation}
  where $\bLambda=\mydiag(\blambda_1,\ldots,\blambda_r)$, $\blambda_1\geq \cdots\geq \blambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
  %Under spiked covariance model, the first $r$ eigenvalues of $\bSigma$ are distinguishable larger than the rest eigenvalues.
-The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies, see~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
+The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies. See~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
 The spiked covariance arises when variables are strongly correlated and the correlations are determined by a small number of factors.
+ In Section~\ref{sec:chen}, we derive the asymptotic distribution of $T_{CQ}$ under the spiked covariance model. 
+Generally, $T_{CQ}$ is asymptotically distributed as a weighted chi-squared random variable.
+In a special case, $T_{CQ}$ is asymptotically distributed as the sum of a weighted chi-squared random variable and a normal random variable. 
+We also correct the critical value of $T_{CQ}$ under the spiked covariance model.
 
-
-
-Strong correlations between variables do exist in practice. In gene expression analysis, genes are correlated due to genetic regulatory networks (see~\cite{Thulin2014A}).~\cite{Chen2011A} pointed out that in terms of pathway analysis in proteomic studies,  test level can not be guaranteed if correlations are incorrectly assumed to be absent.
- As~\cite{Ma2015A} argued, there're strong correlations between different stock returns since they are all affected by the market index.
-In section~\ref{sec:chen}, it will be seen that the asymptotic normality of $T_{CQ}$ is not valid when $\lambda_i$'s in~\eqref{eq:introSpiked} are large.
-%We find that incorrectly assuming the absence of correlation between variables will result in level inflation.
-%Hence we modify the critical value such that the resulting test procedure has correct asymptotic level under spiked covariance.
- %We derived the asymptotic distribution of $T_{CQ}$ under spiked covariance model. 
-Generally, the asymptotic distribution of $T_{CQ}$ is the distribution of a weighted sum of chi-squared random variables.
-In a special case, the asymptotic distribution is the distribution of a weighted sum of chi-squared random variables and a normal random variable. 
-
-Recently, a class of test procedures are proposed through random projection. See~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}. The idea is to project data on some random lower-dimensional subspaces. It has been shown that these
-procedures perform well under strong correlations. 
-The random projection methods imply that test procedures are improved when data are projected on certain subspaces.
-We will see that the ideal subspace is the orthogonal complement of the principal space.
-Fortunately, the principal space can be estimated consistently even in high dimensional setting by the theory of principal component analysis (PCA).
-%We find the ideal subspace is the orthogonal complement of the principal space.
-%In this case, we know from the theory of principal component analysis (PCA) that the principal space can be estimated consistently even in high dimensional setting.
-With the assumption of spiked covariance model, we propose a new test procedure through projection on the (estimated) ideal subspace.  
-The asymptotic null distribution of the test statistic is derived and asymptotic power is also given.
-%We will see that the asymptotic power function increases fast. In fact, the increasing rate is of a higher order than that of $T_{CQ}$.
-We will see that the test is more powerful than $T_{CQ}$.
-%Simulation study justifies the well-performance of the new test. Our theoretical results need the assumption $\sqrt{p}/(n_1+n_2)\to 0$. Simulation study shows that if it doesn't converge to $0$, the theorem may not be valid.
-
-%{\color{red}{To the best of our knowledge,~\cite{Ma2015A} and~\cite{2016arXiv160202491A} are the only work concerned on problem (~\eqref{problem}) when strong correlation exists.
-%\cite{Ma2015A} adopted a factor model and modified the test statistic of~\cite{Chen2010A} to guarantee the test level. But we will see that the test still suffers from low power. In an independent working paper,~\cite{2016arXiv160202491A} adopted a spiked covariance structure, and their statistic is similar to ours. The main advantage of our work is that our theorems don't need strict relationship between $p$ and $n$. And our statistic is invariant under shift.
-%}}
-
-
-%{\color{red}{A fairly recent work~\cite{2016arXiv160202491A} proposed a new test for strongly spiked eigenvalue model. The proposed a test based on an estimation of
-%\begin{equation}
-%    \begin{aligned}
-%        T_{AY}=&\frac{\sum_{i\neq j}^{n_1}X_{1i}^T\tilde{\BV}_1\tilde{\BV}_1^T X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^T\tilde{\BV}_1\tilde{\BV}_1^T X_{2j}}{n_2(n_2-1)}
-%        \\&-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^T\tilde{\BV}_1\tilde{\BV}_1^T\tilde{\BV}_2\tilde{\BV}_2^T X_{2j}}{n_1n_2}
-%    \end{aligned}
-%\end{equation}
-%which is similar to our statistic in form. However, the theory framework is different. And we will see our statistic is different from theirs in some key properties.
-%}}
+Recently, a class of test procedures are proposed through random projection.
+See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
+The idea is to project data onto some random lower-dimensional subspaces, and then perform the test using the projected data.
+It has been shown that these procedures have substantially higher power than competing tests when the variables are correlated. 
+{\color{red}
+If there is a optimal non random subspace?
+So the power of a test procedure,
+So projecting data onto certain subspaces may lead to an improvement of the test procedures.
+}
+We will see that under the spiked covariance model, the optimal subspace is the orthogonal complement of the principal subspace.
+Fortunately, the principal subspace can be estimated consistently even in the high dimensional setting by the theory of principal component analysis (PCA).
+%We find the ideal subspace is the orthogonal complement of the principal subspace.
+%In this case, we know from the theory of principal component analysis (PCA) that the principal subspace can be estimated consistently even in high dimensional setting.
+With the assumption of the spiked covariance model~\eqref{eq:introSpiked}, we propose a new test procedure through projection on the (estimated) orthogonal complement of the principal subspace.  
+The asymptotic null distribution of our test statistic is derived and the asymptotic power is also given.
+We will see that our test is more powerful than $T_{CQ}$.
+%Simulation study justifies the well-performance of the new test. 
 
 
 
 
-The rest of the paper is organized as follows. In Section 2,  we revisit~\cite{Chen2010A}'s test.  In Section 3, we propose a test procedure and exploit properties of the test.  In Section 4, simulations are carried out and  a real data example is given. Section 5 contains some discussion. All the technical details are in appendix.
+The rest of the paper is organized as follows. In Section 2,  we revisit~\cite{Chen2010A}'s test.  In Section 3, we propose a test procedure and exploit properties of the test.  In Section 4, simulations are carried out and  a real data example is given. Section 5 contains some discussion. The technical proofs are presented in Appendix.
 
 \section{Asymptotic properties of~\cite{Chen2010A}'s test}\label{sec:chen}
-%\textcolor{red}{Consider testing hypotheses~\eqref{problem} under covariance matrix~\eqref{eq:introSpiked}.}
-    %Let $X_{k,1},\ldots, X_{k, n_k}$  be i.i.d.\ observations with common distribution $N(\mu_k,\bSigma)$, $k=1,2$.
     Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to c \in (0,+\infty)$, that is, we consider high dimensional and balanced data.
-
 
 
     In~\cite{Chen2010A}, the asymptotic normality of $T_{CQ}$ is derived under the condition~\eqref{chenscondition}.
@@ -377,10 +360,10 @@ This covariance structure is also connected with the factor model.
 In fact, the model in Assumption~\ref{theModel} with $\beta=1$
 corresponds to the factor model in~\cite{Ma2015A} with homoscedastic noise.
 
-In Assumption~\ref{theModel}, the column space of $\BV$ is the eigenspace of $\bSigma$ associated with the $r$ leading eigenvalues, and is therefore called principal space. Since $\BV$ is a column orthogonal matrix, $\BV \BV^T$ is the orthogonal projection onto the principal space.
+In Assumption~\ref{theModel}, the column space of $\BV$ is the eigenspace of $\bSigma$ associated with the $r$ leading eigenvalues, and is therefore called principal subspace. Since $\BV$ is a column orthogonal matrix, $\BV \BV^T$ is the orthogonal projection onto the principal subspace.
 Let $\tilde{\BV}$ be a member of $\mathbb{O}_{p\times (p-r)}$ such that the columns of $\tilde{\BV}$ are orthogonal to the columns of  $\BV$.
 %, that is $\tilde{\BV}_k^T \BV_k=\BO_{r_k\times(p-r_k )}$
- Although such $\tilde{\BV}$ is not unique, the orthogonal projection  $\tilde{\BV}\tilde{\BV}^T=\BI_p-\BV \BV^T$ is unique and is equal to the orthogonal projection onto the orthogonal complement of principal space.
+ Although such $\tilde{\BV}$ is not unique, the orthogonal projection  $\tilde{\BV}\tilde{\BV}^T=\BI_p-\BV \BV^T$ is unique and is equal to the orthogonal projection onto the orthogonal complement of the principal subspace.
 
 
 For positive sequences $\{a_n\}$ and $\{b_n\}$, we write $a_n\asymp b_n$ to denote $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
@@ -500,7 +483,7 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
     \to \sum_{i=1}^r \zeta_i^2+ \zeta^*.
     \end{aligned}
     $$
-    Thus, $\sum_{i=1}^r\zeta_i^2$ and $\zeta^*$ characterize the signal strength in the principal space and the complement of the principal space, respectively.
+    Thus, $\sum_{i=1}^r\zeta_i^2$ and $\zeta^*$ characterize the signal strength in the principal subspace and the complement of the principal subspace, respectively.
     Under the conditions of Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the following statements are equivalent:
     \begin{enumerate}[(1)]
         \item
@@ -596,7 +579,7 @@ This motivates us to propose a new test for the hypotheses~\eqref{problem} under
 %Note that $\bSigma=(1-c)\BI+c\bm{1}_p+\bm{1}_p^T$ is just a special case of spiked covariance.
 
 %In another point of view, $T_1$ is obtained by transforming $X_{k,i}$ to $\tilde{\BV}^T X_{k,i}$ ($i=1,\ldots, n_k$, $k=1,2$) and then invoking the statistic of~\cite{Chen2010A}.
-Recently, a class of test procedures have been proposed through random projection to lower dimensional space. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
+Recently, a class of test procedures have been proposed through random projection to lower dimensional subspace. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
 It is known that random projection based methods offer higher power when the variables are dependent.
 However, these test procedures are randomized, which is undesirable in practice.
 Then, is there an optimal projection which is nonrandomized?
@@ -1044,80 +1027,86 @@ Throughout the simulations, we take nominal level $\alpha=0.05$ and $r=2$.
 
 In Section~\ref{methodology}, the critical value of our test is determined by the quantile of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
 We have proved that the distribution of $Q$ is asymptotically equal to that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
-To compare these two distributions in the finite sample case,
-Figure~\ref{} displays the Q-Q plots in different settings.
-\begin{figure}
-    \centering 
-    \subfigure[Normal. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Normal. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Normal. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \\
-    \subfigure[Chi-squared. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Chi-squared. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Chi-squared. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \\
-    \subfigure[Student's $t$. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Student's $t$. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Student's $t$. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \\
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on xxx independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
-    }\label{fig:QQ}
-\end{figure}
-
+Now we use Q-Q plot to compare these two distributions in the finite sample case.
+Figure~\ref{fig:QQ} displays the Q-Q plots in different combinations of sample size and dimension.
+For $n_1=n_2=50$, $p=500$ or $800$, the right tail of $Q$ is a little heavier than the standardized Chi-squared distribution.
+Otherwise, the distribution of $Q$ can be well approximated by the standardized Chi-squared distribution.
+Figure~\ref{fig:QQ2} displays the Q-Q plots in different combinations of $F$ and $\beta$.
+It can be seen that the distribution of $Q$ is very close to that of the standardized Chi-squared distribution, even under non-normal distributions.
 
 \begin{figure}
     \centering 
     \subfigure[$n_1=n_2=50$, $p=200$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n50p200}
     }
     \subfigure[$n_1=n_2=50$, $p=500$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n50p500}
     }
     \subfigure[$n_1=n_2=50$, $p=800$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n50p800}
     }
     \\
     \subfigure[$n_1=n_2=100$, $p=200$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n100p200}
     }
     \subfigure[$n_1=n_2=100$, $p=500$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n100p500}
     }
     \subfigure[$n_1=n_2=100$, $p=800$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n100p800}
     }
     \\
     \subfigure[$n_1=n_2=150$, $p=200$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n150p200}
     }
     \subfigure[$n_1=n_2=150$, $p=500$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n150p500}
     }
     \subfigure[$n_1=n_2=150$, $p=800$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/2n150p800}
     }
     \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on xxx independently generated $Q$.
 In all cases, $F$ is normal and $\beta=1$.
+    }\label{fig:QQ}
+\end{figure}
+
+\begin{figure}
+    \centering 
+    \subfigure[Normal. $\beta=0.5$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1normal05}
+    }
+    \subfigure[Normal. $\beta=1$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1normal1}
+    }
+    \subfigure[Normal. $\beta=2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1normal2}
+    }
+    \\
+    \subfigure[Chi-squared. $\beta=0.5$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1chiSquared05}
+    }
+    \subfigure[Chi-squared. $\beta=1$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1chiSquared1}
+    }
+    \subfigure[Chi-squared. $\beta=2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1chiSquared2}
+    }
+    \\
+    \subfigure[Student's $t$. $\beta=0.5$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1t05}
+    }
+    \subfigure[Student's $t$. $\beta=1$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1t1}
+    }
+    \subfigure[Student's $t$. $\beta=2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/qqplot/1t2}
+    }
+    \\
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on xxx independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
     }\label{fig:QQ2}
 \end{figure}
+
+
 
 
 Next, we consider the simulation of the empirical level. 
@@ -1284,43 +1273,9 @@ We take $\mu_1=\mathbf{0}_p$.
 The orientation of $\mu_2$ is from the uniform distribution on the unit sphere.
 The norm of $\mu_2$ is selected to make SNR equal to specific values.
 Samples are repeatedly generated $2000$ times to calculate empirical power.
-The simulation results are illustrated in figure~\ref{fig:fig1}.
+The simulation results are illustrated in Figure~\ref{fig:fig1}.
 From the results, we can find that when $\bSigma$ is spiked, the new test outperforms $T_{CQ}$ substantially; when $\bSigma$ is not spiked, all three tests have similar performance.
-\begin{figure}
-    \centering 
-    \subfigure[Normal. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Normal. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Normal. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \\
-    \subfigure[Chi-squared. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Chi-squared. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Chi-squared. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \\
-    \subfigure[Student's $t$. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Student's $t$. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \subfigure[Student's $t$. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
-    }
-    \\
-    \caption{Empirical power simulation. In all cases, $n_1=n_2=100$ and $p=500$.
-    }\label{fig:Power}
-\end{figure}
+
 
 \begin{figure}
     \centering 
@@ -1353,8 +1308,44 @@ From the results, we can find that when $\bSigma$ is spiked, the new test outper
     \subfigure[$n_1=n_2=150$, $p=800$.]{
         \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
     }
-    \caption{Empirical power simulation. In all cases, $F$ is normal and $\beta=1$.}\label{fig:Power2}
+    \caption{Empirical power simulation. In all cases, $F$ is normal and $\beta=1$.}\label{fig:Power}
 \end{figure}
+
+\begin{figure}
+    \centering 
+    \subfigure[Normal. $\beta=0.5$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \subfigure[Normal. $\beta=1$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \subfigure[Normal. $\beta=2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \\
+    \subfigure[Chi-squared. $\beta=0.5$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \subfigure[Chi-squared. $\beta=1$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \subfigure[Chi-squared. $\beta=2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \\
+    \subfigure[Student's $t$. $\beta=0.5$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \subfigure[Student's $t$. $\beta=1$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \subfigure[Student's $t$. $\beta=2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    }
+    \\
+    \caption{Empirical power simulation. In all cases, $n_1=n_2=100$ and $p=500$.}\label{fig:Power2}
+\end{figure}
+
 
 %Permutation method is computation expensive. So when $p$ and $n$ are large, we simulate empirical power by asymptotic distribution. The results are illustrated in figure~\eqref{fig:fig3}.
 
@@ -1406,7 +1397,7 @@ Our work partially explains why their test performs well although the projection
 
  Spiked covariance is an important correlation pattern and has been widely studied in terms of PCA\@.
  In PCA, authors focus on the principal subspace.
- However, in some circumstances, as our work have shown, the complement of principal subspace is more useful. 
+ However, in some circumstances, as our work have shown, the complement of the principal subspace is more useful. 
 
 In our paper, we have assumed $r$ is known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
 \begin{equation}\label{estimateR}
@@ -2183,7 +2174,7 @@ $\|\tilde{\BV}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2\sim \sigma^
 
 
 
-% proof of space estimation theorem
+% proof of subspace estimation theorem
 \begin{proof}[\textbf{Proof of Theorem~\ref{myPanpan}}]
     Proposition~\ref{varianceEstimation} implies that $\hat{\sigma}_{*}^2\xrightarrow{P} \sigma^2$ and $\hat{\blambda_i}/\blambda_i\xrightarrow{P} 1$.
     Hence
