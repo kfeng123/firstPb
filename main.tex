@@ -233,18 +233,12 @@ Recently, a class of test procedures are proposed through random projection.
 See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
 The idea is to project data onto some random lower-dimensional subspaces, and then perform the test using the projected data.
 It has been shown that these procedures have substantially higher power than competing tests when the variables are correlated. 
-{\color{red}
-If there is a optimal non random subspace?
-So the power of a test procedure,
-So projecting data onto certain subspaces may lead to an improvement of the test procedures.
-}
-We will see that under the spiked covariance model, the optimal subspace is the orthogonal complement of the principal subspace.
-Fortunately, the principal subspace can be estimated consistently even in the high dimensional setting by the theory of principal component analysis (PCA).
-%We find the ideal subspace is the orthogonal complement of the principal subspace.
-%In this case, we know from the theory of principal component analysis (PCA) that the principal subspace can be estimated consistently even in high dimensional setting.
-With the assumption of the spiked covariance model~\eqref{eq:introSpiked}, we propose a new test procedure through projection on the (estimated) orthogonal complement of the principal subspace.  
-The asymptotic null distribution of our test statistic is derived and the asymptotic power is also given.
-We will see that our test is more powerful than $T_{CQ}$.
+This suggests that projecting data onto certain subspaces may lead to an improvement of the test procedures.
+Instead of using randomly chosen subspaces, we would like to find the optimal subspace.
+In Section~\ref{methodology}, we will see that under the spiked covariance model, the optimal subspace is the orthogonal complement of the principal subspace.
+Motivated by this, we propose a new test procedure through projection onto the (estimated) orthogonal complement of the principal subspace.  
+The asymptotic null distribution of our test statistic is derived and the asymptotic power function is also given.
+Our analysis and simulations show that our test has very attractive power performance under the spiked covariance model.
 %Simulation study justifies the well-performance of the new test. 
 
 
@@ -260,7 +254,7 @@ The rest of the paper is organized as follows. In Section 2,  we revisit~\cite{C
     We shall show that under the null hypothesis, the condition~\eqref{chenscondition} is essential for the asymptotic normality of $T_{CQ}$.
 We note that under the null hypothesis, $T_{CQ}$ is a quadratic form of a standard normal random vector.
 To see this,
-let $Z_{k,i}=\bSigma^{-1/2}X_{k,i}$, $k=1,2$, $i=1,\ldots,n_k$.
+let $Z_{k,i}=\bSigma^{-1/2}X_{k,i}$, $i=1,\ldots,n_k$, $k=1,2$.
 It can be seen that $Z_{k,i}$ is $ N_p(0,\BI_{p})$ distributed under the null hypothesis.
 Write $Z=(Z_{1,1}^T,\ldots,Z_{1,n_1}^T,Z_{2,1}^T,\ldots,Z_{2,n_2}^T)^T$.
     Then 
