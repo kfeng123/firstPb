@@ -220,7 +220,7 @@ $$
  \begin{equation}\label{eq:introSpiked}
  \bSigma =\BV\bLambda \BV^T +\sigma^2 \BI_p,
  \end{equation}
- where $\bLambda=\mydiag(\blambda_1,\ldots,\blambda_r)$, $\blambda_1\geq \cdots\geq \blambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ orthonormal matrix and $\sigma^2>0$.
+ where $\bLambda=\mydiag(\blambda_1,\ldots,\blambda_r)$, $\blambda_1\geq \cdots\geq \blambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ matrix with orthonormal columns and $\sigma^2>0$.
  %Under spiked covariance model, the first $r$ eigenvalues of $\bSigma$ are distinguishable larger than the rest eigenvalues.
 The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies. See~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
 The spiked covariance arises when variables are strongly correlated and the correlations are determined by a small number of factors.
@@ -334,8 +334,8 @@ Then Lemma~\ref{quadraticFormCLT} implies that under the null hypothesis, the co
     The above result implies that~\cite{Chen2010A}'s test procedure can be used only when the eigenvalues of $\bSigma$ are concentrated around their average. 
    In a class of applications, however, the correlations between variables are mainly driven by several common factors, and consequently, $\bSigma$ has a few eigenvalues which are much larger than the others.
     See, for example,~\cite{Jung2009PCA},~\cite{Cai2012Sparse} and~\cite{Fan2015Asymptotics}.
-To characterize such correlations between variables, we consider the  spiked covariance structure~\eqref{eq:introSpiked}.
-For $p\geq q$, let $\mathbb{O}_{p\times q}$ denote the collection of all $p\times q$ column orthogonal matrices.
+To characterize such correlations between variables, we consider the  spiked covariance model~\eqref{eq:introSpiked}.
+For $p\geq q$, let $\mathbb{O}_{p\times q}$ denote the collection of $p\times q$ matrices with orthonormal columns.
 We make the following assumption for the covariance matrix $\bSigma$.
 \begin{assumption}\label{theModel}
     The covariance matrix $\bSigma$ has structure $ \bSigma=\BV\bLambda \BV^T+\sigma^2 \BI_p$, where $\BV\in\mathbb{O}_{p\times r}$, $r$ is a known number and $\bLambda=\mydiag(\blambda_{1},\ldots,\blambda_{r})$, 
@@ -354,7 +354,7 @@ This covariance structure is also connected with the factor model.
 In fact, the model in Assumption~\ref{theModel} with $\beta=1$
 corresponds to the factor model in~\cite{Ma2015A} with homoscedastic noise.
 
-In Assumption~\ref{theModel}, the column space of $\BV$ is the eigenspace of $\bSigma$ associated with the $r$ leading eigenvalues, and is therefore called principal subspace. Since $\BV$ is a column orthogonal matrix, $\BV \BV^T$ is the orthogonal projection onto the principal subspace.
+In Assumption~\ref{theModel}, the column space of $\BV$ is exactly the eigenspace of $\bSigma$ associated with the $r$ leading eigenvalues, and is therefore called principal subspace. Since the columns of $\BV$ are orthonormal, $\BV \BV^T$ is the orthogonal projection onto the principal subspace.
 Let $\tilde{\BV}$ be a member of $\mathbb{O}_{p\times (p-r)}$ such that the columns of $\tilde{\BV}$ are orthogonal to the columns of  $\BV$.
 %, that is $\tilde{\BV}_k^T \BV_k=\BO_{r_k\times(p-r_k )}$
  Although such $\tilde{\BV}$ is not unique, the orthogonal projection  $\tilde{\BV}\tilde{\BV}^T=\BI_p-\BV \BV^T$ is unique and is equal to the orthogonal projection onto the orthogonal complement of the principal subspace.
@@ -505,12 +505,12 @@ W=
         $, 
 where $Z_0,Z_1,\ldots,Z_r$ are i.i.d.\ $N(0,1)$ random variables.
 Let $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ be the cumulative distribution function of $W$.
-Under the conditions of Theorem~\ref{Chenstheory1}, we have
+Under the conditions of Theorem~\ref{Chenstheory1} ($\beta=1/2$), we have
 $$
 \frac{W}{p^{\beta}}\xrightarrow{w}
 \sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
 $$
-Under the conditions of Theorem~\ref{Chenstheory2}, we have
+Under the conditions of Theorem~\ref{Chenstheory2} ($\beta>1/2$), we have
 $$
 \frac{W}{p^{\beta}}\xrightarrow{w}
 \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
@@ -520,75 +520,50 @@ $$
 \sup_{x\in\mathbb{R}}\big|\Pr\big(\frac{1}{\tau}T_{CQ}\leq x\big)-\Pr\big(W\leq x\big)\big|
 =o(1).
 $$
-Thus, if we reject the null hypothesis when
+Thus, the test that rejects the null hypothesis if
 $$
 \frac{1}{\tau}T_{CQ}>
-F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2),
+F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)
 $$
-then the resulting test is asymptotically level $\alpha$ for $\beta\geq 1/2$.
+is asymptotically level $\alpha$.
         However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
 In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to estimate $\blambda_1,\ldots,\blambda_r$ and $\sigma^2$.
 In section~\ref{methodology}, we will give their estimators $\hat{\blambda}_1,\ldots,\hat{\blambda}_r$ and $\hat{\sigma}_{*}^2$. 
 Proposition~\ref{varianceEstimation} asserts that these estimators are ratio consistent. 
-Now we propose a corrected $T_{CQ}$ test procedure which reject the null hypothesis with $\alpha$ level of significance if
+Now we propose a corrected $T_{CQ}$ test which rejects the null hypothesis with $\alpha$ level of significance if
 $$
 \tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2).
 $$
-Then under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test procedure is  asymptotically level $\alpha$.
+Then under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test is asymptotically level $\alpha$.
 
 As we have seen in Remark~\ref{remark1}, for the corrected $T_{CQ}$ test, the separation boundary between the testable and non-testable regions  is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
-Then as $\beta$ increases, the corrected $T_{CQ}$ test procedure becomes less powerful.
-This implies that the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
-
-%Theorems~\ref{Chenstheory1} and~\ref{Chenstheory2} imply that $T_{CQ}$ has trivial asymptotic power if $\zeta_1=\cdots=\zeta_r=\zeta^*=0$, which is equivalent to $\sum_{i=1}^r \zeta_i^2 +\zeta^*=0$, or equivalently,
-%$$
-%\frac{1}{\tau p^\beta}\|\mu_1-\mu_2\|^2\to 0.
-%$$
-%Conversely, to make $T_{CQ}$ have non-trivial power, $\|\mu_1-\mu_2\|^2$ is at least of order $\tau p^\beta$.
-
-
+Then as $\beta$ increases, the corrected $T_{CQ}$ test becomes less powerful.
+That is to say, the power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
 
 
 \section{A projection test}\label{methodology}
 
 
-In Section~\ref{sec:chen}, we adjusted the critical value of $T_{CQ}$ such that the corrected $T_{CQ}$ test procedure is asymptotically level $\alpha$ under Assumption~\ref{theModel}.
-However, % as we discussed at the end of Section~\ref{sec:chen},
-the power of the corrected $T_{CQ}$ test procedure is negatively affected by the large eigenvalues of $\bSigma$.
-%To this end,~\cite{Ma2015A} proposed a test procedure which is based on $T_{CQ}$ and has the correct asymptotic test level.
-%In their paper, $\bSigma$'s first few eigenvalues are assumed to be of order $p$.
+In Section~\ref{sec:chen}, we proposed a corrected $T_{CQ}$ test procedure which is asymptotically level $\alpha$ under Assumption~\ref{theModel}.
+However, the power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
 This motivates us to propose a new test for the hypotheses~\eqref{problem} under Assumption~\ref{theModel}.
 
-%The argument is also supported by the likelihood ratio test. If $\bSigma$ is known, the LRT is based on 
-%\begin{equation}\label{qifafa}
-    %{(\bar{X}_1-\bar{X}_2)}^T\bSigma^{-1}(\bar{X}_1-\bar{X}_2)=\frac{n_1 n_2}{n_1+n_2}\sum_{i=1}^p \lambda_i^{-1}{(\bar{X}_1-\bar{X}_2)}^T  p_i p_i^T (\bar{X}_1-\bar{X}_2).
-%\end{equation}
-%The difference between~\eqref{qifa} and~\eqref{qifafa} is the weights $\lambda_i^{-1}$.
-%% For LRT, large $\lambda_i$'s corresponds to small weights in the sum.
-%%If $\lambda_i$ is large, then the corresponding term has a small weight $\lambda_i^{-1}$ in the sum. 
-%Unfortunately, $\lambda_i$'s are hard to precisely estimate in high dimensional setting. See~\cite{bai2010spectral} for detail. Nevertheless, it's possible to identify which $\lambda_i$'s are large. LRT implies the corresponding terms should have small weights, which coincides with our previous idea.
-%If we assume there are correlations between $p$ variables, e.g. $\bSigma=(1-c)I+c\bm{1}_p \bm{1}_p^T$ where c is a constant fulfill $-\frac{1}{p-1}<c<1$, then $\frac{n_1 n_2}{n_1+n_2} {(\bar{X}_1-\bar{X}_2)}^T  p_1 p_1^T (\bar{X}_1-\bar{X}_2)$ distributed as $(cp+1-c)\chi^2_1$ whose variance is of order $p^2$ while $\frac{n_1 n_2}{n_1+n_2}\sum_{i=2}^p {(\bar{X}_1-\bar{X}_2)}^T  p_i p_i^T (\bar{X}_1-\bar{X}_2)$ is distributed as $(1-c)\chi^2_{p-1}$ whose variance is of order $p$. 
-%The large variance is totally caused by term $p\chi^2_1$. 
-%If we remove $\frac{n_1 n_2}{n_1+n_2} {(\bar{X}_1-\bar{X}_2)}^T  p_1 p_1^T (\bar{X}_1-\bar{X}_2)$ from $T_{BS}$, the variance of $T_{BS}$ can be significantly reduced to order $p$ from order $p^2$.
-%Note that $\bSigma=(1-c)\BI+c\bm{1}_p+\bm{1}_p^T$ is just a special case of spiked covariance.
-
-%In another point of view, $T_1$ is obtained by transforming $X_{k,i}$ to $\tilde{\BV}^T X_{k,i}$ ($i=1,\ldots, n_k$, $k=1,2$) and then invoking the statistic of~\cite{Chen2010A}.
-Recently, a class of test procedures have been proposed through random projection to lower dimensional subspace. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
+Recently, a class of test procedures have been proposed through random projection onto lower dimensional subspace. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
 It is known that random projection based methods offer higher power when the variables are dependent.
 However, these test procedures are randomized, which is undesirable in practice.
 Then, is there an optimal projection which is nonrandomized?
 
-For $\BO\in \mathbb{O}_{p\times k}$ ($k\leq p$), define statistic
+For $\BO\in \mathbb{O}_{p\times k}$ ($1\leq k\leq p$), let
 $$
     T(\BO)=\|\BO^T(\bar{X}_1-\bar{X}_2)\|^2-\frac{1}{n_1}\mytr(\BO^T \BS_1\BO)-\frac{1}{n_2}\mytr(\BO^T \BS_2\BO).
 $$
 Then $T(\BO)$ is~\cite{Chen2010A}'s statistic on the transformed data $\BO^T X_{k,i}$.
 %We would like to obtain an $\BO$ such that the associated $T(\BO)$ is most powerful.
-Denote by $\Phi(\cdot)$ the cumulative distribution function of the standard normal random variable.
 Under the condition~\eqref{chenscondition},~\cite{Chen2010A} proved that the asymptotic power of $T_{CQ}$ under the local alternative is
 $$
-\Phi\Bigg(\Phi^{-1}(\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mytr(\bSigma^2)}}\Bigg).
+\Phi\Bigg(\Phi^{-1}(\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mytr(\bSigma^2)}}\Bigg),
 $$
+where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal random variable.
 Hence the power of $T_{CQ}$ is largely impacted by $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
 Consequently, $\|\BO^T (\mu_1-\mu_2)\|^2/\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}$ measures the power of $T(\BO)$.
 To consider an average-case scenario, like~\cite{Lopes2015A}, we temporarily place a prior on $\mu_1-\mu_2$ and assume that $\mu_1-\mu_2$ is from the uniform distribution on the unit sphere.
@@ -597,9 +572,10 @@ In this case, an average SNR can be defined as
 \myE \Bigg( \frac{\|\BO^T (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}\Bigg)
 =  \frac{k/p}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}.
 \end{equation}
-It can be expected that the $T(\BO)$ maximizing the average SNR has the best average power behavior among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$.
+The $T(\BO)$ that maximizes the average SNR can be expected to have the best average power behavior among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$.
+%We would like to find the optimal $T(\BO)$ among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$ by maximizing the average SNR.
 
-Note that for fixed $k$,~\eqref{touteng} is maximized when the columns of $\BO$ are equal to the last $k$ eigenvectors of $\bSigma$.
+To maximize~\eqref{touteng}, note that for fixed $k$,~\eqref{touteng} is maximized when the columns of $\BO$ are equal to the last $k$ eigenvectors of $\bSigma$.
 Thus, it remains to maximize
 \begin{equation}\label{touteng2}
 \frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2 (\bSigma)}}
@@ -609,18 +585,18 @@ If $k\leq p-r$,~\eqref{touteng2} is equal to $\sqrt{k}/(\sqrt{2} \sigma^2 \tau p
 If $k> p-r$, we have
 \begin{equation*}
     \begin{aligned}
-        &\frac{k/p}{\sqrt{2\tau^2(\sum_{i=p-k+1}^r \lambda_i^2(\bSigma)+k\sigma^4)}}
+        &\frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2(\bSigma)}}
         \leq
-        \frac{1}{\sqrt{2\tau^2(\kappa^{-2}p^{2\beta}+(p-r)\sigma^4)}}\\
+        \frac{1}{\sqrt{2\tau^2\big(\kappa^{-2}p^{2\beta}+(p-r)\sigma^4\big)}}\\
         =&
         \frac{p/(p-r)}{\sqrt{\kappa^{-2}p^{2\beta}/((p-r)\sigma^4)+1}}
 \frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}}.
     \end{aligned}
 \end{equation*}
-Hence for sufficiently large $p$, we have
+Hence for sufficiently large $p$ and all $k>p-r$, we have
 \begin{equation*}
     \begin{aligned}
-        \frac{k/p}{\sqrt{2\tau^2(\sum_{i=p-k+1}^r \lambda_i^2(\bSigma)+k\sigma^4)}}
+        \frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2(\bSigma)}}
         <
 \frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}},
     \end{aligned}
@@ -763,7 +739,7 @@ $$
 \Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
 $$
 In their paper, $\blambda_i$'s are fixed and known.
-This is different from our model where $\blambda_i$'s are divergent and unknown.
+    This is different from Assumption~\ref{theModel} where $\blambda_i$'s are divergent and unknown.
 Under Assumption~\ref{theModel}, we have
 $$
 \Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2
@@ -773,7 +749,7 @@ $$
     \hat{\sigma}_*^2
     +O_P(\frac{1}{n^2})+O_P(\frac{1}{np^{\beta}}).
 $$
-So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2$ is minor in our model.
+    So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2$ is minor under Assumption~\ref{theModel}.
 \end{remark}
 \begin{remark}
     Recently,~\cite{Fan2015Asymptotics} proposed an estimator of
@@ -793,7 +769,7 @@ So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2
 \asymp
         \max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big).
     $$
-    In this case,~\cite{Fan2015Asymptotics}'s estimator and our estimator have the same convergence rate, although the estimands are slightly different.
+    In this case,~\cite{Fan2015Asymptotics}'s estimator and $\hat{\blambda}_i$ have the same convergence rate, although the estimands are slightly different.
     Compared with~\cite{Fan2015Asymptotics}'s result, Proposition~\ref{varianceEstimation} doesn't need the conditions $p>n-2$ and $p=O(n\blambda_r)$.
 \end{remark}
 
@@ -821,6 +797,7 @@ $$
 \begin{aligned}
     &\myVar\big(
 \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2
+\big| \BS
 \big)
     =2\tau^2\big(
 \mytr(\hat{\tilde{\BV}}^T \BV \bLambda \BV^T\hat{\tilde{\BV}})^2
@@ -831,11 +808,11 @@ $$
 \\
     =&
     2\tau^2\Big(
-    \sum_{l=1}^r \big(1-\sum_{i=1}^r (\hat{v}_l^T v_i)^2\big)^2 \blambda_i^2
+    \sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2\big)^2 \blambda_i^2
     +2\sum_{1\leq i<j \leq r}\big(\sum_{l=1}^r (\hat{v}_l^T v_i)(\hat{v}_l^T v_j )\big)^2\blambda_i\blambda_j
     \\
     &+
-    2\sigma^2\sum_{l=1}^r \big(1-\sum_{i=1}^r (\hat{v}_l^T v_i)^2\big) \blambda_i
+    2\sigma^2\sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2\big) \blambda_i
     +\sigma^4 (p-r)
     \Big)
     \\
@@ -848,6 +825,7 @@ $$
     \Big).
 \end{aligned}
 $$
+Hence we define the standardized statistic
 $$
     \begin{aligned}
         Q=&T_2/
@@ -857,7 +835,7 @@ $$
     +
         2\sigma^2\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i
         +\hat{\sigma}_*^4 (p-r)
-    \Big)\Bigg)^{1/2}\\
+    \Big)\Bigg)^{1/2}.
     \end{aligned}
 $$
 In view of Proposition~\ref{oracleTheorem}, we reject the null hypothesis if
@@ -881,13 +859,14 @@ The asymptotic normality of $T_2$ is closely related to the convergence rate of 
     Lemma~\ref{conRateLemma} in Appendix~\ref{appendixB} and the equality $\|\hat{\BV}\hat{\BV}^T -\BV \BV^T\|=\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|$ imply that 
     $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|=O_P(p/(p^{\beta}n))$.
     Hence $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ can consistently estimate $\tilde{\BV}\tilde{\BV}^T$ only if $p/(p^{\beta}n)\to 0$.
-    Moreover,~\cite{Cai2012Sparse}'s Theorem $5$ implies that no other estimator has faster convergence rate than $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$.
-    The asymptotic normality of $T_2$ requires the condition
+    Moreover,~\cite{Cai2012Sparse}'s Theorem $5$ implies that no other estimator has faster convergence rate than $O_P(p/(p^{\beta}n))$.
+    On the other hand, the asymptotic normality of $T_2$ requires the condition
     $$
-    p^{-1}\big(p^{\beta}\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2+1\big)^2\xrightarrow{P} 0.
+    p^{-1}\big(p^{\beta}\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2+1\big)^2\xrightarrow{P} 0,
     $$
-    This is equivalent to $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2=o_P(\sqrt{p}/p^{\beta})$.
-    Hence in Theorem~\ref{myPanpan} we assume $p/n^2\to 0$.
+    which is equivalent to $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2=o_P(\sqrt{p}/p^{\beta})$.
+    %That is, the convergence rate of $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ to $\tilde{\BV}\tilde{\BV}^T$ should be faster than $\sqrt{p}/p^\beta$.
+    This is why Theorem~\ref{myPanpan} needs the condition  $p/n^2\to 0$.
 The proof of Theorem~\ref{myPanpan} implies that the asymptotic normality of $T_2$ is not valid if the condition $p/n^2\to 0$ is violated.
 \end{remark}
 %\begin{remark}  Compared with~\cite{2016arXiv160202491A}'s assumption (ix) which is equivalent to assuming $\frac{p^{2\beta-1}}{n_1+n_2}\to 0$ in model~\eqref{theModel}, our assumption $\frac{\sqrt{p}}{n_1+n_2}\to 0$ doesn't involved $\beta$.
