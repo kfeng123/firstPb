@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  23 NOV 2017 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  24 NOV 2017 21:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -545,7 +545,7 @@ mate $\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ; []
  []
 
 [9]
-Overfull \hbox (22.78825pt too wide) in paragraph at lines 565--571
+Overfull \hbox (22.78825pt too wide) in paragraph at lines 565--572
 \OT1/cmr/m/n/10 dom vari-able. Hence the power of $\OML/cmm/m/it/10 T[]$ \OT1/c
 mr/m/n/10 is largely im-pacted by $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 ^^V[] \OM
 S/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^V[]\OMS/cmsy/m/n/10 k[]\OML/cmm/m/it/10 =[
@@ -553,12 +553,12 @@ S/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^V[]\OMS/cmsy/m/n/10 k[]\OML/cmm/m/it/10 =[
  []
 
 [10] [11]
-Overfull \hbox (2.91983pt too wide) detected at line 688
+Overfull \hbox (2.91983pt too wide) detected at line 689
 [] []
  []
 
 
-Overfull \hbox (48.96011pt too wide) detected at line 695
+Overfull \hbox (48.96011pt too wide) detected at line 696
 []\OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\
 OML/cmm/m/it/10 ^^O[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1 \OM
 S/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/c
@@ -569,7 +569,7 @@ mm/m/it/10 j \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 r;  [] []v[] \OT1/cmr/m/n/10
  []
 
 [12]
-Overfull \hbox (19.42026pt too wide) detected at line 751
+Overfull \hbox (19.42026pt too wide) detected at line 752
 []\OT1/cmr/m/n/10 1 + [][]\OML/cmm/m/it/10 r \OT1/cmr/m/n/10 + [] [] [][][][] =
  []1 + [][][] + \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 ([]) = [] + \OML/cmm/m/it/1
 0 O[]\OT1/cmr/m/n/10 ([]) + \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 ([])\OML/cmm/m/
@@ -577,25 +577,23 @@ it/10 :
  []
 
 [13]
-Overfull \hbox (46.43279pt too wide) detected at line 827
+Overfull \hbox (46.43279pt too wide) detected at line 828
 [] []
  []
 
 
-Overfull \hbox (52.74797pt too wide) detected at line 840
+Overfull \hbox (52.74797pt too wide) detected at line 841
 [] []
  []
 
-[14] [15] [16]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 975.
+[14] [15] [16] [17]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 980.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 975.
-
-[17]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 980.
 Package epstopdf Info: Source file: <figure/qqplot/2n50p200.eps>
 (epstopdf)                    date: 2017-11-22 03:01:14
 (epstopdf)                    size: 304329 bytes
@@ -605,7 +603,7 @@ f>
 (epstopdf)                    size: 519811 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n50p200-eps
 -converted-to.pdf figure/qqplot/2n50p200.eps>
-(epstopdf)             \includegraphics on input line 1014.
+(epstopdf)             \includegraphics on input line 1019.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n50p200-eps-converted-to.pdf, id=366, 505.89pt x 505.89pt>
@@ -613,7 +611,7 @@ File: figure/qqplot/2n50p200-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n50p200-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n50p200-eps-converted-to.pdf used on in
-put line 1014.
+put line 1019.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n50p500.eps>
 (epstopdf)                    date: 2017-11-22 03:26:47
@@ -624,7 +622,7 @@ f>
 (epstopdf)                    size: 524127 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n50p500-eps
 -converted-to.pdf figure/qqplot/2n50p500.eps>
-(epstopdf)             \includegraphics on input line 1017.
+(epstopdf)             \includegraphics on input line 1022.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n50p500-eps-converted-to.pdf, id=367, 505.89pt x 505.89pt>
@@ -632,7 +630,7 @@ File: figure/qqplot/2n50p500-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n50p500-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n50p500-eps-converted-to.pdf used on in
-put line 1017.
+put line 1022.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n50p800.eps>
 (epstopdf)                    date: 2017-11-22 04:57:05
@@ -643,7 +641,7 @@ f>
 (epstopdf)                    size: 523007 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n50p800-eps
 -converted-to.pdf figure/qqplot/2n50p800.eps>
-(epstopdf)             \includegraphics on input line 1020.
+(epstopdf)             \includegraphics on input line 1025.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n50p800-eps-converted-to.pdf, id=368, 505.89pt x 505.89pt>
@@ -651,7 +649,7 @@ File: figure/qqplot/2n50p800-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n50p800-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n50p800-eps-converted-to.pdf used on in
-put line 1020.
+put line 1025.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n100p200.eps>
 (epstopdf)                    date: 2017-11-22 05:02:21
@@ -662,7 +660,7 @@ df>
 (epstopdf)                    size: 521201 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n100p200-ep
 s-converted-to.pdf figure/qqplot/2n100p200.eps>
-(epstopdf)             \includegraphics on input line 1024.
+(epstopdf)             \includegraphics on input line 1029.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n100p200-eps-converted-to.pdf, id=369, 505.89pt x 505.89pt>
@@ -670,7 +668,7 @@ File: figure/qqplot/2n100p200-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n100p200-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n100p200-eps-converted-to.pdf used on i
-nput line 1024.
+nput line 1029.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n100p500.eps>
 (epstopdf)                    date: 2017-11-22 05:29:36
@@ -681,7 +679,7 @@ df>
 (epstopdf)                    size: 519958 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n100p500-ep
 s-converted-to.pdf figure/qqplot/2n100p500.eps>
-(epstopdf)             \includegraphics on input line 1027.
+(epstopdf)             \includegraphics on input line 1032.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n100p500-eps-converted-to.pdf, id=370, 505.89pt x 505.89pt>
@@ -689,7 +687,7 @@ File: figure/qqplot/2n100p500-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n100p500-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n100p500-eps-converted-to.pdf used on i
-nput line 1027.
+nput line 1032.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n100p800.eps>
 (epstopdf)                    date: 2017-11-22 06:53:28
@@ -700,7 +698,7 @@ df>
 (epstopdf)                    size: 519685 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n100p800-ep
 s-converted-to.pdf figure/qqplot/2n100p800.eps>
-(epstopdf)             \includegraphics on input line 1030.
+(epstopdf)             \includegraphics on input line 1035.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n100p800-eps-converted-to.pdf, id=371, 505.89pt x 505.89pt>
@@ -708,7 +706,7 @@ File: figure/qqplot/2n100p800-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n100p800-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n100p800-eps-converted-to.pdf used on i
-nput line 1030.
+nput line 1035.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n150p200.eps>
 (epstopdf)                    date: 2017-11-22 06:59:57
@@ -719,7 +717,7 @@ df>
 (epstopdf)                    size: 523794 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n150p200-ep
 s-converted-to.pdf figure/qqplot/2n150p200.eps>
-(epstopdf)             \includegraphics on input line 1034.
+(epstopdf)             \includegraphics on input line 1039.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n150p200-eps-converted-to.pdf, id=372, 505.89pt x 505.89pt>
@@ -727,7 +725,7 @@ File: figure/qqplot/2n150p200-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n150p200-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n150p200-eps-converted-to.pdf used on i
-nput line 1034.
+nput line 1039.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n150p500.eps>
 (epstopdf)                    date: 2017-11-22 07:33:56
@@ -738,7 +736,7 @@ df>
 (epstopdf)                    size: 521949 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n150p500-ep
 s-converted-to.pdf figure/qqplot/2n150p500.eps>
-(epstopdf)             \includegraphics on input line 1037.
+(epstopdf)             \includegraphics on input line 1042.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n150p500-eps-converted-to.pdf, id=373, 505.89pt x 505.89pt>
@@ -746,7 +744,7 @@ File: figure/qqplot/2n150p500-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n150p500-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n150p500-eps-converted-to.pdf used on i
-nput line 1037.
+nput line 1042.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/2n150p800.eps>
 (epstopdf)                    date: 2017-11-22 09:10:27
@@ -757,7 +755,7 @@ df>
 (epstopdf)                    size: 521921 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/2n150p800-ep
 s-converted-to.pdf figure/qqplot/2n150p800.eps>
-(epstopdf)             \includegraphics on input line 1040.
+(epstopdf)             \includegraphics on input line 1045.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/2n150p800-eps-converted-to.pdf, id=374, 505.89pt x 505.89pt>
@@ -765,7 +763,7 @@ File: figure/qqplot/2n150p800-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/2n150p800-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/2n150p800-eps-converted-to.pdf used on i
-nput line 1040.
+nput line 1045.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1normal05.eps>
 (epstopdf)                    date: 2017-11-21 22:29:26
@@ -776,7 +774,7 @@ df>
 (epstopdf)                    size: 521183 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1normal05-ep
 s-converted-to.pdf figure/qqplot/1normal05.eps>
-(epstopdf)             \includegraphics on input line 1050.
+(epstopdf)             \includegraphics on input line 1055.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1normal05-eps-converted-to.pdf, id=375, 505.89pt x 505.89pt>
@@ -784,7 +782,7 @@ File: figure/qqplot/1normal05-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1normal05-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1normal05-eps-converted-to.pdf used on i
-nput line 1050.
+nput line 1055.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1normal1.eps>
 (epstopdf)                    date: 2017-11-21 23:01:21
@@ -795,7 +793,7 @@ f>
 (epstopdf)                    size: 520327 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1normal1-eps
 -converted-to.pdf figure/qqplot/1normal1.eps>
-(epstopdf)             \includegraphics on input line 1053.
+(epstopdf)             \includegraphics on input line 1058.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1normal1-eps-converted-to.pdf, id=376, 505.89pt x 505.89pt>
@@ -803,7 +801,7 @@ File: figure/qqplot/1normal1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1normal1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1normal1-eps-converted-to.pdf used on in
-put line 1053.
+put line 1058.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1normal2.eps>
 (epstopdf)                    date: 2017-11-21 23:32:59
@@ -814,7 +812,7 @@ f>
 (epstopdf)                    size: 513469 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1normal2-eps
 -converted-to.pdf figure/qqplot/1normal2.eps>
-(epstopdf)             \includegraphics on input line 1056.
+(epstopdf)             \includegraphics on input line 1061.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1normal2-eps-converted-to.pdf, id=377, 505.89pt x 505.89pt>
@@ -822,7 +820,7 @@ File: figure/qqplot/1normal2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1normal2-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1normal2-eps-converted-to.pdf used on in
-put line 1056.
+put line 1061.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1chiSquared05.eps>
 (epstopdf)                    date: 2017-11-22 00:06:17
@@ -833,14 +831,14 @@ to.pdf>
 (epstopdf)                    size: 520910 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1chiSquared0
 5-eps-converted-to.pdf figure/qqplot/1chiSquared05.eps>
-(epstopdf)             \includegraphics on input line 1060.
+(epstopdf)             \includegraphics on input line 1065.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1chiSquared05-eps-converted-to.pdf, id=378, 505.89pt x 505.89pt>
 File: figure/qqplot/1chiSquared05-eps-converted-to.pdf Graphic file (type pdf)
 <use figure/qqplot/1chiSquared05-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1chiSquared05-eps-converted-to.pdf used 
-on input line 1060.
+on input line 1065.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1chiSquared1.eps>
 (epstopdf)                    date: 2017-11-22 00:39:34
@@ -851,7 +849,7 @@ o.pdf>
 (epstopdf)                    size: 521439 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1chiSquared1
 -eps-converted-to.pdf figure/qqplot/1chiSquared1.eps>
-(epstopdf)             \includegraphics on input line 1063.
+(epstopdf)             \includegraphics on input line 1068.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1chiSquared1-eps-converted-to.pdf, id=379, 505.89pt x 505.89pt>
@@ -859,7 +857,7 @@ File: figure/qqplot/1chiSquared1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1chiSquared1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1chiSquared1-eps-converted-to.pdf used o
-n input line 1063.
+n input line 1068.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1chiSquared2.eps>
 (epstopdf)                    date: 2017-11-22 01:13:11
@@ -870,7 +868,7 @@ o.pdf>
 (epstopdf)                    size: 523412 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1chiSquared2
 -eps-converted-to.pdf figure/qqplot/1chiSquared2.eps>
-(epstopdf)             \includegraphics on input line 1066.
+(epstopdf)             \includegraphics on input line 1071.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1chiSquared2-eps-converted-to.pdf, id=380, 505.89pt x 505.89pt>
@@ -878,7 +876,7 @@ File: figure/qqplot/1chiSquared2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1chiSquared2-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1chiSquared2-eps-converted-to.pdf used o
-n input line 1066.
+n input line 1071.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1t05.eps>
 (epstopdf)                    date: 2017-11-22 01:47:56
@@ -888,7 +886,7 @@ Package epstopdf Info: Source file: <figure/qqplot/1t05.eps>
 (epstopdf)                    size: 518863 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1t05-eps-con
 verted-to.pdf figure/qqplot/1t05.eps>
-(epstopdf)             \includegraphics on input line 1070.
+(epstopdf)             \includegraphics on input line 1075.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1t05-eps-converted-to.pdf, id=381, 505.89pt x 505.89pt>
@@ -896,7 +894,7 @@ File: figure/qqplot/1t05-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1t05-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1t05-eps-converted-to.pdf used on input 
-line 1070.
+line 1075.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1t1.eps>
 (epstopdf)                    date: 2017-11-22 02:22:51
@@ -906,7 +904,7 @@ Package epstopdf Info: Source file: <figure/qqplot/1t1.eps>
 (epstopdf)                    size: 524441 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1t1-eps-conv
 erted-to.pdf figure/qqplot/1t1.eps>
-(epstopdf)             \includegraphics on input line 1073.
+(epstopdf)             \includegraphics on input line 1078.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1t1-eps-converted-to.pdf, id=382, 505.89pt x 505.89pt>
@@ -914,7 +912,7 @@ File: figure/qqplot/1t1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1t1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1t1-eps-converted-to.pdf used on input l
-ine 1073.
+ine 1078.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 Package epstopdf Info: Source file: <figure/qqplot/1t2.eps>
 (epstopdf)                    date: 2017-11-22 02:57:39
@@ -924,7 +922,7 @@ Package epstopdf Info: Source file: <figure/qqplot/1t2.eps>
 (epstopdf)                    size: 521643 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/qqplot/1t2-eps-conv
 erted-to.pdf figure/qqplot/1t2.eps>
-(epstopdf)             \includegraphics on input line 1076.
+(epstopdf)             \includegraphics on input line 1081.
 Package epstopdf Info: Output file is already uptodate.
 
 <figure/qqplot/1t2-eps-converted-to.pdf, id=383, 505.89pt x 505.89pt>
@@ -932,38 +930,49 @@ File: figure/qqplot/1t2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/qqplot/1t2-eps-converted-to.pdf>
 Package pdftex.def Info: figure/qqplot/1t2-eps-converted-to.pdf used on input l
-ine 1076.
+ine 1081.
 (pdftex.def)             Requested size: 103.50105pt x 103.4997pt.
 
 
-LaTeX Warning: Reference `biaoge1' on page 18 undefined on input line 1087.
+LaTeX Warning: Reference `biaoge1' on page 18 undefined on input line 1092.
 
-
-Overfull \hbox (57.29597pt too wide) in paragraph at lines 1102--1142
+[18] [19 <./figure/qqplot/2n50p200-eps-converted-to.pdf> <./figure/qqplot/2n50p
+500-eps-converted-to.pdf> <./figure/qqplot/2n50p800-eps-converted-to.pdf> <./fi
+gure/qqplot/2n100p200-eps-converted-to.pdf> <./figure/qqplot/2n100p500-eps-conv
+erted-to.pdf> <./figure/qqplot/2n100p800-eps-converted-to.pdf> <./figure/qqplot
+/2n150p200-eps-converted-to.pdf> <./figure/qqplot/2n150p500-eps-converted-to.pd
+f> <./figure/qqplot/2n150p800-eps-converted-to.pdf>] [20 <./figure/qqplot/1norm
+al05-eps-converted-to.pdf> <./figure/qqplot/1normal1-eps-converted-to.pdf> <./f
+igure/qqplot/1normal2-eps-converted-to.pdf> <./figure/qqplot/1chiSquared05-eps-
+converted-to.pdf> <./figure/qqplot/1chiSquared1-eps-converted-to.pdf> <./figure
+/qqplot/1chiSquared2-eps-converted-to.pdf> <./figure/qqplot/1t05-eps-converted-
+to.pdf> <./figure/qqplot/1t1-eps-converted-to.pdf> <./figure/qqplot/1t2-eps-con
+verted-to.pdf>]
+Overfull \hbox (57.29597pt too wide) in paragraph at lines 1107--1147
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 68.16478pt on input line 1142.
+LaTeX Warning: Float too large for page by 68.16478pt on input line 1147.
 
 
-Overfull \hbox (57.29597pt too wide) in paragraph at lines 1150--1190
+Overfull \hbox (57.29597pt too wide) in paragraph at lines 1155--1195
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 68.16478pt on input line 1190.
+LaTeX Warning: Float too large for page by 68.16478pt on input line 1195.
 
 
-Overfull \hbox (57.29597pt too wide) in paragraph at lines 1197--1237
+Overfull \hbox (57.29597pt too wide) in paragraph at lines 1202--1242
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 68.16478pt on input line 1237.
+LaTeX Warning: Float too large for page by 68.16478pt on input line 1242.
 
 
-LaTeX Warning: Reference `fig:fig1' on page 18 undefined on input line 1249.
+LaTeX Warning: Reference `fig:fig1' on page 21 undefined on input line 1254.
 
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -973,14 +982,14 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1257.
+(epstopdf)             \includegraphics on input line 1262.
 Package epstopdf Info: Output file is already uptodate.
-<figure/1QQPLOT1-eps-converted-to.pdf, id=385, 570.13pt x 347.2975pt>
+<figure/1QQPLOT1-eps-converted-to.pdf, id=569, 570.13pt x 347.2975pt>
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1257.
+e 1262.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -990,13 +999,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1260.
+(epstopdf)             \includegraphics on input line 1265.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1260.
+e 1265.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1006,13 +1015,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1263.
+(epstopdf)             \includegraphics on input line 1268.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1263.
+e 1268.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1022,13 +1031,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1267.
+(epstopdf)             \includegraphics on input line 1272.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1267.
+e 1272.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1038,13 +1047,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1270.
+(epstopdf)             \includegraphics on input line 1275.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1270.
+e 1275.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1054,13 +1063,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1273.
+(epstopdf)             \includegraphics on input line 1278.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1273.
+e 1278.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1070,13 +1079,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1277.
+(epstopdf)             \includegraphics on input line 1282.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1277.
+e 1282.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1086,13 +1095,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1280.
+(epstopdf)             \includegraphics on input line 1285.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1280.
+e 1285.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1102,41 +1111,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1283.
+(epstopdf)             \includegraphics on input line 1288.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1283.
-(pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
- [18] [19 <./figure/qqplot/2n50p200-eps-converted-to.pdf> <./figure/qqplot/2n50
-p500-eps-converted-to.pdf> <./figure/qqplot/2n50p800-eps-converted-to.pdf> <./f
-igure/qqplot/2n100p200-eps-converted-to.pdf> <./figure/qqplot/2n100p500-eps-con
-verted-to.pdf> <./figure/qqplot/2n100p800-eps-converted-to.pdf> <./figure/qqplo
-t/2n150p200-eps-converted-to.pdf> <./figure/qqplot/2n150p500-eps-converted-to.p
-df> <./figure/qqplot/2n150p800-eps-converted-to.pdf>] [20 <./figure/qqplot/1nor
-mal05-eps-converted-to.pdf> <./figure/qqplot/1normal1-eps-converted-to.pdf> <./
-figure/qqplot/1normal2-eps-converted-to.pdf> <./figure/qqplot/1chiSquared05-eps
--converted-to.pdf> <./figure/qqplot/1chiSquared1-eps-converted-to.pdf> <./figur
-e/qqplot/1chiSquared2-eps-converted-to.pdf> <./figure/qqplot/1t05-eps-converted
--to.pdf> <./figure/qqplot/1t1-eps-converted-to.pdf> <./figure/qqplot/1t2-eps-co
-nverted-to.pdf>]
-Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
-(epstopdf)                    date: 2017-11-09 17:53:46
-(epstopdf)                    size: 162438 bytes
-(epstopdf)             Output file: <figure/1QQPLOT1-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-11-21 11:08:17
-(epstopdf)                    size: 287987 bytes
-(epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
-ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1291.
-Package epstopdf Info: Output file is already uptodate.
-File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
-
-<use figure/1QQPLOT1-eps-converted-to.pdf>
-Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1291.
+e 1288.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1146,13 +1127,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1294.
+(epstopdf)             \includegraphics on input line 1296.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1294.
+e 1296.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1162,13 +1143,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1297.
+(epstopdf)             \includegraphics on input line 1299.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1297.
+e 1299.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1178,13 +1159,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1301.
+(epstopdf)             \includegraphics on input line 1302.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1301.
+e 1302.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1194,13 +1175,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1304.
+(epstopdf)             \includegraphics on input line 1306.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1304.
+e 1306.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1210,13 +1191,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1307.
+(epstopdf)             \includegraphics on input line 1309.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1307.
+e 1309.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1226,13 +1207,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1311.
+(epstopdf)             \includegraphics on input line 1312.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1311.
+e 1312.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1242,13 +1223,13 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1314.
+(epstopdf)             \includegraphics on input line 1316.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1314.
+e 1316.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
 Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    date: 2017-11-09 17:53:46
@@ -1258,43 +1239,59 @@ Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
 (epstopdf)                    size: 287987 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
 ted-to.pdf figure/1QQPLOT1.eps>
-(epstopdf)             \includegraphics on input line 1317.
+(epstopdf)             \includegraphics on input line 1319.
 Package epstopdf Info: Output file is already uptodate.
 File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/1QQPLOT1-eps-converted-to.pdf>
 Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
-e 1317.
+e 1319.
 (pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
- [21 <./figure/1QQPLOT1-eps-converted-to.pdf>] [22] [23]
-Overfull \hbox (67.08179pt too wide) detected at line 1451
+Package epstopdf Info: Source file: <figure/1QQPLOT1.eps>
+(epstopdf)                    date: 2017-11-09 17:53:46
+(epstopdf)                    size: 162438 bytes
+(epstopdf)             Output file: <figure/1QQPLOT1-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-11-21 11:08:17
+(epstopdf)                    size: 287987 bytes
+(epstopdf)             Command: <repstopdf --outfile=figure/1QQPLOT1-eps-conver
+ted-to.pdf figure/1QQPLOT1.eps>
+(epstopdf)             \includegraphics on input line 1322.
+Package epstopdf Info: Output file is already uptodate.
+File: figure/1QQPLOT1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figure/1QQPLOT1-eps-converted-to.pdf>
+Package pdftex.def Info: figure/1QQPLOT1-eps-converted-to.pdf used on input lin
+e 1322.
+(pdftex.def)             Requested size: 103.50105pt x 63.04608pt.
+ [21 <./figure/1QQPLOT1-eps-converted-to.pdf>] [22] [23] [24]
+Overfull \hbox (67.08179pt too wide) detected at line 1456
 [] []
  []
 
 
-Overfull \hbox (16.77835pt too wide) in paragraph at lines 1455--1458
+Overfull \hbox (16.77835pt too wide) in paragraph at lines 1460--1463
 \OT1/cmr/m/n/10 By Helly's se-lec-tion the-o-rem, there's a sub-se-quence of $\
 OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 along wh
 ich $[][] \OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 =
  []
 
-[24] [25]
-Overfull \hbox (85.31873pt too wide) detected at line 1579
+[25]
+Overfull \hbox (85.31873pt too wide) detected at line 1584
+[] []
+ []
+
+[26]
+Overfull \hbox (27.8134pt too wide) detected at line 1630
+[] []
+ []
+
+[27]
+Overfull \hbox (24.123pt too wide) detected at line 1710
 [] []
  []
 
 
-Overfull \hbox (27.8134pt too wide) detected at line 1625
-[] []
- []
-
-[26] [27]
-Overfull \hbox (24.123pt too wide) detected at line 1705
-[] []
- []
-
-
-Overfull \hbox (4.2205pt too wide) in paragraph at lines 1717--1718
+Overfull \hbox (4.2205pt too wide) in paragraph at lines 1722--1723
 []\OT1/cmr/m/n/10 Since the eigen-val-ues of $\OML/cmm/m/it/10 n[]\OT1/cmr/bx/n
 /10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/n/10 I[]$ \OT1/cmr/m/n/10 are $\OML/cm
 m/m/it/10 n[]^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 W[]\OT1/cmr/m/n/10 ) \OMS/c
@@ -1303,7 +1300,7 @@ msy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; n[]^^U[]\OT1/cmr/m/n/10
  []
 
 
-Overfull \hbox (74.21573pt too wide) detected at line 1725
+Overfull \hbox (74.21573pt too wide) detected at line 1730
 [] []\OMS/cmsy/m/n/10 k[]\OT1/cmr/bx/n/10 W[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/
 n/10 I[]\OMS/cmsy/m/n/10 k \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 4[][] + [][][] \O
 MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10
@@ -1314,14 +1311,14 @@ MS/cmsy/m/n/10 ^^T [] []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10
  []
 
 [28]
-Overfull \hbox (15.28241pt too wide) in paragraph at lines 1773--1783
+Overfull \hbox (15.28241pt too wide) in paragraph at lines 1778--1788
 \OT1/cmr/m/n/10 trix $\OT1/cmr/bx/n/10 S$ \OT1/cmr/m/n/10 has the same dis-tri-
 bu-tion as the ran-dom ma-trix $[][]\OT1/cmr/bx/n/10 UE[]ZZ[]E[]U[]$\OT1/cmr/m/
 n/10 .
  []
 
 [29]
-Overfull \hbox (0.96474pt too wide) detected at line 1840
+Overfull \hbox (0.96474pt too wide) detected at line 1845
 []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 
 ) = []\OML/cmm/m/it/10 ^^U[][]\OT1/cmr/bx/n/10 Z[]\OT1/cmr/m/n/10 ([] + \OML/cm
 m/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 Z[][] \OT1
@@ -1330,7 +1327,7 @@ m/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 Z[][] \OT1
  []
 
 
-Overfull \hbox (6.68484pt too wide) detected at line 1870
+Overfull \hbox (6.68484pt too wide) detected at line 1875
 []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 
 ) = [][] + []\OML/cmm/m/it/10 ^^[[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 O[][] []
  [][]; []; \OT1/cmr/m/n/10 1[][]\OML/cmm/m/it/10 ;  i \OT1/cmr/m/n/10 = 1\OML/c
@@ -1338,7 +1335,7 @@ mm/m/it/10 ; [] ; r:
  []
 
 [30]
-Overfull \hbox (15.68959pt too wide) detected at line 1907
+Overfull \hbox (15.68959pt too wide) detected at line 1912
 [][] []\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/1
 0 ^^@ [] \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Z[]EZ\OT1/cmr/
 m/n/10 )[] = (1 \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ^^[[] 
@@ -1346,7 +1343,7 @@ m/n/10 )[] = (1 \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ^^[[]
  []
 
 [31]
-Overfull \hbox (81.17381pt too wide) detected at line 1964
+Overfull \hbox (81.17381pt too wide) detected at line 1969
 \OML/cmm/m/it/10 ^^U[][][]\OT1/cmr/bx/n/10 V\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it
 /10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )[]\OT1/cmr/bx/n/10 Z[]Z[]\OT1/cmr
 /m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1/cmr/m/n/10 )[]\OT1
@@ -1356,48 +1353,48 @@ n/10 Z[]Z[]\OT1/cmr/m/n/10 ([] + \OML/cmm/m/it/10 ^^[[]\OT1/cmr/bx/n/10 I[]\OT1
 /cmr/m/n/10 )[][]\OML/cmm/m/it/10 :
  []
 
-
-Overfull \hbox (59.5921pt too wide) detected at line 2009
-[] []
- []
-
 [32]
-Overfull \hbox (3.02975pt too wide) detected at line 2039
+Overfull \hbox (59.5921pt too wide) detected at line 2014
 [] []
  []
 
 
-Overfull \hbox (82.54094pt too wide) detected at line 2073
+Overfull \hbox (3.02975pt too wide) detected at line 2044
 [] []
  []
 
 
-Overfull \hbox (30.12752pt too wide) detected at line 2110
+Overfull \hbox (82.54094pt too wide) detected at line 2078
 [] []
  []
 
 [33]
-Overfull \hbox (77.26332pt too wide) detected at line 2144
+Overfull \hbox (30.12752pt too wide) detected at line 2115
 [] []
  []
 
 
-Overfull \hbox (12.41568pt too wide) detected at line 2162
+Overfull \hbox (77.26332pt too wide) detected at line 2149
 [] []
  []
 
 
-Overfull \hbox (33.47968pt too wide) detected at line 2189
+Overfull \hbox (12.41568pt too wide) detected at line 2167
 [] []
  []
 
-[34] [35]
-Overfull \hbox (23.71692pt too wide) detected at line 2273
+[34]
+Overfull \hbox (33.47968pt too wide) detected at line 2194
+[] []
+ []
+
+[35]
+Overfull \hbox (23.71692pt too wide) detected at line 2278
 [] []
  []
 
 [36]
-Overfull \hbox (7.59096pt too wide) in paragraph at lines 2347--2349
+Overfull \hbox (7.59096pt too wide) in paragraph at lines 2352--2354
 \OT1/cmr/m/n/10 Then for ev-ery sub-se-quence $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/
 10 n\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g$ \OT
 1/cmr/m/n/10 of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$\OT1/cm
@@ -1405,13 +1402,13 @@ r/m/n/10 , there's a fur-ther sub-se-quence $[]\OML/cmm/m/it/10 n[]k\OT1/cmr/m/
 n/10 (\OML/cmm/m/it/10 l\OT1/cmr/m/n/10 )[][]$
  []
 
-[37] (./main.bbl
+[37] (./main.bbl [38]
 Underfull \hbox (badness 1038) in paragraph at lines 65--74
 []\OT1/cmr/m/n/10 Chen, L.S., Paul, D., Pren-tice, R.L., Wang, P., 2011.  A reg
 -u-lar-ized
  []
 
-[38]
+
 Underfull \hbox (badness 1755) in paragraph at lines 84--94
 \OT1/cmr/m/n/10 nach Spaces. vol-ume 1.  North-Holland, Am-s-ter-dam.  URL: []$
 \OT1/cmtt/m/n/10 http :
@@ -1430,12 +1427,12 @@ Underfull \hbox (badness 3199) in paragraph at lines 84--94
  []
 
 [39])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2446.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2451.
  [40] [41] [42] [43]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2446.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2451.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2446.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2446.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2451.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2451.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 64EBBF908C8F18CE9ACF343944F1A424;559.
@@ -1446,7 +1443,7 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2446.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2451.
  ) 
 Here is how much of TeX's memory you used:
  7877 strings out of 493029
@@ -1482,7 +1479,7 @@ mti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (43 pages, 10054852 bytes).
+Output written on main.pdf (43 pages, 10055245 bytes).
 PDF statistics:
  970 PDF objects out of 1000 (max. 8388607)
  831 compressed objects within 9 object streams

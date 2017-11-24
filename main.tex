@@ -566,11 +566,12 @@ $$
 where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal random variable.
 Hence the power of $T_{CQ}$ is largely impacted by $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
 Consequently, $\|\BO^T (\mu_1-\mu_2)\|^2/\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}$ measures the power of $T(\BO)$.
-To consider an average-case scenario, like~\cite{Lopes2015A}, we temporarily place a prior on $\mu_1-\mu_2$ and assume that $\mu_1-\mu_2$ is from the uniform distribution on the unit sphere.
+To consider an average-case scenario, like~\cite{Lopes2015A}, we temporarily place a prior on $\mu_1-\mu_2$.
+Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is from the uniform distribution on the unit sphere.
 In this case, an average SNR can be defined as
 \begin{equation}\label{touteng}
 \myE \Bigg( \frac{\|\BO^T (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}\Bigg)
-=  \frac{k/p}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}.
+=  \frac{k/p}{\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}}\|\mu_1-\mu_2\|^2.
 \end{equation}
 The $T(\BO)$ that maximizes the average SNR can be expected to have the best average power behavior among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$.
 %We would like to find the optimal $T(\BO)$ among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$ by maximizing the average SNR.
@@ -884,11 +885,10 @@ $$
 $$
 Then it follows from Proposition~\ref{varianceEstimation} and Theorem~\ref{myPanpan} that
 $$
-Q=\frac{T_2}{\sigma^2\sqrt{2\tau^2 (p-r)}}(1+o_P(1))\xrightarrow{\mathcal{L}}N(0,1).
+Q=\frac{T_2}{\sigma^2\sqrt{2\tau^2 p}}(1+o_P(1))\xrightarrow{\mathcal{L}}N(0,1)
 $$
-Thus,
-our test is asymptotically level $\alpha$.
-
+under the null hypothesis.
+Thus, our test is asymptotically level $\alpha$.
 
 The asymptotic power function of our test can be obtained immediately from Theorem~\ref{myPanpan}.
 \begin{corollary}\label{testPowerh}
@@ -897,7 +897,6 @@ The asymptotic power function of our test can be obtained immediately from Theor
         \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
     \end{equation*}
 \end{corollary}
-From the expression of the asymptotic power function, we can see that the power of our test is not affected by the large eigenvalues of $\bSigma$.
 
 Having derived the asymptotic power function of our test, we are now in a position to provide a comparison with other tests.
 Again, to make an average-case comparison against other tests, we place a prior on $\mu_1-\mu_2$.
@@ -910,8 +909,11 @@ In this case, the asymptotic power function of our test is equal to
     \end{equation*}
 So the separation boundary of our test is $\|\mu_1-\mu_2\|^2\asymp \sqrt{p}/n$.
 
-To compare our test with the corrected $T_{CQ}$ test,
-recall that the separation boundary of the corrected $T_{CQ}$ test procedure is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
+Now we compare our test with the corrected $T_{CQ}$ test.
+The power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
+In comparison, our test is not affected by the large eigenvalues of $\bSigma$ since the data is projected onto the orthogonal complement of the principal subspace.
+Consequently, it can be expected that our test is more powerful than the corrected $T_{CQ}$ test in average.
+In fact, recall that the separation boundary of the corrected $T_{CQ}$ test is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
  Thus, when $\beta>1/2$, the testable region of our test is larger than that of the corrected $T_{CQ}$ test procedure.
 
  We would also like to compare our test with $T_{SD}$.~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
@@ -919,22 +921,13 @@ recall that the separation boundary of the corrected $T_{CQ}$ test procedure is 
         \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}\Big),
  $$
  where $\bSigma_d=\mydiag(\bSigma)$ and $\BR=\bSigma_d^{-1/2} \bSigma \bSigma_d^{-1/2}$ is the population correlation matrix.
- It is known that the power of $T_{SD}$ is highest when $\bSigma$ is diagonal.
+ It is difficult to compare our test with $T_{SD}$ under general covariance matrix.
+ Here we consider two representative cases.
 
- First we consider the uniform correlation structure $\bSigma=(1-\rho)\BI_p+\rho \mathbf{1}_p\mathbf{1}_p^T$ ($0<\rho <1$) which is far away from a diagonal matrix.
- In this case, the diagonal entries of $\Sigma$ are all $1$. 
- We have
- $$
- \frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}
- =
- \frac{1}{\sqrt{\rho^2 p +(1-\rho^2)}}\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2p}}.
- $$
- Hence the asymptotic relative efficiency of our test with respect to $T_{SD}$ is
- $\sqrt{\rho^2 p +(1-\rho^2)}$.
- Our test has much higher power.
 
- Now we consider the diagonal covariance matrix. 
- In this case, $\bSigma=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$ and $\BR=\BI_p$.
+ It is known that the power of $T_{SD}$ is highest when the covariance matrix is diagonal.
+ To compare our test with $T_{SD}$ in this case,
+suppose that $\bSigma=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$. Then $\BR=\BI_p$.
  Note that $\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\bSigma^{-1/2}\delta\|^2$.
  We have 
  $$\myE\|\bSigma^{-1/2}\delta\|^2=
@@ -944,11 +937,23 @@ recall that the separation boundary of the corrected $T_{CQ}$ test procedure is 
 and
  $$
  \myVar\big( \|\bSigma^{-1/2}\delta\|^2 \big)=\frac{2}{p+2}\Big(\frac{1}{p}\mytr\big(\bSigma^{-2}\big)-\big(\frac{1}{p}\mytr\big(\bSigma^{-1}\big)\big)^2\Big)=o\big(\frac{1}{p}\big).$$
- Hence $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}(1+o_P(1))$ and the asymptotic power function of $T_{SD}$ equals to
+It follows that $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}(1+o_P(1))$. Hence the asymptotic power function of $T_{SD}$ equals to
  $$
         \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sigma^2\sqrt{2\tau^2 p}}\Big).
  $$
  Thus, under the diagonal covariance matrix, the asymptotic power function of our test is the same as that of $T_{SD}$.
+
+In the second case, we consider the uniform correlation structure $\bSigma=(1-\rho)\BI_p+\rho \mathbf{1}_p\mathbf{1}_p^T$ ($0<\rho <1$) which is far away from a diagonal matrix.
+ In this case, the diagonal entries of $\Sigma$ are all $1$. 
+ We have
+ $$
+ \frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}
+ =
+ \frac{1}{\sqrt{\rho^2 p +(1-\rho^2)}}\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2p}}.
+ $$
+ Then the asymptotic relative efficiency of our test with respect to $T_{SD}$ is
+ $\sqrt{\rho^2 p +(1-\rho^2)}$.
+ Hence our test tends to be much more powerful.
 
 
 
