@@ -129,55 +129,52 @@ for(n in c(50,100,150)){
 
 
 
-
-
+library(ggplot2)
 myPlot=function(uio){
-    cc=seq(0,5,1)
-    temp1=data.frame(h=cc,Power=uio$my,Method="New")
-    #temp2=data.frame(h=cc,Power=uio$chen,Method="CQ")
-    #temp3=data.frame(h=cc,Power=uio$fast,Method="FAST")
-    #temp4=data.frame(h=cc,Power=uio$sri,Method="S")
-    #myD=rbind(temp1,temp2)#,temp3,temp4)
-    myD=temp1
-    ggplot(data=myD,aes(x=h,y=Power,color=Method,linetype=Method))+
+    temp1 <- read.csv(uio)
+    myD <- melt(temp1,id.vars="SNR")
+    names(myD)<- c("SNR","Method","Power")
+    thePlot <- ggplot(data=myD,aes(x=SNR,y=Power,color=Method,linetype=Method))+
         geom_line()+ylim(0,1)+
+        theme_bw()+
+        theme(
+            axis.title.y= element_text(size=rel(2),angle=90),
+            axis.title.x= element_text(size=rel(2)),
+            axis.text=element_text(size=rel(1.8)),
+            legend.position = c(0.05,0.95),
+            legend.justification = c("left","top"),
+            #legend.box.just ="right",
+            legend.margin= margin(3,3,3,3),
+            legend.box.background= element_rect(),
+            #legend.key= element_rect(colour="black"),
+            legend.text= element_text(size=rel(2)),
+            legend.title= element_text(size=rel(2.2),face="bold"),
+            legend.key.size = unit(1,"cm")
+        )
+        #scale_colour_brewer(palette = "Set1")
         #xlab(expression( paste("||",mu[1]-mu[2],"||"^2)))
-        xlab("d")
 }
 
+for(theDistribution in c("normal","chiSquared","t")){
+    for(beta in c(0.5,1,2)){
+        p <- 500
+        r<-2
+        n1 <- 100
+        n2 <- 100
+        thePlot <- myPlot(paste0(1,theDistribution,beta,".csv"))
+        ggsave(paste0("Power",1,theDistribution,beta,".eps"),thePlot)
+    }
+}
+    
+for(n in c(50,100,150)){
+    for(p in c(200,500,800)){
+        n1 <- n
+        n2 <- n
+        r<-2
+        beta <- 1
+        theDistribution <- "normal"
+        thePlot <- myPlot(paste0(2,"n",n,"p",p,".csv"))
+        ggsave(paste0("Power",2,"n",n,"p",p,".eps"),thePlot)
+    }
+}
 
-p=400;n1=300;n2=310;r=3;beta=0.5
-jjj1=myMainSimulation(p,n1,n2,r,beta)
-jpeg("newfig1.jpeg",width=300,height=300)
-myPlot(jjj1)+ggtitle(expression(paste(n[1],"=300, ",n[2],"=310, p=400, r=3, ",beta,"=0.5")))+theme_linedraw()
-dev.off()
-
-p=400;n1=300;n2=310;r=3;beta=1
-jjj2=myMainSimulation(p=p,n1=n1,n2=n2,r=r,beta=beta)
-jpeg("newfig2.jpeg",width=300,height=300)
-myPlot(jjj2)+ggtitle(expression(paste(n[1],"=300, ",n[2],"=310, p=400, r=3, ",beta,"=1")))+theme_linedraw()
-dev.off()
-
-p=400;n1=300;n2=310;r=3;beta=2
-jjj2=myMainSimulation(p=p,n1=n1,n2=n2,r=r,beta=beta)
-jpeg("newfig3.jpeg",width=300,height=300)
-myPlot(jjj2)+ggtitle(expression(paste(n[1],"=300, ",n[2],"=310, p=400, r=3, ",beta,"=2")))+theme_linedraw()
-dev.off()
-
-p=400;n1=300;n2=310;r=0;beta=2
-jjj2=myMainSimulation(p=p,n1=n1,n2=n2,r=r,beta=beta)
-jpeg("newfig4.jpeg",width=300,height=300)
-myPlot(jjj2)+ggtitle(expression(paste(n[1],"=300, ",n[2],"=310, p=400, r=0")))+theme_linedraw()
-dev.off()
-
-p=1000;n1=500;n2=510;r=3;beta=1
-jjj2=myMainSimulation(p=p,n1=n1,n2=n2,r=r,beta=beta)
-jpeg("newfig5.jpeg",width=300,height=300)
-myPlot(jjj2)+ggtitle(expression(paste(n[1],"=500, ",n[2],"=510, p=1000, r=3, ",beta,"=1")))+theme_linedraw()
-dev.off()
-
-p=1000;n1=500;n2=510;r=3;beta=2
-jjj2=myMainSimulation(p=p,n1=n1,n2=n2,r=r,beta=beta)
-jpeg("newfig6.jpeg",width=300,height=300)
-myPlot(jjj2)+ggtitle(expression(paste(n[1],"=500, ",n[2],"=510, p=1000, r=3, ",beta,"=2")))+theme_linedraw()
-dev.off()

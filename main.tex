@@ -1,4 +1,4 @@
-\documentclass[review]{elsarticle}
+\documentclass[3p]{elsarticle}
  
 \usepackage{lineno,hyperref}
 \modulolinenumbers[5]
@@ -112,7 +112,7 @@
 
 \begin{frontmatter}
 
-\title{High-dimensional two-sample test under spiked covariance}
+\title{High-dimensional two-sample test under the spiked covariance model}
 
 %% Group authors per affiliation:
     \author[mymainaddress]{Rui Wang}
@@ -132,11 +132,12 @@
 
 \begin{abstract}
     This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.
-    The covariance matrix is assumed to be spiked, which often arises in practice. 
-    We derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic under a spiked covariance model.
-    Also, a new test procedure is proposed through projection on the orthogonal complement of the principal subspace.
+    To characterize the correlations between variables, a spiked covariance model is adopted. 
+    Under the spiked covariance model,~\cite{Chen2010A}'s test is not valid.
+    We correct the critical value of~\cite{Chen2010A}'s test statistic.
+    Also, a new test procedure is proposed through projection onto the orthogonal complement of the principal subspace.
     The asymptotic normality of the new test statistic is proved and the power function of the test is given.
-    Theoretical and simulation results show that the new test outperforms existing methods substantially when the covariance matrix is spiked.
+    Theoretical and simulation results show that the new test outperforms the competing tests substantially under the spiked covariance model.
 \end{abstract}
 
 \begin{keyword}
@@ -651,8 +652,7 @@ It can be shown that $T_1$ is asymptotically normal.
 Note that $T_1$ % is not a statistic since it
 relies on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown and thus needs to be estimated.
 Let $\hat{\BV}$ and $\hat{\tilde{\BV}}$ denote the first $r$ and last $p-r$ eigenvectors of $\BS$, respectively.
-\cite{Anderson1986Asymptotic} proved that
-the maximum likelihood estimator (MLE) of $\BV$ is $\hat{\BV}$.
+\cite{Anderson1986Asymptotic} proved that the maximum likelihood estimator (MLE) of $\BV$ is $\hat{\BV}$.
 This fact, together with the equalities $\tilde{\BV}\tilde{\BV}^T= \BI_p-\BV\BV^T$ and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T= \BI_p-\hat{\BV}\hat{\BV}^T$, implies that 
 the MLE of $\tilde{\BV}\tilde{\BV}^T$ is $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$.
 %By replacing $\tilde{\BV}\tilde{\BV}^T$ by $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$, the main term $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$ of $T_1$ becomes
@@ -666,11 +666,10 @@ However, the centralization of $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$
 Under the null hypothesis, 
 \begin{equation*}
     \begin{aligned}
-        &\myE [\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2|\BS]
         = \myE[ \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2 |\BS]
         =
-\tau \mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})\\
-        =&
+\tau \mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})
+        =
 \tau (p-r) \sigma^2+
 \tau \mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}}).%>\tau (p-r)\sigma^2.
     \end{aligned}
@@ -678,11 +677,11 @@ Under the null hypothesis,
 Note that
 $$
 \begin{aligned}
-    &\mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})
+    \mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})
 =
 \mytr( \bLambda^{1/2} \BV^T\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T\BV \bLambda^{1/2} )
 =
-\mytr( \bLambda^{1/2} (\BI_r-\BV^T\hat{\BV}\hat{\BV}^T\BV) \bLambda^{1/2} )\\
+\mytr( \bLambda^{1/2} (\BI_r-\BV^T\hat{\BV}\hat{\BV}^T\BV) \bLambda^{1/2} )
     =&
     \sum_{i=1}^r  (1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2)\blambda_i,
 \end{aligned}
@@ -944,7 +943,7 @@ It follows that $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}(1+o_P(1))$. Hence the as
  Thus, under the diagonal covariance matrix, the asymptotic power function of our test is the same as that of $T_{SD}$.
 
 In the second case, we consider the uniform correlation structure $\bSigma=(1-\rho)\BI_p+\rho \mathbf{1}_p\mathbf{1}_p^T$ ($0<\rho <1$) which is far away from a diagonal matrix.
- In this case, the diagonal entries of $\Sigma$ are all $1$. 
+ In this case, the diagonal entries of $\Sigma$ are all equal to $1$. 
  We have
  $$
  \frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}
@@ -953,7 +952,7 @@ In the second case, we consider the uniform correlation structure $\bSigma=(1-\r
  $$
  Then the asymptotic relative efficiency of our test with respect to $T_{SD}$ is
  $\sqrt{\rho^2 p +(1-\rho^2)}$.
- Hence our test tends to be much more powerful.
+ Hence our test tends to be much more powerful than $T_{SD}$ under the uniform correlation structure.
 
 
 
@@ -968,7 +967,7 @@ In this section, we consider the simulation performance of the proposed test and
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
 Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$), $i=1,\ldots, r$.
-Construct $p\times p$ diagonal matrix $\BD=\mydiag(\sqrt{d_1},\ldots,\sqrt{d_r}, 1,\ldots, 1)$.
+Define the $p\times p$ diagonal matrix $\BD$ as $\BD=\mydiag(\sqrt{d_1},\ldots,\sqrt{d_r}, 1,\ldots, 1)$.
 Then, we independently generate data by the formula
 $$
 X_{k,i}=\mu_k+\BU \BD Y_{k,i}\quad \text{$i=1,\ldots,n_k$ and $k=1,2$,}
@@ -983,28 +982,10 @@ We will consider three different distributions of $F$.
     \item
         Student's $t$: $F\sim t_4/\sqrt{2}$, where $t_4$ is a Student's $t$ random variable  with degree of freedom $4$.
 \end{itemize}
-Throughout the simulations, we take nominal level $\alpha=0.05$ and $r=2$.
+Throughout the simulations, we take the nominal level $\alpha=0.05$ and $r=2$.
 
-%The key to the validation of Theorem~\ref{myPanpan} is  that $T_{\textrm{dif}}=\frac{n_1n_2|T_1-T_2|}{\sqrt{2p}(n_1+n_2)\sigma^2}$ converges to $0$.
-%Here we verify it by simulation.
-%We set $n_1=n_2=n$, $p=n^i$ for $i=1,2$ and plot $T_{\textrm{dif}}$ versus $p$.
-%The results are illustrated in figure~\ref{fig:fig1}.
-%From the results we can find that $T_{\textrm{dif}}$ clearly converges to $0$ when $p=n$.
-%In the case of $p=n^2$ which is exactly beyond the assumption of Theorem~\ref{myPanpan},
-%$T_{\textrm{dif}}$ is large and it's not clear whether $T_{\textrm{dif}}$  converges to $0$.
-%\begin{figure}
-%    \centering 
-%    \includegraphics[height=6cm]{code/difference1.jpeg}
-%    \includegraphics[height=6cm]{code/difference2.jpeg}\\
-%    \includegraphics[height=6cm]{code/difference3.jpeg}
-%    \includegraphics[height=6cm]{code/difference4.jpeg}\\
-%    \includegraphics[height=6cm]{code/difference5.jpeg}
-%    \includegraphics[height=6cm]{code/difference6.jpeg}\\
-%    \caption{These are plots of $T_{\textrm{dif}}$ versus $p$. The first column and the second column are the case of $p=n$ and $p=n^2$, separately. The cases of $\beta=1,2,3$ are in the row $1,2,3$ separately. $r$ is set to be $3$ in all cases. }\label{fig:fig1}
-%\end{figure}
-
-In Section~\ref{methodology}, the critical value of our test is determined by the quantile of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
-We have proved that the distribution of $Q$ is asymptotically equal to that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
+The critical value of our test is determined by the quantile of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
+Our test is asymptotically level $\alpha$ since the distribution of $Q$ is asymptotically equal to that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
 Now we use Q-Q plot to compare these two distributions in the finite sample case.
 Figure~\ref{fig:QQ} displays the Q-Q plots in different combinations of sample size and dimension.
 For $n_1=n_2=50$, $p=500$ or $800$, the right tail of $Q$ is a little heavier than the standardized Chi-squared distribution.
@@ -1043,14 +1024,14 @@ It can be seen that the distribution of $Q$ is very close to that of the standar
     \subfigure[$n_1=n_2=150$, $p=800$.]{
         \includegraphics[width=0.3\textwidth]{figure/qqplot/2n150p800}
     }
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on xxx independently generated $Q$.
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$.
 In all cases, $F$ is normal and $\beta=1$.
     }\label{fig:QQ}
 \end{figure}
 
 \begin{figure}
     \centering 
-    \subfigure[Normal. $\beta=0.5$.]{
+    \subfigure[Normal. $\beta=1/2$.]{
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1normal05}
     }
     \subfigure[Normal. $\beta=1$.]{
@@ -1060,7 +1041,7 @@ In all cases, $F$ is normal and $\beta=1$.
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1normal2}
     }
     \\
-    \subfigure[Chi-squared. $\beta=0.5$.]{
+    \subfigure[Chi-squared. $\beta=1/2$.]{
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1chiSquared05}
     }
     \subfigure[Chi-squared. $\beta=1$.]{
@@ -1070,7 +1051,7 @@ In all cases, $F$ is normal and $\beta=1$.
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1chiSquared2}
     }
     \\
-    \subfigure[Student's $t$. $\beta=0.5$.]{
+    \subfigure[Student's $t$. $\beta=1/2$.]{
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1t05}
     }
     \subfigure[Student's $t$. $\beta=1$.]{
@@ -1080,7 +1061,7 @@ In all cases, $F$ is normal and $\beta=1$.
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1t2}
     }
     \\
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on xxx independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
     }\label{fig:QQ2}
 \end{figure}
 
@@ -1089,19 +1070,20 @@ In all cases, $F$ is normal and $\beta=1$.
 
 Next, we consider the simulation of the empirical level. 
 Samples are repeatedly generated $2000$ times to calculate empirical level.
-The result is listed in Table~\ref{biaoge1}.
-The empirical levels of the CQ test are larger than the nominal level in all cases, especially when $\beta$ is large.
+The results are listed in Tables~\ref{hahaha1}-\ref{hahaha3}.
+We can see that the empirical levels of the CQ test are larger than the nominal level in all cases.
 The empirical levels of the SD test are close to the nominal level when $\beta=1/2$, but tend to be smaller than the nominal level as $\beta$ increases.
+ The empirical levels of the LJW test are very close to the nominal level.
+ This is not surprising since the LJW test is exact under the normal distribution.
 The empirical levels of the FAST test are very close to the nominal level in most cases, but tend to be smaller than the nominal level when $n_1=n_2=50$, $p=800$ and $\beta=1/2$.
 The empirical levels of the CCQ test are very close to the nominal level in all cases.
-Since the LJW test is exact, it's empirical levels are very close to the nominal level.
-The empirical level of our test is a little inflated for $n_1=n_2=50$, but converges to the nominal level as the sample size increases.
+The empirical levels of our test are a little inflated for $n_1=n_2=50$, but converge to the nominal level as the sample size increases.
 
 % latex table generated in R 3.3.1 by xtable 1.8-2 package
 % Sun Jul 31 01:50:20 2016
 \begin{table}[ht]
-\caption{$n_1=n_2=50$} 
-\label{hahaha}
+\caption{Empirical levels of our test and competing tests. $n_1=n_2=50$.} 
+\label{hahaha1}
 \vspace{3mm}
 \centering
 \begin{tabular}{llllllllll}
@@ -1112,7 +1094,7 @@ The empirical level of our test is a little inflated for $n_1=n_2=50$, but conve
 \cmidrule(r){8-10}
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
-    $\beta=0.5$\\
+    $\beta=1/2$\\
 New1 & 0.1630 & 0.2535 & 0.3285 & 0.1715 & 0.2705 & 0.3590 & 0.1845 & 0.2920 & 0.3435 \\ 
 New2 & 0.0800 & 0.0940 & 0.1080 & 0.0815 & 0.0905 & 0.1270 & 0.0840 & 0.1065 & 0.1085 \\ 
 New3 & 0.0635 & 0.0565 & 0.0580 & 0.0610 & 0.0520 & 0.0695 & 0.0595 & 0.0640 & 0.0595 \\ 
@@ -1148,8 +1130,8 @@ ljw & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.
 
 
 \begin{table}[ht]
-\caption{$n_1=n_2=100$} 
-\label{hahaha}
+\caption{Empirical levels of our test and competing tests. $n_1=n_2=100$.} 
+\label{hahaha2}
 \vspace{3mm}
 \centering
 \begin{tabular}{llllllllll}
@@ -1160,7 +1142,7 @@ ljw & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.
 \cmidrule(r){8-10}
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
-    $\beta=0.5$\\
+    $\beta=1/2$\\
 New1 & 0.0960 & 0.1360 & 0.1560 & 0.1075 & 0.1255 & 0.1640 & 0.1135 & 0.1410 & 0.1660 \\ 
 New2 & 0.0600 & 0.0670 & 0.0770 & 0.0685 & 0.0705 & 0.0790 & 0.0660 & 0.0710 & 0.0760 \\ 
 New3 & 0.0515 & 0.0470 & 0.0550 & 0.0595 & 0.0535 & 0.0535 & 0.0545 & 0.0565 & 0.0515 \\ 
@@ -1195,8 +1177,8 @@ ljw & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.
 \end{table}
 
 \begin{table}[ht]
-\caption{$n_1=n_2=150$} 
-\label{hahaha}
+\caption{Empirical levels of our test and competing tests. $n_1=n_2=150$.} 
+\label{hahaha3}
 \vspace{3mm}
 \centering
 \begin{tabular}{llllllllll}
@@ -1207,7 +1189,7 @@ ljw & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.
 \cmidrule(r){8-10}
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
-    $\beta=0.5$\\
+    $\beta=1/2$\\
 New1 & 0.0825 & 0.1000 & 0.1125 & 0.0830 & 0.1045 & 0.1115 & 0.0875 & 0.1095 & 0.1115 \\ 
 New2 & 0.0580 & 0.0575 & 0.0675 & 0.0625 & 0.0635 & 0.0655 & 0.0555 & 0.0650 & 0.0650 \\ 
 New3 & 0.0520 & 0.0495 & 0.0575 & 0.0560 & 0.0505 & 0.0540 & 0.0495 & 0.0540 & 0.0540 \\ 
@@ -1242,86 +1224,82 @@ ljw & 0.0490 & 0.0475 & 0.0490 & 0.0465 & 0.0535 & 0.0480 & 0.0490 & 0.0445 & 0.
 \end{table}
 
 
-
-
-
 Now we consider the simulation of the empirical power.
-In view of Corollary~\ref{testPowerh}, we define SNR as $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
+In view of Corollary~\ref{testPowerh}, we define the SNR as $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
 We take $\mu_1=\mathbf{0}_p$.
 The orientation of $\mu_2$ is from the uniform distribution on the unit sphere.
 The norm of $\mu_2$ is selected to make SNR equal to specific values.
 Samples are repeatedly generated $2000$ times to calculate empirical power.
-The simulation results are illustrated in Figure~\ref{fig:fig1}.
-From the results, we can find that when $\bSigma$ is spiked, the new test outperforms $T_{CQ}$ substantially; when $\bSigma$ is not spiked, all three tests have similar performance.
-
+The simulation results are illustrated in Figures~\ref{fig:Power} and~\ref{fig:Power2}.
+From the results, we can see that our test outperforms the other five tests substantially under the spiked covariance model.
 
 \begin{figure}
     \centering 
     \subfigure[$n_1=n_2=50$, $p=200$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n50p200}
     }
     \subfigure[$n_1=n_2=50$, $p=500$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n50p500}
     }
     \subfigure[$n_1=n_2=50$, $p=800$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n50p800}
     }
     \\
     \subfigure[$n_1=n_2=100$, $p=200$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n100p200}
     }
     \subfigure[$n_1=n_2=100$, $p=500$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n100p500}
     }
     \subfigure[$n_1=n_2=100$, $p=800$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n100p800}
     }
     \\
     \subfigure[$n_1=n_2=150$, $p=200$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n150p200}
     }
     \subfigure[$n_1=n_2=150$, $p=500$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n150p500}
     }
     \subfigure[$n_1=n_2=150$, $p=800$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power2n150p800}
     }
-    \caption{Empirical power simulation. In all cases, $F$ is normal and $\beta=1$.}\label{fig:Power}
+    \caption{Empirical power of our test and competing tests. In all cases, $F$ is normal and $\beta=1$.}\label{fig:Power}
 \end{figure}
 
 \begin{figure}
     \centering 
-    \subfigure[Normal. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    \subfigure[Normal. $\beta=1/2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1normal05}
     }
     \subfigure[Normal. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1normal1}
     }
     \subfigure[Normal. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1normal2}
     }
     \\
-    \subfigure[Chi-squared. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    \subfigure[Chi-squared. $\beta=1/2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1chiSquared05}
     }
     \subfigure[Chi-squared. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1chiSquared1}
     }
     \subfigure[Chi-squared. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1chiSquared2}
     }
     \\
-    \subfigure[Student's $t$. $\beta=0.5$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+    \subfigure[Student's $t$. $\beta=1/2$.]{
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1t05}
     }
     \subfigure[Student's $t$. $\beta=1$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1t1}
     }
     \subfigure[Student's $t$. $\beta=2$.]{
-        \includegraphics[width=0.3\textwidth]{figure/1QQPLOT1}
+        \includegraphics[width=0.3\textwidth]{figure/power/Power1t2}
     }
     \\
-    \caption{Empirical power simulation. In all cases, $n_1=n_2=100$ and $p=500$.}\label{fig:Power2}
+    \caption{Empirical power of our test and competing tests. In all cases, $n_1=n_2=100$ and $p=500$.}\label{fig:Power2}
 \end{figure}
 
 
@@ -1343,19 +1321,19 @@ From the results, we can find that when $\bSigma$ is spiked, the new test outper
 \subsection{Real data analysis}
 In this section, we study the practical problem considered in~\cite{Ma2015A}.
 The task is to test whether Monday stock returns are equal to those of other trading days on average.
-Define an observation be the log return of stocks in a day.
+Define an observation to be the log returns of stocks in a day.
 Hence $p$ is the total number of stocks.
 Let sample $1$ and sample $2$ be the observations on Monday and the other trading days, respectively.
-Then we would like to test $H_0\, :\mu_1=\mu_2$ v.s. $H_1\,:\mu_1\neq \mu_2$.
+We would like to test $H_0\, :\mu_1=\mu_2$ v.s. $H_1\,:\mu_1\neq \mu_2$.
 We collected the data of $p=710$
  stocks of China
-from 01/04/2013 to 12/31/2014. There are total $n_1=95$ Monday and $n_2=388$ other trading days. 
+from 01/04/2013 to 12/31/2014. There are total $n_1=95$ Mondays and $n_2=388$ other trading days. 
 
 We assume $\bSigma_1=\bSigma_2$.
 The first eigenvalue of $\BS$ is $0.14$, which is significantly larger than the others.
 In fact, the second eigenvalue is $0.02$.
 Hence there's clearly a spiked eigenvalue.
-We take $r=1$ and perform our new test.
+We take $r=1$ and perform our test.
 The $p$ value is $0.149$, which is obtained by permutation method with $1000$ permutations.
 Hence, the null hypothesis can not be rejected for $\alpha=0.05$.
 We draw the same conclusion as~\cite{Ma2015A}.
@@ -1364,20 +1342,27 @@ We draw the same conclusion as~\cite{Ma2015A}.
 
 
 
-This paper is concerned with the problem of testing the equality of means in the setting of high dimension and spiked covariance.
-We derived the asymptotic distribution of~\cite{Chen2010A}'s test statistic.
-To reduce the variance of $T_{CQ}$, we dropped big variance terms and obtain a new test statistic. The asymptotic normality of the new statistic is proved and the asymptotic power is given. %The new test outperforms $T_{CQ}$ substantially if the variance is spiked.
+This paper is concerned with the problem of testing the equality of means under the spiked covariance model.
+We find that~\cite{Chen2010A}'s test is not valid under the spiked covariance model. 
+Although a corrected $T_{CQ}$ test can be defined, its power behavior is unsatisfactory.
+The recently proposed random projection test procedures suggest that the power of tests may be boosted using the projected data.
+By maximizing an average SNR,
+We find the optimal projection subspace is the orthogonal complement of the principal subspace.
+By projecting data onto the (estimated) optimal subspace, we proposed a new test.
+The asymptotic normality of the new test statistic is proved and the asymptotic power of the new test is given.
+    Theoretical and simulation results show that the new test outperforms the competing tests substantially under the spiked covariance model.
+%The new test outperforms $T_{CQ}$ substantially if the variance is spiked.
 
 %We also generalize the test to unequal variance case.
 
 In another paper,~\cite{Zhao2016A} proved that their test statistic can be written in the form of projection. Their simulation results showed that their test performs well under strong correlations.
-Our work partially explains why their test performs well although the projections are slightly different. 
+Our work partially explains why their test performs well, although their projection is different from ours. 
 
- Spiked covariance is an important correlation pattern and has been widely studied in terms of PCA\@.
+ The spiked covariance model is an important correlation pattern and has been widely studied in terms of PCA\@.
  In PCA, authors focus on the principal subspace.
- However, in some circumstances, as our work have shown, the complement of the principal subspace is more useful. 
+ As our work have shown, however, the complement of the principal subspace is sometimes more useful. 
 
-In our paper, we have assumed $r$ is known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
+In our paper, $r$ is assumed to be known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
 \begin{equation}\label{estimateR}
     \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
 \end{equation}
@@ -1385,11 +1370,15 @@ where $R$ is a hyperparameter.
     See~\cite{Ahn2009Eigenvalue} for detail.
 
 
-The asymptotic normality of the new test statistic relies on the assumption $\sqrt{p}/n\to 0$. In the situation of small $n$ or very large $p$, the critical value of the new test can be determined by permutation method. Our simulation shows that the new test still performs well. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
+The asymptotic normality of our test statistic relies on the assumption $\sqrt{p}/n\to 0$. In the situation of small $n$ or very large $p$, the critical value of the new test can be determined by permutation method. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
 
-{\color{red}
-Non normality
-}
+Our derivations and proofs heavily rely on the fact that $\BS$ is independent of $\bar{X}_1,\bar{X}_2$, hence can not be generalized to non-normal distributions.
+For non-normal distributions, the distribution of $\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2$ under the null distribution is hard to evaluate.
+As a result, it's hard to standardize $\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2$ to formulate a test with asymptotically level $\alpha$.
+If sample size is large, maybe a good strategy is to split the samples into two parts:
+One part for the estimation of $\tilde{\BV}$, the other part for the estimation of $\|\mu_1-\mu_2\|^2$.
+
+
 
 
 %We denote by $\|\cdot \|$ and $\|\cdot\|_F$ the operator and Frobenius  norm of matrix, respectively.
