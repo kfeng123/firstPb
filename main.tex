@@ -131,11 +131,13 @@
 
 
 \begin{abstract}
-    This paper considers testing the means of two $p$-variate normal samples in high dimensional setting.
-    To characterize the correlations between variables, a spiked covariance model is adopted. 
-    Under the spiked covariance model,~\cite{Chen2010A}'s test is not valid.
-    We correct the critical value of~\cite{Chen2010A}'s test statistic.
-    Also, a new test procedure is proposed through projection onto the orthogonal complement of the principal subspace.
+    This paper considers testing the means of two $p$-variate normal samples in high dimensional settings.
+We show that under the null hypothesis, a necessary and sufficient condition for the asymptotic normality of~\cite{Chen2010A}'s test statistic is that the eigenvalues of the covariance matrix are concentrated around their average. However, this condition is not satisfied when the variables are strongly correlated.
+    To characterize the correlations between variables, we adopt a spiked covariance model. 
+    Under the spiked covariance model, we derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic and correct the critical value of their test statistic.
+    The recently proposed random projection test procedures suggest that the power of tests may be boosted using the projected data.
+    By maximizing an average signal to noise ratio, we find the optimal projection subspace is the orthogonal complement of the principal subspace. 
+    We propose a new test procedure through the projection onto the estimated orthogonal complement of the principal subspace.
     The asymptotic normality of the new test statistic is proved and the power function of the test is given.
     Theoretical and simulation results show that the new test outperforms the competing tests substantially under the spiked covariance model.
 \end{abstract}
@@ -232,7 +234,7 @@ We also correct the critical value of $T_{CQ}$ under the spiked covariance model
 
 Recently, a class of test procedures are proposed through random projection.
 See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
-The idea is to project data onto some random lower-dimensional subspaces, and then perform the test using the projected data.
+The idea is to project data onto some random lower-dimensional subspaces, and then construct the test using the projected data.
 It has been shown that these procedures have substantially higher power than competing tests when the variables are correlated. 
 This suggests that projecting data onto certain subspaces may lead to an improvement of the test procedures.
 Instead of using randomly chosen subspaces, we would like to find the optimal subspace.
@@ -388,7 +390,7 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
 \begin{theorem}\label{Chenstheory1}
  Under Assumption~\ref{theModel},
     suppose $\beta=1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
-    Let $Z_{0},Z_1,\ldots,Z_{r}$ be i.i.d.\ $N(0,1)$ random variables,
+    Let $Z_{0},Z_1,\ldots,Z_{r}$ be i.i.d. standard normal random variables,
      then the following results hold:
      \begin{enumerate}[(a)]
          \item
@@ -422,7 +424,7 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
 \begin{theorem}\label{Chenstheory2}
  Under Assumption~\ref{theModel},
     suppose $\beta>1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
-    Let $Z_1,\ldots,Z_{r}$ be i.i.d.\ $N(0,1)$ random variables,
+    Let $Z_1,\ldots,Z_{r}$ be i.i.d.\ standard normal random variables,
      then the following results hold:
      \begin{enumerate}[(a)]
          \item
@@ -529,28 +531,30 @@ $$
 is asymptotically level $\alpha$.
         However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
 In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to estimate $\blambda_1,\ldots,\blambda_r$ and $\sigma^2$.
-In section~\ref{methodology}, we will give their estimators $\hat{\blambda}_1,\ldots,\hat{\blambda}_r$ and $\hat{\sigma}_{*}^2$. 
-Proposition~\ref{varianceEstimation} asserts that these estimators are ratio consistent. 
+In Section~\ref{methodology}, we will give their estimators $\hat{\blambda}_1,\ldots,\hat{\blambda}_r$ and $\hat{\sigma}_{*}^2$, and Proposition~\ref{varianceEstimation} asserts that these estimators are ratio consistent. 
 Now we propose a corrected $T_{CQ}$ test which rejects the null hypothesis with $\alpha$ level of significance if
 $$
 \tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2).
 $$
 Then under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test is asymptotically level $\alpha$.
 
-As we have seen in Remark~\ref{remark1}, for the corrected $T_{CQ}$ test, the separation boundary between the testable and non-testable regions  is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
-Then as $\beta$ increases, the corrected $T_{CQ}$ test becomes less powerful.
-That is to say, the power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
+
+As we have seen in Remark~\ref{remark1}, the corrected $T_{CQ}$ test has trivial power $\alpha$ asymptotically if and only if
+\begin{equation}\label{kunao1}
+\|\mu_1-\mu_2\|^2 = o( p^{\beta}/n).
+\end{equation}
+Note that the trivial power region~\eqref{kunao1} becomes larger as $\beta$ increases.
+This property is undesirable.
+In the best case ($\beta=1/2$), the trivial power region of the corrected $T_{CQ}$ test is $\|\mu_1-\mu_2\|^2=o(\sqrt{p}/n)$.
+%This implies that the power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
+In the next section, we will propose a new test. The trivial power region of the new test is $\|\mu_1-\mu_2\|^2=o(\sqrt{p}/n)$ which is independent of $\beta$.
 
 
 \section{A projection test}\label{methodology}
 
 
-In Section~\ref{sec:chen}, we proposed a corrected $T_{CQ}$ test procedure which is asymptotically level $\alpha$ under Assumption~\ref{theModel}.
-However, the power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
-This motivates us to propose a new test for the hypotheses~\eqref{problem} under Assumption~\ref{theModel}.
-
 Recently, a class of test procedures have been proposed through random projection onto lower dimensional subspace. See, for example,~\cite{Lopes2015A},~\cite{Thulin2014A} and~\cite{Srivastava2014RAPTT}.
-It is known that random projection based methods offer higher power when the variables are dependent.
+It is known that random projection methods offer higher power when the variables are correlated.
 However, these test procedures are randomized, which is undesirable in practice.
 Then, is there an optimal projection which is nonrandomized?
 
@@ -565,9 +569,11 @@ $$
 \Phi\Bigg(\Phi^{-1}(\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mytr(\bSigma^2)}}\Bigg),
 $$
 where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal random variable.
-Hence the power of $T_{CQ}$ is largely impacted by $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
+Hence the power of $T_{CQ}$ is related to $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
 Consequently, $\|\BO^T (\mu_1-\mu_2)\|^2/\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}$ measures the power of $T(\BO)$.
+{\color{red}
 To consider an average-case scenario, like~\cite{Lopes2015A}, we temporarily place a prior on $\mu_1-\mu_2$.
+}
 Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is from the uniform distribution on the unit sphere.
 In this case, an average SNR can be defined as
 \begin{equation}\label{touteng}
@@ -577,7 +583,7 @@ In this case, an average SNR can be defined as
 The $T(\BO)$ that maximizes the average SNR can be expected to have the best average power behavior among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$.
 %We would like to find the optimal $T(\BO)$ among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$ by maximizing the average SNR.
 
-To maximize~\eqref{touteng}, note that for fixed $k$,~\eqref{touteng} is maximized when the columns of $\BO$ are equal to the last $k$ eigenvectors of $\bSigma$.
+Next we maximize~\eqref{touteng} under Assumption~\ref{theModel}. Note that for fixed $k$,~\eqref{touteng} is maximized when the columns of $\BO$ are equal to the last $k$ eigenvectors of $\bSigma$.
 Thus, it remains to maximize
 \begin{equation}\label{touteng2}
 \frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2 (\bSigma)}}
@@ -595,7 +601,7 @@ If $k> p-r$, we have
 \frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}}.
     \end{aligned}
 \end{equation*}
-Hence for sufficiently large $p$ and all $k>p-r$, we have
+Since $\beta\geq 1/2$, for sufficiently large $p$ and all $k>p-r$, we have
 \begin{equation*}
     \begin{aligned}
         \frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2(\bSigma)}}
@@ -614,17 +620,18 @@ The above discussion motivates us to consider the variable
     %&=\frac{\sum_{i\neq j}^{n_1}X_{1i}^T\tilde{\BV}\tilde{\BV}^T X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^T\tilde{\BV}\tilde{\BV}^T X_{2j}}{n_2(n_2-1)}-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^T\tilde{\BV}\tilde{\BV}^T X_{2j}}{n_1n_2}
 \end{aligned}
 \end{equation*}
- Note that based on $\tilde{\BV}^T X_{ki}$, the likelihood ratio test statistic for hypothesis~\eqref{problem} is 
+ Note that based on the data $\tilde{\BV}^T X_{ki}$, $i=1,\ldots,n_k$, $k=1,2$, the likelihood ratio test statistic for hypotheses~\eqref{problem} is equivalent to 
     $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$. 
-    In this view, $T_1$ can be regarded as a restricted likelihood ratio statistic.
-It can be shown that $T_1$ is asymptotically normal.
+Hence $T_1$ can be regarded as a restricted likelihood ratio statistic.
+Below we show that $T_1$ is approximately a standardized Chi-squared random variable.
 \begin{proposition}\label{oracleTheorem}
     Under Assumption~\ref{theModel}, suppose $\|\mu_1-\mu_2\|^2= o(p/n)$, we have 
     \begin{equation*}
         \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}
         {\sigma^2\sqrt{2\tau^2 p}}%\xrightarrow{\mathcal{L}}N(0,1).
-        \sim \frac{\chi^2_{p-r}-(p-r)}{\sqrt{2(p-r)}}+o_P(1).
+        \overset{d}{=} \frac{\chi^2(p-r)-(p-r)}{\sqrt{2(p-r)}}+o_P(1),
     \end{equation*}
+    where ``$\overset{d}{=}$'' means having identical distribution.
 \end{proposition}
 \begin{remark}
     Proposition~\ref{oracleTheorem} implies that
@@ -632,8 +639,8 @@ It can be shown that $T_1$ is asymptotically normal.
         \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}
         {\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
     $$
-    However, compared with the standard normal distribution, the standardized Chi-squared distribution is a better approximation of the statistic.
-    This fact is implied by the proof of Proposition~\ref{oracleTheorem}.
+    However, compared with the standard normal distribution, the standardized Chi-squared distribution is a better approximation of the distribution of the statistic.
+    This is implied in the proof of Proposition~\ref{oracleTheorem}.
 \end{remark}
 
 
@@ -650,7 +657,7 @@ It can be shown that $T_1$ is asymptotically normal.
 %\end{remark} 
 
 Note that $T_1$ % is not a statistic since it
-relies on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown and thus needs to be estimated.
+is dependent of the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown and thus needs to be estimated.
 Let $\hat{\BV}$ and $\hat{\tilde{\BV}}$ denote the first $r$ and last $p-r$ eigenvectors of $\BS$, respectively.
 \cite{Anderson1986Asymptotic} proved that the maximum likelihood estimator (MLE) of $\BV$ is $\hat{\BV}$.
 This fact, together with the equalities $\tilde{\BV}\tilde{\BV}^T= \BI_p-\BV\BV^T$ and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T= \BI_p-\hat{\BV}\hat{\BV}^T$, implies that 
@@ -659,14 +666,14 @@ the MLE of $\tilde{\BV}\tilde{\BV}^T$ is $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$.
 %$$T_2=\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2.$$
 Thus, as the main term of $T_1$,
 $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$ can be estimated by $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$.
-In $T_1$, the centralization term $n_1^{-1}\mytr(\tilde{\BV}^T \BS_1\tilde{\BV})+n_2^{-1}\mytr(\tilde{\BV}^T \BS_2\tilde{\BV})$ is an unbiased estimator of $\tau (p-r)\sigma^2$, 
-which makes $\myE T_1=0$ under the null hypothesis.
-However, the centralization of $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$ is more involved.
+In $T_1$, the centralization term $n_1^{-1}\mytr(\tilde{\BV}^T \BS_1\tilde{\BV})+n_2^{-1}\mytr(\tilde{\BV}^T \BS_2\tilde{\BV})$ is an unbiased estimator of $\tau (p-r)\sigma^2$, such that $\myE T_1=0$ under the null hypothesis.
+However, compared with $\|\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\|^2$, the centralization of $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$ is more complicated.
 
+Since $\hat{\tilde{\BV}}$ is independent of $\bar{X}_k$, $k=1,2$, it is convenient to work with the conditional distribution of $\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2$ given $\BS$. 
 Under the null hypothesis, 
 \begin{equation*}
     \begin{aligned}
-        = \myE[ \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2 |\BS]
+        \myE[ \|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2 |\BS]
         =
 \tau \mytr(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})
         =
@@ -675,7 +682,7 @@ Under the null hypothesis,
     \end{aligned}
 \end{equation*}
 Note that
-$$
+\begin{equation*}
 \begin{aligned}
     \mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})
 =
@@ -685,15 +692,15 @@ $$
     =&
     \sum_{i=1}^r  (1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2)\blambda_i,
 \end{aligned}
-$$
+\end{equation*}
 where $\hat{v}_i$ and $v_i$ are the $i$th columns of $\hat{\BV}$ and $\BV$, respectively, $i=1,\ldots, r$.
-Under $p=O(n\blambda_r)$ and some other regular conditions,~\cite{Fan2015Asymptotics}, Theorem 3.2 asserts that 
-$$
+Under $p=O(n\blambda_r)$ and some other regular conditions, Theorem 3.2 in~\cite{Fan2015Asymptotics} asserts that 
+\begin{equation}\label{yaofengla1}
 \hat{v}_j^T v_i=O_P(\epsilon_{j,n}),\quad 1\leq i\neq j\leq r,
 \quad \text{and}\quad
 \hat{v}_i^T v_i=\frac{1}{\sqrt{1+ \frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}}+O_P(\epsilon_{i,n}),\quad 1\leq i\leq r,
-$$
-where $\epsilon_{i,n}$ is higher order infinitesimal, $i=1,\ldots, r$.
+\end{equation}
+where $\epsilon_{i,n}$ is a smaller order term, $i=1,\ldots, r$.
 This motivates us to approximate $\mytr(\hat{\tilde{\BV}}^T\BV \bLambda \BV^T\hat{\tilde{\BV}})$
 by
 $$
@@ -740,16 +747,16 @@ $$
 $$
 In their paper, $\blambda_i$'s are fixed and known.
     This is different from Assumption~\ref{theModel} where $\blambda_i$'s are divergent and unknown.
-Under Assumption~\ref{theModel}, we have
-$$
-\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2
-=
-    \Big(1+\frac{r}{n-2}\Big)\hat{\sigma}^2+O_P(\frac{1}{np^{\beta}})
-    =
-    \hat{\sigma}_*^2
-    +O_P(\frac{1}{n^2})+O_P(\frac{1}{np^{\beta}}).
-$$
-    So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2$ is minor under Assumption~\ref{theModel}.
+%Under Assumption~\ref{theModel}, we have
+%$$
+%\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2
+%=
+    %\Big(1+\frac{r}{n-2}\Big)\hat{\sigma}^2+O_P(\frac{1}{np^{\beta}})
+    %=
+    %\hat{\sigma}_*^2
+    %+O_P(\frac{1}{n^2})+O_P(\frac{1}{np^{\beta}}).
+%$$
+    %So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2$ is minor under Assumption~\ref{theModel}.
 \end{remark}
 \begin{remark}
     Recently,~\cite{Fan2015Asymptotics} proposed an estimator of
@@ -767,7 +774,7 @@ $$
 \frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\asymp
 \frac{1}{\sqrt{n}}
 \asymp
-        \max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big).
+        \max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big),\quad i=1,\ldots,r.
     $$
     In this case,~\cite{Fan2015Asymptotics}'s estimator and $\hat{\blambda}_i$ have the same convergence rate, although the estimands are slightly different.
     Compared with~\cite{Fan2015Asymptotics}'s result, Proposition~\ref{varianceEstimation} doesn't need the conditions $p>n-2$ and $p=O(n\blambda_r)$.
@@ -792,57 +799,6 @@ T_2=
 \tau(p-r)\hat{\sigma}_*^2 
 - \tau\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i.
 $$
-To standardize $T_2$, note that
-$$
-\begin{aligned}
-    &\myVar\big(
-\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2
-\big| \BS
-\big)
-    =2\tau^2\big(
-\mytr(\hat{\tilde{\BV}}^T \BV \bLambda \BV^T\hat{\tilde{\BV}})^2
-+
-2\sigma^2\mytr(\hat{\tilde{\BV}}^T \BV \bLambda \BV^T\hat{\tilde{\BV}})
-+\sigma^4 (p-r)
-\big)
-\\
-    =&
-    2\tau^2\Big(
-    \sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2\big)^2 \blambda_i^2
-    +2\sum_{1\leq i<j \leq r}\big(\sum_{l=1}^r (\hat{v}_l^T v_i)(\hat{v}_l^T v_j )\big)^2\blambda_i\blambda_j
-    \\
-    &+
-    2\sigma^2\sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2\big) \blambda_i
-    +\sigma^4 (p-r)
-    \Big)
-    \\
-    \approx&
-    2\tau^2\Big(
-    \sum_{i=1}^r \big(\frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i\big)^2
-    +
-    2\sigma^2\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i
-    +\sigma^4 (p-r)
-    \Big).
-\end{aligned}
-$$
-Hence we define the standardized statistic
-$$
-    \begin{aligned}
-        Q=&T_2/
-   \Bigg( 
-        2\tau^2\Big(
-        \sum_{i=1}^r \big(\frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i\big)^2
-    +
-        2\sigma^2\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i
-        +\hat{\sigma}_*^4 (p-r)
-    \Big)\Bigg)^{1/2}.
-    \end{aligned}
-$$
-In view of Proposition~\ref{oracleTheorem}, we reject the null hypothesis if
-$$
-        Q>\frac{\chi^2_{\alpha, p-r}-(p-r)}{\sqrt{2(p-r)}},
-$$
-where $\chi^2_{\alpha, p-r}$ is the upper $\alpha$ quantile of a $\chi^2_{p-r}$ random variable.
 
 The following theorem establishes the asymptotic normality of $T_2$.
 \begin{theorem}\label{myPanpan}
@@ -874,7 +830,64 @@ The proof of Theorem~\ref{myPanpan} implies that the asymptotic normality of $T_
 %estimator of $\BV\BV^T$ (see lemma 2 in appendix). So condition $\frac{\sqrt{p}}{n_1+n_2}$ is roughly the best we can do if the relationship between $p$ and $n$ doesn't involve $\beta$.
 %\end{remark}
 
-
+By Proposition~\ref{varianceEstimation} and Theorem~\ref{myPanpan}, the test that rejects the null hypothesis if
+$
+T_2/(\hat{\sigma}^2_*\sqrt{2\tau^2 p})>\Phi^{-1}(1-\alpha)
+$
+is asymptotically level $\alpha$.
+However, using $\sigma^2\sqrt{2\tau^2 p}$ to standardize $T_2$ may not be accurate if $n$ is small, and the asymptotic distribution $N(0,1)$ may not be accurate if $p$ is small.
+We would like to make further effort to construct a more accurate test.
+Note that
+$$
+\begin{aligned}
+    &\myVar\big(
+\|\hat{\tilde{\BV}}^T (\bar{X}_1-\bar{X}_2)\|^2
+\big| \BS
+\big)
+    =2\tau^2\big(
+\mytr(\hat{\tilde{\BV}}^T \BV \bLambda \BV^T\hat{\tilde{\BV}})^2
++
+2\sigma^2\mytr(\hat{\tilde{\BV}}^T \BV \bLambda \BV^T\hat{\tilde{\BV}})
++\sigma^4 (p-r)
+\big)
+\\
+    =&
+    2\tau^2\Big(
+    \sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2\big)^2 \blambda_i^2
+    +2\sum_{1\leq i<j \leq r}\big(\sum_{l=1}^r (\hat{v}_l^T v_i)(\hat{v}_l^T v_j )\big)^2\blambda_i\blambda_j
+    +
+    2\sigma^2\sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^T v_i)^2\big) \blambda_i
+    +\sigma^4 (p-r)
+    \Big)
+    \\
+    \approx&
+    2\tau^2\Big(
+    \sum_{i=1}^r \big(\frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i\big)^2
+    +
+    2\sigma^2\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i
+    +\sigma^4 (p-r)
+    \Big),
+\end{aligned}
+$$
+where in the last line, we use the approximation in~\eqref{yaofengla1}.
+Hence we propose the following standardized statistic
+$$
+    \begin{aligned}
+        Q=&T_2/
+   \Bigg( 
+        2\tau^2\Big(
+        \sum_{i=1}^r \big(\frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i\big)^2
+    +
+        2\hat{\sigma}_*^2\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i
+        +\hat{\sigma}_*^4 (p-r)
+    \Big)\Bigg)^{1/2}.
+    \end{aligned}
+$$
+In view of Proposition~\ref{oracleTheorem}, we propose to reject the null hypothesis if
+$$
+        Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}},
+$$
+where $\chi^2_{1-\alpha} (p-r)$ is the $1-\alpha$ quantile of a $\chi^2(p-r)$ random variable.
 
 By Proposition~\ref{varianceEstimation},
 $$
@@ -882,7 +895,7 @@ $$
 \frac{p}{n}\hat{\sigma}_*^2
 =o_P(p).
 $$
-Then it follows from Proposition~\ref{varianceEstimation} and Theorem~\ref{myPanpan} that
+Then Proposition~\ref{varianceEstimation} and Theorem~\ref{myPanpan} imply that
 $$
 Q=\frac{T_2}{\sigma^2\sqrt{2\tau^2 p}}(1+o_P(1))\xrightarrow{\mathcal{L}}N(0,1)
 $$
@@ -897,23 +910,23 @@ The asymptotic power function of our test can be obtained immediately from Theor
     \end{equation*}
 \end{corollary}
 
-Having derived the asymptotic power function of our test, we are now in a position to provide a comparison with other tests.
+With the asymptotic power function of our test, we are in a position to provide a comparison with other tests.
 Again, to make an average-case comparison against other tests, we place a prior on $\mu_1-\mu_2$.
-Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is from the uniform distribution on the unit sphere.
+Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is uniformly distributed on the unit sphere.
 Then $\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\tilde{\BV}^T\delta\|^2$.
 Since $\myE \|\tilde{\BV}^T\delta\|^2=(p-r)/p$ and $\myVar \big(\|\tilde{\BV}^T\delta\|^2\big) = 2r(p-r)/\big(p^2(p+2)\big)$, we have $\|\tilde{\BV}^T\delta\|^2=1+O_P(1/p)$.
 In this case, the asymptotic power function of our test is equal to
     \begin{equation*}
         \Phi\Big(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sigma^2\sqrt{2\tau^2p}}\Big).
     \end{equation*}
-So the separation boundary of our test is $\|\mu_1-\mu_2\|^2\asymp \sqrt{p}/n$.
+So the trivial power region of our test is $\|\mu_1-\mu_2\|^2= o(\sqrt{p}/n)$.
 
 Now we compare our test with the corrected $T_{CQ}$ test.
-The power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
-In comparison, our test is not affected by the large eigenvalues of $\bSigma$ since the data is projected onto the orthogonal complement of the principal subspace.
-Consequently, it can be expected that our test is more powerful than the corrected $T_{CQ}$ test in average.
-In fact, recall that the separation boundary of the corrected $T_{CQ}$ test is $\|\mu_1-\mu_2\|^2\asymp p^{\beta}/n$.
- Thus, when $\beta>1/2$, the testable region of our test is larger than that of the corrected $T_{CQ}$ test procedure.
+Recall that the trivial power region of the corrected $T_{CQ}$ test is $\|\mu_1-\mu_2\|^2=o( p^{\beta}/n)$.
+ Thus, when $\beta>1/2$, the trivial power region of our test is smaller than that of the corrected $T_{CQ}$ test.
+Consequently, our test is more powerful than the corrected $T_{CQ}$ test in average.
+%The power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
+%In comparison, our test is not affected by the large eigenvalues of $\bSigma$ since the data is projected onto the orthogonal complement of the principal subspace.
 
  We would also like to compare our test with $T_{SD}$.~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
  $$
@@ -966,7 +979,7 @@ In the second case, we consider the uniform correlation structure $\bSigma=(1-\r
 In this section, we consider the simulation performance of the proposed test and compare it with several other alternatives: (1)~\cite{Chen2010A}'s test (CQ); (2)~\cite{Ma2015A}'s test (FAST); (3) the corrected $T_{CQ}$ test procedure proposed in Section~\ref{sec:chen} (CCQ); (4)~\cite{Srivastava2008A}'s test (SD); (5)~\cite{Lopes2015A}'s test (LJW).
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
-Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution between $0$ and $1$), $i=1,\ldots, r$.
+Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution on the interval $(0,1)$), $i=1,\ldots, r$.
 Define the $p\times p$ diagonal matrix $\BD$ as $\BD=\mydiag(\sqrt{d_1},\ldots,\sqrt{d_r}, 1,\ldots, 1)$.
 Then, we independently generate data by the formula
 $$
@@ -976,16 +989,16 @@ where $Y_{k,i}$ is a $p$ dimensional random vector whose entries are i.i.d.\ ran
 We will consider three different distributions of $F$.
 \begin{itemize}
     \item
-        Normal: $F {\sim} N(0,1)$.
+        Normal: $F \sim N(0,1)$.
     \item
-        Chi-squared:  $F\sim (\chi^2_4-4)/\sqrt{8}$.
+        Chi-squared:  $F\sim (\chi^2(4)-4)/\sqrt{8}$.
     \item
         Student's $t$: $F\sim t_4/\sqrt{2}$, where $t_4$ is a Student's $t$ random variable  with degree of freedom $4$.
 \end{itemize}
 Throughout the simulations, we take the nominal level $\alpha=0.05$ and $r=2$.
 
-The critical value of our test is determined by the quantile of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
-Our test is asymptotically level $\alpha$ since the distribution of $Q$ is asymptotically equal to that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$.
+The critical value of our test is determined by the quantile of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
+Our test is asymptotically level $\alpha$ since the distribution of $Q$ is asymptotically equal to that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
 Now we use Q-Q plot to compare these two distributions in the finite sample case.
 Figure~\ref{fig:QQ} displays the Q-Q plots in different combinations of sample size and dimension.
 For $n_1=n_2=50$, $p=500$ or $800$, the right tail of $Q$ is a little heavier than the standardized Chi-squared distribution.
@@ -1024,7 +1037,7 @@ It can be seen that the distribution of $Q$ is very close to that of the standar
     \subfigure[$n_1=n_2=150$, $p=800$.]{
         \includegraphics[width=0.3\textwidth]{figure/qqplot/2n150p800}
     }
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$.
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$.
 In all cases, $F$ is normal and $\beta=1$.
     }\label{fig:QQ}
 \end{figure}
@@ -1061,7 +1074,7 @@ In all cases, $F$ is normal and $\beta=1$.
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1t2}
     }
     \\
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2_{p-r}-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
     }\label{fig:QQ2}
 \end{figure}
 
@@ -1095,35 +1108,26 @@ The empirical levels of our test are a little inflated for $n_1=n_2=50$, but con
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
     $\beta=1/2$\\
-New1 & 0.1630 & 0.2535 & 0.3285 & 0.1715 & 0.2705 & 0.3590 & 0.1845 & 0.2920 & 0.3435 \\ 
-New2 & 0.0800 & 0.0940 & 0.1080 & 0.0815 & 0.0905 & 0.1270 & 0.0840 & 0.1065 & 0.1085 \\ 
-New3 & 0.0635 & 0.0565 & 0.0580 & 0.0610 & 0.0520 & 0.0695 & 0.0595 & 0.0640 & 0.0595 \\ 
-oracle & 0.0510 & 0.0470 & 0.0520 & 0.0480 & 0.0410 & 0.0560 & 0.0520 & 0.0525 & 0.0520 \\ 
-chi & 0.0565 & 0.0535 & 0.0415 & 0.0520 & 0.0515 & 0.0480 & 0.0560 & 0.0420 & 0.0445 \\ 
-fast & 0.0525 & 0.0485 & 0.0290 & 0.0485 & 0.0395 & 0.0395 & 0.0560 & 0.0365 & 0.0325 \\ 
+NEW & 0.0635 & 0.0565 & 0.0580 & 0.0610 & 0.0520 & 0.0695 & 0.0595 & 0.0640 & 0.0595 \\ 
+CCQ & 0.0565 & 0.0535 & 0.0415 & 0.0520 & 0.0515 & 0.0480 & 0.0560 & 0.0420 & 0.0445 \\ 
+FAST & 0.0525 & 0.0485 & 0.0290 & 0.0485 & 0.0395 & 0.0395 & 0.0560 & 0.0365 & 0.0325 \\ 
 CQ & 0.0630 & 0.0645 & 0.0575 & 0.0675 & 0.0665 & 0.0750 & 0.0630 & 0.0725 & 0.0610 \\ 
 SD & 0.0515 & 0.0500 & 0.0440 & 0.0525 & 0.0465 & 0.0580 & 0.0440 & 0.0515 & 0.0405 \\ 
-ljw & 0.0535 & 0.0480 & 0.0455 & 0.0510 & 0.0575 & 0.0440 & 0.0440 & 0.0500 & 0.0505 \\ 
+LJW & 0.0535 & 0.0480 & 0.0455 & 0.0510 & 0.0575 & 0.0440 & 0.0440 & 0.0500 & 0.0505 \\ 
     $\beta=1$\\
-New1 & 0.1700 & 0.2725 & 0.3420 & 0.1680 & 0.2730 & 0.3570 & 0.1645 & 0.2725 & 0.3450 \\ 
-New2 & 0.0815 & 0.1060 & 0.1335 & 0.0900 & 0.1105 & 0.1270 & 0.0780 & 0.1080 & 0.1230 \\ 
-New3 & 0.0560 & 0.0585 & 0.0620 & 0.0625 & 0.0600 & 0.0505 & 0.0505 & 0.0585 & 0.0510 \\ 
-oracle & 0.0545 & 0.0560 & 0.0565 & 0.0605 & 0.0535 & 0.0485 & 0.0450 & 0.0535 & 0.0385 \\ 
-chi & 0.0480 & 0.0445 & 0.0570 & 0.0490 & 0.0525 & 0.0525 & 0.0540 & 0.0400 & 0.0425 \\ 
-fast & 0.0505 & 0.0470 & 0.0590 & 0.0500 & 0.0550 & 0.0530 & 0.0560 & 0.0420 & 0.0435 \\ 
+NEW & 0.0560 & 0.0585 & 0.0620 & 0.0625 & 0.0600 & 0.0505 & 0.0505 & 0.0585 & 0.0510 \\ 
+CCQ & 0.0480 & 0.0445 & 0.0570 & 0.0490 & 0.0525 & 0.0525 & 0.0540 & 0.0400 & 0.0425 \\ 
+FAST & 0.0505 & 0.0470 & 0.0590 & 0.0500 & 0.0550 & 0.0530 & 0.0560 & 0.0420 & 0.0435 \\ 
 CQ & 0.0710 & 0.0785 & 0.0720 & 0.0725 & 0.0775 & 0.0730 & 0.0770 & 0.0715 & 0.0675 \\ 
 SD & 0.0200 & 0.0165 & 0.0130 & 0.0225 & 0.0130 & 0.0100 & 0.0215 & 0.0075 & 0.0100 \\ 
-ljw & 0.0470 & 0.0520 & 0.0460 & 0.0565 & 0.0470 & 0.0535 & 0.0485 & 0.0440 & 0.0540 \\ 
+LJW & 0.0470 & 0.0520 & 0.0460 & 0.0565 & 0.0470 & 0.0535 & 0.0485 & 0.0440 & 0.0540 \\ 
     $\beta=2$\\
-New1 & 0.1685 & 0.2605 & 0.3290 & 0.1750 & 0.2620 & 0.3550 & 0.1715 & 0.2620 & 0.3600 \\ 
-New2 & 0.0860 & 0.1010 & 0.1215 & 0.0865 & 0.1010 & 0.1225 & 0.0795 & 0.1080 & 0.1245 \\ 
-New3 & 0.0545 & 0.0535 & 0.0470 & 0.0550 & 0.0545 & 0.0585 & 0.0505 & 0.0585 & 0.0540 \\ 
-oracle & 0.0535 & 0.0495 & 0.0450 & 0.0520 & 0.0545 & 0.0510 & 0.0505 & 0.0440 & 0.0450 \\ 
-chi & 0.0510 & 0.0505 & 0.0495 & 0.0480 & 0.0540 & 0.0530 & 0.0485 & 0.0410 & 0.0475 \\ 
-fast & 0.0540 & 0.0530 & 0.0510 & 0.0500 & 0.0565 & 0.0555 & 0.0520 & 0.0445 & 0.0495 \\ 
+New & 0.0545 & 0.0535 & 0.0470 & 0.0550 & 0.0545 & 0.0585 & 0.0505 & 0.0585 & 0.0540 \\ 
+CCQ & 0.0510 & 0.0505 & 0.0495 & 0.0480 & 0.0540 & 0.0530 & 0.0485 & 0.0410 & 0.0475 \\ 
+FAST & 0.0540 & 0.0530 & 0.0510 & 0.0500 & 0.0565 & 0.0555 & 0.0520 & 0.0445 & 0.0495 \\ 
 CQ & 0.0690 & 0.0760 & 0.0675 & 0.0745 & 0.0665 & 0.0630 & 0.0785 & 0.0745 & 0.0700 \\ 
 SD & 0.0060 & 0.0010 & 0.0000 & 0.0045 & 0.0010 & 0.0010 & 0.0055 & 0.0010 & 0.0010 \\ 
-ljw & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.0515 \\ 
+LJW & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.0515 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1143,35 +1147,26 @@ ljw & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
     $\beta=1/2$\\
-New1 & 0.0960 & 0.1360 & 0.1560 & 0.1075 & 0.1255 & 0.1640 & 0.1135 & 0.1410 & 0.1660 \\ 
-New2 & 0.0600 & 0.0670 & 0.0770 & 0.0685 & 0.0705 & 0.0790 & 0.0660 & 0.0710 & 0.0760 \\ 
-New3 & 0.0515 & 0.0470 & 0.0550 & 0.0595 & 0.0535 & 0.0535 & 0.0545 & 0.0565 & 0.0515 \\ 
-oracle & 0.0475 & 0.0455 & 0.0525 & 0.0555 & 0.0495 & 0.0470 & 0.0535 & 0.0480 & 0.0490 \\ 
-chi & 0.0480 & 0.0475 & 0.0475 & 0.0600 & 0.0510 & 0.0380 & 0.0430 & 0.0430 & 0.0450 \\ 
-fast & 0.0510 & 0.0505 & 0.0475 & 0.0660 & 0.0555 & 0.0390 & 0.0480 & 0.0465 & 0.0460 \\ 
+NEW & 0.0515 & 0.0470 & 0.0550 & 0.0595 & 0.0535 & 0.0535 & 0.0545 & 0.0565 & 0.0515 \\ 
+CCQ & 0.0480 & 0.0475 & 0.0475 & 0.0600 & 0.0510 & 0.0380 & 0.0430 & 0.0430 & 0.0450 \\ 
+FAST & 0.0510 & 0.0505 & 0.0475 & 0.0660 & 0.0555 & 0.0390 & 0.0480 & 0.0465 & 0.0460 \\ 
 CQ & 0.0680 & 0.0610 & 0.0640 & 0.0650 & 0.0575 & 0.0630 & 0.0585 & 0.0705 & 0.0510 \\ 
 SD & 0.0580 & 0.0520 & 0.0535 & 0.0560 & 0.0500 & 0.0485 & 0.0410 & 0.0615 & 0.0445 \\ 
-ljw & 0.0440 & 0.0440 & 0.0460 & 0.0495 & 0.0470 & 0.0475 & 0.0440 & 0.0450 & 0.0505 \\ 
+LJW & 0.0440 & 0.0440 & 0.0460 & 0.0495 & 0.0470 & 0.0475 & 0.0440 & 0.0450 & 0.0505 \\ 
     $\beta=1$\\
-New1 & 0.0975 & 0.1410 & 0.1600 & 0.0885 & 0.1320 & 0.1690 & 0.0895 & 0.1220 & 0.1625 \\ 
-New2 & 0.0645 & 0.0690 & 0.0800 & 0.0545 & 0.0735 & 0.0770 & 0.0585 & 0.0655 & 0.0795 \\ 
-New3 & 0.0530 & 0.0500 & 0.0475 & 0.0445 & 0.0545 & 0.0510 & 0.0455 & 0.0475 & 0.0500 \\ 
-oracle & 0.0560 & 0.0495 & 0.0415 & 0.0425 & 0.0565 & 0.0455 & 0.0465 & 0.0465 & 0.0490 \\ 
-chi & 0.0545 & 0.0480 & 0.0530 & 0.0500 & 0.0370 & 0.0400 & 0.0460 & 0.0405 & 0.0530 \\ 
-fast & 0.0550 & 0.0500 & 0.0550 & 0.0525 & 0.0415 & 0.0450 & 0.0465 & 0.0450 & 0.0555 \\ 
+NEW & 0.0530 & 0.0500 & 0.0475 & 0.0445 & 0.0545 & 0.0510 & 0.0455 & 0.0475 & 0.0500 \\ 
+CCQ & 0.0545 & 0.0480 & 0.0530 & 0.0500 & 0.0370 & 0.0400 & 0.0460 & 0.0405 & 0.0530 \\ 
+FAST & 0.0550 & 0.0500 & 0.0550 & 0.0525 & 0.0415 & 0.0450 & 0.0465 & 0.0450 & 0.0555 \\ 
 CQ & 0.0715 & 0.0665 & 0.0880 & 0.0655 & 0.0680 & 0.0730 & 0.0785 & 0.0655 & 0.0740 \\ 
 SD & 0.0220 & 0.0135 & 0.0085 & 0.0205 & 0.0140 & 0.0095 & 0.0225 & 0.0115 & 0.0100 \\ 
-ljw & 0.0525 & 0.0515 & 0.0485 & 0.0420 & 0.0475 & 0.0475 & 0.0485 & 0.0445 & 0.0465 \\ 
+LJW & 0.0525 & 0.0515 & 0.0485 & 0.0420 & 0.0475 & 0.0475 & 0.0485 & 0.0445 & 0.0465 \\ 
     $\beta=2$\\
-New1 & 0.1000 & 0.1285 & 0.1690 & 0.1025 & 0.1260 & 0.1635 & 0.0995 & 0.1215 & 0.1725 \\ 
-New2 & 0.0620 & 0.0740 & 0.0815 & 0.0570 & 0.0730 & 0.0775 & 0.0630 & 0.0670 & 0.0800 \\ 
-New3 & 0.0510 & 0.0500 & 0.0565 & 0.0470 & 0.0525 & 0.0445 & 0.0510 & 0.0465 & 0.0495 \\ 
-oracle & 0.0475 & 0.0505 & 0.0520 & 0.0425 & 0.0505 & 0.0450 & 0.0505 & 0.0475 & 0.0525 \\ 
-chi & 0.0420 & 0.0605 & 0.0530 & 0.0545 & 0.0445 & 0.0485 & 0.0615 & 0.0490 & 0.0430 \\ 
-fast & 0.0460 & 0.0635 & 0.0580 & 0.0565 & 0.0475 & 0.0525 & 0.0640 & 0.0520 & 0.0455 \\ 
+NEW & 0.0510 & 0.0500 & 0.0565 & 0.0470 & 0.0525 & 0.0445 & 0.0510 & 0.0465 & 0.0495 \\ 
+CCQ & 0.0420 & 0.0605 & 0.0530 & 0.0545 & 0.0445 & 0.0485 & 0.0615 & 0.0490 & 0.0430 \\ 
+FAST & 0.0460 & 0.0635 & 0.0580 & 0.0565 & 0.0475 & 0.0525 & 0.0640 & 0.0520 & 0.0455 \\ 
 CQ & 0.0855 & 0.0775 & 0.0675 & 0.0615 & 0.0695 & 0.0755 & 0.0750 & 0.0740 & 0.0700 \\ 
 SD & 0.0055 & 0.0025 & 0.0015 & 0.0030 & 0.0000 & 0.0005 & 0.0025 & 0.0005 & 0.0005 \\ 
-ljw & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.0550 \\ 
+LJW & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.0550 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1190,35 +1185,26 @@ ljw & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
     $\beta=1/2$\\
-New1 & 0.0825 & 0.1000 & 0.1125 & 0.0830 & 0.1045 & 0.1115 & 0.0875 & 0.1095 & 0.1115 \\ 
-New2 & 0.0580 & 0.0575 & 0.0675 & 0.0625 & 0.0635 & 0.0655 & 0.0555 & 0.0650 & 0.0650 \\ 
-New3 & 0.0520 & 0.0495 & 0.0575 & 0.0560 & 0.0505 & 0.0540 & 0.0495 & 0.0540 & 0.0540 \\ 
-oracle & 0.0500 & 0.0450 & 0.0515 & 0.0550 & 0.0510 & 0.0505 & 0.0475 & 0.0520 & 0.0490 \\ 
-chi & 0.0475 & 0.0545 & 0.0485 & 0.0450 & 0.0415 & 0.0480 & 0.0510 & 0.0570 & 0.0440 \\ 
-fast & 0.0510 & 0.0595 & 0.0510 & 0.0510 & 0.0440 & 0.0530 & 0.0625 & 0.0645 & 0.0495 \\ 
+NEW & 0.0520 & 0.0495 & 0.0575 & 0.0560 & 0.0505 & 0.0540 & 0.0495 & 0.0540 & 0.0540 \\ 
+CCQ & 0.0475 & 0.0545 & 0.0485 & 0.0450 & 0.0415 & 0.0480 & 0.0510 & 0.0570 & 0.0440 \\ 
+FAST & 0.0510 & 0.0595 & 0.0510 & 0.0510 & 0.0440 & 0.0530 & 0.0625 & 0.0645 & 0.0495 \\ 
 CQ & 0.0655 & 0.0780 & 0.0710 & 0.0720 & 0.0515 & 0.0635 & 0.0565 & 0.0725 & 0.0660 \\ 
 SD & 0.0530 & 0.0675 & 0.0600 & 0.0585 & 0.0445 & 0.0585 & 0.0465 & 0.0600 & 0.0560 \\ 
-ljw & 0.0540 & 0.0520 & 0.0535 & 0.0545 & 0.0555 & 0.0480 & 0.0470 & 0.0500 & 0.0605 \\ 
+LJW & 0.0540 & 0.0520 & 0.0535 & 0.0545 & 0.0555 & 0.0480 & 0.0470 & 0.0500 & 0.0605 \\ 
     $\beta=1$\\
-New1 & 0.0780 & 0.1000 & 0.1040 & 0.0845 & 0.0890 & 0.1070 & 0.0775 & 0.0910 & 0.1100 \\ 
-New2 & 0.0555 & 0.0615 & 0.0685 & 0.0595 & 0.0570 & 0.0585 & 0.0560 & 0.0620 & 0.0610 \\ 
-New3 & 0.0490 & 0.0520 & 0.0490 & 0.0515 & 0.0465 & 0.0425 & 0.0470 & 0.0520 & 0.0460 \\ 
-oracle & 0.0485 & 0.0485 & 0.0545 & 0.0480 & 0.0500 & 0.0395 & 0.0475 & 0.0480 & 0.0420 \\ 
-chi & 0.0405 & 0.0505 & 0.0435 & 0.0470 & 0.0445 & 0.0515 & 0.0510 & 0.0490 & 0.0450 \\ 
-fast & 0.0430 & 0.0530 & 0.0455 & 0.0495 & 0.0480 & 0.0530 & 0.0545 & 0.0510 & 0.0470 \\ 
+NEW & 0.0490 & 0.0520 & 0.0490 & 0.0515 & 0.0465 & 0.0425 & 0.0470 & 0.0520 & 0.0460 \\ 
+CCQ & 0.0405 & 0.0505 & 0.0435 & 0.0470 & 0.0445 & 0.0515 & 0.0510 & 0.0490 & 0.0450 \\ 
+FAST & 0.0430 & 0.0530 & 0.0455 & 0.0495 & 0.0480 & 0.0530 & 0.0545 & 0.0510 & 0.0470 \\ 
 CQ & 0.0785 & 0.0690 & 0.0740 & 0.0720 & 0.0695 & 0.0715 & 0.0730 & 0.0795 & 0.0725 \\ 
 SD & 0.0265 & 0.0115 & 0.0105 & 0.0220 & 0.0130 & 0.0090 & 0.0145 & 0.0145 & 0.0080 \\ 
-ljw & 0.0430 & 0.0605 & 0.0460 & 0.0515 & 0.0580 & 0.0525 & 0.0580 & 0.0595 & 0.0510 \\ 
+LJW & 0.0430 & 0.0605 & 0.0460 & 0.0515 & 0.0580 & 0.0525 & 0.0580 & 0.0595 & 0.0510 \\ 
     $\beta=2$\\
-New1 & 0.0775 & 0.0895 & 0.1165 & 0.0840 & 0.0995 & 0.1235 & 0.0940 & 0.1035 & 0.1145 \\ 
-New2 & 0.0550 & 0.0590 & 0.0735 & 0.0590 & 0.0595 & 0.0740 & 0.0675 & 0.0645 & 0.0655 \\ 
-New3 & 0.0495 & 0.0495 & 0.0565 & 0.0510 & 0.0490 & 0.0560 & 0.0575 & 0.0520 & 0.0520 \\ 
-oracle & 0.0465 & 0.0485 & 0.0555 & 0.0505 & 0.0485 & 0.0485 & 0.0555 & 0.0505 & 0.0475 \\ 
-chi & 0.0495 & 0.0405 & 0.0480 & 0.0460 & 0.0530 & 0.0545 & 0.0475 & 0.0395 & 0.0510 \\ 
-fast & 0.0525 & 0.0415 & 0.0505 & 0.0490 & 0.0560 & 0.0560 & 0.0490 & 0.0400 & 0.0555 \\ 
+NEW & 0.0495 & 0.0495 & 0.0565 & 0.0510 & 0.0490 & 0.0560 & 0.0575 & 0.0520 & 0.0520 \\ 
+CCQ & 0.0495 & 0.0405 & 0.0480 & 0.0460 & 0.0530 & 0.0545 & 0.0475 & 0.0395 & 0.0510 \\ 
+FAST & 0.0525 & 0.0415 & 0.0505 & 0.0490 & 0.0560 & 0.0560 & 0.0490 & 0.0400 & 0.0555 \\ 
 CQ & 0.0675 & 0.0705 & 0.0695 & 0.0765 & 0.0655 & 0.0775 & 0.0785 & 0.0720 & 0.0875 \\ 
 SD & 0.0040 & 0.0020 & 0.0005 & 0.0030 & 0.0000 & 0.0000 & 0.0025 & 0.0010 & 0.0000 \\ 
-ljw & 0.0490 & 0.0475 & 0.0490 & 0.0465 & 0.0535 & 0.0480 & 0.0490 & 0.0445 & 0.0490 \\ 
+LJW & 0.0490 & 0.0475 & 0.0490 & 0.0465 & 0.0535 & 0.0480 & 0.0490 & 0.0445 & 0.0490 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1338,16 +1324,15 @@ The $p$ value is $0.149$, which is obtained by permutation method with $1000$ pe
 Hence, the null hypothesis can not be rejected for $\alpha=0.05$.
 We draw the same conclusion as~\cite{Ma2015A}.
 
-\section{Conclusion remark}
+\section{Discussion}
 
 
 
 This paper is concerned with the problem of testing the equality of means under the spiked covariance model.
-We find that~\cite{Chen2010A}'s test is not valid under the spiked covariance model. 
+We find that~\cite{Chen2010A}'s test statistic is not asymptotically normal distributed under the spiked covariance model. 
 Although a corrected $T_{CQ}$ test can be defined, its power behavior is unsatisfactory.
 The recently proposed random projection test procedures suggest that the power of tests may be boosted using the projected data.
-By maximizing an average SNR,
-We find the optimal projection subspace is the orthogonal complement of the principal subspace.
+By maximizing an average SNR, we find the optimal projection subspace is the orthogonal complement of the principal subspace.
 By projecting data onto the (estimated) optimal subspace, we proposed a new test.
 The asymptotic normality of the new test statistic is proved and the asymptotic power of the new test is given.
     Theoretical and simulation results show that the new test outperforms the competing tests substantially under the spiked covariance model.
@@ -1360,23 +1345,27 @@ Our work partially explains why their test performs well, although their project
 
  The spiked covariance model is an important correlation pattern and has been widely studied in terms of PCA\@.
  In PCA, authors focus on the principal subspace.
- As our work have shown, however, the complement of the principal subspace is sometimes more useful. 
+ As our work have shown, however, the complement of the principal subspace may be more useful in hypothesis testing. 
 
 In our paper, $r$ is assumed to be known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
-\begin{equation}\label{estimateR}
+\begin{equation*}
     \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
-\end{equation}
+\end{equation*}
 where $R$ is a hyperparameter.
     See~\cite{Ahn2009Eigenvalue} for detail.
 
 
 The asymptotic normality of our test statistic relies on the assumption $\sqrt{p}/n\to 0$. In the situation of small $n$ or very large $p$, the critical value of the new test can be determined by permutation method. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
 
-Our derivations and proofs heavily rely on the fact that $\BS$ is independent of $\bar{X}_1,\bar{X}_2$, hence can not be generalized to non-normal distributions.
-For non-normal distributions, the distribution of $\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2$ under the null distribution is hard to evaluate.
-As a result, it's hard to standardize $\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2$ to formulate a test with asymptotically level $\alpha$.
-If sample size is large, maybe a good strategy is to split the samples into two parts:
-One part for the estimation of $\tilde{\BV}$, the other part for the estimation of $\|\mu_1-\mu_2\|^2$.
+The normality assumption is very important for this paper.
+In particular, our derivations and proofs heavily rely on the fact that $\BS$ is independent of $\bar{X}_1,\bar{X}_2$.
+Nevertheless, the simulation results show that the performance of our test is satisfactory under certain non-normal distributions.
+It is an interesting but challenging problem to study the robustness of our test and extend the results to other distributions.
+%, and thus can not be generalized to non-normal distributions.
+%For non-normal distributions, the distribution of $\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2$ under the null distribution is hard to evaluate.
+%As a result, it's hard to standardize $\|\hat{\tilde{\BV}}^T(\bar{X}_1-\bar{X}_2)\|^2$ to formulate a test with asymptotically level $\alpha$.
+%If sample size is large, maybe a good strategy is to split the samples into two parts:
+%One part for the estimation of $\tilde{\BV}$, the other part for the estimation of $\|\mu_1-\mu_2\|^2$.
 
 
 
@@ -1390,6 +1379,9 @@ One part for the estimation of $\tilde{\BV}$, the other part for the estimation 
 %    The lemma is established immediately once we note that $X^T p_i p_i^T X/\sqrt{\lambda_i}$ is distributed as $\chi^2$ distribution with freedom $1$.
 %\end{proof}
 
+\section*{Acknowledgments}
+The authors thank the Editor-in-Chief, the Associate Editor and the referees for helpful comments and suggestions that improve the paper considerably.
+This work was supported by the National Natural Science Foundation of China under Grant No. 11471035, 11471030.
 \begin{appendices}
     \section{Proofs of the results in Section~\ref{sec:chen}}\label{appendixA}
 \begin{proof}[\textbf{Proof of Lemma~\ref{quadraticFormCLT}}]
@@ -1545,7 +1537,7 @@ Thus,
     For the first term, note that $\BV^T(\bar{X}_1-\bar{X}_2)\sim N_r\big(\BV^T (\mu_1-\mu_2),\tau (\bLambda+\sigma^2 \BI_r)\big)$, we have
     $$
     \begin{aligned}
-        \|\BV^T(\bar{X}_1-\bar{X}_2)\|^2&\sim
+        \|\BV^T(\bar{X}_1-\bar{X}_2)\|^2&\overset{d}{=}
         \sum_{i=1}^r \Big(\sqrt{\tau (\lambda_i+\sigma^2)}Z_i+\big(\BV^T (\mu_1-\mu_2)\big)_i \Big)^2\\
         &=\tau p^{\beta}
         \sum_{i=1}^r
@@ -1675,30 +1667,30 @@ Let $\BA$ and $\BB$ be two symmetric $n\times n$ matrices and $\BC=\BA+\BB$. If 
         &\Pr(\sqrt{\lambda_{\min(n,p)}(\BZ \BZ^T )}<\sqrt{n}-\sqrt{p}-t)\leq e^{-t^2/2}.
     \end{align*}
 \end{lemma}
-    We give two useful corollaries of Lemma~\ref{DSbound}.
-\begin{corollary}\label{maxEigen}
-    Suppose that $\BW_n$ is a $p \times p$ random matrix which is distributed as $\mathrm{Wishart}_p(n,\BI_{p})$. Then as $n,p\to \infty$,
-    $$
-        \lambda_1(\BW_n)=O_P(\max(n,p)).
-    $$
-\end{corollary}
-\begin{proof}[\textbf{Proof}]
-    The result follows from the inequality
-    $$
-    \begin{aligned}
-        &\Pr\Big(\frac{\lambda_1(\BW_n)}{\max(n,p)}>16\Big)
-        \leq
-        \Pr\Big(\lambda_1(\BW_n)>8(n+p)\Big)
-        \leq
-        \Pr\Big(\lambda_1(\BW_n)>4(\sqrt{n}+\sqrt{p})^2\Big)\\
-        =
-        &\Pr\Big(\sqrt{\lambda_1(\BW_n)}>2(\sqrt{n}+\sqrt{p})\Big)
-        \leq
-        \Pr\Big(\sqrt{\lambda_1(\BW_n)}>2\sqrt{n}+\sqrt{p}\Big)\leq e^{-n/2},
-    \end{aligned}
-    $$
-    where the last inequality follows from Lemma~\ref{DSbound} with $t=\sqrt{n}$.
-\end{proof}
+    The following corollary of Lemma~\ref{DSbound} is useful.
+%\begin{corollary}\label{maxEigen}
+    %Suppose that $\BW_n$ is a $p \times p$ random matrix which is distributed as $\mathrm{Wishart}_p(n,\BI_{p})$. Then as $n,p\to \infty$,
+    %$$
+        %\lambda_1(\BW_n)=O_P(\max(n,p)).
+    %$$
+%\end{corollary}
+%\begin{proof}[\textbf{Proof}]
+    %The result follows from the inequality
+    %$$
+    %\begin{aligned}
+        %&\Pr\Big(\frac{\lambda_1(\BW_n)}{\max(n,p)}>16\Big)
+        %\leq
+        %\Pr\Big(\lambda_1(\BW_n)>8(n+p)\Big)
+        %\leq
+        %\Pr\Big(\lambda_1(\BW_n)>4(\sqrt{n}+\sqrt{p})^2\Big)\\
+        %=
+        %&\Pr\Big(\sqrt{\lambda_1(\BW_n)}>2(\sqrt{n}+\sqrt{p})\Big)
+        %\leq
+        %\Pr\Big(\sqrt{\lambda_1(\BW_n)}>2\sqrt{n}+\sqrt{p}\Big)\leq e^{-n/2},
+    %\end{aligned}
+    %$$
+    %where the last inequality follows from Lemma~\ref{DSbound} with $t=\sqrt{n}$.
+%\end{proof}
 
 \begin{corollary}\label{corNorm}
 Suppose that $\BW_n$ is a $p \times p$ random matrix which is distributed as $\mathrm{Wishart}_p(n,\BI_{p})$.
@@ -1773,7 +1765,7 @@ Then the sample covariance matrix $\BS$ has the same distribution as the random 
 $
     {(n-2)}^{-1} \BU \BE^{1/2} \bZ \bZ^T \BE^{1/2} \BU^T
 $.
-    So we have $\lambda_i(\BS)\sim (n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$, $i=1,\ldots,r$ and $\mytr(\BS)\sim (n-2)^{-1}\mytr(\BZ^T \BE \BZ)$.
+    So we have $\lambda_i(\BS)\overset{d}{=} (n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$, $i=1,\ldots,r$ and $\mytr(\BS)\overset{d}{=} (n-2)^{-1}\mytr(\BZ^T \BE \BZ)$.
 
     To prove~\eqref{eigenconsisResult1}, we only need to consider $(n-2)^{-1}\lambda_i(\bZ^T \BE \bZ)$.
 Note that
@@ -1868,7 +1860,7 @@ Then~\eqref{eigenconsisResult1} follows from $\blambda_1\asymp p^{\beta}$ and $\
     We note that
     $$
     \hat{\sigma}^2=\frac{1}{p-r}\Big(\mytr(\BS)-\sum_{i=1}^r \lambda_i(\BS)\Big)
-    \sim
+    \overset{d}{=}
 \frac{1}{(n-2)(p-r)}\Big(\mytr(\BZ^T \BE \BZ)-\sum_{i=1}^r \lambda_i(\BZ^T \BE \BZ)\Big).
     $$
     For $\mytr(\BZ^T \BE \BZ)$, we have
@@ -1876,7 +1868,7 @@ Then~\eqref{eigenconsisResult1} follows from $\blambda_1\asymp p^{\beta}$ and $\
             \mytr\big(\bZ^T \BE \bZ\big)= \mytr\big(\bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}\big)+
        \sigma^2 \mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)
     $.
-    Since $\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)\sim \chi^2_{(n-2)(p-r)}$, by central limit theorem, we have
+    Since $\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)\sim \chi^2\big( (n-2)(p-r)\big)$, by central limit theorem, we have
     $$\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)=(n-2)(p-r)+O_P(\sqrt{np}).$$
     It follows that
     \begin{equation}\label{toutengjiayou2}
@@ -1908,8 +1900,7 @@ O_P\Big(\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
 \end{equation*}
 \end{lemma}
 \begin{remark}
-it has been proved in~\cite{Cai2012Sparse}, Theorem 5 that
- under certain conditions,
+\cite{Cai2012Sparse}, Theorem 5 asserts that under certain conditions,
 $$
 \myE \|\hat{\BV}\hat{\BV}^T-\BV\BV^T\|_F^2 =O(\frac{p}{p^{\beta}n}),
     $$
@@ -2097,7 +2088,7 @@ Note that
     For $k=1,2$, we have
     \begin{equation*}
         \begin{aligned}
-            &\frac{1}{n_k} \mytr(\tilde{\BV}^T \BS_k \tilde{\BV})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2_{(p-r)(n_k-1)}
+            &\frac{1}{n_k} \mytr(\tilde{\BV}^T \BS_k \tilde{\BV})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2\big((p-r)(n_k-1)\big)
             =
             \sigma^2\frac{p-r}{n_k}\Big(1+O_P\big(\frac{1}{\sqrt{(p-r)(n_k-1)}}\big)\Big),
         \end{aligned}
@@ -2119,7 +2110,7 @@ It follows from~\eqref{qiguaile} and~\eqref{prop1eq2} that
                 +o_P(1).
     $$
 Then the proposition follows from
-$\|\tilde{\BV}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2\sim \sigma^2\tau\chi^2_{p-r}$.
+$\|\tilde{\BV}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2\sim \sigma^2\tau\chi^2(p-r)$.
 \end{proof}
 
 
@@ -2297,7 +2288,7 @@ $$
     we have that
 \begin{equation}\label{houjia2}
 \tau^{-1}\big\|\hat{\tilde{\BV}}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2
-\sim
+    \overset{d}{=}
     \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{\BV}}^T\bSigma\hat{\tilde{\BV}})\xi_i^2,
 \end{equation}
 where $\xi_1,\ldots,\xi_{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{\BV}}$.
@@ -2429,8 +2420,6 @@ This completes the proof.
 %The proof of Theorem~\ref{myPanpan} implies that when Assumption~\ref{pAndN} is not satisfied, the asymptotic normality is invalid. In this case, permutation method can be used to determine the critical value.
 %We will see from simulation results that the new test has good power behavior even if $p$ is much large than $n$.
 
-\section*{Acknowledgements}
-This work was supported by the National Natural Science Foundation of China under Grant No. 11471035, 11471030.
 
 
 \section*{References}
