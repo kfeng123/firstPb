@@ -30,7 +30,7 @@ myQQplot <- function(x,y){
 n <- 300
 n1 <- n
 n2 <- n
-p <- 199
+p <- 198
 myResult <- vector()
 for (i in 1:5000){
     X1 <- matrix(rnorm(n1*p),nrow = n1)
@@ -51,7 +51,7 @@ ggsave("QQplotChi1.eps",thePlot)
 n <- 50
 n1 <- n
 n2 <- n
-p <- 799
+p <- 798
 myResult <- vector()
 for (i in 1:5000){
     X1 <- matrix(rnorm(n1*p),nrow = n1)

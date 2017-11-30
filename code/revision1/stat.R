@@ -185,7 +185,7 @@ myStat2 <- function(X1, X2, n1, n2, ...) {
     
     # variance estimator
     oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
-    newSigmaSqEst <- oldSigmaSqEst*(1+1/(n1+n2-2)*(r+oldSigmaSqEst*sum(1/(myEigen$values[1:r]-oldSigmaSqEst))))
+    newSigmaSqEst <- (1-r/(n1+n2-2))^(-1) * oldSigmaSqEst
     
     tau <- 1 / n1 + 1 / n2
     stat <-

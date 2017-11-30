@@ -2,12 +2,12 @@ source("../stat.R")
 library(ggplot2)
 nnn <-5000
 
-p <- 600
+p <- 500
 r <- 2
 theEig <- rep(1,p)
 beta <- 1
 if(r!=0){
-    theEig[1:r] <- rep(p^beta,r)+runif(r,0,1)
+    theEig[1:r] <- rep(p^beta,r)
 }
 temp <- newModelGenerator(theEig,theDistribution="normal")
 modelSimulator <- temp$modelSimulator
@@ -40,7 +40,7 @@ myQQplot <- function(x,y){
 }
 
 
-n <- 60
+n <- 50
 n1 <- n
 n2 <- n
 pb <- txtProgressBar(style = 3)
@@ -65,10 +65,10 @@ x <- rchisq(n=100000,df=p-r)
 x <- (x-(p-r))/sqrt(2*(p-r))
 thePlot <- myQQplot(x,myOld)
 thePlot2 <- myQQplot(x,myImproved)
-ggsave("QQplotOld60.eps",thePlot)
-ggsave("QQplotImproved60.eps",thePlot2)
+ggsave("QQplotOld50.eps",thePlot)
+ggsave("QQplotImproved50.eps",thePlot2)
 
-n <- 120
+n <- 100
 n1 <- n
 n2 <- n
 pb <- txtProgressBar(style = 3)
@@ -91,5 +91,5 @@ x <- rchisq(n=100000,df=p-r)
 x <- (x-(p-r))/sqrt(2*(p-r))
 thePlot <- myQQplot(x,myOld)
 thePlot2 <- myQQplot(x,myImproved)
-ggsave("QQplotOld120.eps",thePlot)
-ggsave("QQplotImproved120.eps",thePlot2)
+ggsave("QQplotOld100.eps",thePlot)
+ggsave("QQplotImproved100.eps",thePlot2)

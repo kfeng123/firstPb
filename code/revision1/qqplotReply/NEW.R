@@ -66,11 +66,11 @@ x <- rchisq(n=100000,df=p-r)
 x <- (x-(p-r))/sqrt(2*(p-r))
 thePlot <- myQQplot(x,myImproved)
 thePlot2 <- myQQplot(x,myNew)
-ggsave("FinalQQplotImproved60.eps",thePlot)
-ggsave("FinalQQplotNew60.eps",thePlot2)
+ggsave("FinalQQplotImproved50.eps",thePlot)
+ggsave("FinalQQplotNew50.eps",thePlot2)
 
 
-n <- 120
+n <- 100
 n1 <- n
 n2 <- n
 pb <- txtProgressBar(style = 3)
@@ -95,5 +95,5 @@ x <- rchisq(n=100000,df=p-r)
 x <- (x-(p-r))/sqrt(2*(p-r))
 thePlot <- myQQplot(x,myImproved)
 thePlot2 <- myQQplot(x,myNew)
-ggsave("FinalQQplotImproved120.eps",thePlot)
-ggsave("FinalQQplotNew120.eps",thePlot2)
+ggsave("FinalQQplotImproved100.eps",thePlot)
+ggsave("FinalQQplotNew100.eps",thePlot2)

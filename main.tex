@@ -385,7 +385,7 @@ where the first term of the right hand side is of order $p^{2\beta}/n^2$ and the
 If $\beta=1/2$, the two terms are of the same order. 
 If $\beta>1/2$, however, the second term is dominated by the first term.
 This implies that the asymptotic distributions of $T_{CQ}$ are different for $\beta=1/2$ and $\beta>1/2$.
-Since the variance of $(\tau p^{\beta})^{-1}\|\bar{X}_1-\bar{X}_2\|^2$ is bounded under the null hypothesis, we use $\tau p^{\beta}$ to standardize $T_{CQ}$.
+Since the variance of $(\tau p^{\beta})^{-1}\|\bar{X}_1-\bar{X}_2\|^2$ is bounded away from $0$ and $+\infty$ under the null hypothesis, we use $\tau p^{\beta}$ to standardize $T_{CQ}$.
 The following two theorems give the asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ when $\beta= 1/2$ and $\beta>1/2$, respectively.
 \begin{theorem}\label{Chenstheory1}
  Under Assumption~\ref{theModel},
@@ -571,9 +571,7 @@ $$
 where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal random variable.
 Hence the power of $T_{CQ}$ is related to $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
 Consequently, $\|\BO^T (\mu_1-\mu_2)\|^2/\sqrt{2\tau^2\mytr(\BO^T \bSigma^2 \BO)}$ measures the power of $T(\BO)$.
-{\color{red}
-To consider an average-case scenario, like~\cite{Lopes2015A}, we temporarily place a prior on $\mu_1-\mu_2$.
-}
+ Like~\cite{Lopes2015A}, to consider an average-case scenario, we temporarily place a prior on $\mu_1-\mu_2$.
 Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is from the uniform distribution on the unit sphere.
 In this case, an average SNR can be defined as
 \begin{equation}\label{touteng}
@@ -812,8 +810,8 @@ suppose $p/n^2\to 0$ and
 \end{theorem} 
 \begin{remark}
 The asymptotic normality of $T_2$ is closely related to the convergence rate of $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ to $\tilde{\BV}\tilde{\BV}^T$.
-    Lemma~\ref{conRateLemma} in Appendix~\ref{appendixB} and the equality $\|\hat{\BV}\hat{\BV}^T -\BV \BV^T\|=\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|$ imply that 
-    $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|=O_P(p/(p^{\beta}n))$.
+    Lemma~\ref{conRateLemma} in Appendix~\ref{appendixB} and the equality $\|\hat{\BV}\hat{\BV}^T -\BV \BV^T\|^2=\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2$ imply that 
+    $\|\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T -\tilde{\BV} \tilde{\BV}^T\|^2=O_P(p/(p^{\beta}n))$.
     Hence $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T$ can consistently estimate $\tilde{\BV}\tilde{\BV}^T$ only if $p/(p^{\beta}n)\to 0$.
     Moreover,~\cite{Cai2012Sparse}'s Theorem $5$ implies that no other estimator has faster convergence rate than $O_P(p/(p^{\beta}n))$.
     On the other hand, the asymptotic normality of $T_2$ requires the condition
