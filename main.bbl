@@ -86,10 +86,7 @@
 \newblock \bibinfo{title}{Handbook of the Geometry of Banach Spaces}.
   volume~\bibinfo{volume}{1}.
 \newblock \bibinfo{publisher}{North-Holland}, \bibinfo{address}{Amsterdam}.
-\newblock \URLprefix
-  \url{http://www.sciencedirect.com/science/article/pii/S1874584901800103},
-  \DOIprefix\doi{http://dx.doi.org/10.1016/S1874-5849(01)80010-3}.
-  \bibinfo{note}{handbook of the Geometry of Banach Spaces}.
+\newblock \DOIprefix\doi{10.1016/S1874-5849(01)80010-3}.
 %Type = Book
 \bibitem[{Golub and Van~Loan(2013)}]{matrixComputations}
 \bibinfo{author}{Golub, G.H.}, \bibinfo{author}{Van~Loan, C.F.},
@@ -118,12 +115,9 @@
 \bibinfo{author}{Lopes, M.}, \bibinfo{author}{Jacob, L.},
   \bibinfo{author}{Wainwright, M.J.}, \bibinfo{year}{2011}.
 \newblock \bibinfo{title}{A more powerful two-sample test in high dimensions
-  using random projection}, in: \bibinfo{editor}{Shawe-Taylor, J.},
-  \bibinfo{editor}{Zemel, R.S.}, \bibinfo{editor}{Bartlett, P.L.},
-  \bibinfo{editor}{Pereira, F.}, \bibinfo{editor}{Weinberger, K.Q.} (Eds.),
-  \bibinfo{booktitle}{Advances in Neural Information Processing Systems 24}.
-  \bibinfo{publisher}{Curran Associates, Inc.}, pp.
-  \bibinfo{pages}{1206--1214}.
+  using random projection}, in: \bibinfo{booktitle}{Advances in Neural
+  Information Processing Systems 24}. \bibinfo{publisher}{Curran Associates,
+  Inc.}, pp. \bibinfo{pages}{1206--1214}.
 %Type = Article
 \bibitem[{Ma et~al.(2015)Ma, Lan and Wang}]{Ma2015A}
 \bibinfo{author}{Ma, Y.}, \bibinfo{author}{Lan, W.}, \bibinfo{author}{Wang,
@@ -176,7 +170,7 @@
   dimensional spiked covariance}.
 \newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{45},
   \bibinfo{pages}{1342--1374}.
-\newblock \URLprefix \url{https://doi.org/10.1214/16-AOS1487}.
+\newblock \DOIprefix\doi{10.1214/16-AOS1487}.
 %Type = Article
 \bibitem[{Zhao and Xu(2016)}]{Zhao2016A}
 \bibinfo{author}{Zhao, J.}, \bibinfo{author}{Xu, X.}, \bibinfo{year}{2016}.
