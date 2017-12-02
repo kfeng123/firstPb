@@ -138,7 +138,7 @@ We show that under the null hypothesis, a necessary and sufficient condition for
     The recently proposed random projection test procedures suggest that the power of tests may be boosted using the projected data.
     By maximizing an average signal to noise ratio, we find the optimal projection subspace is the orthogonal complement of the principal subspace. 
     We propose a new test procedure through the projection onto the estimated orthogonal complement of the principal subspace.
-    The asymptotic normality of the new test statistic is proved and the power function of the test is given.
+    The asymptotic normality of the new test statistic is proved and the asymptotic power function of the test is given.
     Theoretical and simulation results show that the new test outperforms the competing tests substantially under the spiked covariance model.
 \end{abstract}
 
@@ -171,7 +171,7 @@ A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ t
 is the pooled sample covariance matrix.
 However, Hotelling's test statistic is not defined when $p\geq n-1$.
 Moreover,~\cite{Bai1996Efiect} showed that even if $p<n-1$, Hotelling's test suffers from low power when $p$ is comparable to $n$.
-Perhaps, the main reason for the low power of Hotelling's test is that $\BS$ is a poor estimator of $\bSigma$ is large compared with $n$.
+Perhaps, the main reason for the low power of Hotelling's test is that $\BS$ is a poor estimator of $\bSigma$ when $p$ is large compared with $n$.
 See~\cite{Chen2010A} and the references therein.
 For testing hypotheses~\eqref{problem} in high dimensional settings,  
 many test statistics are based on the estimation of  ${(\mu_1-\mu_2)}^T \BA(\mu_1-\mu_2)$ for a positive definite matrix $\BA$.~\cite{Bai1996Efiect} proposed a test based on
@@ -209,7 +209,7 @@ For example, the condition
     \mathrm{tr}(\bSigma^4)=o\big(\mathrm{tr}^2(\bSigma^2)\big)
 \end{equation}
 imposed by~\cite{Chen2010A} is violated when $\bSigma$ has a uniform correlation structure.
-More precisely, suppose
+More precisely, we suppose that
 $\bSigma=(1-\rho)\BI_p+\rho\textbf{1}_p \textbf{1}_p^T$ where $0<\rho<1$, $\BI_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector with all the elements equal to one.
 In this case, $\bSigma$ has eigenvalues $1+\rho(p-1) $ and $1-\rho$ with multiplicities $1$ and $p-1$ respectively. Then~\eqref{chenscondition} is violated since 
 as $p\to \infty$, we have
@@ -226,8 +226,8 @@ $$
  where $\bLambda=\mydiag(\blambda_1,\ldots,\blambda_r)$, $\blambda_1\geq \cdots\geq \blambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ matrix with orthonormal columns and $\sigma^2>0$.
  %Under spiked covariance model, the first $r$ eigenvalues of $\bSigma$ are distinguishable larger than the rest eigenvalues.
 The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies. See~\cite{Cai2012Sparse},~\cite{Birnbaum2013},~\cite{Passemier2015} and the references therein.
-The spiked covariance arises when variables are strongly correlated and the correlations are determined by a small number of factors.
- In Section~\ref{sec:chen}, we derive the asymptotic distribution of $T_{CQ}$ under the spiked covariance model. 
+This model arises when variables are strongly correlated and the correlations are determined by a small number of factors.
+ In Section~\ref{sec:chen}, we will derive the asymptotic distribution of $T_{CQ}$ under the spiked covariance model. 
 Generally, $T_{CQ}$ is asymptotically distributed as a weighted chi-squared random variable.
 In a special case, $T_{CQ}$ is asymptotically distributed as the sum of a weighted chi-squared random variable and a normal random variable. 
 We also correct the critical value of $T_{CQ}$ under the spiked covariance model.
@@ -239,7 +239,7 @@ It has been shown that these procedures have substantially higher power than com
 This suggests that projecting data onto certain subspaces may lead to an improvement of the test procedures.
 Instead of using randomly chosen subspaces, we would like to find the optimal subspace.
 In Section~\ref{methodology}, we will see that under the spiked covariance model, the optimal subspace is the orthogonal complement of the principal subspace.
-Motivated by this, we propose a new test procedure through projection onto the (estimated) orthogonal complement of the principal subspace.  
+Motivated by this, we propose a new test procedure through projection onto the estimated orthogonal complement of the principal subspace.  
 The asymptotic null distribution of our test statistic is derived and the asymptotic power function is also given.
 Our analysis and simulations show that our test has very attractive power performance under the spiked covariance model.
 %Simulation study justifies the well-performance of the new test. 
@@ -386,7 +386,7 @@ If $\beta=1/2$, the two terms are of the same order.
 If $\beta>1/2$, however, the second term is dominated by the first term.
 This implies that the asymptotic distributions of $T_{CQ}$ are different for $\beta=1/2$ and $\beta>1/2$.
 Since the variance of $(\tau p^{\beta})^{-1}\|\bar{X}_1-\bar{X}_2\|^2$ is bounded away from $0$ and $+\infty$ under the null hypothesis, we use $\tau p^{\beta}$ to standardize $T_{CQ}$.
-The following two theorems give the asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ when $\beta= 1/2$ and $\beta>1/2$, respectively.
+The following two theorems give the asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ for $\beta= 1/2$ and $\beta>1/2$, respectively.
 \begin{theorem}\label{Chenstheory1}
  Under Assumption~\ref{theModel},
     suppose $\beta=1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
@@ -655,7 +655,7 @@ Below we show that $T_1$ is approximately a standardized Chi-squared random vari
 %\end{remark} 
 
 Note that $T_1$ % is not a statistic since it
-is dependent of the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown and thus needs to be estimated.
+is dependent on the subspace $\tilde{\BV}\tilde{\BV}^T$ which is typically unknown and thus needs to be estimated.
 Let $\hat{\BV}$ and $\hat{\tilde{\BV}}$ denote the first $r$ and last $p-r$ eigenvectors of $\BS$, respectively.
 \cite{Anderson1986Asymptotic} proved that the maximum likelihood estimator (MLE) of $\BV$ is $\hat{\BV}$.
 This fact, together with the equalities $\tilde{\BV}\tilde{\BV}^T= \BI_p-\BV\BV^T$ and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^T= \BI_p-\hat{\BV}\hat{\BV}^T$, implies that 
@@ -974,7 +974,7 @@ In the second case, we consider the uniform correlation structure $\bSigma=(1-\r
 \subsection{Simulation results}
 
 
-In this section, we consider the simulation performance of the proposed test and compare it with several other alternatives: (1)~\cite{Chen2010A}'s test (CQ); (2)~\cite{Ma2015A}'s test (FAST); (3) the corrected $T_{CQ}$ test procedure proposed in Section~\ref{sec:chen} (CCQ); (4)~\cite{Srivastava2008A}'s test (SD); (5)~\cite{Lopes2015A}'s test (LJW).
+In this section, we consider the simulation performance of the proposed test and compare it with several other alternatives: (1) The corrected $T_{CQ}$ test procedure constructed in Section~\ref{sec:chen} (CCQ); (2)~\cite{Ma2015A}'s test (FAST); (3)~\cite{Chen2010A}'s test (CQ); (4)~\cite{Srivastava2008A}'s test (SD); (5)~\cite{Lopes2015A}'s test (LJW).
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
 Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution on the interval $(0,1)$), $i=1,\ldots, r$.

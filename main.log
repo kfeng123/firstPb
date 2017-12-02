@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  30 NOV 2017 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  2 DEC 2017 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,7 +941,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 1224.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n50p200-eps-converted-to.pdf, id=542, 570.13pt x 347.2975pt
+<figure/power/Power2n50p200-eps-converted-to.pdf, id=543, 570.13pt x 347.2975pt
 >
 File: figure/power/Power2n50p200-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n50p200-eps-converted-to.pdf>
@@ -960,7 +960,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 1227.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n50p500-eps-converted-to.pdf, id=543, 570.13pt x 347.2975pt
+<figure/power/Power2n50p500-eps-converted-to.pdf, id=544, 570.13pt x 347.2975pt
 >
 File: figure/power/Power2n50p500-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n50p500-eps-converted-to.pdf>
@@ -979,7 +979,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 1230.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n50p800-eps-converted-to.pdf, id=544, 570.13pt x 347.2975pt
+<figure/power/Power2n50p800-eps-converted-to.pdf, id=545, 570.13pt x 347.2975pt
 >
 File: figure/power/Power2n50p800-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n50p800-eps-converted-to.pdf>
@@ -998,7 +998,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1234.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n100p200-eps-converted-to.pdf, id=545, 570.13pt x 347.2975p
+<figure/power/Power2n100p200-eps-converted-to.pdf, id=546, 570.13pt x 347.2975p
 t>
 File: figure/power/Power2n100p200-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n100p200-eps-converted-to.pdf>
@@ -1017,7 +1017,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1237.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n100p500-eps-converted-to.pdf, id=546, 570.13pt x 347.2975p
+<figure/power/Power2n100p500-eps-converted-to.pdf, id=547, 570.13pt x 347.2975p
 t>
 File: figure/power/Power2n100p500-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n100p500-eps-converted-to.pdf>
@@ -1036,7 +1036,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1240.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n100p800-eps-converted-to.pdf, id=547, 570.13pt x 347.2975p
+<figure/power/Power2n100p800-eps-converted-to.pdf, id=548, 570.13pt x 347.2975p
 t>
 File: figure/power/Power2n100p800-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n100p800-eps-converted-to.pdf>
@@ -1055,7 +1055,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1244.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n150p200-eps-converted-to.pdf, id=548, 570.13pt x 347.2975p
+<figure/power/Power2n150p200-eps-converted-to.pdf, id=549, 570.13pt x 347.2975p
 t>
 File: figure/power/Power2n150p200-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n150p200-eps-converted-to.pdf>
@@ -1074,7 +1074,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1247.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n150p500-eps-converted-to.pdf, id=549, 570.13pt x 347.2975p
+<figure/power/Power2n150p500-eps-converted-to.pdf, id=550, 570.13pt x 347.2975p
 t>
 File: figure/power/Power2n150p500-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n150p500-eps-converted-to.pdf>
@@ -1093,7 +1093,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1250.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power2n150p800-eps-converted-to.pdf, id=550, 570.13pt x 347.2975p
+<figure/power/Power2n150p800-eps-converted-to.pdf, id=551, 570.13pt x 347.2975p
 t>
 File: figure/power/Power2n150p800-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power2n150p800-eps-converted-to.pdf>
@@ -1112,7 +1112,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 1258.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1normal05-eps-converted-to.pdf, id=551, 570.13pt x 347.2975p
+<figure/power/Power1normal05-eps-converted-to.pdf, id=552, 570.13pt x 347.2975p
 t>
 File: figure/power/Power1normal05-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power1normal05-eps-converted-to.pdf>
@@ -1131,7 +1131,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 1261.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1normal1-eps-converted-to.pdf, id=552, 570.13pt x 347.2975pt
+<figure/power/Power1normal1-eps-converted-to.pdf, id=553, 570.13pt x 347.2975pt
 >
 File: figure/power/Power1normal1-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power1normal1-eps-converted-to.pdf>
@@ -1150,7 +1150,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 1264.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1normal2-eps-converted-to.pdf, id=553, 570.13pt x 347.2975pt
+<figure/power/Power1normal2-eps-converted-to.pdf, id=554, 570.13pt x 347.2975pt
 >
 File: figure/power/Power1normal2-eps-converted-to.pdf Graphic file (type pdf)
  <use figure/power/Power1normal2-eps-converted-to.pdf>
@@ -1169,7 +1169,7 @@ red05-eps-converted-to.pdf figure/power/Power1chiSquared05.eps>
 (epstopdf)             \includegraphics on input line 1268.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1chiSquared05-eps-converted-to.pdf, id=554, 570.13pt x 347.2
+<figure/power/Power1chiSquared05-eps-converted-to.pdf, id=555, 570.13pt x 347.2
 975pt>
 File: figure/power/Power1chiSquared05-eps-converted-to.pdf Graphic file (type p
 df)
@@ -1189,7 +1189,7 @@ red1-eps-converted-to.pdf figure/power/Power1chiSquared1.eps>
 (epstopdf)             \includegraphics on input line 1271.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1chiSquared1-eps-converted-to.pdf, id=555, 570.13pt x 347.29
+<figure/power/Power1chiSquared1-eps-converted-to.pdf, id=556, 570.13pt x 347.29
 75pt>
 File: figure/power/Power1chiSquared1-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1209,7 +1209,7 @@ red2-eps-converted-to.pdf figure/power/Power1chiSquared2.eps>
 (epstopdf)             \includegraphics on input line 1274.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1chiSquared2-eps-converted-to.pdf, id=556, 570.13pt x 347.29
+<figure/power/Power1chiSquared2-eps-converted-to.pdf, id=557, 570.13pt x 347.29
 75pt>
 File: figure/power/Power1chiSquared2-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1229,7 +1229,7 @@ f>
 (epstopdf)             \includegraphics on input line 1278.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1t05-eps-converted-to.pdf, id=557, 570.13pt x 347.2975pt>
+<figure/power/Power1t05-eps-converted-to.pdf, id=558, 570.13pt x 347.2975pt>
 File: figure/power/Power1t05-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/power/Power1t05-eps-converted-to.pdf>
@@ -1248,7 +1248,7 @@ converted-to.pdf figure/power/Power1t1.eps>
 (epstopdf)             \includegraphics on input line 1281.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1t1-eps-converted-to.pdf, id=558, 570.13pt x 347.2975pt>
+<figure/power/Power1t1-eps-converted-to.pdf, id=559, 570.13pt x 347.2975pt>
 File: figure/power/Power1t1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/power/Power1t1-eps-converted-to.pdf>
@@ -1267,7 +1267,7 @@ converted-to.pdf figure/power/Power1t2.eps>
 (epstopdf)             \includegraphics on input line 1284.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/power/Power1t2-eps-converted-to.pdf, id=559, 570.13pt x 347.2975pt>
+<figure/power/Power1t2-eps-converted-to.pdf, id=560, 570.13pt x 347.2975pt>
 File: figure/power/Power1t2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/power/Power1t2-eps-converted-to.pdf>
@@ -1342,10 +1342,10 @@ ts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 7.pfb>
-Output written on main.pdf (30 pages, 9895699 bytes).
+Output written on main.pdf (30 pages, 9895385 bytes).
 PDF statistics:
- 1087 PDF objects out of 1200 (max. 8388607)
- 894 compressed objects within 9 object streams
+ 1088 PDF objects out of 1200 (max. 8388607)
+ 895 compressed objects within 9 object streams
  164 named destinations out of 1000 (max. 500000)
  253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
