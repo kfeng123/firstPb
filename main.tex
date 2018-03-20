@@ -136,7 +136,7 @@ We show that under the null hypothesis, a necessary and sufficient condition for
     To characterize the correlations between variables, we adopt a spiked covariance model. 
     Under the spiked covariance model, we derive the asymptotic distribution of~\cite{Chen2010A}'s test statistic and correct the critical value of their test statistic.
     The recently proposed random projection test procedures suggest that the power of tests may be boosted using the projected data.
-    By maximizing an average signal to noise ratio, we find the optimal projection subspace is the orthogonal complement of the principal subspace. 
+    By maximizing an average signal to noise ratio, we find that the optimal projection subspace is the orthogonal complement of the principal subspace. 
     We propose a new test procedure through the projection onto the estimated orthogonal complement of the principal subspace.
     The asymptotic normality of the new test statistic is proved and the asymptotic power function of the test is given.
     Theoretical and simulation results show that the new test outperforms the competing tests substantially under the spiked covariance model.
@@ -305,7 +305,7 @@ To apply Lemma~\ref{quadraticFormCLT} to $T_{CQ}$, one needs to calculate the ei
     %\end{equation*}
     Thus,
     \begin{equation*}
-        \mytr{(\BB_n\otimes \bSigma)}^2=\mytr(\BB_n^2)\mytr\bSigma^2=(\frac{1}{n_1(n_1-1)}+\frac{1}{n_2(n_2-1)}+\frac{2}{n_1 n_2})\mytr\bSigma^2,
+        \mytr{(\BB_n\otimes \bSigma)}^2=\mytr(\BB_n^2)\mytr(\bSigma^2)=\Big(\frac{1}{n_1(n_1-1)}+\frac{1}{n_2(n_2-1)}+\frac{2}{n_1 n_2}\Big)\mytr (\bSigma^2),
     \end{equation*}
 and
     \begin{equation*}
@@ -623,19 +623,29 @@ The above discussion motivates us to consider the variable
 Hence $T_1$ can be regarded as a restricted likelihood ratio statistic.
 Below we show that $T_1$ is approximately a standardized Chi-squared random variable.
 \begin{proposition}\label{oracleTheorem}
-    Under Assumption~\ref{theModel}, suppose $\|\mu_1-\mu_2\|^2= o(p/n)$, we have 
-    \begin{equation*}
+    Under Assumption~\ref{theModel}, we have 
+    \begin{enumerate}[(i)]
+\item
+    if $\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2= o(p/n)$,
+    \begin{equation}\label{oracleTheoremR1}
         \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}
-        {\sigma^2\sqrt{2\tau^2 p}}%\xrightarrow{\mathcal{L}}N(0,1).
+        {\sqrt{2\tau^2 p\sigma^4}}%\xrightarrow{\mathcal{L}}N(0,1).
         \overset{d}{=} \frac{\chi^2(p-r)-(p-r)}{\sqrt{2(p-r)}}+o_P(1),
-    \end{equation*}
-    where ``$\overset{d}{=}$'' means having identical distribution.
+    \end{equation}
+where ``$\overset{d}{=}$'' means having identical distribution.
+\item
+    if $p/n= o(\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2)$, 
+    \begin{equation}\label{oracleTheoremR2}
+        \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}
+        {\sqrt{4\tau\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2\sigma^2}}\xrightarrow{\mathcal{L}}N(0,1).
+    \end{equation}
+    \end{enumerate}
 \end{proposition}
 \begin{remark}
-    Proposition~\ref{oracleTheorem} implies that
+    Proposition~\ref{oracleTheorem} implies that under the null hypothesis,
     $$
-        \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}
-        {\sigma^2\sqrt{2\tau^2 p}}\xrightarrow{\mathcal{L}}N(0,1).
+        \frac{T_1}
+        {\sqrt{2\tau^2 p\sigma^4}}\xrightarrow{\mathcal{L}}N(0,1).
     $$
     However, compared with the standard normal distribution, the standardized Chi-squared distribution is a better approximation of the distribution of the statistic.
     This is implied in the proof of Proposition~\ref{oracleTheorem}.
@@ -1561,7 +1571,7 @@ Thus,
             2{(\mu_1-\mu_2)}^T\tilde{\BV}\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big).
         \end{aligned}
         $$
-Since $\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{\BV}^T (\mu_1-\mu_2),  \sigma^2 \tau \BI_{p-r})$, by central limit theorem, we have
+Since $\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{\BV}^T (\mu_1-\mu_2),  \sigma^2 \tau \BI_{p-r})$, by the central limit theorem, we have
     $$
 \frac{
     \big\|\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2-\sigma^2 \tau (p-r)}{\sigma^2 \tau\sqrt{2(p-r)}}\xrightarrow{\mathcal{L}} N(0,1).
@@ -1723,7 +1733,7 @@ $$
     \leq
     \Pr\Big(\lambda_p(\BW_n)<n-4\sqrt{np}+4p\Big)\\
         =&
-    \Pr\Big(\sqrt{\lambda_p(\BW_n)}<\sqrt{n}-\sqrt{2p}\Big)
+    \Pr\Big(\sqrt{\lambda_p(\BW_n)}<\sqrt{n}-2\sqrt{p}\Big)
         \leq e^{-p/2},
     \end{aligned}
     $$
@@ -1866,7 +1876,7 @@ Then~\eqref{eigenconsisResult1} follows from $\blambda_1\asymp p^{\beta}$ and $\
             \mytr\big(\bZ^T \BE \bZ\big)= \mytr\big(\bZ_{(1)}^T (\bLambda +\sigma^2 \BI_r) \bZ_{(1)}\big)+
        \sigma^2 \mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)
     $.
-    Since $\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)\sim \chi^2\big( (n-2)(p-r)\big)$, by central limit theorem, we have
+    Since $\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)\sim \chi^2\big( (n-2)(p-r)\big)$, by the central limit theorem, we have
     $$\mytr\big( \bZ_{(2)}^T  \bZ_{(2)}\big)=(n-2)(p-r)+O_P(\sqrt{np}).$$
     It follows that
     \begin{equation}\label{toutengjiayou2}
@@ -2041,24 +2051,50 @@ O_P(\sqrt{\frac{p}{p^{\beta}n}}),
 
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{oracleTheorem}}]
-Note that
-    \begin{equation}\label{qiguaile}
-        \begin{aligned}
-            &\|\tilde{\BV}^T(\bar{X}_1-\bar{X}_2)\|^2
-            =\big\|\tilde{\BV}^T(\mu_1-\mu_2)+\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2\\
-            =&\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2+
-            \big\|\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2+
-            2{(\mu_1-\mu_2)}^T\tilde{\BV}\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\\
-            =&\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2+
-            \big\|\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2+
-            o_P(\frac{\sqrt{p}}{n}).
-        \end{aligned}
-    \end{equation}
-    The last equality holds since
+    Note that
+    $$
+    \frac{n_k-1}{\sigma^2} \mytr(\tilde{\BV}^T \BS_k \tilde{\BV})\sim \chi^2\big((p-r)(n_k-1)\big),\quad k=1,2.
+    $$
+    It follows from the central limit theorem that
     \begin{equation*}
         \begin{aligned}
-            &2{(\mu_1-\mu_2)}^T\tilde{\BV}\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\sim N(0,4\sigma^2 \tau \|\tilde{\BV}^T(\mu_1-\mu_2)\|^2)\\
-            =& O_P(\sqrt{\tau}\|\tilde{\BV}^T(\mu_1-\mu_2)\| )=o_P(\frac{\sqrt{p}}{n}).
+            \frac{1}{\sigma^2}\sqrt{\frac{n_k-1}{2(p-r)}}\Big( \mytr(\tilde{\BV}^T \BS_k \tilde{\BV})-(p-r)\sigma^2\Big)\xrightarrow{\mathcal{L}}N(0,1),\quad k=1,2.
+        \end{aligned}
+    \end{equation*}
+    Then we have
+    $$
+           \frac{1}{n_k} \mytr(\tilde{\BV}^T \BS_k \tilde{\BV}) =
+            \frac{p-r}{n_k}\sigma^2 + O_P\Big(\frac{\sqrt{p}}{n\sqrt{n}}\Big),\quad k=1,2.
+    $$
+    Thus,
+    \begin{equation*}\label{prop1eq2}
+        \begin{aligned}
+            &T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2=
+            \|\tilde{\BV}^T(\bar{X}_1-\bar{X}_2)\|^2-
+            \|\tilde{\BV}^T(\mu_1-\mu_2)\|^2
+            -  \tau (p-r)\sigma^2 + O_P\Big(\frac{\sqrt{p}}{n\sqrt{n}}\Big)\\
+            =&
+            T_1^{(1)}+T_1^{(2)}
+            + O_P\Big(\frac{\sqrt{p}}{n\sqrt{n}}\Big)
+            ,
+        \end{aligned}
+    \end{equation*}
+    where
+    \begin{align*}
+        T_1^{(1)}&=\big\|\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2   -  \tau (p-r)\sigma^2, \\
+        T_1^{(2)}&=2{(\mu_1-\mu_2)}^T\tilde{\BV}\tilde{\BV}^T\big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big).
+    \end{align*}
+
+It follows from the fact
+$\|\tilde{\BV}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2\sim \sigma^2\tau\chi^2(p-r)$ that
+$$
+            \frac{T_1^{(1)}}{\sqrt{2\tau^2 (p-r)\sigma^4}}\sim \frac{\chi^2 (p-r)- (p-r)}{\sqrt{2(p-r)}}.
+    $$
+    For $T_1^{(2)}$, we have
+    \begin{equation*}
+        \begin{aligned}
+            &\frac{T_1^{(2)}}{\sqrt{4\tau\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2\sigma^2}}
+            \sim N(0,1).
         \end{aligned}
     \end{equation*}
 
@@ -2083,32 +2119,8 @@ Note that
             %=& O_P(\sqrt{\tau}\|\tilde{\BV}^T(\mu_1-\mu_2)\| )=o_P(\frac{\sqrt{p}}{n}).
         %\end{aligned}
     %\end{equation*}
-    For $k=1,2$, we have
-    \begin{equation*}
-        \begin{aligned}
-            &\frac{1}{n_k} \mytr(\tilde{\BV}^T \BS_k \tilde{\BV})\sim \frac{\sigma^2}{n_k(n_k-1)}\chi^2\big((p-r)(n_k-1)\big)
-            =
-            \sigma^2\frac{p-r}{n_k}\Big(1+O_P\big(\frac{1}{\sqrt{(p-r)(n_k-1)}}\big)\Big),
-        \end{aligned}
-    \end{equation*}
-    where the last equality comes from central limit theorem. 
-    Thus,
-    \begin{equation}\label{prop1eq2}
-        \begin{aligned}
-            &\frac{1}{n_1} \mytr(\tilde{\BV}^T \BS_1 \tilde{\BV})+
-            \frac{1}{n_2} \mytr(\tilde{\BV}^T \BS_2 \tilde{\BV})=\sigma^2 \tau (p-r)+o_P(\frac{\sqrt{p}}{n}).
-        \end{aligned}
-    \end{equation}
-It follows from~\eqref{qiguaile} and~\eqref{prop1eq2} that
-            $$
-            \frac{T_1-\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2}{\sigma^2\sqrt{2\tau^2 p}}
-            =
-            \frac{\|\tilde{\BV}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2-
-                \sigma^2 \tau (p-r)}{\sigma^2\sqrt{2\tau^2 p}}
-                +o_P(1).
-    $$
-Then the proposition follows from
-$\|\tilde{\BV}^T \big( (\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2) \big)\|^2\sim \sigma^2\tau\chi^2(p-r)$.
+    Thus, if $\|\tilde{\BV}^T (\mu_1-\mu_2)\|^2=o(p/n)$, then $T_1^{(1)}$ dominates $T_1^{(2)}$ and~\eqref{oracleTheoremR1} follows from Slutsky's theorem.
+    On the other hand, if  $p/n= o(\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2)$, then $T_1^{(2)}$ dominates $T_1^{(1)}$ and~\eqref{oracleTheoremR2} follows from Slutsky's theorem.
 \end{proof}
 
 
