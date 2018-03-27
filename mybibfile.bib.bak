@@ -12,7 +12,6 @@
   doi       = {10.1214/aop/1176989118},
   keywords  = {rank5},
   publisher = {Institute of Mathematical Statistics},
-  url       = {https://doi.org/10.1214/aop/1176989118},
 }
 
 @Article{Ahn2009Eigenvalue,
@@ -26,7 +25,6 @@
   doi       = {10.3982/ecta8968},
   keywords  = {rank5},
   publisher = {The Econometric Society},
-  url       = {https://doi.org/10.3982/ecta8968},
 }
 
 @Article{2016arXiv160202491A,
@@ -37,7 +35,6 @@
   doi       = {10.5705/ss.202016.0063},
   keywords  = {rank5},
   publisher = {Institute of Statistical Science},
-  url       = {https://doi.org/10.5705/ss.202016.0063},
 }
 
 @Article{Bai1996Efiect,
@@ -62,7 +59,6 @@
   author    = {Zhidong Bai and Jack W. Silverstein},
   doi       = {10.1007/978-1-4419-0661-8},
   keywords  = {rank5},
-  url       = {https://doi.org/10.1007/978-1-4419-0661-8},
 }
 
 @Article{Tony2013,
@@ -77,7 +73,6 @@
   doi       = {10.1111/rssb.12034},
   keywords  = {rank5},
   publisher = {Wiley-Blackwell},
-  url       = {https://doi.org/10.1111/rssb.12034},
 }
 
 @Article{Cai2012Sparse,
@@ -92,7 +87,6 @@
   doi       = {10.1214/13-aos1178},
   keywords  = {rank5},
   publisher = {Institute of Mathematical Statistics},
-  url       = {https://doi.org/10.1214/13-aos1178},
 }
 
 @Article{Chen2011A,
@@ -107,7 +101,6 @@
   doi       = {10.1198/jasa.2011.ap10599},
   keywords  = {rank5},
   publisher = {Informa {UK} Limited},
-  url       = {https://doi.org/10.1198/jasa.2011.ap10599},
 }
 
 @Article{Chen2010A,
@@ -122,7 +115,6 @@
   doi       = {10.1214/09-aos716},
   keywords  = {rank5},
   publisher = {Institute of Mathematical Statistics},
-  url       = {https://doi.org/10.1214/09-aos716},
 }
 
 @Book{Lehmann,
@@ -138,7 +130,6 @@
   mrclass   = {62-02 (62C05 62F03 62H15)},
   mrnumber  = {2135927},
   pages     = {xiv+784},
-  url       = {https://doi.org/10.1007/0-387-27605-x},
 }
 
 @InCollection{Lopes2015A,
@@ -147,10 +138,8 @@
   booktitle = {Advances in Neural Information Processing Systems 24},
   publisher = {Curran Associates, Inc.},
   year      = {2011},
-  editor    = {J. Shawe-Taylor and R. S. Zemel and P. L. Bartlett and F. Pereira and K. Q. Weinberger},
   pages     = {1206--1214},
   keywords  = {rank5},
-  url       = {http://papers.nips.cc/paper/4260-a-more-powerful-two-sample-test-in-high-dimensions-using-random-projection.pdf},
 }
 
 @Article{Ma2015A,
@@ -164,7 +153,6 @@
   doi       = {10.1016/j.jmva.2015.05.005},
   keywords  = {rank5},
   publisher = {Elsevier {BV}},
-  url       = {https://doi.org/10.1016/j.jmva.2015.05.005},
 }
 
 @Article{Srivastava2009A,
@@ -179,7 +167,6 @@
   doi       = {10.1016/j.jmva.2008.06.006},
   keywords  = {rank5},
   publisher = {Elsevier {BV}},
-  url       = {https://doi.org/10.1016/j.jmva.2008.06.006},
 }
 
 @Article{Srivastava2008A,
@@ -194,7 +181,6 @@
   doi       = {10.1016/j.jmva.2006.11.002},
   keywords  = {rank5},
   publisher = {Elsevier {BV}},
-  url       = {https://doi.org/10.1016/j.jmva.2006.11.002},
 }
 
 @Article{Srivastava2014RAPTT,
@@ -209,7 +195,6 @@
   doi       = {10.1080/10618600.2015.1062771},
   keywords  = {rank5},
   publisher = {Informa {UK} Limited},
-  url       = {https://doi.org/10.1080/10618600.2015.1062771},
 }
 
 @Article{Thulin2014A,
@@ -223,7 +208,6 @@
   doi       = {10.1016/j.csda.2013.12.003},
   keywords  = {rank5},
   publisher = {Elsevier {BV}},
-  url       = {https://doi.org/10.1016/j.csda.2013.12.003},
 }
 
 @Article{Zhang201687,
@@ -237,7 +221,6 @@
   doi       = {10.1016/j.csda.2015.12.004},
   keywords  = {rank5},
   publisher = {Elsevier {BV}},
-  url       = {https://doi.org/10.1016/j.csda.2015.12.004},
 }
 
 @Article{Zhao2016A,
@@ -266,7 +249,6 @@
   doi       = {10.1214/13-aos1168},
   keywords  = {rank5},
   publisher = {Institute of Mathematical Statistics},
-  url       = {https://doi.org/10.1214/13-aos1168},
 }
 
 @Article{jiang1996reml,
@@ -281,7 +263,6 @@
   doi       = {10.1214/aos/1033066209},
   keywords  = {rank5},
   publisher = {Institute of Mathematical Statistics},
-  url       = {https://doi.org/10.1214/aos/1033066209},
 }
 
 @Article{Shen2013Consistency,
@@ -296,16 +277,21 @@
   doi           = {10.1016/j.jmva.2012.10.007},
   keywords      = {rank5},
   publisher     = {Elsevier {BV}},
-  url           = {https://doi.org/10.1016/j.jmva.2012.10.007},
 }
 
 @Article{Fan2015Asymptotics,
-  author        = {Jianqing Fan and Weichen Wang},
-  title         = {Asymptotics of Empirical Eigen-structure for Ultra-high Dimensional Spiked Covariance Model},
-  year          = {2015},
-  __markedentry = {[kfeng123:5]},
-  eprint        = {arXiv:1502.04733},
-  keywords      = {rank3},
+  AUTHOR = {Wang, Weichen and Fan, Jianqing},
+     TITLE = {Asymptotics of empirical eigenstructure for high dimensional
+              spiked covariance},
+   JOURNAL = {The Annals of Statistics},
+    VOLUME = {45},
+      YEAR = {2017},
+    NUMBER = {3},
+     PAGES = {1342--1374},
+      ISSN = {0090-5364},
+   MRCLASS = {62H25 (62H10)},
+  MRNUMBER = {3662457},
+       doi = {10.1214/16-AOS1487},
 }
 
 @Article{Jung2009PCA,
@@ -321,7 +307,6 @@
   doi           = {10.1214/09-aos709},
   keywords      = {rank5},
   publisher     = {Institute of Mathematical Statistics},
-  url           = {https://doi.org/10.1214/09-aos709},
 }
 
 @Book{Horn1985Matrix,
@@ -361,7 +346,6 @@
   doi           = {10.1214/12-aos1014},
   keywords      = {rank5},
   publisher     = {Institute of Mathematical Statistics},
-  url           = {https://doi.org/10.1214/12-aos1014},
 }
 
 @Article{Passemier2015,
@@ -376,7 +360,75 @@
   doi       = {10.1111/rssb.12153},
   keywords  = {rank5},
   publisher = {Wiley-Blackwell},
-  url       = {https://doi.org/10.1111/rssb.12153},
+}
+@Book{DAVIDSON2001317,
+  title     = {Handbook of the Geometry of Banach Spaces},
+  publisher = {North-Holland},
+  year      = {2001},
+  author    = {Kenneth R. Davidson and Stanislaw J. Szarek},
+  volume    = {1},
+  address   = {Amsterdam},
+  doi       = {10.1016/S1874-5849(01)80010-3},
+  file      = {DAVIDSON2001317.pdf:DAVIDSON2001317.pdf:PDF},
+  issn      = {1874-5849},
+  pages     = {317 - 366},
+  }
+@Article{Cai2015Optimal,
+  author        = {Cai, Tony and Ma, Zongming and Wu, Yihong},
+  title         = {Optimal estimation and rank detection for sparse spiked covariance matrices},
+  journal       = {Probability Theory \& Related Fields},
+  year          = {2015},
+  volume        = {161},
+  number        = {3-4},
+  pages         = {781-815},
+  __markedentry = {[kfeng123:1]},
+  file          = {Cai2015Optimal.pdf:Cai2015Optimal.pdf:PDF},
+  groups        = {factor and PCA, variance estimation},
+}
+@Book{matrixComputations,
+  title     = {Matrix Computations},
+  publisher = {The Johns Hopkins University Press},
+  year      = {2013},
+  author    = {Golub, Gene H. and Van Loan, Charles F.},
+  edition   = {Fourth},
+  file      = {matrixComputations.pdf:matrixComputations.pdf:PDF},
+  groups    = {book},
+  owner     = {kfeng123},
+  timestamp = {2017.04.20},
+}
+@Article{Anderson1986Asymptotic,
+  author  = {Anderson, T. W.},
+  title   = {Asymptotic Theory for Principal Component Analysis},
+  journal = {The Annals of Mathematical Statistics},
+  year    = {1963},
+  volume  = {34},
+  number  = {1},
+  pages   = {122-148},
+}
+@Article{Dobriban2017,
+  author    = {Edgar Dobriban},
+  title     = {Sharp detection in PCA under correlations: All eigenvalues matter},
+  journal   = {The Annals of Statistics},
+  year      = {2017},
+  volume    = {45},
+  number    = {4},
+  pages     = {1810-1833},
+  file      = {:Dobriban2017.pdf:PDF},
+  groups    = {factor and PCA},
+  owner     = {kfeng123},
+  timestamp = {2017.10.15},
+}
+@Article{fanProject,
+  author    = {Fan, Jianqing and Liao, Yuan and Wang, Weichen},
+  title     = {Projected principal component analysis in factor models},
+  journal   = {The Annals of Statistics},
+  year      = {2016},
+  volume    = {44},
+  number    = {1},
+  pages     = {219-254},
+  groups    = {factor and PCA},
+  owner     = {kfeng123},
+  timestamp = {2017.11.25},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -1,21 +1,21 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.9.3)  23 NOV 2017 21:34
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.9.3)  26 MAR 2018 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**test.tex
+**15
 
 ! Emergency stop.
-<*> test.tex
-            
+<*> 15
+      
 End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
  2 strings out of 493638
- 14 string characters out of 6146797
+ 12 string characters out of 6146797
  53564 words of memory out of 5000000
  3505 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 0i,0n,0p,11b,6s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 0i,0n,0p,5b,6s stack positions out of 5000i,500n,10000p,200000b,80000s
 No pages of output.

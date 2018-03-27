@@ -483,25 +483,18 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
     $$
     Thus, $\sum_{i=1}^r\zeta_i^2$ and $\zeta^*$ characterize the signal strength in the principal subspace and the complement of the principal subspace, respectively.
     Under the conditions of Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the following statements are equivalent:
-    {\color{red}
     \begin{enumerate}[(1)]
-        \item
-     $\zeta_1=\cdots=\zeta_r=\zeta^*=0$.
  \item
      $\|\mu_1-\mu_2\|^2=o(\tau p^{\beta})$.
-         \item
-            The asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ are the same under the null hypothesis and the alternative hypothesis.
         \item
             Any test procedure based on $T_{CQ}$ has trivial power asymptotically.
     \end{enumerate}
-    }
 \end{remark}
 
 
 
 It is implied by Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2} that the original critical value of $T_{CQ}$ can not be used when $\beta\geq 1/2$.
 Now we adjust the critical value of $T_{CQ}$ such that the resulting test has correct level asymptotically.
-{\color{red}
 Consider the random variable
 $
 W=
@@ -511,38 +504,38 @@ W=
             -
         \sum_{i=1}^r \blambda_i
         $, 
-where $Z_0,Z_1,\ldots,Z_r$ are i.i.d.\ $N(0,1)$ random variables.
-Let $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ be the cumulative distribution function of $W$.
+where $Z_0,\ldots,Z_r$ are i.i.d.\ $N(0,1)$ random variables.
 Under the conditions of Theorem~\ref{Chenstheory1} ($\beta=1/2$), we have
-$$
-\frac{W}{p^{\beta}}\xrightarrow{w}
-\sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
-$$
+$
+  p^{-\beta}W\xrightarrow{w}
+\sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i
+$.
 Under the conditions of Theorem~\ref{Chenstheory2} ($\beta>1/2$), we have
-$$
-\frac{W}{p^{\beta}}\xrightarrow{w}
+$
+ p^{-\beta}W\xrightarrow{w}
 \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
-$$
-Hence in both case, we have
-$$
-\sup_{x\in\mathbb{R}}\big|\Pr\big(\frac{1}{\tau}T_{CQ}\leq x\big)-\Pr\big(W\leq x\big)\big|
-=o(1).
-$$
-Thus, the test that rejects the null hypothesis if
-$$
-\frac{1}{\tau}T_{CQ}>
-F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)
-$$
-is asymptotically level $\alpha$.
-        However, the distribution $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ involves some unknown parameters.
+$
+Hence in both cases, $p^{-\beta}W$ can mimic the asymptotic null distributions of $(\tau p^{\beta})^{-1}T_{CQ}$.
+We would like to use the quantile of $W$ to approximate that of $\tau^{-1}T_{CQ}$.
+        However, the distribution of $W$ involves the unknown parameters $\blambda_1,\ldots,\blambda_r,\sigma^2$.
+Let $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$ be the cumulative distribution function of $W$.
 In order to consistently estimate $F(x;\blambda_1,\ldots,\blambda_r,\sigma^2)$, we need to estimate $\blambda_1,\ldots,\blambda_r$ and $\sigma^2$.
-In Section~\ref{methodology}, we will give their estimators $\hat{\blambda}_1,\ldots,\hat{\blambda}_r$ and $\hat{\sigma}_{*}^2$, and Proposition~\ref{varianceEstimation} asserts that these estimators are ratio consistent. 
-Now we propose a corrected $T_{CQ}$ test which rejects the null hypothesis with $\alpha$ level of significance if
+In Section~\ref{methodology}, we will give their estimators $\hat{\blambda}_1,\ldots,\hat{\blambda}_r$ and $\hat{\sigma}_{*}^2$. 
+Using these estimators, we propose a corrected $T_{CQ}$ test which rejects the null hypothesis with $\alpha$ level of significance if
 $$
 \tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2).
 $$
-Then under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2}, the corrected $T_{CQ}$ test is asymptotically level $\alpha$.
-}
+The following theorem shows that the corrected $T_{CQ}$ test has correct level asymptotically.
+
+\begin{theorem}\label{theoremRev}
+Under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2},
+$$
+    \Pr\big(\tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2)\big)=\alpha+o(1).
+$$
+\end{theorem}
+
+
+
 
 
 As we have seen in Remark~\ref{remark1}, the corrected $T_{CQ}$ test has trivial power $\alpha$ asymptotically if and only if
@@ -757,7 +750,7 @@ The following proposition gives the convergence rate of these estimators.
 \begin{remark}
 Recently,~\cite{Passemier2015} proposed a bias-corrected estimator of $\sigma^2$:
 $$
-\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
+\Big(1+\frac{1}{n}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
 $$
 In their paper, $\blambda_i$'s are fixed and known.
     This is different from Assumption~\ref{theModel} where $\blambda_i$'s are divergent and unknown.
@@ -776,14 +769,14 @@ In their paper, $\blambda_i$'s are fixed and known.
     Recently,~\cite{Fan2015Asymptotics} proposed an estimator of
     $\lambda_i(\bSigma)=\blambda_i+\sigma^2$, $i=1,\ldots, r$:
     $$
-    \max\Big(\lambda_i(\BS)-\frac{p}{n-2}\Big(1-\frac{p}{p-r}\frac{r}{n-2}\Big)^{-1}\hat{\sigma}^2,0\Big).
+    \max\Big(\lambda_i(\BS)-\frac{p}{n}\Big(1-\frac{rp}{n(p-r)}\Big)^{-1}\hat{\sigma}^2,0\Big).
     $$
-    They showed that under $p>n-2$, $p=O(n\blambda_r)$ and some other conditions,
+    They showed that under $p>n$, $p=O(n\blambda_r)$ and some other conditions,
     $$
-    \frac{1}{\blambda_i+\sigma^2}\max\Big(\lambda_i(\BS)-\frac{p}{n-2}\Big(1-\frac{p}{p-r}\frac{r}{n-2}\Big)^{-1}\hat{\sigma}^2,0\Big)
+    \frac{1}{\blambda_i+\sigma^2}\max\Big(\lambda_i(\BS)-\frac{p}{n}\Big(1-\frac{rp}{n(p-r)}\Big)^{-1}\hat{\sigma}^2,0\Big)
     =1+O_P\Big(\frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\Big).
     $$
-    Note that under Assumption~\ref{theModel} and $p>n-2$, we have
+    Note that under Assumption~\ref{theModel} and $p>n$, we have
     $$
 \frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\asymp
 \frac{1}{\sqrt{n}}
@@ -791,7 +784,7 @@ In their paper, $\blambda_i$'s are fixed and known.
         \max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big),\quad i=1,\ldots,r.
     $$
     In this case,~\cite{Fan2015Asymptotics}'s estimator and $\hat{\blambda}_i$ have the same convergence rate, although the estimands are slightly different.
-    Compared with~\cite{Fan2015Asymptotics}'s result, Proposition~\ref{varianceEstimation} doesn't need the conditions $p>n-2$ and $p=O(n\blambda_r)$.
+    Compared with~\cite{Fan2015Asymptotics}'s result, Proposition~\ref{varianceEstimation} doesn't need the conditions $p>n$ and $p=O(n\blambda_r)$.
 \end{remark}
 
 %Similarly, we denote by  $\hat{\BV}_k$ and $\hat{\tilde{\BV}}_k$ the first $r$ and last $p-r$ eigenvectors of $S_k$ respectively, $k=1,2$.
@@ -939,35 +932,36 @@ suppose $p/n^2\to 0$, we have
     \end{equation}
 \end{theorem}
 
-With the asymptotic power function of our test, we are in a position to provide a comparison with other tests.
+With the asymptotic power function of the proposed test, we are in a position to provide a comparison with other tests.
 Again, to make an average-case comparison against other tests, we place a prior on $\mu_1-\mu_2$.
 Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is uniformly distributed on the unit sphere.
-Then $\|\tilde{\BV}^T(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\tilde{\BV}^T\delta\|^2$.
-Since $\myE \|\tilde{\BV}^T\delta\|^2=(p-r)/p$ and $\myVar \big(\|\tilde{\BV}^T\delta\|^2\big) = 2r(p-r)/\big(p^2(p+2)\big)$, we have $\|\tilde{\BV}^T\delta\|^2=1+O_P(1/p)$.
-In this case, the asymptotic power function of our test is equal to
+Then $\|\hat{\tilde{\BV}}^T(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\hat{\tilde{\BV}}^T\delta\|^2$.
+Since $\myE (\|\hat{\tilde{\BV}}^T\delta\|^2|\BS)=(p-r)/p$ and $\myVar (\|\hat{\tilde{\BV}}^T\delta\|^2|\BS) = 2r(p-r)/\big(p^2(p+2)\big)$, we have $\|\hat{\tilde{\BV}}^T\delta\|^2=1+O_P(1/p)$.
+In this case,~\eqref{niuniuniua} implies that
     \begin{equation*}
-        \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg).
+        \Pr\bigg(Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\bigg)=
+        \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg)+o(1).
     \end{equation*}
-So the trivial power region of our test is $\|\mu_1-\mu_2\|^2= o(\sqrt{p}/n)$.
+So the trivial power region of the proposed test is $\|\mu_1-\mu_2\|^2= o(\sqrt{p}/n)$.
 
-Now we compare our test with the corrected $T_{CQ}$ test.
+Now we compare the proposed test with the corrected $T_{CQ}$ test.
 Recall that the trivial power region of the corrected $T_{CQ}$ test is $\|\mu_1-\mu_2\|^2=o( p^{\beta}/n)$.
- Thus, when $\beta>1/2$, the trivial power region of our test is smaller than that of the corrected $T_{CQ}$ test.
-Consequently, our test is more powerful than the corrected $T_{CQ}$ test in average.
+ Thus, when $\beta>1/2$, the trivial power region of the proposed test is smaller than that of the corrected $T_{CQ}$ test.
+Consequently, the proposed test is more powerful than the corrected $T_{CQ}$ test in average.
 %The power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
 %In comparison, our test is not affected by the large eigenvalues of $\bSigma$ since the data is projected onto the orthogonal complement of the principal subspace.
 
- We would also like to compare our test with $T_{SD}$.~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
+ We would also like to compare the proposed test with $T_{SD}$.~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
  $$
         \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}\bigg),
  $$
  where $\bSigma_d=\mydiag(\bSigma)$ and $\BR=\bSigma_d^{-1/2} \bSigma \bSigma_d^{-1/2}$ is the population correlation matrix.
- It is difficult to compare our test with $T_{SD}$ under general covariance matrices.
+ It is difficult to compare the proposed test with $T_{SD}$ under general covariance matrices.
  Here we consider two representative cases.
 
 
  It is known that the power of $T_{SD}$ is highest when the covariance matrix is diagonal.
- To compare our test with $T_{SD}$ in this case,
+ To compare the proposed test with $T_{SD}$ in this case,
 suppose that $\bSigma=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$. Then $\BR=\BI_p$.
  Note that $\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\bSigma^{-1/2}\delta\|^2$.
  We have 
@@ -982,7 +976,7 @@ It follows that $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}(1+o_P(1))$. Hence the as
  $$
         \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg).
  $$
- Thus, under the diagonal covariance matrix, the asymptotic power function of our test is the same as that of $T_{SD}$.
+ Thus, under the diagonal covariance matrix, the asymptotic power function of the proposed test is the same as that of $T_{SD}$.
 
 In the second case, we consider the uniform correlation structure $\bSigma=(1-\rho)\BI_p+\rho \mathbf{1}_p\mathbf{1}_p^T$ ($0<\rho <1$) which is far away from a diagonal matrix.
  In this case, the diagonal entries of $\Sigma$ are all equal to $1$. 
@@ -992,9 +986,9 @@ In the second case, we consider the uniform correlation structure $\bSigma=(1-\r
  =
  \frac{1}{\sqrt{\rho^2 p +(1-\rho^2)}}\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2p}}.
  $$
- Then the asymptotic relative efficiency of our test with respect to $T_{SD}$ is
- $\sqrt{\rho^2 p +(1-\rho^2)}$.
- Hence our test tends to be much more powerful than $T_{SD}$ under the uniform correlation structure.
+ Then the asymptotic relative efficiency of the proposed test with respect to $T_{SD}$ is
+ $\sqrt{\rho^2 p +(1-\rho^2)}$ which tends to infinity.
+ Hence the proposed test tends to be much more powerful than $T_{SD}$ under the uniform correlation structure.
 
 
 
@@ -1004,8 +998,7 @@ In the second case, we consider the uniform correlation structure $\bSigma=(1-\r
 \section{Numerical studies}
 \subsection{Simulation results}
 
-
-In this section, we consider the simulation performance of the proposed test and compare it with several other alternatives: (1) The corrected $T_{CQ}$ test procedure constructed in Section~\ref{sec:chen} (CCQ); (2)~\cite{Ma2015A}'s test (FAST); (3)~\cite{Chen2010A}'s test (CQ); (4)~\cite{Srivastava2008A}'s test (SD); (5)~\cite{Lopes2015A}'s test (LJW).
+In this section, we conduct extensive simulation studies to examine the finite sample performance of the proposed test.
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
 Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution on the interval $(0,1)$), $i=1,\ldots, r$.
@@ -1026,9 +1019,65 @@ We will consider three different distributions of $F$.
 \end{itemize}
 Throughout the simulations, we take the nominal level $\alpha=0.05$ and $r=2$.
 
-The critical value of our test is determined by the quantile of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
-Our test is asymptotically level $\alpha$ since the distribution of $Q$ is asymptotically equal to that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
-Now we use Q-Q plot to compare these two distributions in the finite sample case.
+
+The proposed test statistic relies on $r$, which is assumed to be known in our theoretical derivations.
+However, $r$ is typically unknown in applications.
+To examine the proposed test in a more realistic situation, the proposed test is implemented with an estimated $r$ throughout the simulations.
+Many consistent estimators of $r$ have been proposed, such as~\cite{Bai2002},~\cite{Ahn2009Eigenvalue} and~\cite{Cai2015Optimal}.
+In the simulations, we use the following simple estimator proposed by~\cite{Ahn2009Eigenvalue}:
+\begin{equation*}
+    \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
+\end{equation*}
+where $R$ is a hyperparameter. Throughout our simulations, we take $R=50$.
+Table~\ref{newnewtable} shows that $\hat{r}$ can consistently estimate $r$.
+
+\begin{table}[ht]
+    \caption{Empirical probabilities of the event $\{\hat{r}=r\}$ based on $2000$ replications.} 
+\label{newnewtable}
+\vspace{3mm}
+\centering
+\begin{tabular}{llllllllll}
+\toprule
+    &   \multicolumn{3}{c}{Normal} & \multicolumn{3}{c}{Chi-squared}& \multicolumn{3}{c}{Student's $t$}  \\
+    \cmidrule(r){2-4}
+\cmidrule(r){5-7}
+\cmidrule(r){8-10}
+    $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
+\midrule
+    $n=50$, $\beta=1/2$ & 1.0000 & 0.9995& 1.0000 &0.9870&0.9850&0.9840&0.8610&0.8440&0.8650\\
+    $n=50$, $\beta=1$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 0.9960 & 0.9980 & 1.0000\\
+    $n=50$, $\beta=2$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 1.0000 & 0.9995 & 1.0000\\
+    \midrule
+    $n=100$, $\beta=1/2$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 0.9430 & 0.9465 & 0.9495 \\
+    $n=100$, $\beta=1$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 0.9970 & 0.9985 & 0.9980\\
+    $n=100$, $\beta=2$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000  & 1.0000 & 1.0000 & 1.0000\\
+    \midrule
+    $n=150$, $\beta=1/2$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 0.9605 & 0.9570 & 0.9705 \\
+    $n=150$, $\beta=1$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 1.0000 & 0.9990 & 0.9995 \\
+    $n=150$, $\beta=2$ & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+%In fact, our asymptotic results are still valid with a consistently estimated $r$.
+
+%In our paper, $r$ is assumed to be known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
+%\begin{equation*}
+    %\hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
+%\end{equation*}
+%where $R$ is a hyperparameter.
+    %See~\cite{Ahn2009Eigenvalue} for detail.
+
+
+
+
+
+The critical value of the proposed test is determined by the quantile of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
+%Our test is asymptotically level $\alpha$ since the distribution of $Q$ is asymptotically equal to that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
+%Now we use Q-Q plot to compare these two distributions in the finite sample case.
+Hence we would like to use Q-Q plot to compare the distribution of $Q$ and $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$ in finite sample settings.
 Figure~\ref{fig:QQ} displays the Q-Q plots in different combinations of sample size and dimension.
 For $n_1=n_2=50$, $p=500$ or $800$, the right tail of $Q$ is a little heavier than the standardized chi-squared distribution.
 Otherwise, the distribution of $Q$ can be well approximated by the standardized chi-squared distribution.
@@ -1109,8 +1158,8 @@ In all cases, $F$ is normal and $\beta=1$.
 
 
 
-
-Next, we consider the simulation of the empirical level. 
+Next, we consider the empirical level of the proposed test and compare them with several other alternatives: (1) The corrected $T_{CQ}$ test procedure constructed in Section~\ref{sec:chen} (CCQ); (2)~\cite{Ma2015A}'s test (FAST); (3)~\cite{Chen2010A}'s test (CQ); (4)~\cite{Srivastava2008A}'s test (SD); (5)~\cite{Lopes2015A}'s test (LJW).
+%Now we consider the simulation of the empirical level. 
 Samples are repeatedly generated $2000$ times to calculate empirical level.
 The results are listed in Tables~\ref{hahaha1}-\ref{hahaha3}.
 We can see that the empirical levels of the CQ test are larger than the nominal level in all cases.
@@ -1119,7 +1168,7 @@ The empirical levels of the SD test are close to the nominal level when $\beta=1
  This is not surprising since the LJW test is exact under the normal distribution.
 The empirical levels of the FAST test are very close to the nominal level in most cases, but tend to be smaller than the nominal level when $n_1=n_2=50$, $p=800$ and $\beta=1/2$.
 The empirical levels of the CCQ test are very close to the nominal level in all cases.
-The empirical levels of our test are a little inflated for $n_1=n_2=50$, but converge to the nominal level as the sample size increases.
+The empirical levels of the proposed test are a little inflated for $n_1=n_2=50$, but converge to the nominal level as the sample size increases.
 
 % latex table generated in R 3.3.1 by xtable 1.8-2 package
 % Sun Jul 31 01:50:20 2016
@@ -1137,22 +1186,22 @@ The empirical levels of our test are a little inflated for $n_1=n_2=50$, but con
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
     $\beta=1/2$\\
-NEW & 0.0635 & 0.0565 & 0.0580 & 0.0610 & 0.0520 & 0.0695 & 0.0595 & 0.0640 & 0.0595 \\ 
-CCQ & 0.0565 & 0.0535 & 0.0415 & 0.0520 & 0.0515 & 0.0480 & 0.0560 & 0.0420 & 0.0445 \\ 
+NEW & 0.0615 & 0.0555 & 0.0595 & 0.0530 & 0.0560 & 0.0630 & 0.0590 & 0.0610 & 0.0565 \\ 
+CCQ & 0.0535 & 0.0525 & 0.0490 & 0.0600 & 0.0495 & 0.0550 & 0.0545 & 0.0480 & 0.0590 \\ 
 FAST & 0.0525 & 0.0485 & 0.0290 & 0.0485 & 0.0395 & 0.0395 & 0.0560 & 0.0365 & 0.0325 \\ 
 CQ & 0.0630 & 0.0645 & 0.0575 & 0.0675 & 0.0665 & 0.0750 & 0.0630 & 0.0725 & 0.0610 \\ 
 SD & 0.0515 & 0.0500 & 0.0440 & 0.0525 & 0.0465 & 0.0580 & 0.0440 & 0.0515 & 0.0405 \\ 
 LJW & 0.0535 & 0.0480 & 0.0455 & 0.0510 & 0.0575 & 0.0440 & 0.0440 & 0.0500 & 0.0505 \\ 
     $\beta=1$\\
-NEW & 0.0560 & 0.0585 & 0.0620 & 0.0625 & 0.0600 & 0.0505 & 0.0505 & 0.0585 & 0.0510 \\ 
-CCQ & 0.0480 & 0.0445 & 0.0570 & 0.0490 & 0.0525 & 0.0525 & 0.0540 & 0.0400 & 0.0425 \\ 
+NEW & 0.0480 & 0.0490 & 0.0530 & 0.0595 & 0.0495 & 0.0560 & 0.0500 & 0.0450 & 0.0525 \\ 
+CCQ & 0.0545 & 0.0600 & 0.0580 & 0.0585 & 0.0560 & 0.0520 & 0.0500 & 0.0405 & 0.0520 \\ 
 FAST & 0.0505 & 0.0470 & 0.0590 & 0.0500 & 0.0550 & 0.0530 & 0.0560 & 0.0420 & 0.0435 \\ 
 CQ & 0.0710 & 0.0785 & 0.0720 & 0.0725 & 0.0775 & 0.0730 & 0.0770 & 0.0715 & 0.0675 \\ 
 SD & 0.0200 & 0.0165 & 0.0130 & 0.0225 & 0.0130 & 0.0100 & 0.0215 & 0.0075 & 0.0100 \\ 
 LJW & 0.0470 & 0.0520 & 0.0460 & 0.0565 & 0.0470 & 0.0535 & 0.0485 & 0.0440 & 0.0540 \\ 
     $\beta=2$\\
-New & 0.0545 & 0.0535 & 0.0470 & 0.0550 & 0.0545 & 0.0585 & 0.0505 & 0.0585 & 0.0540 \\ 
-CCQ & 0.0510 & 0.0505 & 0.0495 & 0.0480 & 0.0540 & 0.0530 & 0.0485 & 0.0410 & 0.0475 \\ 
+New & 0.0590 & 0.0520 & 0.0535 & 0.0575 & 0.0550 & 0.0570 & 0.0545 & 0.0480 & 0.0500 \\ 
+CCQ & 0.0535 & 0.0495 & 0.0620 & 0.0495 & 0.0560 & 0.0565 & 0.0525 & 0.0475 & 0.0500 \\ 
 FAST & 0.0540 & 0.0530 & 0.0510 & 0.0500 & 0.0565 & 0.0555 & 0.0520 & 0.0445 & 0.0495 \\ 
 CQ & 0.0690 & 0.0760 & 0.0675 & 0.0745 & 0.0665 & 0.0630 & 0.0785 & 0.0745 & 0.0700 \\ 
 SD & 0.0060 & 0.0010 & 0.0000 & 0.0045 & 0.0010 & 0.0010 & 0.0055 & 0.0010 & 0.0010 \\ 
@@ -1176,22 +1225,22 @@ LJW & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
     $\beta=1/2$\\
-NEW & 0.0515 & 0.0470 & 0.0550 & 0.0595 & 0.0535 & 0.0535 & 0.0545 & 0.0565 & 0.0515 \\ 
-CCQ & 0.0480 & 0.0475 & 0.0475 & 0.0600 & 0.0510 & 0.0380 & 0.0430 & 0.0430 & 0.0450 \\ 
+NEW & 0.0465 & 0.0530 & 0.0585 & 0.0500 & 0.0565 & 0.0520 & 0.0630 & 0.0515 & 0.0570 \\ 
+CCQ & 0.0545 & 0.0590 & 0.0450 & 0.0555 & 0.0560 & 0.0535 & 0.0530 & 0.0490 & 0.0525 \\ 
 FAST & 0.0510 & 0.0505 & 0.0475 & 0.0660 & 0.0555 & 0.0390 & 0.0480 & 0.0465 & 0.0460 \\ 
 CQ & 0.0680 & 0.0610 & 0.0640 & 0.0650 & 0.0575 & 0.0630 & 0.0585 & 0.0705 & 0.0510 \\ 
 SD & 0.0580 & 0.0520 & 0.0535 & 0.0560 & 0.0500 & 0.0485 & 0.0410 & 0.0615 & 0.0445 \\ 
 LJW & 0.0440 & 0.0440 & 0.0460 & 0.0495 & 0.0470 & 0.0475 & 0.0440 & 0.0450 & 0.0505 \\ 
     $\beta=1$\\
-NEW & 0.0530 & 0.0500 & 0.0475 & 0.0445 & 0.0545 & 0.0510 & 0.0455 & 0.0475 & 0.0500 \\ 
-CCQ & 0.0545 & 0.0480 & 0.0530 & 0.0500 & 0.0370 & 0.0400 & 0.0460 & 0.0405 & 0.0530 \\ 
+NEW & 0.0600 & 0.0490 & 0.0540 & 0.0480 & 0.0470 & 0.0435 & 0.0570 & 0.0520 & 0.0545 \\ 
+CCQ & 0.0560 & 0.0435 & 0.0455 & 0.0560 & 0.0540 & 0.0570 & 0.0545 & 0.0540 & 0.0565 \\ 
 FAST & 0.0550 & 0.0500 & 0.0550 & 0.0525 & 0.0415 & 0.0450 & 0.0465 & 0.0450 & 0.0555 \\ 
 CQ & 0.0715 & 0.0665 & 0.0880 & 0.0655 & 0.0680 & 0.0730 & 0.0785 & 0.0655 & 0.0740 \\ 
 SD & 0.0220 & 0.0135 & 0.0085 & 0.0205 & 0.0140 & 0.0095 & 0.0225 & 0.0115 & 0.0100 \\ 
 LJW & 0.0525 & 0.0515 & 0.0485 & 0.0420 & 0.0475 & 0.0475 & 0.0485 & 0.0445 & 0.0465 \\ 
     $\beta=2$\\
-NEW & 0.0510 & 0.0500 & 0.0565 & 0.0470 & 0.0525 & 0.0445 & 0.0510 & 0.0465 & 0.0495 \\ 
-CCQ & 0.0420 & 0.0605 & 0.0530 & 0.0545 & 0.0445 & 0.0485 & 0.0615 & 0.0490 & 0.0430 \\ 
+NEW & 0.0480 & 0.0500 & 0.0500 & 0.0555 & 0.0550 & 0.0465 & 0.0525 & 0.0495 & 0.0540 \\ 
+CCQ & 0.0590 & 0.0580 & 0.0450 & 0.0525 & 0.0425 & 0.0620 & 0.0490 & 0.0500 & 0.0540 \\ 
 FAST & 0.0460 & 0.0635 & 0.0580 & 0.0565 & 0.0475 & 0.0525 & 0.0640 & 0.0520 & 0.0455 \\ 
 CQ & 0.0855 & 0.0775 & 0.0675 & 0.0615 & 0.0695 & 0.0755 & 0.0750 & 0.0740 & 0.0700 \\ 
 SD & 0.0055 & 0.0025 & 0.0015 & 0.0030 & 0.0000 & 0.0005 & 0.0025 & 0.0005 & 0.0005 \\ 
@@ -1214,22 +1263,22 @@ LJW & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.
     $p$ & $200$ &  $500$ & $800$ & $200$  & $500$ & $800$ & $200$ & $500$ & $800$ \\ 
 \midrule
     $\beta=1/2$\\
-NEW & 0.0520 & 0.0495 & 0.0575 & 0.0560 & 0.0505 & 0.0540 & 0.0495 & 0.0540 & 0.0540 \\ 
-CCQ & 0.0475 & 0.0545 & 0.0485 & 0.0450 & 0.0415 & 0.0480 & 0.0510 & 0.0570 & 0.0440 \\ 
+NEW & 0.0480 & 0.0555 & 0.0430 & 0.0575 & 0.0535 & 0.0575 & 0.0500 & 0.0545 & 0.0560 \\ 
+CCQ & 0.0555 & 0.0510 & 0.0405 & 0.0490 & 0.0525 & 0.0575 & 0.0515 & 0.0560 & 0.0490 \\ 
 FAST & 0.0510 & 0.0595 & 0.0510 & 0.0510 & 0.0440 & 0.0530 & 0.0625 & 0.0645 & 0.0495 \\ 
 CQ & 0.0655 & 0.0780 & 0.0710 & 0.0720 & 0.0515 & 0.0635 & 0.0565 & 0.0725 & 0.0660 \\ 
 SD & 0.0530 & 0.0675 & 0.0600 & 0.0585 & 0.0445 & 0.0585 & 0.0465 & 0.0600 & 0.0560 \\ 
 LJW & 0.0540 & 0.0520 & 0.0535 & 0.0545 & 0.0555 & 0.0480 & 0.0470 & 0.0500 & 0.0605 \\ 
     $\beta=1$\\
-NEW & 0.0490 & 0.0520 & 0.0490 & 0.0515 & 0.0465 & 0.0425 & 0.0470 & 0.0520 & 0.0460 \\ 
-CCQ & 0.0405 & 0.0505 & 0.0435 & 0.0470 & 0.0445 & 0.0515 & 0.0510 & 0.0490 & 0.0450 \\ 
+NEW & 0.0525 & 0.0520 & 0.0550 & 0.0450 & 0.0540 & 0.0520 & 0.0540 & 0.0560 & 0.0530 \\ 
+CCQ & 0.0435 & 0.0535 & 0.0510 & 0.0525 & 0.0540 & 0.0455 & 0.0560 & 0.0450 & 0.0560 \\ 
 FAST & 0.0430 & 0.0530 & 0.0455 & 0.0495 & 0.0480 & 0.0530 & 0.0545 & 0.0510 & 0.0470 \\ 
 CQ & 0.0785 & 0.0690 & 0.0740 & 0.0720 & 0.0695 & 0.0715 & 0.0730 & 0.0795 & 0.0725 \\ 
 SD & 0.0265 & 0.0115 & 0.0105 & 0.0220 & 0.0130 & 0.0090 & 0.0145 & 0.0145 & 0.0080 \\ 
 LJW & 0.0430 & 0.0605 & 0.0460 & 0.0515 & 0.0580 & 0.0525 & 0.0580 & 0.0595 & 0.0510 \\ 
     $\beta=2$\\
-NEW & 0.0495 & 0.0495 & 0.0565 & 0.0510 & 0.0490 & 0.0560 & 0.0575 & 0.0520 & 0.0520 \\ 
-CCQ & 0.0495 & 0.0405 & 0.0480 & 0.0460 & 0.0530 & 0.0545 & 0.0475 & 0.0395 & 0.0510 \\ 
+NEW & 0.0340 & 0.0645 & 0.0525 & 0.0550 & 0.0475 & 0.0465 & 0.0540 & 0.0545 & 0.0510 \\ 
+CCQ & 0.0505 & 0.0525 & 0.0475 & 0.0520 & 0.0505 & 0.0535 & 0.0525 & 0.0510 & 0.0600 \\ 
 FAST & 0.0525 & 0.0415 & 0.0505 & 0.0490 & 0.0560 & 0.0560 & 0.0490 & 0.0400 & 0.0555 \\ 
 CQ & 0.0675 & 0.0705 & 0.0695 & 0.0765 & 0.0655 & 0.0775 & 0.0785 & 0.0720 & 0.0875 \\ 
 SD & 0.0040 & 0.0020 & 0.0005 & 0.0030 & 0.0000 & 0.0000 & 0.0025 & 0.0010 & 0.0000 \\ 
@@ -1239,7 +1288,7 @@ LJW & 0.0490 & 0.0475 & 0.0490 & 0.0465 & 0.0535 & 0.0480 & 0.0490 & 0.0445 & 0.
 \end{table}
 
 
-Now we consider the simulation of the empirical power.
+Now we consider the empirical power of the proposed test and competing tests.
 In view of Corollary~\ref{testPowerh}, we define the SNR as $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
 We take $\mu_1=\mathbf{0}_p$.
 The orientation of $\mu_2$ is from the uniform distribution on the unit sphere.
@@ -1375,13 +1424,6 @@ Our work partially explains why their test performs well, although their project
  The spiked covariance model is an important correlation pattern and has been widely studied in terms of PCA\@.
  In PCA, authors focus on the principal subspace.
  As our work have shown, however, the complement of the principal subspace may be more useful in hypothesis testing. 
-
-In our paper, $r$ is assumed to be known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
-\begin{equation*}
-    \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
-\end{equation*}
-where $R$ is a hyperparameter.
-    See~\cite{Ahn2009Eigenvalue} for detail.
 
 
 The asymptotic normality of our test statistic relies on the assumption $\sqrt{p}/n\to 0$. In the situation of small $n$ or very large $p$, the critical value of the new test can be determined by permutation method. It remains a theoretical interest to study the asymptotic behavior of permutation based test in these situations.
@@ -1661,6 +1703,73 @@ Since $\tilde{\BV}^T (\bar{X}_1-\bar{X}_2)\sim N_{p-r}(\tilde{\BV}^T (\mu_1-\mu_
     %where $\epsilon\sim N(0,1)$
 
 \end{proof}
+
+\begin{proof}[\textbf{Proof of Theorem~\ref{theoremRev}}]
+    First we claim that if $\tilde{\blambda}_1,\ldots, \tilde{\blambda}_r$ and $\tilde{\sigma}^2$ satisfy $\tilde{\blambda}_i/\blambda_i\to 1$, $i=1,\ldots,r$ and $\tilde{\sigma}^2\to \sigma^2$, then
+    \begin{equation}\label{Reveq1}
+        p^{-\beta}F^{-1}(1-\alpha;\tilde{\blambda}_1,\ldots,\tilde{\blambda}_r,\tilde{\sigma}^2)=
+        p^{-\beta}F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)+o(1).
+    \end{equation}
+    To see this, let $Z_0,\ldots, Z_r$ be i.i.d. $N(0,1)$ random variables, then
+    $$
+    \tilde{W}\overset{def}{=}\sqrt{2p}\tilde{\sigma}^2 Z_0
++
+        \sum_{i=1}^r \tilde{\blambda}_i Z_i^2
+            -
+        \sum_{i=1}^r \tilde{\blambda}_i\sim F(x;\tilde{\blambda}_1,\ldots,\tilde{\blambda}_r,\tilde{\sigma}^2).
+    $$
+If $\beta=1/2$, we have
+$
+    p^{-\beta}\tilde{W}\xrightarrow{w}
+\sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i
+$.
+If $\beta>1/2$, we have
+$
+    p^{-\beta}\tilde{W}\xrightarrow{w}
+\sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
+$
+    Hence in both cases, the asymptotic distributions of $p^{-\beta}\tilde{W}$ and $p^{-\beta}W$ are both equal to the asymptotic null distribution of $(\tau p^{\beta})^{-1}T_{CQ}$, and the common asymptotic distribution function is continuous.
+Note that
+$
+        p^{-\beta}F^{-1}(1-\alpha;\tilde{\blambda}_1,\ldots,\tilde{\blambda}_r,\tilde{\sigma}^2)
+    $
+     and
+$
+        p^{-\beta}F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)
+    $
+    are the quantiles of $p^{-\beta}\tilde{W}$ and $p^{-\beta}W$, respectively.
+    Hence~\eqref{Reveq1} holds. 
+    
+    Proposition~\ref{varianceEstimation} asserts that $\hat{\blambda}_i/\blambda_i\xrightarrow{P} 1$, $i=1,\ldots,r$ and $\hat{\sigma}_*^2\xrightarrow{P} \sigma^2$.
+    Then for every subsequence of $\{n\}$, there is a further subsequence along which $\hat{\blambda}_i/\blambda_i\to 1$, $i=1,\ldots,r$ and $\hat{\sigma}_*^2\to \sigma^2$ almost surely.
+    Hence along this further subsequence we have
+    $$
+        p^{-\beta}F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\sigma_{*}^2)=
+        p^{-\beta}F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)+o(1)
+    $$
+    almost surely.
+    That is to say
+    $$
+        p^{-\beta}F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\sigma_{*}^2)=
+        p^{-\beta}F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)+o_P(1).
+    $$
+    Thus,
+    $$
+    \begin{aligned}
+        &\Pr\big(\tau^{-1}T_{CQ} > F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2)\big)
+        \\
+        =&
+    \Pr\big((\tau p^{\beta})^{-1}T_{CQ} +o_P(1) > p^{-\beta}F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)\big)
+        \\
+        =& \alpha +o(1),
+    \end{aligned}
+    $$
+    where the last equality follows from Slutsky's theorem.
+    This completes the proof.
+\end{proof}
+
+
+
 
 \section{Proofs of the results in Section~\ref{methodology}}\label{appendixB}
 

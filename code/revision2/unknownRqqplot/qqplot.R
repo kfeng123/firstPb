@@ -1,0 +1,141 @@
+source("../stat.R")
+
+
+myQQplot <- function(x,y){
+    sx <- sort(x)
+    sy <- sort(y)
+    lenx <- length(sx)
+    leny <- length(sy)
+    if (leny < lenx) 
+        sx <- approx(1L:lenx, sx, n = leny)$y
+    if (leny > lenx) 
+        sy <- approx(1L:leny, sy, n = lenx)$y
+    d <- data.frame(sx,sy)
+    ggplot(d,aes(sx,sy))+
+        geom_point(aes(colour=abs(sy-sx)),size=2)+
+        scale_colour_gradient(low='royalblue',high='royalblue4',guide='none')+
+        annotate("segment",x=-5,xend=5,y=-5,yend=5,colour="red")+
+        xlab("Theoretical Quantiles")+
+        ylab("Sample Quantiles")+
+        scale_x_continuous(breaks=seq(-5,5,2.5))+
+        scale_y_continuous(breaks=seq(-5,5,2.5))+
+        theme_bw()+
+        theme(
+            axis.title.y= element_text(size=rel(2),angle=90),
+            axis.title.x= element_text(size=rel(2)),
+            axis.text= element_text(size=rel(1.8))
+        )
+}
+
+# main simulation
+myMainSimulation=function(p,n1,n2,r=2,beta,theDistribution,B=10000){
+    
+    theEig <- rep(1,p)
+    if(r!=0){
+        theEig[1:r] <- rep(p^beta,r)+runif(r,0,1)
+    }
+    temp <- newModelGenerator(theEig,theDistribution=theDistribution)
+    modelSimulator <- temp$modelSimulator
+    V <- temp$V[,1:r]
+    
+    tau <- 1/n1+1/n2
+    theoryPower <- function(mu1,mu2){
+        sum((mu1-mu2)^2)/sqrt(2*tau^2*p)
+    }
+    
+    myNew3Dis <- NULL
+    pb <- txtProgressBar(style=3)
+    for(i in 1:B){
+        # data generation
+        X1 <- modelSimulator(n1) 
+        X2 <- modelSimulator(n2) 
+        
+        # precalculate the eigenvalue decomposition
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+        
+        # estimate r
+        estR <- which.max(myEigen$values[1:50]/myEigen$values[2:51])
+        
+        
+        # NEW3
+        myNew3Dis[i] <- myStatFinal(X1, X2, n1, n2, r=estR, myEigen=myEigen)$studentStat
+        setTxtProgressBar(pb,i/B)
+    }
+    close(pb)
+    
+    x <- rchisq(n=100000,df=p-r)
+    x <- (x-(p-r))/sqrt(2*(p-r))
+    thePlot <- myQQplot(x,myNew3Dis)
+    ggsave(paste0(1,theDistribution,beta,".eps"), thePlot)
+    return(0)
+}
+
+for(theDistribution in c("normal","chiSquared","t")){
+    for(beta in c(0.5,1,2)){
+        p <- 500
+        r<-2
+        n1 <- 100
+        n2 <- 100
+        myMainSimulation(p,n1,n2,r,beta,theDistribution)
+    }
+}
+
+
+
+
+# main simulation
+myMainSimulation2=function(p,n1,n2,r=2,beta,theDistribution,B=10000){
+    
+    theEig <- rep(1,p)
+    if(r!=0){
+        theEig[1:r] <- rep(p^beta,r)+runif(r,0,1)
+    }
+    temp <- newModelGenerator(theEig,theDistribution=theDistribution)
+    modelSimulator <- temp$modelSimulator
+    V <- temp$V[,1:r]
+    
+    tau <- 1/n1+1/n2
+    theoryPower <- function(mu1,mu2){
+        sum((mu1-mu2)^2)/sqrt(2*tau^2*p)
+    }
+    
+    myNew3Dis <- NULL
+    pb <- txtProgressBar(style=3)
+    for(i in 1:B){
+        # data generation
+        X1 <- modelSimulator(n1) 
+        X2 <- modelSimulator(n2) 
+        
+        # precalculate the eigenvalue decomposition
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+        
+        
+        # NEW3
+        myNew3Dis[i] <- myStatFinal(X1, X2, n1, n2, r=r, myEigen=myEigen)$studentStat
+        setTxtProgressBar(pb,i/B)
+    }
+    close(pb)
+    
+    x <- rchisq(n=100000,df=p-r)
+    x <- (x-(p-r))/sqrt(2*(p-r))
+    thePlot <- myQQplot(x,myNew3Dis)
+    ggsave(paste0(2,"n",n,"p",p,".eps"), thePlot)
+    return(0)
+}
+    
+for(n in c(50,100,150)){
+    for(p in c(200,500,800)){
+        n1 <- n
+        n2 <- n
+        r<-2
+        beta <- 1
+        theDistribution <- "normal"
+        myMainSimulation2(p,n1,n2,r,beta,theDistribution)
+    }
+}
+
+
+
+

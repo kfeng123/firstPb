@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{21}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -25,6 +25,15 @@
 \newblock \bibinfo{title}{Asymptotic theory for principal component analysis}.
 \newblock \bibinfo{journal}{The Annals of Mathematical Statistics}
   \bibinfo{volume}{34}, \bibinfo{pages}{122--148}.
+%Type = Article
+\bibitem[{Bai and Ng(2002)}]{Bai2002}
+\bibinfo{author}{Bai, J.}, \bibinfo{author}{Ng, S.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Determining the number of factors in approximate
+  factor models}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{70},
+  \bibinfo{pages}{191--221}.
+\newblock \URLprefix \url{https://doi.org/10.1111/1468-0262.00273},
+  \DOIprefix\doi{10.1111/1468-0262.00273}.
 %Type = Article
 \bibitem[{Bai and Saranadasa(1996)}]{Bai1996Efiect}
 \bibinfo{author}{Bai, Z.}, \bibinfo{author}{Saranadasa, H.},
