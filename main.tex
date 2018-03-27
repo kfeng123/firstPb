@@ -1025,9 +1025,9 @@ However, $r$ is typically unknown in applications.
 To examine the proposed test in a more realistic situation, the proposed test is implemented with an estimated $r$ throughout the simulations.
 Many consistent estimators of $r$ have been proposed, such as~\cite{Bai2002},~\cite{Ahn2009Eigenvalue} and~\cite{Cai2015Optimal}.
 In the simulations, we use the following simple estimator proposed by~\cite{Ahn2009Eigenvalue}:
-\begin{equation*}
+\begin{equation}\label{rEstimate}
     \hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
-\end{equation*}
+\end{equation}
 where $R$ is a hyperparameter. Throughout our simulations, we take $R=50$.
 Table~\ref{newnewtable} shows that $\hat{r}$ can consistently estimate $r$.
 
@@ -1173,7 +1173,7 @@ The empirical levels of the proposed test are a little inflated for $n_1=n_2=50$
 % latex table generated in R 3.3.1 by xtable 1.8-2 package
 % Sun Jul 31 01:50:20 2016
 \begin{table}[ht]
-\caption{Empirical levels of our test and competing tests. $n_1=n_2=50$.} 
+\caption{Empirical levels of the proposed test and competing tests. $n_1=n_2=50$.} 
 \label{hahaha1}
 \vspace{3mm}
 \centering
@@ -1212,7 +1212,7 @@ LJW & 0.0435 & 0.0500 & 0.0535 & 0.0410 & 0.0450 & 0.0430 & 0.0530 & 0.0500 & 0.
 
 
 \begin{table}[ht]
-\caption{Empirical levels of our test and competing tests. $n_1=n_2=100$.} 
+\caption{Empirical levels of the proposed test and competing tests. $n_1=n_2=100$.} 
 \label{hahaha2}
 \vspace{3mm}
 \centering
@@ -1250,7 +1250,7 @@ LJW & 0.0480 & 0.0495 & 0.0545 & 0.0410 & 0.0455 & 0.0510 & 0.0535 & 0.0435 & 0.
 \end{table}
 
 \begin{table}[ht]
-\caption{Empirical levels of our test and competing tests. $n_1=n_2=150$.} 
+\caption{Empirical levels of the proposed test and competing tests. $n_1=n_2=150$.} 
 \label{hahaha3}
 \vspace{3mm}
 \centering
@@ -1393,14 +1393,30 @@ We collected the data of $p=710$
  stocks of China
 from 01/04/2013 to 12/31/2014. There are total $n_1=95$ Mondays and $n_2=388$ other trading days. 
 
-We assume $\bSigma_1=\bSigma_2$.
-The first eigenvalue of $\BS$ is $0.14$, which is significantly larger than the others.
-In fact, the second eigenvalue is $0.02$.
+
+Using~\eqref{rEstimate} with $R=50$, we have $\hat{r}=1$.
+In fact, the first eigenvalue of $\BS$ is $0.14$, which accounts for $\lambda_1(\BS)/\mytr(\BS)=24.86\%$ of the total volatility.
 Hence there's clearly a spiked eigenvalue.
-We take $r=1$ and perform our test.
-The $p$ value is $0.149$, which is obtained by permutation method with $1000$ permutations.
-Hence, the null hypothesis can not be rejected for $\alpha=0.05$.
-We draw the same conclusion as~\cite{Ma2015A}.
+As pointed out by~\cite{Ma2015A}, this phenomenon is reasonable since different stock returns are heavily correlated with a common factor, that is the market index.
+%In fact, the second eigenvalue is $0.02$.
+Table~\ref{realTable} lists the $p$ values of the proposed test and competing tests.
+For $\alpha=0.05$, the proposed test rejects the null hypothesis while all other tests can not reject the null hypothesis.
+Hence the proposed test implies that Monday effect exists in China stock market, which is a conclusion different from~\cite{Ma2015A}.
+
+\begin{table}[ht]
+\caption{$p$-values of the proposed test and competing tests for stock data.} 
+\label{realTable}
+\vspace{3mm}
+\centering
+\begin{tabular}{llllllllll}
+\toprule
+    NEW& CCQ & FAST & CQ & SD & LJW\\
+\midrule
+    0.0009 & 0.0963 & 0.0710 & 0.1962 & 0.2143 & 0.2902\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 \section{Discussion}
 

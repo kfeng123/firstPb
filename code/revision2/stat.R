@@ -43,8 +43,8 @@ sdStat <- function(X1, X2, n1, n2,...) {
     p <- ncol(X1)
     
     if(is.null(list(...)$S)){
-        S1 <- colVars(X1)
-        S2 <- colVars(X2)
+        S1 <- var(X1)
+        S2 <- var(X2)
         S <- ((n1 - 1) * S1 + (n2 - 1) * S2) / (n1 + n2 - 2)
     }else{
         S <- list(...)$S
@@ -73,6 +73,14 @@ ljwStat <- function(X1,X2,n1,n2,...){
     dim(Pk) <- c(p,k)
     (hotelling.test(X1 %*% Pk, X2 %*% Pk)$pval<0.05) + 0
 }
+ljwPvalue <- function(X1,X2,n1,n2,...){
+    p <- ncol(X1)
+    k <- floor((n1+n2-2)/2)
+    Pk <- rnorm(p*k)
+    dim(Pk) <- c(p,k)
+    hotelling.test(X1 %*% Pk, X2 %*% Pk)$pval
+}
+
 
 # Ma et. al. (2015)
 maTempA <- matrix(rnorm(3000*5),ncol=5)^2
@@ -95,10 +103,36 @@ maTest <- function(X1,X2,n1,n2,...){
     #    for (j in 1:r)
     #        refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2)/p
     #}
-    refDis <- maTempA[,1:r] %*% myEigen$values[1:r] / p
+    refDis <- maTempA[,1:r,drop=FALSE] %*% myEigen$values[1:r] / p
     as.numeric(TFast > quantile(refDis,0.95))
     
 }
+maPvalue <- function(X1,X2,n1,n2,...){
+    r <- list(...)$r
+    
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
+    
+    p <- ncol(X1)
+    TFast <- sum((colMeans(X1)-colMeans(X2))^2)*(n1*n2/(n1+n2))/p-sum(myEigen$values[-(1:r)])/p
+    
+    #refDis <- vector()
+    #for (i in 1:500){
+    #    refDis[i] <- 0
+    #    for (j in 1:r)
+    #        refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2)/p
+    #}
+    refDis <- maTempA[,1:r,drop=FALSE] %*% myEigen$values[1:r] / p
+    1-ecdf(refDis)(TFast)
+}
+
+
+
+
 
 # New chi-squared test
 chiTempA <- matrix(rnorm(3000*5),ncol = 5)^2-1
@@ -135,6 +169,40 @@ myChiTest <- function(X1,X2,n1,n2,...){
     
     as.numeric(temp1 > quantile(refDis,0.95))
 }
+myChiPvalue <- function(X1,X2,n1,n2,...){
+    r <- list(...)$r
+    p <- ncol(X1)
+    
+    # Chen's statistic over tau
+    tau <- 1 / n1 + 1 / n2
+    temp1 <- chenStat(X1,X2,n1,n2,...)$stat/tau
+    
+    # variance estimator
+   if(is.null(list(...)$myEigen)){
+        S <- ((n1 - 1) * var(X1) + (n2 - 1) * var(X2)) / (n1 + n2 - 2)
+        myEigen <- eigen(S, symmetric = TRUE)
+   }else{
+       myEigen <- list(...)$myEigen
+   }
+    # variance estimator
+    oldSigmaSqEst <- mean(myEigen$values[-(1:r)])
+    newSigmaSqEst <- (1-r/(n1+n2-2))^(-1) * oldSigmaSqEst
+    # eigenvalue estimator
+    myEigenEstimator <- myEigen$values[1:r]-((p+n1+n2-r-2)/(n1+n2-2))*newSigmaSqEst
+    
+    #refDis <- vector()
+    #for (i in 1:500){
+        #refDis[i] <- sqrt(2*p)*sigmaSqEst*rnorm(1)
+        #for (j in 1:r)
+            #refDis[i] <- refDis[i] + myEigen$values[j]*(rnorm(1)^2-1)
+    #}
+    refDis <- chiTempA[,1:r,drop=FALSE] %*% myEigenEstimator +
+                    sqrt(2*p)*newSigmaSqEst*chiTempB
+    
+    1-ecdf(refDis)(temp1)
+}
+
+
 
 
 # New test

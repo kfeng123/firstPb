@@ -1,3 +1,4 @@
+set.seed(1)
 source("../stat.R")
 
 data1=read.csv("myData.csv")
@@ -32,4 +33,11 @@ tmp <- myStatFinal2(X1, X2, n1, n2, r=estR, myEigen=myEigen)
 JJJ <- tmp$studentStat
 
 myPvalue <- pchisq(JJJ*sqrt(2*(p-estR))+p-estR,df=p-estR,lower.tail=FALSE)
+chiPvalue <- myChiPvalue(X1,X2,n1,n2,r=estR)
+fastPvalue <- maPvalue(X1,X2,n1,n2,r=estR)
+cqPvalue <- pnorm(ChenQin.test(X1,X2)$ChQ,lower.tail = FALSE)
+sdPvalue <- pnorm(sdStat(X1,X2,n1,n2)$stat,lower.tail=FALSE)
+ljwPvalue <- ljwPvalue(X1,X2,n1,n2)
 
+
+temp <- list(myPvalue,chiPvalue,fastPvalue,cqPvalue,sdPvalue,ljwPvalue)
