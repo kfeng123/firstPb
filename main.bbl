@@ -13,180 +13,153 @@
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
 %Type = Article
 \bibitem[{Ahn and Horenstein(2013)}]{Ahn2009Eigenvalue}
-\bibinfo{author}{Ahn, S.C.}, \bibinfo{author}{Horenstein, A.R.},
-  \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Eigenvalue ratio test for the number of factors}.
-\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{81},
-  \bibinfo{pages}{1203--1227}.
-\newblock \DOIprefix\doi{10.3982/ecta8968}.
+\bibinfo{author}{S.~C. Ahn}, \bibinfo{author}{A.~R. Horenstein},
+\newblock \bibinfo{title}{Eigenvalue ratio test for the number of factors},
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{81}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{1203--1227}.
 %Type = Article
 \bibitem[{Anderson(1963)}]{Anderson1986Asymptotic}
-\bibinfo{author}{Anderson, T.W.}, \bibinfo{year}{1963}.
-\newblock \bibinfo{title}{Asymptotic theory for principal component analysis}.
+\bibinfo{author}{T.~W. Anderson},
+\newblock \bibinfo{title}{Asymptotic theory for principal component analysis},
 \newblock \bibinfo{journal}{The Annals of Mathematical Statistics}
-  \bibinfo{volume}{34}, \bibinfo{pages}{122--148}.
+  \bibinfo{volume}{34} (\bibinfo{year}{1963}) \bibinfo{pages}{122--148}.
 %Type = Article
 \bibitem[{Bai and Ng(2002)}]{Bai2002}
-\bibinfo{author}{Bai, J.}, \bibinfo{author}{Ng, S.}, \bibinfo{year}{2002}.
+\bibinfo{author}{J.~Bai}, \bibinfo{author}{S.~Ng},
 \newblock \bibinfo{title}{Determining the number of factors in approximate
-  factor models}.
-\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{70},
-  \bibinfo{pages}{191--221}.
-\newblock \URLprefix \url{https://doi.org/10.1111/1468-0262.00273},
-  \DOIprefix\doi{10.1111/1468-0262.00273}.
+  factor models},
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{70}
+  (\bibinfo{year}{2002}) \bibinfo{pages}{191--221}.
 %Type = Article
 \bibitem[{Bai and Saranadasa(1996)}]{Bai1996Efiect}
-\bibinfo{author}{Bai, Z.}, \bibinfo{author}{Saranadasa, H.},
-  \bibinfo{year}{1996}.
+\bibinfo{author}{Z.~Bai}, \bibinfo{author}{H.~Saranadasa},
 \newblock \bibinfo{title}{Effect of high dimension: by an example of a two
-  sample problem}.
-\newblock \bibinfo{journal}{Statistica Sinica} \bibinfo{volume}{6},
-  \bibinfo{pages}{311--329}.
+  sample problem},
+\newblock \bibinfo{journal}{Statistica Sinica} \bibinfo{volume}{6}
+  (\bibinfo{year}{1996}) \bibinfo{pages}{311--329}.
 %Type = Article
-\bibitem[{Birnbaum et~al.(2013)Birnbaum, Johnstone, Nadler and
+\bibitem[{Birnbaum et~al.(2013)Birnbaum, Johnstone, Nadler, and
   Paul}]{Birnbaum2013}
-\bibinfo{author}{Birnbaum, A.}, \bibinfo{author}{Johnstone, I.M.},
-  \bibinfo{author}{Nadler, B.}, \bibinfo{author}{Paul, D.},
-  \bibinfo{year}{2013}.
+\bibinfo{author}{A.~Birnbaum}, \bibinfo{author}{I.~M. Johnstone},
+  \bibinfo{author}{B.~Nadler}, \bibinfo{author}{D.~Paul},
 \newblock \bibinfo{title}{Minimax bounds for sparse {PCA} with noisy
-  high-dimensional data}.
-\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{41},
-  \bibinfo{pages}{1055--1084}.
-\newblock \DOIprefix\doi{10.1214/12-aos1014}.
+  high-dimensional data},
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{41}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{1055--1084}.
 %Type = Article
-\bibitem[{Cai et~al.(2015)Cai, Ma and Wu}]{Cai2015Optimal}
-\bibinfo{author}{Cai, T.}, \bibinfo{author}{Ma, Z.}, \bibinfo{author}{Wu, Y.},
-  \bibinfo{year}{2015}.
+\bibitem[{Cai et~al.(2015)Cai, Ma, and Wu}]{Cai2015Optimal}
+\bibinfo{author}{T.~Cai}, \bibinfo{author}{Z.~Ma}, \bibinfo{author}{Y.~Wu},
 \newblock \bibinfo{title}{Optimal estimation and rank detection for sparse
-  spiked covariance matrices}.
+  spiked covariance matrices},
 \newblock \bibinfo{journal}{Probability Theory \& Related Fields}
-  \bibinfo{volume}{161}, \bibinfo{pages}{781--815}.
+  \bibinfo{volume}{161} (\bibinfo{year}{2015}) \bibinfo{pages}{781--815}.
 %Type = Article
-\bibitem[{Cai et~al.(2013)Cai, Ma and Wu}]{Cai2012Sparse}
-\bibinfo{author}{Cai, T.T.}, \bibinfo{author}{Ma, Z.}, \bibinfo{author}{Wu,
-  Y.}, \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Sparse {PCA}: Optimal rates and adaptive estimation}.
-\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{41},
-  \bibinfo{pages}{3074--3110}.
-\newblock \DOIprefix\doi{10.1214/13-aos1178}.
+\bibitem[{Cai et~al.(2013)Cai, Ma, and Wu}]{Cai2012Sparse}
+\bibinfo{author}{T.~T. Cai}, \bibinfo{author}{Z.~Ma}, \bibinfo{author}{Y.~Wu},
+\newblock \bibinfo{title}{Sparse {PCA}: Optimal rates and adaptive estimation},
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{41}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{3074--3110}.
 %Type = Article
-\bibitem[{Chen et~al.(2011)Chen, Paul, Prentice and Wang}]{Chen2011A}
-\bibinfo{author}{Chen, L.S.}, \bibinfo{author}{Paul, D.},
-  \bibinfo{author}{Prentice, R.L.}, \bibinfo{author}{Wang, P.},
-  \bibinfo{year}{2011}.
-\newblock \bibinfo{title}{A regularized hotelling'{sT}2test for pathway
-  analysis in proteomic studies}.
+\bibitem[{Chen et~al.(2011)Chen, Paul, Prentice, and Wang}]{Chen2011A}
+\bibinfo{author}{L.~S. Chen}, \bibinfo{author}{D.~Paul}, \bibinfo{author}{R.~L.
+  Prentice}, \bibinfo{author}{P.~Wang},
+\newblock \bibinfo{title}{A regularized hotelling's {$T^2$} test for pathway
+  analysis in proteomic studies},
 \newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{volume}{106}, \bibinfo{pages}{1345--1360}.
-\newblock \DOIprefix\doi{10.1198/jasa.2011.ap10599}.
+  \bibinfo{volume}{106} (\bibinfo{year}{2011}) \bibinfo{pages}{1345--1360}.
 %Type = Article
 \bibitem[{Chen and Qin(2010)}]{Chen2010A}
-\bibinfo{author}{Chen, S.X.}, \bibinfo{author}{Qin, Y.L.},
-  \bibinfo{year}{2010}.
+\bibinfo{author}{S.~X. Chen}, \bibinfo{author}{Y.-L. Qin},
 \newblock \bibinfo{title}{A two-sample test for high-dimensional data with
-  applications to gene-set testing}.
-\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{38},
-  \bibinfo{pages}{808--835}.
-\newblock \DOIprefix\doi{10.1214/09-aos716}.
+  applications to gene-set testing},
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{38}
+  (\bibinfo{year}{2010}) \bibinfo{pages}{808--835}.
 %Type = Book
 \bibitem[{Davidson and Szarek(2001)}]{DAVIDSON2001317}
-\bibinfo{author}{Davidson, K.R.}, \bibinfo{author}{Szarek, S.J.},
-  \bibinfo{year}{2001}.
-\newblock \bibinfo{title}{Handbook of the Geometry of Banach Spaces}.
-  volume~\bibinfo{volume}{1}.
-\newblock \bibinfo{publisher}{North-Holland}, \bibinfo{address}{Amsterdam}.
-\newblock \DOIprefix\doi{10.1016/S1874-5849(01)80010-3}.
+\bibinfo{author}{K.~R. Davidson}, \bibinfo{author}{S.~J. Szarek},
+  \bibinfo{title}{Handbook of the Geometry of Banach Spaces},
+  volume~\bibinfo{volume}{1}, \bibinfo{publisher}{North-Holland},
+  \bibinfo{address}{Amsterdam}, \bibinfo{year}{2001}.
 %Type = Book
 \bibitem[{Golub and Van~Loan(2013)}]{matrixComputations}
-\bibinfo{author}{Golub, G.H.}, \bibinfo{author}{Van~Loan, C.F.},
+\bibinfo{author}{G.~H. Golub}, \bibinfo{author}{C.~F. Van~Loan},
+  \bibinfo{title}{Matrix Computations}, \bibinfo{edition}{fourth} ed.,
+  \bibinfo{publisher}{The Johns Hopkins University Press},
   \bibinfo{year}{2013}.
-\newblock \bibinfo{title}{Matrix Computations}.
-\newblock \bibinfo{edition}{Fourth} ed., \bibinfo{publisher}{The Johns Hopkins
-  University Press}.
 %Type = Book
 \bibitem[{Horn and Johnson(2012)}]{Horn1985Matrix}
-\bibinfo{author}{Horn, R.A.}, \bibinfo{author}{Johnson, C.R.},
+\bibinfo{author}{R.~A. Horn}, \bibinfo{author}{C.~R. Johnson},
+  \bibinfo{title}{Matrix Analysis}, \bibinfo{edition}{2nd} ed.,
+  \bibinfo{publisher}{Cambridge University Press}, \bibinfo{address}{New York},
   \bibinfo{year}{2012}.
-\newblock \bibinfo{title}{Matrix Analysis}.
-\newblock \bibinfo{edition}{2nd} ed., \bibinfo{publisher}{Cambridge University
-  Press}, \bibinfo{address}{New York}.
 %Type = Article
 \bibitem[{Jung and Marron(2009)}]{Jung2009PCA}
-\bibinfo{author}{Jung, S.}, \bibinfo{author}{Marron, J.S.},
-  \bibinfo{year}{2009}.
+\bibinfo{author}{S.~Jung}, \bibinfo{author}{J.~S. Marron},
 \newblock \bibinfo{title}{{PCA} consistency in high dimension, low sample size
-  context}.
-\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{37},
-  \bibinfo{pages}{4104--4130}.
-\newblock \DOIprefix\doi{10.1214/09-aos709}.
+  context},
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{37}
+  (\bibinfo{year}{2009}) \bibinfo{pages}{4104--4130}.
 %Type = Incollection
-\bibitem[{Lopes et~al.(2011)Lopes, Jacob and Wainwright}]{Lopes2015A}
-\bibinfo{author}{Lopes, M.}, \bibinfo{author}{Jacob, L.},
-  \bibinfo{author}{Wainwright, M.J.}, \bibinfo{year}{2011}.
+\bibitem[{Lopes et~al.(2011)Lopes, Jacob, and Wainwright}]{Lopes2015A}
+\bibinfo{author}{M.~Lopes}, \bibinfo{author}{L.~Jacob}, \bibinfo{author}{M.~J.
+  Wainwright},
 \newblock \bibinfo{title}{A more powerful two-sample test in high dimensions
-  using random projection}, in: \bibinfo{booktitle}{Advances in Neural
-  Information Processing Systems 24}. \bibinfo{publisher}{Curran Associates,
-  Inc.}, pp. \bibinfo{pages}{1206--1214}.
+  using random projection},
+\newblock in: \bibinfo{booktitle}{Advances in Neural Information Processing
+  Systems 24}, \bibinfo{publisher}{Curran Associates, Inc.},
+  \bibinfo{year}{2011}, pp. \bibinfo{pages}{1206--1214}.
 %Type = Article
-\bibitem[{Ma et~al.(2015)Ma, Lan and Wang}]{Ma2015A}
-\bibinfo{author}{Ma, Y.}, \bibinfo{author}{Lan, W.}, \bibinfo{author}{Wang,
-  H.}, \bibinfo{year}{2015}.
+\bibitem[{Ma et~al.(2015)Ma, Lan, and Wang}]{Ma2015A}
+\bibinfo{author}{Y.~Ma}, \bibinfo{author}{W.~Lan}, \bibinfo{author}{H.~Wang},
 \newblock \bibinfo{title}{A high dimensional two-sample test under a low
-  dimensional factor structure}.
+  dimensional factor structure},
 \newblock \bibinfo{journal}{Journal of Multivariate Analysis}
-  \bibinfo{volume}{140}, \bibinfo{pages}{162--170}.
-\newblock \DOIprefix\doi{10.1016/j.jmva.2015.05.005}.
+  \bibinfo{volume}{140} (\bibinfo{year}{2015}) \bibinfo{pages}{162--170}.
 %Type = Article
-\bibitem[{Passemier et~al.(2017)Passemier, Li and Yao}]{Passemier2015}
-\bibinfo{author}{Passemier, D.}, \bibinfo{author}{Li, Z.},
-  \bibinfo{author}{Yao, J.}, \bibinfo{year}{2017}.
+\bibitem[{Passemier et~al.(2017)Passemier, Li, and Yao}]{Passemier2015}
+\bibinfo{author}{D.~Passemier}, \bibinfo{author}{Z.~Li},
+  \bibinfo{author}{J.~Yao},
 \newblock \bibinfo{title}{On estimation of the noise variance in high
-  dimensional probabilistic principal component analysis}.
+  dimensional probabilistic principal component analysis},
 \newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
-  (Statistical Methodology)} \bibinfo{volume}{79}, \bibinfo{pages}{51--67}.
-\newblock \DOIprefix\doi{10.1111/rssb.12153}.
+  (Statistical Methodology)} \bibinfo{volume}{79} (\bibinfo{year}{2017})
+  \bibinfo{pages}{51--67}.
 %Type = Article
 \bibitem[{Srivastava and Du(2008)}]{Srivastava2008A}
-\bibinfo{author}{Srivastava, M.S.}, \bibinfo{author}{Du, M.},
-  \bibinfo{year}{2008}.
+\bibinfo{author}{M.~S. Srivastava}, \bibinfo{author}{M.~Du},
 \newblock \bibinfo{title}{A test for the mean vector with fewer observations
-  than the dimension}.
+  than the dimension},
 \newblock \bibinfo{journal}{Journal of Multivariate Analysis}
-  \bibinfo{volume}{99}, \bibinfo{pages}{386--402}.
-\newblock \DOIprefix\doi{10.1016/j.jmva.2006.11.002}.
+  \bibinfo{volume}{99} (\bibinfo{year}{2008}) \bibinfo{pages}{386--402}.
 %Type = Article
-\bibitem[{Srivastava et~al.(2016)Srivastava, Li and
+\bibitem[{Srivastava et~al.(2016)Srivastava, Li, and
   Ruppert}]{Srivastava2014RAPTT}
-\bibinfo{author}{Srivastava, R.}, \bibinfo{author}{Li, P.},
-  \bibinfo{author}{Ruppert, D.}, \bibinfo{year}{2016}.
+\bibinfo{author}{R.~Srivastava}, \bibinfo{author}{P.~Li},
+  \bibinfo{author}{D.~Ruppert},
 \newblock \bibinfo{title}{{RAPTT}: An exact two-sample test in high dimensions
-  using random projections}.
+  using random projections},
 \newblock \bibinfo{journal}{Journal of Computational and Graphical Statistics}
-  \bibinfo{volume}{25}, \bibinfo{pages}{954--970}.
-\newblock \DOIprefix\doi{10.1080/10618600.2015.1062771}.
+  \bibinfo{volume}{25} (\bibinfo{year}{2016}) \bibinfo{pages}{954--970}.
 %Type = Article
 \bibitem[{Thulin(2014)}]{Thulin2014A}
-\bibinfo{author}{Thulin, M.}, \bibinfo{year}{2014}.
+\bibinfo{author}{M.~Thulin},
 \newblock \bibinfo{title}{A high-dimensional two-sample test for the mean using
-  random subspaces}.
+  random subspaces},
 \newblock \bibinfo{journal}{Computational Statistics {\&} Data Analysis}
-  \bibinfo{volume}{74}, \bibinfo{pages}{26--38}.
-\newblock \DOIprefix\doi{10.1016/j.csda.2013.12.003}.
+  \bibinfo{volume}{74} (\bibinfo{year}{2014}) \bibinfo{pages}{26--38}.
 %Type = Article
 \bibitem[{Wang and Fan(2017)}]{Fan2015Asymptotics}
-\bibinfo{author}{Wang, W.}, \bibinfo{author}{Fan, J.}, \bibinfo{year}{2017}.
+\bibinfo{author}{W.~Wang}, \bibinfo{author}{J.~Fan},
 \newblock \bibinfo{title}{Asymptotics of empirical eigenstructure for high
-  dimensional spiked covariance}.
-\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{45},
-  \bibinfo{pages}{1342--1374}.
-\newblock \DOIprefix\doi{10.1214/16-AOS1487}.
+  dimensional spiked covariance},
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{45}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{1342--1374}.
 %Type = Article
 \bibitem[{Zhao and Xu(2016)}]{Zhao2016A}
-\bibinfo{author}{Zhao, J.}, \bibinfo{author}{Xu, X.}, \bibinfo{year}{2016}.
+\bibinfo{author}{J.~Zhao}, \bibinfo{author}{X.~Xu},
 \newblock \bibinfo{title}{A generalized likelihood ratio test for normal mean
-  when {$p$} is greater than {$n$}}.
+  when {$p$} is greater than {$n$}},
 \newblock \bibinfo{journal}{Computational Statistics {\&} Data Analysis}
-  \bibinfo{volume}{99}, \bibinfo{pages}{91--104}.
-\newblock \DOIprefix\doi{10.1016/j.csda.2016.01.006}.
+  \bibinfo{volume}{99} (\bibinfo{year}{2016}) \bibinfo{pages}{91--104}.
 
 \end{thebibliography}
