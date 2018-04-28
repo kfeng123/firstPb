@@ -52,15 +52,15 @@
 \usepackage{ulem}
 
 %\DeclareMathOperator{\mytr}{tr}
-\newcommand{\mytr}{\rm tr}
+\newcommand{\mytr}{ {\rm tr} }
 %\DeclareMathOperator{\mydiag}{diag}
-\newcommand{\mydiag}{\rm diag}
+\newcommand{\mydiag}{ {\rm diag} }
 %\DeclareMathOperator{\myrank}{Rank}
-\newcommand{\myrank}{\rm Rank}
+\newcommand{\myrank}{{\rm Rank}}
 %\DeclareMathOperator{\myE}{\rm E}
-\newcommand{\myE}{\rm E}
+\newcommand{\myE}{ {\rm E} }
 %\DeclareMathOperator{\myVar}{Var}
-\newcommand{\myVar}{\rm Var}
+\newcommand{\myVar}{ {\rm Var} }
 
 
 \newcommand{\bZ}{\mathbf{Z}}
@@ -165,20 +165,20 @@
 \section{Introduction}
 \nocite{*}
 
-Suppose $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (i.i.d.) $p$-dimensional normal random vectors with unknown mean vector $\mu_k$ and covariance matrix $\bSigma$, $k=1,2$. We consider the hypothesis testing problem
+Suppose $X_{k,1},\ldots,X_{k,n_k}$  are independent identically distributed (iid) $p$-dimensional normal random vectors with unknown mean vector $\mu_k$ and covariance matrix $\bSigma$, $k\in \{1,2\}$. We consider the hypothesis testing problem
 \begin{equation}\label{problem}
-    H_0:\mu_1=\mu_2\quad \textrm{vs.}\quad H_1:\mu_1\neq \mu_2.
+    \mathcal{H}_0:\mu_1=\mu_2\quad \textrm{vs.}\quad \mathcal{H}_1:\mu_1\neq \mu_2.
 \end{equation}
  In this paper, {the} high dimensional setting is adopted, that is, the dimension $p$ varies as $n$ increases, where $n=n_1+n_2-2$.
 Testing hypotheses~\eqref{problem} is important in many fields, including biology, finance and economics.
 
 
-A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ test  statistic ${(\bar{X}_1-\bar{X}_2)}^\top  \BS^{-1}(\bar{X}_1-\bar{X}_2)$ where $\bar{X}_1$ and $\bar{X}_2$ are the two sample means and
-    $
+A classical test statistic for hypotheses~\eqref{problem} is Hotelling's $T^2$ test  statistic ${(\bar{X}_1-\bar{X}_2)}^\top  \BS^{-1}(\bar{X}_1-\bar{X}_2)$, where $\bar{X}_1$ and $\bar{X}_2$ are the two sample means and
+\begin{equation*}
     \BS=
 n^{-1}\sum_{k=1}^2\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^\top 
     %{(n-2)}^{-1}((n_1-1)S_1+(n_2-1)S_2)
-    $
+\end{equation*}
 is the pooled sample covariance matrix.
 However, Hotelling's test statistic is not defined when $p>n$.
 Moreover, Bai and Saranadasa~\cite{Bai1996Efiect} showed that even if $p\leq n$, Hotelling's test suffers from low power when $p$ is comparable to $n$.
@@ -187,45 +187,43 @@ See~\cite{Chen2010A} and the references therein.
 For testing hypotheses~\eqref{problem} in high dimensional settings,  
 many test statistics are based on the estimation of  ${(\mu_1-\mu_2)}^\top  \BA(\mu_1-\mu_2)$ for a positive definite matrix $\BA$. Bai and Saranadasa~\cite{Bai1996Efiect} proposed a test based on
 \begin{equation*}
-    T_{BS}=\|\bar{X}_1-\bar{X}_2\|^2-(\frac{1}{n_1}+\frac{1}{n_2})\mytr \BS,
+    T_{BS}=\|\bar{X}_1-\bar{X}_2\|^2-\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\mytr \BS,
 \end{equation*}
 an unbiased estimator of $\|\mu_1-\mu_2\|^2$.
-Chen and Qin \cite{Chen2010A} modified $T_{BS}$ by removing terms $\sum_{i=1}^{n_k}X_{ki}^\top  X_{ki}$, $k=1,2$, and proposed a test based on
+Chen and Qin \cite{Chen2010A} modified $T_{BS}$ by removing terms $\sum_{i=1}^{n_k}X_{ki}^\top  X_{ki}$, $k\in\{1,2\}$, and proposed a test based on
 \begin{equation*}
-    \begin{aligned}
-        T_{CQ}&=\frac{\sum_{i\neq j}^{n_1}X_{1i}^\top  X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^\top  X_{2j}}{n_2(n_2-1)}-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^\top  X_{2j}}{n_1n_2}
-        \\
-            &=\|\bar{X}_1-\bar{X}_2\|^2-\frac{1}{n_1}\mytr \BS_1-\frac{1}{n_2}\mytr \BS_2,
-    \end{aligned}
+        T_{CQ}=\frac{\sum_{i\neq j}^{n_1}X_{1i}^\top  X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^\top  X_{2j}}{n_2(n_2-1)}-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^\top  X_{2j}}{n_1n_2}
+            =\|\bar{X}_1-\bar{X}_2\|^2-\frac{1}{n_1}\mytr \BS_1-\frac{1}{n_2}\mytr \BS_2,
 \end{equation*}
 where
-$\BS_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^\top 
-$, $k=1,2$.
+\begin{equation*}
+\BS_k={(n_k -1)}^{-1}\sum_{i=1}^{n_k} (X_{k,i}-\bar{X}_k) {(X_{k,i}-\bar{X}_k)}^\top 
+, \quad k\in\{1,2\}.
+\end{equation*}
 As an estimator of $\|\mu_1-\mu_2\|^2$, $T_{CQ}$ is unbiased even if the covariances of the two populations are different.
 In contrast, $T_{BS}$ is unbiased only when the covariances are the same or $n_1=n_2$.
 Srivastava and Du \cite{Srivastava2008A} proposed a test based on
 \begin{equation*}
-    T_{SD}={(\bar{X}_1-\bar{X}_2)}^\top  {[\mathrm{diag}(\BS)]}^{-1}(\bar{X}_1-\bar{X}_2),
+    T_{SD}={(\bar{X}_1-\bar{X}_2)}^\top  {\{\mathrm{diag}(\BS)\}}^{-1}(\bar{X}_1-\bar{X}_2),
 \end{equation*}
-where $\textrm{diag} (\BS)$ is a diagonal matrix with the same diagonal elements as $\BS$'s.
+where $\textrm{diag} (\BS)$ is a diagonal matrix with the same diagonal elements as the $\BS$'s.
 
-In practice, it is often the case that the variables are strongly correlated.
-See, e.g.,~\cite{Chen2011A,Ma2015A,Thulin2014A}.
+In practice, it is often the case that the variables are strongly correlated;
+see, e.g.,~\cite{Chen2011A,Ma2015A,Thulin2014A}.
 %For example, in gene expression analysis, genes are correlated due to genetic regulatory networks \citep{Thulin2014A}.
 %In terms of pathway analysis in proteomic studies,  test level can not be guaranteed if correlations are incorrectly assumed to be absent~\citep{Chen2011A}.
  %As~\cite{Ma2015A} argued, there're strong correlations between different stock returns since they are all affected by the market index.
 As noted by Ma {\rm et al.}~\cite{Ma2015A}, however, the tests of Bai and Saranadasa~\cite{Bai1996Efiect}, Srivastava and Du~\cite{Srivastava2008A} and Chen and Qin~\cite{Chen2010A} may not be valid when there are strong correlations between the variables.
 For example, the condition 
 \begin{equation}\label{chenscondition}
-    \mathrm{tr}(\bSigma^4)=o\big(\mathrm{tr}^2(\bSigma^2)\big)
+    \mathrm{tr}(\bSigma^4)=o\{\mathrm{tr}^2(\bSigma^2)\}
 \end{equation}
 imposed by Chen and Qin~\cite{Chen2010A} is violated when $\bSigma$ has a uniform correlation structure.
 More precisely, we suppose that
-$\bSigma=(1-\rho)\BI_p+\rho\textbf{1}_p \textbf{1}_p^\top $ where $0<\rho<1$, $\BI_p$ is the $p$ dimensional identity matrix and $\bm{1}_p$ is the $p$ dimensional vector with all the elements equal to one.
-In this case, $\bSigma$ has eigenvalues $1+\rho(p-1) $ and $1-\rho$ with multiplicities $1$ and $p-1$ respectively. Then~\eqref{chenscondition} is violated since 
-as $p\to \infty$, we have
+$\bSigma=(1-\rho)\BI_p+\rho\textbf{1}_p \textbf{1}_p^\top $ where $0<\rho<1$, $\BI_p$ is the $p$-dimensional identity matrix and $\bm{1}_p$ is the $p$-dimensional vector with all the elements equal to one.
+In this case, $\bSigma$ has eigenvalues $1+\rho(p-1) $ and $1-\rho$ with multiplicities $1$ and $p-1$, respectively. Then~\eqref{chenscondition} is violated since as $p\to \infty$, we have
 $$
-\frac{\mytr (\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\big(1+\rho(p-1)\big)^4 + (1-\rho)^4 (p-1)}{\big[ \big(1+\rho(p-1)\big)^2+(1-\rho)^2 (p-1) \big]^2}\to 1.
+\frac{\mytr (\bSigma^4)}{\mytr^2(\bSigma^2)}=\frac{\{1+\rho(p-1)\}^4 + (1-\rho)^4 (p-1)}{\left[ \{1+\rho(p-1)\}^2+(1-\rho)^2 (p-1) \right]^2}\to 1.
 $$
 %In section~\ref{sec:chen}, it will be proved that under the null hypothesis,~\eqref{chenscondition} is a necessary and sufficient condition of the asymptotic normality of $T_{CQ}$.
 
@@ -236,15 +234,15 @@ $$
  \end{equation}
  where $\bLambda=\mydiag(\blambda_1,\ldots,\blambda_r)$, $\blambda_1\geq \cdots\geq \blambda_r>0$, $r\geq 1$, $\BV$ is a $p\times r$ matrix with orthonormal columns and $\sigma^2>0$.
  %Under spiked covariance model, the first $r$ eigenvalues of $\bSigma$ are distinguishable larger than the rest eigenvalues.
-The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies. See~\cite{Birnbaum2013,Cai2012Sparse,Passemier2015} and the references therein.
+The spiked covariance model~\eqref{eq:introSpiked} is adopted by many theoretical studies; see~\cite{Birnbaum2013,Cai2012Sparse,Passemier2015} and the references therein.
 This model arises when variables are strongly correlated and the correlations are determined by a small number of factors.
  In Section~\ref{sec:chen}, we will derive the asymptotic distribution of $T_{CQ}$ under the spiked covariance model. 
 Generally, $T_{CQ}$ is asymptotically distributed as a weighted chi-squared random variable.
 In a special case, $T_{CQ}$ is asymptotically distributed as the sum of a weighted chi-squared random variable and a normal random variable. 
 We also correct the critical value of $T_{CQ}$ under the spiked covariance model.
 
-Recently, a class of test procedures are proposed through random projection.
-See, e.g.,~\cite{Lopes2015A,Thulin2014A,Srivastava2014RAPTT}.
+Recently, a class of test procedures are proposed through random projection;
+see, e.g.,~\cite{Lopes2015A,Thulin2014A,Srivastava2014RAPTT}.
 The idea is to project data onto some random lower-dimensional subspaces, and then construct the test using the projected data.
 It has been shown that these procedures have substantially higher power than competing tests when the variables are correlated. 
 This suggests that projecting data onto certain subspaces may lead to an improvement of the test procedures.
@@ -258,17 +256,15 @@ Our analysis and simulations show that our test has very attractive power perfor
 
 
 
-The rest of the paper is organized as follows. In Section 2,  we revisit Chen and Qin~\cite{Chen2010A}'s test.  In Section 3, we propose a test procedure and exploit properties of the test.  In Section 4, simulations are carried out and  a real data example is given. Section 5 contains some discussion. The technical proofs are presented in Appendix.
+The rest of the paper is organized as follows. In Section 2,  we revisit Chen and Qin~\cite{Chen2010A}'s test.  In Section 3, we propose a test procedure and exploit properties of the test.  In Section 4, simulations are carried out and  a real data example is given. Section 5 contains some discussion. The technical proofs are presented in the Appendix.
 
 \section{Asymptotic properties of Chen and Qin (2010)'s test}\label{sec:chen}
-    Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to c \in (0,+\infty)$, that is, we consider high dimensional and balanced data.
-
-
+Throughout the paper, we  assume $p\to \infty$ as $n\to \infty$ and ${n_1}/{n_2}\to c \in (0,\infty)$, i.e., we consider high dimensional and balanced data.
     In Chen and Qin~\cite{Chen2010A}, the asymptotic normality of $T_{CQ}$ is derived under the condition~\eqref{chenscondition}.
     We shall show that under the null hypothesis, the condition~\eqref{chenscondition} is essential for the asymptotic normality of $T_{CQ}$.
 We note that under the null hypothesis, $T_{CQ}$ is a quadratic form of a standard normal random vector.
 To see this,
-let $Z_{k,i}=\bSigma^{-1/2}X_{k,i}$, $i=1,\ldots,n_k$, $k=1,2$.
+let $Z_{k,i}=\bSigma^{-1/2}X_{k,i}$, $i\in \{1,\ldots,n_k \}$, $k\in \{1,2\}$.
 It can be seen that $Z_{k,i}$ is $ \mathcal{N}_p(0,\BI_{p})$ distributed under the null hypothesis.
 Write $Z=(Z_{1,1}^\top ,\ldots,Z_{1,n_1}^\top ,Z_{2,1}^\top ,\ldots,Z_{2,n_2}^\top )^\top $.
     Then 
@@ -278,9 +274,11 @@ Write $Z=(Z_{1,1}^\top ,\ldots,Z_{1,n_1}^\top ,Z_{2,1}^\top ,\ldots,Z_{2,n_2}^\t
     where $\otimes$ is the Kronecker product and
     \begin{equation*}
         \BB_n=\begin{pmatrix}
-            \frac{1}{n_1(n_1-1)}(\mathbf{1}_{n_1} \mathbf{1}_{n_1}^\top -\BI_{n_1})&
+            \displaystyle \frac{1}{n_1(n_1-1)}(\mathbf{1}_{n_1} \mathbf{1}_{n_1}^\top -\BI_{n_1})& \displaystyle 
             -\frac{1}{n_1 n_2}\mathbf{1}_{n_1} \mathbf{1}_{n_2}^\top \\
+\displaystyle 
             -\frac{1}{n_1 n_2}\mathbf{1}_{n_2} \mathbf{1}_{n_1}^\top &
+\displaystyle 
             \frac{1}{n_2(n_2-1)}( \mathbf{1}_{n_2} \mathbf{1}_{n_2}^\top -\BI_{n_2})\\
         \end{pmatrix}.
     \end{equation*}
@@ -289,65 +287,50 @@ Using characteristic function method, one can prove the following result which g
 \begin{lemma}\label{quadraticFormCLT}
     Suppose $Y_{n}$ is a $k_n$ dimensional standard normal random vector and $\BA_n$ is a $k_n\times k_n$ symmetric matrix. Then as $n\to \infty$, a necessary and sufficient condition for
     \begin{equation}\label{quadratic}
-        \frac{Y_n^\top  \BA_n Y_n-\myE Y_n^\top  \BA_n Y_n}{{[\myVar (Y_n^\top  \BA_n Y_n)]}^{1/2}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1)
+        \frac{Y_n^\top  \BA_n Y_n- \myE Y_n^\top  \BA_n Y_n}{\left\{\myVar (Y_n^\top  \BA_n Y_n)\right\}^{1/2}}\rightsquigarrow \mathcal{N}(0,1)
     \end{equation}
     is that
     \begin{equation}\label{quadraticEigen}
         \frac{\lambda_{1}(\BA_n^2)}{\mytr(\BA_n^2)}\to 0,
     \end{equation}
-    where ``$\xrightarrow{\mathcal{L}}$" means convergence of a sequence of random variables in law and $\lambda_{i}(\cdot)$ means the $i$th largest eigenvalue.
+    where ``$\rightsquigarrow $" means convergence of a sequence of random variables in law and $\lambda_{i}$ means the $i$th largest eigenvalue.
 \end{lemma}
 
 To apply Lemma~\ref{quadraticFormCLT} to $T_{CQ}$, one needs to calculate the eigenvalues of $\BB_n\otimes \bSigma$.
-    Note that the eigenvalues of $\BB_n$ are $-1/n_1(n_1-1)$, $-1/n_2(n_2-1)$, $(n_1+n_2)/n_1 n_2$ and $0$ with multiplicities $n_1-1$, $n_2-1$, $1$ and $1$ respectively.
-    %The eigenspace corresponding to $-1/n_1(n_1-1)$ is
-    %\begin{equation*}
-        %\{{(\eta^\top ,\underbrace{0,\ldots,0}_{n_2})}^\top |\, \textrm{$\eta\in \mathbb{R}^{n_1}$ and $\eta^\top  \gamma_1=0$}\}.
-    %\end{equation*}
-    %The eigenspace corresponding to $-1/n_2(n_2-1)$ is
-    %\begin{equation*}
-        %\{{(\underbrace{0,\ldots,0}_{n_1},\eta^\top )}^\top | \, \textrm{$\eta\in\mathbb{R}^{n_2}$ and $\eta^\top  \gamma_2=0$}\}.
-    %\end{equation*}
-    %The eigenvectors corresponding to $(n_1+n_2)/n_1n_2$ and $0$ are respectively
-    %\begin{equation*}
-        %\Big(-\sqrt{\frac{n_2}{n_1+n_2}}\gamma_1^\top , \sqrt{\frac{n_1}{n_1+n_2}}\gamma_2^\top \Big)^\top 
-        %\quad\text{and}\quad
-        %\Big(\sqrt{\frac{n_1}{n_1+n_2}}\gamma_1^\top , \sqrt{\frac{n_2}{n_1+n_2}}\gamma_2^\top \Big)^\top .
-    %\end{equation*}
+Note that the eigenvalues of $\BB_n$ are $-1/n_1(n_1-1)$, $-1/n_2(n_2-1)$, $(n_1+n_2)/n_1 n_2$ and $0$ with multiplicities $n_1-1$, $n_2-1$, $1$ and $1$, respectively.
     Thus,
     \begin{equation*}
-        \mytr{(\BB_n\otimes \bSigma)}^2=\mytr(\BB_n^2)\mytr(\bSigma^2)=\Big(\frac{1}{n_1(n_1-1)}+\frac{1}{n_2(n_2-1)}+\frac{2}{n_1 n_2}\Big)\mytr (\bSigma^2),
+        \mytr{(\BB_n\otimes \bSigma)}^2=\mytr(\BB_n^2)\mytr(\bSigma^2)=\left\{\frac{1}{n_1(n_1-1)}+\frac{1}{n_2(n_2-1)}+\frac{2}{n_1 n_2}\right\}\mytr (\bSigma^2),
     \end{equation*}
 and
     \begin{equation*}
-        \lambda_{1}\Big({(\BB_n\otimes \bSigma)}^2\Big)=\lambda_{1}(\BB_n^2)\lambda_{1}(\bSigma^2)={\Big(\frac{1}{n_1}+\frac{1}{n_2}\Big)}^2\lambda_{1}(\bSigma^2).
+        \lambda_{1}\left\{(\BB_n\otimes \bSigma)^2\right\}=\lambda_{1}(\BB_n^2)\lambda_{1}(\bSigma^2)=\left\{\frac{1}{n_1}+\frac{1}{n_2}\right\}^2\lambda_{1}(\bSigma^2).
     \end{equation*}
     Because $n_1/n_2\to c$, the condition
     $$
-         \frac{\lambda_{1}\Big({(\BB_n\otimes \bSigma)}^2\Big)}{
+    \frac{\lambda_{1}\left\{{(\BB_n\otimes \bSigma)}^2\right\}}{
 \mytr{\big(\BB_n\otimes \bSigma\big)}^2}
          \to 0
     $$
-     is equivalent to $\lambda_{1}(\bSigma^2)/\mytr\bSigma^2\to 0$.
+    is equivalent to $\lambda_{1}(\bSigma^2)/\mytr (\bSigma^2)\to 0$.
 From
 $$
-\frac{\lambda_1(\bSigma)^4}{(\sum_{i=1}^p \lambda_i(\bSigma)^2)^2}
+\frac{\lambda_1(\bSigma)^4}{\left\{\sum_{i=1}^p \lambda_i(\bSigma)^2\right\}^2}
 \leq
-\frac{\sum_{i=1}^p\lambda_i(\bSigma)^4}{(\sum_{i=1}^p \lambda_i(\bSigma)^2)^2}
+\frac{\sum_{i=1}^p\lambda_i(\bSigma)^4}{\left\{\sum_{i=1}^p \lambda_i(\bSigma)^2\right\}^2}
 \leq
-\frac{\lambda_1(\bSigma)^2\sum_{i=1}^p\lambda_i(\bSigma)^2}{(\sum_{i=1}^p \lambda_i(\bSigma)^2)^2}
+\frac{\lambda_1(\bSigma)^2\sum_{i=1}^p\lambda_i(\bSigma)^2}{\left\{\sum_{i=1}^p \lambda_i(\bSigma)^2\right\}^2}
 =
 \frac{\lambda_1(\bSigma)^2}{\sum_{i=1}^p \lambda_i(\bSigma)^2},
 $$
     we can see that ${\lambda_{1}^2(\bSigma)}/{\mathrm{tr}(\bSigma^2)}\to 0$  is equivalent to~\eqref{chenscondition}.
 Then Lemma~\ref{quadraticFormCLT} implies that under the null hypothesis, the condition~\eqref{chenscondition} is a necessary and sufficient condition for 
     \begin{equation*}
-        \frac{T_{CQ}-\myE T_{CQ}}{{\big[\mathrm{Var}(T_{CQ})\big]}^{1/2}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+        \frac{T_{CQ}-\myE T_{CQ}}{{\left\{\mathrm{Var}(T_{CQ})\right\}}^{1/2}}\rightsquigarrow \mathcal{N}(0,1).
     \end{equation*}
 
     The above result implies that Chen and Qin~\cite{Chen2010A}'s test procedure can be used only when the eigenvalues of $\bSigma$ are concentrated around their average. 
-   In a class of applications, however, the correlations between variables are mainly driven by several common factors, and consequently, $\bSigma$ has a few eigenvalues which are much larger than the others.
-    See, e.g.,~\cite{Cai2012Sparse,Fan2015Asymptotics,Jung2009PCA}.
+   In a class of applications, however, the correlations between variables are mainly driven by several common factors, and consequently, $\bSigma$ has a few eigenvalues which are much larger than the others; see, e.g.,~\cite{Cai2012Sparse,Fan2015Asymptotics,Jung2009PCA}.
 To characterize such correlations between variables, we consider the  spiked covariance model~\eqref{eq:introSpiked}.
 For $p\geq q$, let $\mathbb{O}_{p\times q}$ denote the collection of $p\times q$ matrices with orthonormal columns.
 We make the following assumption for the covariance matrix $\bSigma$.
@@ -377,8 +360,11 @@ Let $\tilde{\BV}$ be a member of $\mathbb{O}_{p\times (p-r)}$ such that the colu
 For positive sequences $\{a_n\}$ and $\{b_n\}$, we write $a_n\asymp b_n$ to denote $a_n=O(b_n)$ and $b_n=O(a_n)$ as $n\to \infty$.
 Under Assumption~\ref{theModel}, we have
 $$
-\frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}=
-\frac{\sum_{i=1}^r (\blambda_i+\sigma^2)^4+(p-r)\sigma^8}{\big(\sum_{i=1}^r (\blambda_i+\sigma^2)^2+(p-r)\sigma^4\big)^2}\asymp \frac{p^{4\beta}+p}{(p^{2\beta}+p)^2}.
+\frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}
+=
+\frac{\sum_{i=1}^r (\blambda_i+\sigma^2)^4+(p-r)\sigma^8}{\left\{\sum_{i=1}^r (\blambda_i+\sigma^2)^2+(p-r)\sigma^4\right\}^2}
+\asymp 
+\frac{p^{4\beta}+p}{(p^{2\beta}+p)^2}.
 $$
 The right hand side tends to $0$ if and only if $\beta<1/2$.
 Our previous arguments assert that the asymptotic distribution of $T_{CQ}$ won't be normal for $\beta\geq 1/2$.
@@ -400,29 +386,28 @@ Since the variance of $(\tau p^{\beta})^{-1}\|\bar{X}_1-\bar{X}_2\|^2$ is bounde
 The following two theorems give the asymptotic distributions of $(\tau p^{\beta})^{-1}T_{CQ}$ for $\beta= 1/2$ and $\beta>1/2$, respectively.
 \begin{theorem}\label{Chenstheory1}
  Under Assumption~\ref{theModel},
-    suppose $\beta=1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
-    Let $Z_{0},Z_1,\ldots,Z_{r}$ be i.i.d.\@ standard normal random variables,
+ suppose $\beta=1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,\infty)$, $i\in \{1,\ldots,r\}$.
+    Let $Z_{0},Z_1,\ldots,Z_{r}$ be iid standard normal random variables,
      then we have
      \begin{enumerate}[(a)]
          \item
              if $\mu_1=\mu_2$, then
     $$
         \frac{1}{\tau p^{\beta}} T_{CQ}
-        \xrightarrow{w}
+        \rightsquigarrow
 \sqrt{2}\sigma^2 Z_0
 +
         \sum_{i=1}^r \omega_i Z_i^2
             -
-        \sum_{i=1}^r \omega_i,
+        \sum_{i=1}^r \omega_i;
     $$
-             where ``$\xrightarrow{w}$'' denotes weak convergence;
          \item
-             if $(\tau p^{\beta})^{-1/2}\big(\BV^\top  (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$,
+             if $(\tau p^{\beta})^{-1/2}\big(\BV^\top  (\mu_1-\mu_2)\big)_i\to \zeta_i\in \mathbb{R}$, $i\in \{1,\ldots,r\}$,
              and
-    ${(\tau p^\beta)}^{-1}\|\tilde{\BV}^\top  (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$, then
+    ${(\tau p^\beta)}^{-1}\|\tilde{\BV}^\top  (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,\infty)$, then
     $$
         \frac{1}{\tau p^{\beta}} T_{CQ}
-        \xrightarrow{w}
+        \rightsquigarrow
 \sqrt{2}\sigma^2 Z_0+
         \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
 \zeta^*
@@ -434,26 +419,26 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
 
 \begin{theorem}\label{Chenstheory2}
  Under Assumption~\ref{theModel},
-    suppose $\beta>1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
-    Let $Z_1,\ldots,Z_{r}$ be i.i.d.\ standard normal random variables,
+ suppose $\beta>1/2$ and $\lambda_i/p^\beta \to \omega_i\in(0,\infty)$, $i\in \{1,\ldots,r\}$.
+    Let $Z_1,\ldots,Z_{r}$ be iid standard normal random variables,
      then we have
      \begin{enumerate}[(a)]
          \item
              if $\mu_1=\mu_2$, then
     $$
         \frac{1}{\tau p^{\beta}} T_{CQ}
-        \xrightarrow{w}
+        \rightsquigarrow
         \sum_{i=1}^r \omega_i Z_i^2
             -
         \sum_{i=1}^r \omega_i;
     $$
          \item
-             if $(\tau p^{\beta})^{-1/2}\big(\BV^\top  (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$,
+             if $(\tau p^{\beta})^{-1/2}\big\{\BV^\top  (\mu_1-\mu_2)\big\}_i\to \zeta_i\in \mathbb{R}$, $i\in \{1,\ldots,r\}$,
              and
-    ${(\tau p^\beta)}^{-1}\|\tilde{\BV}^\top  (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$, then
+    ${(\tau p^\beta)}^{-1}\|\tilde{\BV}^\top  (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,\infty)$, then
     $$
         \frac{1}{\tau p^{\beta}} T_{CQ}
-        \xrightarrow{w}
+        \rightsquigarrow
         \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
 \zeta^*
         -
@@ -462,23 +447,6 @@ The following two theorems give the asymptotic distributions of $(\tau p^{\beta}
      \end{enumerate}
 \end{theorem}
 
-%\begin{theorem}\label{Chenstheory}
- %Under Assumption~\ref{theModel},
-    %suppose $\lambda_i/p^\beta \to \omega_i\in(0,+\infty)$, $i=1,\ldots,r$.
-    %Let $\tau=1/n_1+1/n_2$. We further assume
-    %$(\tau p^{\beta})^{-1/2}\big(\BV^\top  (\mu_1-\mu_2)\big)_i\to \zeta_i\in(-\infty,+\infty)$, $i=1,\ldots,r$, and
-    %${(\tau p^\beta)}^{-1}\|\tilde{\BV}^\top  (\mu_1-\mu_2)\|^2\to \zeta^*\in [0,+\infty)$. We have
-    %$$
-        %\frac{1}{\tau p^{\beta}} T_{CQ}
-        %\xrightarrow{\mathcal{L}}
-        %\sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
-%\zeta^*+
-    %\sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)\epsilon
-        %-
-        %\sum_{i=1}^r \omega_i,
-    %$$
-%where $Z_{1},\ldots,Z_{r}$ and $\epsilon$ are i.i.d.\ $\mathcal{N}(0,1)$ random variables, $\delta_{\{\frac{1}{2}\}}(\beta)$ equals to $1$ if $\beta=1/2$ and $0$ otherwise.
-%\end{theorem}
 \begin{remark}\label{remark1}
     By the definitions of $\zeta_i$ and $\zeta^*$, we have
     $$
@@ -514,15 +482,15 @@ W=
             -
         \sum_{i=1}^r \blambda_i
         $, 
-where $Z_0,\ldots,Z_r$ are i.i.d.\ $\mathcal{N}(0,1)$ random variables.
+where $Z_0,\ldots,Z_r$ are iid $\mathcal{N}(0,1)$ random variables.
 Under the conditions of Theorem~\ref{Chenstheory1} ($\beta=1/2$), we have
 $
-  p^{-\beta}W\xrightarrow{w}
+  p^{-\beta}W\rightsquigarrow
 \sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i
 $.
 Under the conditions of Theorem~\ref{Chenstheory2} ($\beta>1/2$), we have
 $
- p^{-\beta}W\xrightarrow{w}
+ p^{-\beta}W\rightsquigarrow
 \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
 $
 Hence in both cases, $p^{-\beta}W$ can mimic the asymptotic null distributions of $(\tau p^{\beta})^{-1}T_{CQ}$.
@@ -540,7 +508,7 @@ The following theorem shows that the corrected $T_{CQ}$ test has correct level a
 \begin{theorem}\label{theoremRev}
 Under the conditions of either Theorem~\ref{Chenstheory1} or Theorem~\ref{Chenstheory2},
 $$
-    \Pr\big(\tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2)\big)=\alpha+o(1).
+\Pr\left\{\tau^{-1}{T_{CQ}}> F^{-1}(1-\alpha;\hat{\blambda}_1,\ldots,\hat{\blambda}_r,\hat{\sigma}_*^2)\right\}=\alpha+o(1).
 $$
 \end{theorem}
 
@@ -562,7 +530,7 @@ In the next section, we will propose a new test. The trivial power region of the
 \section{A projection test}\label{methodology}
 
 
-Recently, a class of test procedures have been proposed through random projection onto lower dimensional subspace. See, e.g.,~\cite{Lopes2015A,Srivastava2014RAPTT,Thulin2014A}.
+Recently, a class of test procedures have been proposed through random projection onto lower dimensional subspace; see, e.g.,~\cite{Lopes2015A,Srivastava2014RAPTT,Thulin2014A}.
 It is known that random projection methods offer higher power when the variables are correlated.
 However, these test procedures are randomized, which is undesirable in practice.
 Then, is there an optimal projection which is nonrandomized?
@@ -575,20 +543,19 @@ Then $T(\BO)$ is Chen and Qin~\cite{Chen2010A}'s statistic on the transformed da
 %We would like to obtain an $\BO$ such that the associated $T(\BO)$ is most powerful.
 Under the condition~\eqref{chenscondition}, Chen and Qin~\cite{Chen2010A} proved that the asymptotic power of $T_{CQ}$ under the local alternative is
 $$
-\Phi\Bigg(\Phi^{-1}(\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mytr(\bSigma^2)}}\Bigg),
+\Phi\left\{\Phi^{-1}(\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2\mytr(\bSigma^2)}}\right\},
 $$
-where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal random variable.
+where $\Phi$ is the cumulative distribution function of the standard normal random variable.
 Hence the power of $T_{CQ}$ is related to $\|\mu_1-\mu_2\|^2/\sqrt{2\tau^2\mytr(\bSigma^2)}$, which may be viewed as a signal to noise ratio (SNR).
 Consequently, $\|\BO^\top  (\mu_1-\mu_2)\|^2/\sqrt{2\tau^2\mytr(\BO^\top  \bSigma^2 \BO)}$ measures the power of $T(\BO)$.
  Like Lopes {\rm et al.}~\cite{Lopes2015A}, to consider an average-case scenario, we temporarily place a prior on $\mu_1-\mu_2$.
 Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is from the uniform distribution on the unit sphere.
 In this case, an average SNR can be defined as
 \begin{equation}\label{touteng}
-\myE \Bigg( \frac{\|\BO^\top  (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BO^\top  \bSigma^2 \BO)}}\Bigg)
+    \myE \left\{ \frac{\|\BO^\top  (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BO^\top  \bSigma^2 \BO)}} \right\}
 =  \frac{k/p}{\sqrt{2\tau^2\mytr(\BO^\top  \bSigma^2 \BO)}}\|\mu_1-\mu_2\|^2.
 \end{equation}
 The $T(\BO)$ that maximizes the average SNR can be expected to have the best average power behavior among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$.
-%We would like to find the optimal $T(\BO)$ among $\{T(\BO):\, \BO\in \mathbb{O}_{p\times k},\,  k\leq p\}$ by maximizing the average SNR.
 
 Next we maximize~\eqref{touteng} under Assumption~\ref{theModel}. Note that for fixed $k$,~\eqref{touteng} is maximized when the columns of $\BO$ are equal to the last $k$ eigenvectors of $\bSigma$.
 Thus, it remains to maximize
@@ -599,22 +566,18 @@ over $k$.
 If $k\leq p-r$,~\eqref{touteng2} is equal to $\sqrt{k}/(\sqrt{2} \sigma^2 \tau p)$ which is an increasing function of $k$.
 If $k> p-r$, we have
 \begin{equation*}
-    \begin{aligned}
-        &\frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2(\bSigma)}}
+        \frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2(\bSigma)}}
         \leq
-        \frac{1}{\sqrt{2\tau^2\big(\kappa^{-2}p^{2\beta}+(p-r)\sigma^4\big)}}\\
-        =&
-        \frac{p/(p-r)}{\sqrt{\kappa^{-2}p^{2\beta}/((p-r)\sigma^4)+1}}
-\frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}}.
-    \end{aligned}
+        \frac{1}{\sqrt{2\tau^2\big\{\kappa^{-2}p^{2\beta}+(p-r)\sigma^4\big\} }}
+        =
+        \frac{p/(p-r)}{\sqrt{\kappa^{-2}p^{2\beta}/\{(p-r)\sigma^4\}+1}}
+        \frac{(p-r)/p}{\sqrt{2\tau^2 \{(p-r)\sigma^4 \} }}.
 \end{equation*}
 Since $\beta\geq 1/2$, for sufficiently large $p$ and all $k>p-r$, we have
 \begin{equation*}
-    \begin{aligned}
         \frac{k/p}{\sqrt{2\tau^2\sum_{i=p-k+1}^p \lambda_i^2(\bSigma)}}
         <
-\frac{(p-r)/p}{\sqrt{2\tau^2((p-r)\sigma^4)}},
-    \end{aligned}
+        \frac{(p-r)/p}{\sqrt{2\tau^2 \{(p-r)\sigma^4\} }},
 \end{equation*}
 and~\eqref{touteng2} is maximized when $k=p-r$.
 Consequently, for sufficiently large $p$,~\eqref{touteng} is maximized when $\BO=\tilde{\BV}$.
@@ -627,7 +590,7 @@ The above discussion motivates us to consider the variable
     %&=\frac{\sum_{i\neq j}^{n_1}X_{1i}^\top \tilde{\BV}\tilde{\BV}^\top  X_{1j}}{n_1(n_1-1)}+\frac{\sum_{i\neq j}^{n_2}X_{2i}^\top \tilde{\BV}\tilde{\BV}^\top  X_{2j}}{n_2(n_2-1)}-2\frac{\sum_{i=1}^{n_1}\sum_{j=1}^{n_2}X_{1i}^\top \tilde{\BV}\tilde{\BV}^\top  X_{2j}}{n_1n_2}
 \end{aligned}
 \end{equation*}
- Note that based on the data $\tilde{\BV}^\top  X_{ki}$, $i=1,\ldots,n_k$, $k=1,2$, the likelihood ratio test statistic for hypotheses~\eqref{problem} is equivalent to 
+Note that based on the data $\tilde{\BV}^\top  X_{ki}$, $i\in \{1,\ldots,n_k \}$, $k\in \{1,2\}$, the likelihood ratio test statistic for hypotheses~\eqref{problem} is equivalent to 
     $\|\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\|^2$. 
 Hence $T_1$ can be regarded as a restricted likelihood ratio statistic.
 Below we show that $T_1$ is approximately a standardized chi-squared random variable.
@@ -638,7 +601,7 @@ Below we show that $T_1$ is approximately a standardized chi-squared random vari
     if $\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2= o(p/n)$,
     \begin{equation}\label{oracleTheoremR1}
         \frac{T_1-\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2}
-        {\sqrt{2\tau^2 p\sigma^4}}%\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+        {\sqrt{2\tau^2 p\sigma^4}}%\rightsquigarrow \mathcal{N}(0,1).
         \overset{d}{=} \frac{\chi^2(p-r)-(p-r)}{\sqrt{2(p-r)}}+o_P(1),
     \end{equation}
 where ``$\overset{d}{=}$'' means having identical distribution;
@@ -646,7 +609,7 @@ where ``$\overset{d}{=}$'' means having identical distribution;
     if $p/n= o(\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2)$, 
     \begin{equation}\label{oracleTheoremR2}
         \frac{T_1-\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2}
-        {\sqrt{4\tau\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2\sigma^2}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+        {\sqrt{4\tau\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2\sigma^2}}\rightsquigarrow \mathcal{N}(0,1).
     \end{equation}
     \end{enumerate}
 \end{proposition}
@@ -654,7 +617,7 @@ where ``$\overset{d}{=}$'' means having identical distribution;
     Proposition~\ref{oracleTheorem} implies that under the null hypothesis,
     $$
         \frac{T_1}
-        {\sqrt{2\tau^2 p\sigma^4}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+        {\sqrt{2\tau^2 p\sigma^4}}\rightsquigarrow \mathcal{N}(0,1).
     $$
     However, compared with the standard normal distribution, the standardized chi-squared distribution is a better approximation of the distribution of the statistic.
     This is implied in the proof of Proposition~\ref{oracleTheorem}.
@@ -689,45 +652,41 @@ However, compared with $\|\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\|^2$, the cent
 Since $\hat{\tilde{\BV}}$ is independent of $\bar{X}_k$, $k=1,2$, it is convenient to work with the conditional distribution of $\|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2$ given $\BS$. 
 Under the null hypothesis, 
 \begin{equation*}
-    \begin{aligned}
-        \myE[ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 |\BS]
+    \myE \left\{ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 \Big|\BS \right\}
         =
 \tau \mytr(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})
         =
 \tau (p-r) \sigma^2+
-\tau \mytr(\hat{\tilde{\BV}}^\top \BV \bLambda \BV^\top \hat{\tilde{\BV}}).%>\tau (p-r)\sigma^2.
-    \end{aligned}
+\tau \mytr(\hat{\tilde{\BV}}^\top \BV \bLambda \BV^\top \hat{\tilde{\BV}}).
 \end{equation*}
 Note that
 \begin{equation*}
-\begin{aligned}
     \mytr(\hat{\tilde{\BV}}^\top \BV \bLambda \BV^\top \hat{\tilde{\BV}})
 =
 \mytr( \bLambda^{1/2} \BV^\top \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top \BV \bLambda^{1/2} )
 =
-\mytr( \bLambda^{1/2} (\BI_r-\BV^\top \hat{\BV}\hat{\BV}^\top \BV) \bLambda^{1/2} )
-    =&
-    \sum_{i=1}^r  (1-\sum_{l=1}^r (\hat{v}_l^\top  v_i)^2)\blambda_i,
-\end{aligned}
+\mytr\left\{ \bLambda^{1/2} (\BI_r-\BV^\top \hat{\BV}\hat{\BV}^\top \BV) \bLambda^{1/2} \right\}
+    =
+    \sum_{i=1}^r  \left\{1-\sum_{l=1}^r (\hat{v}_l^\top  v_i)^2 \right\} \blambda_i,
 \end{equation*}
-where $\hat{v}_i$ and $v_i$ are the $i$th columns of $\hat{\BV}$ and $\BV$, respectively, $i=1,\ldots, r$.
+where $\hat{v}_i$ and $v_i$ are the $i$th columns of $\hat{\BV}$ and $\BV$, respectively, $i\in \{1,\ldots, r\}$.
 Under $p=O(n\blambda_r)$ and some other regular conditions, Theorem 3.2 in Wang and Fan~\cite{Fan2015Asymptotics} asserts that 
 \begin{equation}\label{yaofengla1}
-\hat{v}_j^\top  v_i=O_P(\epsilon_{j,n}),\quad 1\leq i\neq j\leq r,
+    \hat{v}_j^\top  v_i=O_P(\epsilon_{j,n}),\quad \text{for all $i,j\in\{1,\ldots, r\}$ with $i\neq j$},
 \quad \text{and}\quad
-\hat{v}_i^\top  v_i=\frac{1}{\sqrt{1+ \frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}}+O_P(\epsilon_{i,n}),\quad 1\leq i\leq r,
+\hat{v}_i^\top  v_i=\frac{1}{\sqrt{1+ \frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}}+O_P(\epsilon_{i,n}),
 \end{equation}
-where $\epsilon_{i,n}$ is a smaller order term, $i=1,\ldots, r$.
+where $\epsilon_{i,n}$ is a smaller order term, $i\in \{1,\ldots, r\}$.
 This motivates us to approximate $\mytr(\hat{\tilde{\BV}}^\top \BV \bLambda \BV^\top \hat{\tilde{\BV}})$
 by
 $$
-\sum_{i=1}^r \Big(1-\frac{1}{1+\frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}\Big)\blambda_i
+\sum_{i=1}^r \left\{ 1-\frac{1}{1+\frac{p}{n(\blambda_i+\sigma^2)}\sigma^2}\right\} \blambda_i
 =
 \sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i.
 $$
 Hence 
 $$
-\myE [\|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2|\BS]
+\myE \left\{ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 \Big|\BS \right\}
 \approx
 \tau(p-r)\sigma^2 + \tau\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i.
 $$
@@ -739,59 +698,49 @@ Motivated by Lemma~\ref{eigenconsisLemma} in Appendix~\ref{appendixB}, we propos
 $$
 \hat{\sigma}_*^2= \frac{n}{n-r} \hat{\sigma}^2,
 \quad
-\hat{\blambda}_i=\lambda_i(\BS)-\frac{p+n-r}{n}\hat{\sigma}_*^2
-\quad i=1,\ldots,r.
+\hat{\blambda}_i=\lambda_i(\BS)-\frac{p+n-r}{n}\hat{\sigma}_*^2,
+\quad
+\text{for each $i\in\{1,\ldots, r\}$}.
 $$
 The following proposition gives the convergence rate of these estimators.
 \begin{proposition}\label{varianceEstimation}
-    Under Assumption~\ref{theModel}, we have %      $\hat{\sigma}^2$ is consistent.
+    Under Assumption~\ref{theModel}, we have 
     \begin{equation}\label{varianceEstimationPropResult1}
-    %\hat{\sigma}^2=\sigma^2 + O_P\Big(\frac{\max (n,p)}{np}\Big),\quad
-    \hat{\sigma}_*^2=\sigma^2 + O_P\Big(\max \big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big),
+        \hat{\sigma}_*^2=\sigma^2 + O_P\left\{\max \left(\frac{1}{\sqrt{np}},\frac{1}{p}\right)\right\},
     \end{equation}
     and
     \begin{equation}\label{varianceEstimationPropResult2}
         \frac{\hat{\blambda}_i}{\blambda_i}
         =
         1+
-        O_P\Big(\max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big)\Big).
+        O_P\left\{\max\left(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\right)\right\}.
     \end{equation}
 \end{proposition}
 \begin{remark}
     Recently, Passemier {\rm et al.}~\cite{Passemier2015} proposed a bias-corrected estimator of $\sigma^2$:
 $$
-\Big(1+\frac{1}{n}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2.
+\left\{1+\frac{1}{n}\left(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\right)\right\}\hat{\sigma}^2.
 $$
 In their paper, $\blambda_i$'s are fixed and known.
     This is different from Assumption~\ref{theModel} where $\blambda_i$'s are divergent and unknown.
-%Under Assumption~\ref{theModel}, we have
-%$$
-%\Big(1+\frac{1}{n-2}\big(r+\hat{\sigma}^2\sum_{i=1}^r \frac{1}{\blambda_i}\big)\Big)\hat{\sigma}^2
-%=
-    %\Big(1+\frac{r}{n-2}\Big)\hat{\sigma}^2+O_P(\frac{1}{np^{\beta}})
-    %=
-    %\hat{\sigma}_*^2
-    %+O_P(\frac{1}{n^2})+O_P(\frac{1}{np^{\beta}}).
-%$$
-    %So the difference between~\cite{Passemier2015}'s estimator and $\hat{\sigma}_*^2$ is minor under Assumption~\ref{theModel}.
 \end{remark}
 \begin{remark}
     Recently, Wang and Fan~\cite{Fan2015Asymptotics} proposed an estimator of
-    $\lambda_i(\bSigma)=\blambda_i+\sigma^2$, $i=1,\ldots, r$:
+    $\lambda_i(\bSigma)=\blambda_i+\sigma^2$, $i\in\{1,\ldots, r\}$:
     $$
-    \max\Big(\lambda_i(\BS)-\frac{p}{n}\Big(1-\frac{rp}{n(p-r)}\Big)^{-1}\hat{\sigma}^2,0\Big).
+    \max\left[\lambda_i(\BS)-\frac{p}{n}\left\{1-\frac{rp}{n(p-r)}\right\}^{-1}\hat{\sigma}^2,0\right].
     $$
     They showed that under $p>n$, $p=O(n\blambda_r)$ and some other conditions,
     $$
-    \frac{1}{\blambda_i+\sigma^2}\max\Big(\lambda_i(\BS)-\frac{p}{n}\Big(1-\frac{rp}{n(p-r)}\Big)^{-1}\hat{\sigma}^2,0\Big)
-    =1+O_P\Big(\frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\Big).
+    \frac{1}{\blambda_i+\sigma^2}\max\left[\lambda_i(\BS)-\frac{p}{n}\left\{ 1-\frac{rp}{n(p-r)}\right\}^{-1}\hat{\sigma}^2,0\right]
+    =1+O_P\left(\frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\right).
     $$
-    Note that under Assumption~\ref{theModel} and $p>n$, we have
+    Note that under Assumption~\ref{theModel} and $p>n$, we have, for all $i\in\{1,\ldots, r\}$,
     $$
 \frac{1}{\blambda_i}\sqrt{\frac{p}{n}}+\frac{1}{\sqrt{n}}\asymp
 \frac{1}{\sqrt{n}}
 \asymp
-        \max\big(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\big),\quad i=1,\ldots,r.
+        \max\left(\frac{1}{\sqrt{n}},\frac{1}{p^{\beta}}\right).
     $$
     In this case, the convergence rate of Wang and Fan~\cite{Fan2015Asymptotics}'s estimator is equal to the convergence rate of $\hat{\blambda}_i$.
     Compared with Wang and Fan~\cite{Fan2015Asymptotics}'s result, Proposition~\ref{varianceEstimation} doesn't need the conditions $p>n$ and $p=O(n\blambda_r)$.
@@ -826,17 +775,17 @@ suppose $p/n^2\to 0$,
         \item
  if $(\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)=o_P(p/n)$,
 \begin{equation*}
-    \frac{T_2-\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1);
+    \frac{T_2-\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\rightsquigarrow \mathcal{N}(0,1);
 \end{equation*}
         \item
  if $p/n=o_P\big((\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)\big)$,
 \begin{equation*}
-    \frac{T_2-\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{4\tau (\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1);
+    \frac{T_2-\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{4\tau (\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)}}\rightsquigarrow \mathcal{N}(0,1);
 \end{equation*}
         \item
  if $\|\mu_1-\mu_2\|^2=O({\sqrt{p}}/{n})$,
 \begin{equation*}
-    \frac{T_2-\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+    \frac{T_2-\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\rightsquigarrow \mathcal{N}(0,1).
 \end{equation*}
     \end{enumerate}
 \end{theorem} 
@@ -873,49 +822,47 @@ is asymptotically level $\alpha$.
 However, using $\sqrt{2\tau^2 p\sigma^4}$ to standardize $T_2$ may not be accurate if $n$ is small, and the asymptotic distribution $\mathcal{N}(0,1)$ may not be accurate if $p$ is small.
 We would like to make further effort to construct a more accurate test.
 Note that
-$$
-\begin{aligned}
+\begin{align*}
     &\myVar\big(
 \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2
 \big| \BS
 \big)
-    =2\tau^2\big(
+    =2\tau^2\left\{
 \mytr(\hat{\tilde{\BV}}^\top  \BV \bLambda \BV^\top \hat{\tilde{\BV}})^2
 +
 2\sigma^2\mytr(\hat{\tilde{\BV}}^\top  \BV \bLambda \BV^\top \hat{\tilde{\BV}})
 +\sigma^4 (p-r)
-\big)
+\right\}
 \\
     =&
-    2\tau^2\Big(
-    \sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^\top  v_i)^2\big)^2 \blambda_i^2
-    +2\sum_{1\leq i<j \leq r}\big(\sum_{l=1}^r (\hat{v}_l^\top  v_i)(\hat{v}_l^\top  v_j )\big)^2\blambda_i\blambda_j
+    2\tau^2\left[
+        \sum_{i=1}^r \big\{1-\sum_{l=1}^r (\hat{v}_l^\top  v_i)^2\big\}^2 \blambda_i^2
+        +2\sum_{1\leq i<j \leq r}\big\{\sum_{l=1}^r (\hat{v}_l^\top  v_i)(\hat{v}_l^\top  v_j )\big\}^2\blambda_i\blambda_j
     +
-    2\sigma^2\sum_{i=1}^r \big(1-\sum_{l=1}^r (\hat{v}_l^\top  v_i)^2\big) \blambda_i
+    2\sigma^2\sum_{i=1}^r \big\{ 1-\sum_{l=1}^r (\hat{v}_l^\top  v_i)^2\big\} \blambda_i
     +\sigma^4 (p-r)
-    \Big)
+\right]
     \\
     \approx&
-    2\tau^2\Big(
-    \sum_{i=1}^r \big(\frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i\big)^2
+    2\tau^2\left[
+        \sum_{i=1}^r \left\{\frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i\right\}^2
     +
     2\sigma^2\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i
     +\sigma^4 (p-r)
-    \Big),
-\end{aligned}
-$$
+\right],
+\end{align*}
 where in the last line, we use the approximation in~\eqref{yaofengla1}.
 Hence we propose the following standardized statistic
 $$
     \begin{aligned}
         Q=&T_2/
-   \Bigg( 
-        2\tau^2\Big(
-        \sum_{i=1}^r \big(\frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i\big)^2
+   \left[ 
+        2\tau^2\left[
+            \sum_{i=1}^r \left\{\frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i\right\}^2
     +
         2\hat{\sigma}_*^2\sum_{i=1}^r \frac{p\hat{\sigma}_*^2}{n\hat{\blambda}_i+(n+p)\hat{\sigma}_*^2}\hat{\blambda}_i
         +\hat{\sigma}_*^4 (p-r)
-    \Big)\Bigg)^{1/2}.
+\right]\right]^{1/2}.
     \end{aligned}
 $$
 In view of Proposition~\ref{oracleTheorem}, we propose to reject the null hypothesis if
@@ -933,8 +880,7 @@ The following theorem gives the asymptotic power function of the proposed test.
 suppose $p/n^2\to 0$, we have
         \begin{equation}\label{niuniuniua}
         \Pr\bigg(Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\bigg)=
-            \myE\Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg)+o(1)
-            .
+            \myE\Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg)+o(1).
         \end{equation}
      If we further assume $\|\mu_1-\mu_2\|^2=O({\sqrt{p}}/{n})$, then
     \begin{equation}\label{niuniuniub}
@@ -1017,7 +963,7 @@ Then, we independently generate data by the formula
 $$
 X_{k,i}=\mu_k+\BU \BD Y_{k,i}\quad \text{$i=1,\ldots,n_k$ and $k=1,2$,}
 $$
-where $Y_{k,i}$ is a $p$ dimensional random vector whose entries are i.i.d.\ random variables with common distribution $F$.
+where $Y_{k,i}$ is a $p$ dimensional random vector whose entries are iid random variables with common distribution $F$.
 We will consider three different distributions of $F$.
 \begin{itemize}
     \item
@@ -1651,7 +1597,7 @@ Thus,
     \begin{equation}\label{eq:kkk2}
     \begin{aligned}
         \frac{1}{\tau p^{\beta}}\|\BV^\top (\bar{X}_1-\bar{X}_2)\|^2
-        \xrightarrow{w}
+        \rightsquigarrow
         \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2.
     \end{aligned}
     \end{equation}
@@ -1669,7 +1615,7 @@ Thus,
 Since $\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\sim \mathcal{N}_{p-r}(\tilde{\BV}^\top  (\mu_1-\mu_2),  \sigma^2 \tau \BI_{p-r})$, by the central limit theorem, we have
     $$
 \frac{
-    \big\|\tilde{\BV}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2-\sigma^2 \tau (p-r)}{\sigma^2 \tau\sqrt{2(p-r)}}\xrightarrow{\mathcal{L}} \mathcal{N}(0,1).
+    \big\|\tilde{\BV}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\big\|^2-\sigma^2 \tau (p-r)}{\sigma^2 \tau\sqrt{2(p-r)}}\rightsquigarrow  \mathcal{N}(0,1).
     $$
     For the intersection term, we have
     \begin{equation*}
@@ -1683,7 +1629,7 @@ Since $\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\sim \mathcal{N}_{p-r}(\tilde{\BV}
     \begin{equation}\label{eq:kkk3}
 \frac{1}{\tau p^\beta}
     \big(\big\|\tilde{\BV}^\top (\bar{X}_1-\bar{X}_2)\big\|^2-\sigma^2 \tau (p-r)-\big\|\tilde{\BV}^\top (\mu_1-\mu_2)\big\|^2\big)
-    \xrightarrow{\mathcal{L}} 
+    \rightsquigarrow  
         \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)Z_0,
     \end{equation}
     where $\delta_{\frac{1}{2}}(\beta)$ equals $1$ if $\beta=1/2$ and equals $0$ otherwise.
@@ -1704,7 +1650,7 @@ Since $\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\sim \mathcal{N}_{p-r}(\tilde{\BV}
         -
         (\sum_{i=1}^r \omega_i+p^{1-\beta}\sigma^2)
         +\frac{\sigma^2 (p-r)}{p^\beta}+\zeta^*+o_P(1)\\
-        \xrightarrow{\mathcal{L}}&
+        \rightsquigarrow &
         \sum_{i=1}^r (\sqrt{\omega_i} Z_i+\zeta_i)^2+
 \zeta^*+
     \sqrt{2}\sigma^2 \delta_{\{\frac{1}{2}\}}(\beta)Z_0
@@ -1714,22 +1660,22 @@ Since $\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\sim \mathcal{N}_{p-r}(\tilde{\BV}
     $$
     This implies the conclusions of Theorem~\ref{Chenstheory1} and Theorem~\ref{Chenstheory2}.
 
-    %Note that we have $\|\bar{X}_1-\bar{X}_2\|^2\sim \tau(\sum_{i=1}^r \lambda_i(\bSigma)Z_i+\sigma^2 W)$, where $Z_i\overset{i.i.d.}{\sim}\chi^2_1$ and $W\sim \chi^2_{p-r}$ is independent of $Z_i$'s. Then
+    %Note that we have $\|\bar{X}_1-\bar{X}_2\|^2\sim \tau(\sum_{i=1}^r \lambda_i(\bSigma)Z_i+\sigma^2 W)$, where $Z_i\overset{iid}{\sim}\chi^2_1$ and $W\sim \chi^2_{p-r}$ is independent of $Z_i$'s. Then
     %$$
     %\frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2
     %\sim\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i
     %+\frac{\sigma^2}{p^{\beta}}W.
     %$$
     %It's easy to see that 
-    %$$\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i\xrightarrow{\mathcal{L}}\sum_{i=1}^r l_i Z_i.$$
+    %$$\sum_{i=1}^r\frac{\lambda_i+\sigma^2}{p^{\beta}}Z_i\rightsquigarrow \sum_{i=1}^r l_i Z_i.$$
     %By central limit theorem, we have
     %$$
-    %\frac{1}{\sqrt{2(p-r)}}\big( W-(p-r)\big)\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+    %\frac{1}{\sqrt{2(p-r)}}\big( W-(p-r)\big)\rightsquigarrow \mathcal{N}(0,1).
     %$$
 %
     %If $\beta=1/2$, by Slutsky's theorem we have
     %$$
-    %\frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2-\frac{\sigma^2(p-r)}{p^\beta}\xrightarrow{\mathcal{L}}
+    %\frac{1}{\tau p^{\beta}}\|\bar{X}_1-\bar{X}_2\|^2-\frac{\sigma^2(p-r)}{p^\beta}\rightsquigarrow 
     %\sum_{i=1}^r l_i Z_i+\sqrt{2}\sigma^2 \epsilon.
     %$$
     %where $\epsilon\sim \mathcal{N}(0,1)$
@@ -1737,12 +1683,12 @@ Since $\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\sim \mathcal{N}_{p-r}(\tilde{\BV}
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Theorem~\ref{theoremRev}}]
-    First we claim that if $\tilde{\blambda}_1,\ldots, \tilde{\blambda}_r$ and $\tilde{\sigma}^2$ satisfy $\tilde{\blambda}_i/\blambda_i\to 1$, $i=1,\ldots,r$ and $\tilde{\sigma}^2\to \sigma^2$, then
+    First we claim that for fixed parameters $\tilde{\blambda}_1,\ldots, \tilde{\blambda}_r$ and $\tilde{\sigma}^2$ satisfying $\tilde{\blambda}_i/\blambda_i\to 1$, $i=1,\ldots,r$ and $\tilde{\sigma}^2\to \sigma^2$, we have
     \begin{equation}\label{Reveq1}
         p^{-\beta}F^{-1}(1-\alpha;\tilde{\blambda}_1,\ldots,\tilde{\blambda}_r,\tilde{\sigma}^2)=
         p^{-\beta}F^{-1}(1-\alpha;\blambda_1,\ldots,\blambda_r,\sigma^2)+o(1).
     \end{equation}
-    To see this, let $Z_0,\ldots, Z_r$ be i.i.d. $\mathcal{N}(0,1)$ random variables, then
+    To see this, let $Z_0,\ldots, Z_r$ be iid $\mathcal{N}(0,1)$ random variables, then
     $$
     \tilde{W}\overset{def}{=}\sqrt{2p}\tilde{\sigma}^2 Z_0
 +
@@ -1752,12 +1698,12 @@ Since $\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\sim \mathcal{N}_{p-r}(\tilde{\BV}
     $$
 If $\beta=1/2$, we have
 $
-    p^{-\beta}\tilde{W}\xrightarrow{w}
+    p^{-\beta}\tilde{W}\rightsquigarrow
 \sqrt{2}\sigma^2 Z_0 + \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i
 $.
 If $\beta>1/2$, we have
 $
-    p^{-\beta}\tilde{W}\xrightarrow{w}
+    p^{-\beta}\tilde{W}\rightsquigarrow
 \sum_{i=1}^r \omega_i Z_i^2 -\sum_{i=1}^r \omega_i.
 $
     Hence in both cases, the asymptotic distributions of $p^{-\beta}\tilde{W}$ and $p^{-\beta}W$ are both equal to the asymptotic null distribution of $(\tau p^{\beta})^{-1}T_{CQ}$, and the common asymptotic distribution function is continuous.
@@ -1829,7 +1775,7 @@ Let $\BA$ and $\BB$ be two symmetric $n\times n$ matrices and $\BC=\BA+\BB$. If 
 
 
 \begin{lemma}[\cite{DAVIDSON2001317}, Theorem II.7]\label{DSbound}
-    Let $\BZ$ be a $p\times n$ random matrix with i.i.d. $\mathcal{N}(0,1)$ entries.
+    Let $\BZ$ be a $p\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
     Then for any $t>0$,
     \begin{align*}
         &\Pr(\sqrt{\lambda_1(\BZ \BZ^\top  )}>\sqrt{n}+\sqrt{p}+t)\leq e^{-t^2/2},
@@ -1929,7 +1875,7 @@ O_P\Big(\max\big(\frac{1}{\sqrt{np}},\frac{1}{p}\big)\Big).
     Let $\bSigma=\BU\BE\BU^\top $ denote the spectral decomposition of $\bSigma$, where
      $\BU=(\BV,\tilde{\BV})$ and $\BE=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\sigma^2,\ldots,\sigma^2)$.
 %Denote by $\BS=\hat{\BU}\hat{\BE}\hat{\BU}^\top $ the spectral decomposition of $\BS$, where $\hat{\BU}=(\hat{\BV},\hat{\tilde{\BV}})$ and $\hat{\BE}=\mydiag(\lambda_1(\BS),\ldots,\lambda_p(\BS))$.
-    Let $\bZ$ be a $p\times n$ random matrix with i.i.d. $\mathcal{N}(0,1)$ entries.
+    Let $\bZ$ be a $p\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
 Denote $\bZ={(\bZ_{(1)}^\top ,\bZ_{(2)}^\top )}^\top $, where $\bZ_{(1)}$ and $\bZ_{(2)}$ are the first $r$ rows and last $p-r$ rows of $\bZ$. 
 Then the sample covariance matrix $\BS$ has the same distribution as the random matrix
 $
@@ -2220,7 +2166,7 @@ O_P(\sqrt{\frac{p}{p^{\beta}n}}),
     It follows from the central limit theorem that
     \begin{equation*}
         \begin{aligned}
-            \frac{1}{\sigma^2}\sqrt{\frac{n_k-1}{2(p-r)}}\Big( \mytr(\tilde{\BV}^\top  \BS_k \tilde{\BV})-(p-r)\sigma^2\Big)\xrightarrow{\mathcal{L}}\mathcal{N}(0,1),\quad k=1,2.
+            \frac{1}{\sigma^2}\sqrt{\frac{n_k-1}{2(p-r)}}\Big( \mytr(\tilde{\BV}^\top  \BS_k \tilde{\BV})-(p-r)\sigma^2\Big)\rightsquigarrow \mathcal{N}(0,1),\quad k=1,2.
         \end{aligned}
     \end{equation*}
     Then we have
@@ -2375,7 +2321,7 @@ where
     $$
    \rho(F,G) =\inf\{\epsilon:F(x-\epsilon)-\epsilon\leq G(x)\leq F(x+\epsilon)+\epsilon\quad \textrm{for all $x$}\}.
     $$
-    It's well known that $\rho(F_n,F)\to 0$ if and only if $F_n\xrightarrow{\mathcal{L}}F$.
+    It's well known that $\rho(F_n,F)\to 0$ if and only if $F_n\rightsquigarrow F$.
 
 
     Note that $\bar{X}_1$, $\bar{X}_2$, and $\BS$ are mutually independent and $\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top $ only depends on $\BS$.
@@ -2387,7 +2333,7 @@ where
     \overset{d}{=}
     \sum_{i=1}^{p-r} \lambda_i(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})\xi_i^2,
 \end{equation}
-where $\xi_1,\ldots,\xi_{p-r}$ are i.i.d.\  standard normal random variables which are independent of $\hat{\tilde{\BV}}$.
+where $\xi_1,\ldots,\xi_{p-r}$ are iid  standard normal random variables which are independent of $\hat{\tilde{\BV}}$.
     In view of Lemma~\ref{quadraticFormCLT}, the asymptotic distribution of $P_1$ relies on the asymptotic behavior of $\lambda_i(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})$, $i=1,\ldots, p-r$.
      Note that
      \begin{equation}\label{houjia1}
@@ -2444,15 +2390,15 @@ $$
 and $\mathcal{L}(Y_n|\,\BS)$ is the conditional distribution of $Y_n$ given $\BS$.
 By the definition of weak convergence,~\eqref{aseq} implies that for every continuous bounded function $f(\cdot)$, $\myE[f(Y_n)|\,\BS]\xrightarrow{a.s.}\myE[f(\xi^*)]$ along $\big\{n\big(k(\ell)\big)\big\}$, where $\xi^*$ is a standard normal random variable.
 By the dominated convergence theorem, $\myE[f(Y_n)]\to \myE[f(\xi^*)]$ along $\big\{n\big(k(\ell)\big)\big\}$.
-This implies that $Y_n\xrightarrow{\mathcal{L}}\mathcal{N}(0,1)$ along $\big\{n\big(k(\ell)\big)\big\}$.
+This implies that $Y_n\rightsquigarrow \mathcal{N}(0,1)$ along $\big\{n\big(k(\ell)\big)\big\}$.
 Thus, for every subsequence of $\{n\}$, there is a further subsequence along which
-$Y_n\xrightarrow{\mathcal{L}}\mathcal{N}(0,1)$.
-This means $Y_n\xrightarrow{\mathcal{L}}\mathcal{N}(0,1)$, or
+$Y_n\rightsquigarrow \mathcal{N}(0,1)$.
+This means $Y_n\rightsquigarrow \mathcal{N}(0,1)$, or
 %$$
 %\rho\Big(\mathcal{L}\Big(\frac{\|\hat{\tilde{\BV}}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})^2}}\Big|S\Big),\mathcal{N}(0,1)\Big)\xrightarrow{P} 0.
 %$$
 $$
-\frac{\|\hat{\tilde{\BV}}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})^2}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+\frac{\|\hat{\tilde{\BV}}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\tau\mathrm{tr}(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})}{\sqrt{2\tau^2\mathrm{tr}(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})^2}}\rightsquigarrow \mathcal{N}(0,1).
 $$
 
 
@@ -2472,20 +2418,20 @@ By~\eqref{houjia1} and~\eqref{houjia3}, we have
 It follows from~\eqref{traceA1},~\eqref{traceA2} and Slutsky's theorem that
 $$
 \frac{P_1}{\sqrt{2\tau^2 p\sigma^4}}=
-\frac{\|\hat{\tilde{\BV}}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2\tau(p-r) }{\sqrt{2\tau^2 p\sigma^4}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+\frac{\|\hat{\tilde{\BV}}^\top \big((\bar{X}_1-\mu_1)-(\bar{X}_2-\mu_2)\big)\|^2-\sigma^2\tau(p-r) }{\sqrt{2\tau^2 p\sigma^4}}\rightsquigarrow \mathcal{N}(0,1).
 $$
 
 If $(\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)=o_P(p/n)$,
 $$
 \frac{T_2-\|\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p \sigma^4}}
 =
-\frac{P_1}{\sqrt{2\tau^2 p \sigma^4}}+o_P(1)\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+\frac{P_1}{\sqrt{2\tau^2 p \sigma^4}}+o_P(1)\rightsquigarrow \mathcal{N}(0,1).
 $$
 On the other hand, if $p/n=o_P\big((\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)\big)$,
 $$
 \frac{T_2-\|\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)\|^2}{\sqrt{4\tau (\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)}}
 =
-\frac{P_2}{\sqrt{4\tau (\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)}}+o_P(1)\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+\frac{P_2}{\sqrt{4\tau (\mu_1-\mu_2)^\top  \hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  \bSigma\hat{\tilde{\BV}}\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)}}+o_P(1)\rightsquigarrow \mathcal{N}(0,1).
 $$
 Hence (a) and (b) hold.
 
@@ -2517,7 +2463,7 @@ $$
 Then the condition of (a) satisfies and we have
 $$
 \frac{T_2-\|\hat{\tilde{\BV}}^\top  (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p \sigma^4}}
-\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
+\rightsquigarrow \mathcal{N}(0,1).
 $$
 It remains to show
 $
@@ -2598,7 +2544,7 @@ Then we have
     \begin{equation}\label{niuniuniu1}
     Q^*=\frac{T_2^*}{\sqrt{2\tau^2 p\sigma^4}}(1+o_P(1)),
     \end{equation}
-    %\xrightarrow{\mathcal{L}}\mathcal{N}(0,1)
+    %\rightsquigarrow \mathcal{N}(0,1)
     where the term $o_P(1)$ only depends on $\BS$.
     Note that for $T^*_2$, the condition of (a) of Theorem~\ref{myPanpan} holds. Then similar to the proof of (a) of Theorem~\ref{myPanpan}, we can show that
     \begin{equation}\label{niuniuniu2}
