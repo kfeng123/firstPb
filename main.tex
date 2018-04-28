@@ -652,7 +652,7 @@ However, compared with $\|\tilde{\BV}^\top  (\bar{X}_1-\bar{X}_2)\|^2$, the cent
 Since $\hat{\tilde{\BV}}$ is independent of $\bar{X}_k$, $k=1,2$, it is convenient to work with the conditional distribution of $\|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2$ given $\BS$. 
 Under the null hypothesis, 
 \begin{equation*}
-    \myE \left\{ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 \Big|\BS \right\}
+    \myE \{ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 |\BS \}
         =
 \tau \mytr(\hat{\tilde{\BV}}^\top \bSigma\hat{\tilde{\BV}})
         =
@@ -686,7 +686,7 @@ $$
 $$
 Hence 
 $$
-\myE \left\{ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 \Big|\BS \right\}
+\myE \{ \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2 |\BS \}
 \approx
 \tau(p-r)\sigma^2 + \tau\sum_{i=1}^r \frac{p\sigma^2}{n\blambda_i+(n+p)\sigma^2}\blambda_i.
 $$
@@ -823,10 +823,10 @@ However, using $\sqrt{2\tau^2 p\sigma^4}$ to standardize $T_2$ may not be accura
 We would like to make further effort to construct a more accurate test.
 Note that
 \begin{align*}
-    &\myVar\big(
+    &\myVar\left\{
 \|\hat{\tilde{\BV}}^\top  (\bar{X}_1-\bar{X}_2)\|^2
-\big| \BS
-\big)
+\Big| \BS
+\right\}
     =2\tau^2\left\{
 \mytr(\hat{\tilde{\BV}}^\top  \BV \bLambda \BV^\top \hat{\tilde{\BV}})^2
 +
@@ -875,16 +875,15 @@ where $\chi^2_{1-\alpha} (p-r)$ is the $1-\alpha$ quantile of a $\chi^2(p-r)$ ra
 The following theorem gives the asymptotic power function of the proposed test.
  In particular, it shows that the proposed test is asymptotically level $\alpha$.
 \begin{theorem}\label{testPowerh}
-    %Under the conditions of Theorem~\ref{myPanpan}, the asymptotic power function of our test is
     Under Assumption~\ref{theModel},
 suppose $p/n^2\to 0$, we have
         \begin{equation}\label{niuniuniua}
-        \Pr\bigg(Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\bigg)=
-            \myE\Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg)+o(1).
+            \Pr\left\{ Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\right\}=
+            \myE\Phi\left\{-\Phi^{-1}(1-\alpha)+\frac{\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\right\} +o(1).
         \end{equation}
      If we further assume $\|\mu_1-\mu_2\|^2=O({\sqrt{p}}/{n})$, then
     \begin{equation}\label{niuniuniub}
-        \Pr\bigg(Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\bigg)=\Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg)+o(1).
+        \Pr\left\{ Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\right\}=\Phi\left\{-\Phi^{-1}(1-\alpha)+\frac{\|\tilde{\BV}^\top (\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2 p\sigma^4}}\right\}+o(1).
     \end{equation}
 \end{theorem}
 
@@ -892,11 +891,11 @@ With the asymptotic power function of the proposed test, we are in a position to
 Again, to make an average-case comparison against other tests, we place a prior on $\mu_1-\mu_2$.
 Suppose that the norm $\|\mu_1-\mu_2\|$ is nonrandom while the orientation $\delta=(\mu_1-\mu_2)/\|\mu_1-\mu_2\|$ is uniformly distributed on the unit sphere.
 Then $\|\hat{\tilde{\BV}}^\top (\mu_1-\mu_2)\|^2=\|\mu_1-\mu_2\|^2 \|\hat{\tilde{\BV}}^\top \delta\|^2$.
-Since $\myE (\|\hat{\tilde{\BV}}^\top \delta\|^2|\BS)=(p-r)/p$ and $\myVar (\|\hat{\tilde{\BV}}^\top \delta\|^2|\BS) = 2r(p-r)/\big(p^2(p+2)\big)$, we have $\|\hat{\tilde{\BV}}^\top \delta\|^2=1+O_P(1/p)$.
+Since $\myE (\|\hat{\tilde{\BV}}^\top \delta\|^2|\BS)=(p-r)/p$ and $\myVar (\|\hat{\tilde{\BV}}^\top \delta\|^2|\BS) = 2r(p-r)/\{p^2(p+2)\}$, we have $\|\hat{\tilde{\BV}}^\top \delta\|^2=1+O_P(1/p)$.
 In this case,~\eqref{niuniuniua} implies that
     \begin{equation*}
-        \Pr\bigg(Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\bigg)=
-        \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg)+o(1).
+        \Pr\left\{Q>\frac{\chi^2_{1-\alpha}(p-r)-(p-r)}{\sqrt{2(p-r)}}\right\}=
+        \Phi\left\{-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\right\}+o(1).
     \end{equation*}
 So the trivial power region of the proposed test is $\|\mu_1-\mu_2\|^2= o(\sqrt{p}/n)$.
 
@@ -907,9 +906,9 @@ Consequently, the proposed test is more powerful than the corrected $T_{CQ}$ tes
 %The power of the corrected $T_{CQ}$ test is negatively affected by the large eigenvalues of $\bSigma$.
 %In comparison, our test is not affected by the large eigenvalues of $\bSigma$ since the data is projected onto the orthogonal complement of the principal subspace.
 
- We would also like to compare the proposed test with $T_{SD}$.Srivastava and Du~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
+ We would also like to compare the proposed test with $T_{SD}$. Srivastava and Du~\cite{Srivastava2008A} showed that the asymptotic power function of $T_{SD}$ is
  $$
-        \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}\bigg),
+ \Phi\left\{-\Phi^{-1}(1-\alpha)+\frac{\|\bSigma_d^{-1/2}(\mu_1-\mu_2)\|^2}{\sqrt{2\tau^2\mytr(\BR^2)}}\right\},
  $$
  where $\bSigma_d=\mydiag(\bSigma)$ and $\BR=\bSigma_d^{-1/2} \bSigma \bSigma_d^{-1/2}$ is the population correlation matrix.
  It is difficult to compare the proposed test with $T_{SD}$ under general covariance matrices.
@@ -923,14 +922,14 @@ suppose that $\bSigma=\mydiag(\blambda_1+\sigma^2,\ldots,\blambda_r+\sigma^2,\si
  We have 
  $$\myE\|\bSigma^{-1/2}\delta\|^2=
  \frac{1}{p}\mytr\big(\bSigma^{-1}\big)
- =\sigma^{-2} (1+o_P(1))
+ =\sigma^{-2} \left\{1+o_P(1)\right\}
  $$
 and
  $$
- \myVar\big( \|\bSigma^{-1/2}\delta\|^2 \big)=\frac{2}{p+2}\Big(\frac{1}{p}\mytr\big(\bSigma^{-2}\big)-\big(\frac{1}{p}\mytr\big(\bSigma^{-1}\big)\big)^2\Big)=o\big(\frac{1}{p}\big).$$
-It follows that $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}(1+o_P(1))$. Hence the asymptotic power function of $T_{SD}$ equals to
+ \myVar\big( \|\bSigma^{-1/2}\delta\|^2 \big)=\frac{2}{p+2}\left[\frac{1}{p}\mytr\big(\bSigma^{-2}\big)-\left\{\frac{1}{p}\mytr\big(\bSigma^{-1}\big)\right\}^2\right]=o\big(\frac{1}{p}\big).$$
+ It follows that $\|\bSigma^{-1/2}\delta\|^2=\sigma^{-2}\left\{ 1+o_P(1)\right\}$. Hence the asymptotic power function of $T_{SD}$ equals to
  $$
-        \Phi\bigg(-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\bigg).
+ \Phi\left\{-\Phi^{-1}(1-\alpha)+\frac{\|\mu_1-\mu_2\|^2}{\sqrt{2\tau^2 p\sigma^4}}\right\}.
  $$
  Thus, under the diagonal covariance matrix, the asymptotic power function of the proposed test is the same as that of $T_{SD}$.
 
@@ -957,19 +956,20 @@ In the second case, we consider the uniform correlation structure $\bSigma=(1-\r
 In this section, we conduct extensive simulation studies to examine the finite sample performance of the proposed test.
 The data generation mechanism is as follow.
 We randomly choose a $\BU\in\mathbb{O}_{p\times p}$ from Haar invariant distribution.
-Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $U(0,1)$ (Uniform distribution on the interval $(0,1)$), $i=1,\ldots, r$.
+Let $d_{i}$ equal to $p^{\beta}$ plus a random error from $\mathcal{U}(0,1)$ (Uniform distribution on the interval $(0,1)$), $i\in \{1,\ldots, r \}$.
 Define the $p\times p$ diagonal matrix $\BD$ as $\BD=\mydiag(\sqrt{d_1},\ldots,\sqrt{d_r}, 1,\ldots, 1)$.
 Then, we independently generate data by the formula
 $$
-X_{k,i}=\mu_k+\BU \BD Y_{k,i}\quad \text{$i=1,\ldots,n_k$ and $k=1,2$,}
+X_{k,i}=\mu_k+\BU \BD Y_{k,i}, 
 $$
-where $Y_{k,i}$ is a $p$ dimensional random vector whose entries are iid random variables with common distribution $F$.
+where $Y_{k,i}$ is a $p$-dimensional random vector whose entries are iid random variables with common distribution $F$,
+$i\in\{1,\ldots,n_k\}$ and $k\in\{1,2\}$.
 We will consider three different distributions of $F$.
 \begin{itemize}
     \item
         Normal: $F \sim \mathcal{N}(0,1)$.
     \item
-        Chi-squared:  $F\sim (\chi^2(4)-4)/\sqrt{8}$.
+        Chi-squared:  $F\sim \{\chi^2(4)-4\}/\sqrt{8}$.
     \item
         Student's $t$: $F\sim t_4/\sqrt{2}$, where $t_4$ is a Student's $t$ random variable  with degree of freedom $4$.
 \end{itemize}
@@ -1018,23 +1018,13 @@ It is seen that the performance of $\hat{r}$ is reasonable in most cases.
 
 
 
-%In fact, our asymptotic results are still valid with a consistently estimated $r$.
-
-%In our paper, $r$ is assumed to be known. If $r$ is an unknown positive number, a consistent estimator of $r$ is
-%\begin{equation*}
-    %\hat{r}=\textrm{argmax}_{l\leq R}\frac{\lambda_l(\BS)}{\lambda_{l+1}(\BS)},
-%\end{equation*}
-%where $R$ is a hyperparameter.
-    %See~\cite{Ahn2009Eigenvalue} for detail.
 
 
 
 
 
-The critical value of the proposed test is determined by the quantile of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
-%Our test is asymptotically level $\alpha$ since the distribution of $Q$ is asymptotically equal to that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$.
-%Now we use Q-Q plot to compare these two distributions in the finite sample case.
-Hence we would like to use Q-Q plot to compare the distribution of $Q$ and $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$ in finite sample settings.
+The critical value of the proposed test is determined by the quantile of $\{\chi^2(p-r)-(p-r)\}/\sqrt{2(p-r)}$.
+Hence we would like to use Q-Q plot to compare the distribution of $Q$ and $\{\chi^2(p-r)-(p-r)\}/\sqrt{2(p-r)}$ in finite sample settings.
 Figure~\ref{fig:QQ} displays the Q-Q plots in different combinations of sample size and dimension.
 For $n_1=n_2=50$, $p=800$, the right tail of $Q$ is a little heavier than the standardized chi-squared distribution.
 Otherwise, the distribution of $Q$ can be well approximated by the standardized chi-squared distribution.
@@ -1072,7 +1062,7 @@ It can be seen that the distribution of $Q$ is very close to that of the standar
     \subfigure[$n_1=n_2=150$, $p=800$.]{
         \includegraphics[width=0.3\textwidth]{figure/qqplot/2n150p800}
     }
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$.
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $\{\chi^2(p-r)-(p-r)\}/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$.
 In all cases, $F$ is normal and $\beta=1$.
     }\label{fig:QQ}
 \end{figure}
@@ -1109,14 +1099,13 @@ In all cases, $F$ is normal and $\beta=1$.
         \includegraphics[width=0.3\textwidth]{figure/qqplot/1t2}
     }
     \\
-    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $(\chi^2(p-r)-(p-r))/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
+    \caption{Q-Q plots of the empirical distribution of $Q$ against that of $\{\chi^2(p-r)-(p-r)\}/\sqrt{2(p-r)}$ based on $10000$ independently generated $Q$. In all cases, $n_1=n_2=100$ and $p=500$.
     }\label{fig:QQ2}
 \end{figure}
 
 
 
 Next, we consider the empirical level of the proposed test and compare them with several other alternatives: (1) The corrected $T_{CQ}$ test procedure constructed in Section~\ref{sec:chen} (CCQ); (2) Ma {et al.}~\cite{Ma2015A}'s test (FAST); (3) Chen and Qin~\cite{Chen2010A}'s test (CQ); (4) Srivastava and Du~\cite{Srivastava2008A}'s test (SD); (5) Lopes {\rm et al.}~\cite{Lopes2015A}'s test (LJW).
-%Now we consider the simulation of the empirical level. 
 Samples are repeatedly generated $2000$ times to calculate empirical level.
 The results are listed in Tables~\ref{hahaha1}-\ref{hahaha3}.
 We can see that the empirical levels of the CQ test are larger than the nominal level in all cases.
@@ -1246,7 +1235,7 @@ LJW & 0.0490 & 0.0475 & 0.0490 & 0.0465 & 0.0535 & 0.0480 & 0.0490 & 0.0445 & 0.
 
 
 Now we consider the empirical power of the proposed test and competing tests.
-In view of Corollary~\ref{testPowerh}, we define the SNR as $\textrm{SNR}=\|\mu_1-\mu_2\|^2/(\sigma^2\sqrt{2\tau^2 p})$.
+In view of Corollary~\ref{testPowerh}, we define the SNR as $\textrm{SNR}=\|\mu_1-\mu_2\|^2/\{\sigma^2\sqrt{2\tau^2 p}\}$.
 We take $\mu_1=\mathbf{0}_p$.
 The orientation of $\mu_2$ is from the uniform distribution on the unit sphere.
 The norm of $\mu_2$ is selected to make SNR equal to specific values.
@@ -1518,7 +1507,7 @@ This work was supported by the National Natural Science Foundation of China unde
     We shall prove (b) of Theorems~\ref{Chenstheory1} and~\ref{Chenstheory2} simultaneously.
     
     Note that $(n_k-1)\BS_k\sim \text{Wishart}_p(n_k-1,\bSigma)$, $k=1,2$,
-    where $\text{Wishart}_p(m,\Psi)$ is the $p$ dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom.
+    where $\text{Wishart}_p(m,\Psi)$ is the $p$-dimensional Wishart distribution with parameter $\Psi$ and $m$ degrees of freedom.
     We have %$(n_1-1)\mytr S_1\sim \sum_{i=1}^{p} \lambda_i (\bSigma) W_i$ where $W_i\sim \chi^2_{n_1-1} $.
     %Note that $\lambda_{r+1}(\bSigma)=\cdots=\lambda_p(\bSigma)=\sigma^2$, by central limit theorem, we have
     %$$
